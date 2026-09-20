@@ -1,0 +1,826 @@
+
+
+<!DOCTYPE html>
+<html id="ctl00_Html1" lang="vi">
+
+<head id="ctl00_Head1">
+	<!--<script>
+		; (function () {
+			function id(v) { return document.getElementById(v); }
+			function loadbar() {
+				var ovrl = id("overlay"),
+					prog = id("progress"),
+					stat = id("progstat"),
+					img = document.images,
+					c = 0,
+					tot = img.length;
+				if (tot == 0) return doneLoading();
+
+				function imgLoaded() {
+					c += 1;
+					var perc = ((100 / tot * c) << 0);
+					prog.style.width = perc;
+					stat.innerHTML = perc;
+					if (c === tot) return doneLoading();
+				}
+				function doneLoading() {
+					ovrl.style.opacity = 0;
+					setTimeout(function () {
+						ovrl.style.display = "none";
+					}, 1200);
+				}
+				for (var i = 0; i < tot; i++) {
+					var tImg = new Image();
+					tImg.onload = imgLoaded;
+					tImg.onerror = imgLoaded;
+					tImg.src = img[i].src;
+				}
+			}
+			document.addEventListener('DOMContentLoaded', loadbar, false);
+		}());
+	</script>-->
+	<title>
+	Không tìm thấy trang
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel='alternate' hreflang='vi-VN' href='https://kienlongbank.com/Data/Sites/1/media/logo.png' />
+<link rel='alternate' hreflang='en-US' href='https://kienlongbank.com/en-US/Data/Sites/1/media/logo.png' />
+<meta http-equiv='content-language' content='vi'>
+<link rel="search" type="application/opensearchdescription+xml" title="Tìm kiếm Ngân hàng TMCP Kiên Long" href="https://kienlongbank.com/SearchEngineInfo.ashx" />
+	<!-- ////////////// Favicon ////////////// -->
+<link rel="shortcut icon" href="/Data/Sites/1/skins/default/favicon.ico" type="image/x-icon" />
+	<!--<link rel="apple-touch-icon" sizes="57x57" href="/Data/Sites/1/skins/default/favicon/apple-icon-57x57.png" /><link rel="apple-touch-icon" sizes="60x60" href="/Data/Sites/1/skins/default/favicon/apple-icon-60x60.png" /><link rel="apple-touch-icon" sizes="72x72" href="/Data/Sites/1/skins/default/favicon/apple-icon-72x72.png" /><link rel="apple-touch-icon" sizes="76x76" href="/Data/Sites/1/skins/default/favicon/apple-icon-76x76.png" /><link rel="apple-touch-icon" sizes="114x114" href="/Data/Sites/1/skins/default/favicon/apple-icon-114x114.png" /><link rel="apple-touch-icon" sizes="120x120" href="/Data/Sites/1/skins/default/favicon/apple-icon-120x120.png" /><link rel="apple-touch-icon" sizes="144x144" href="/Data/Sites/1/skins/default/favicon/apple-icon-144x144.png" /><link rel="apple-touch-icon" sizes="152x152" href="/Data/Sites/1/skins/default/favicon/apple-icon-152x152.png" /><link rel="apple-touch-icon" sizes="180x180" href="/Data/Sites/1/skins/default/favicon/apple-icon-180x180.png" /><link rel="icon" type="image/png" sizes="192x192" href="/Data/Sites/1/skins/default/favicon/android-icon-192x192.png" /><link rel="icon" type="image/png" sizes="32x32" href="/Data/Sites/1/skins/default/favicon/favicon-32x32.png" /><link rel="icon" type="image/png" sizes="96x96" href="/Data/Sites/1/skins/default/favicon/favicon-96x96.png" /><link rel="icon" type="image/png" sizes="16x16" href="/Data/Sites/1/skins/default/favicon/favicon-16x16.png" /><link rel="manifest" href="/Data/Sites/1/skins/default/favicon/manifest.json" />-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" /><link rel="stylesheet" href="https://materialdesignicons.com/cdn/2.0.46/css/materialdesignicons.min.css" />
+        <!-- <link rel="stylesheet" href="/Data/Sites/1/skins/default/css/custom.fix.lai.suat.css" /> -->
+	<link rel="stylesheet" href="/Data/Sites/1/skins/default/css/custom.loading.css" />
+        <!-- <link rel="stylesheet" href="/Data/Sites/1/skins/default/pagination/pagination.css" /> -->
+	<meta name="msapplication-TileColor" /><meta name="msapplication-TileImage" content="/Data/Sites/1/skins/default/favicon/ms-icon-144x144.png" /><meta name="theme-color" />
+	<!-- ////////////// Mobile title color ////////////// -->
+	<meta name="theme-color" content="#000000" /><meta name="msapplication-navbutton-color" content="#000000" /><meta name="apple-mobile-web-app-status-bar-style" content="#000000" />
+	<!-- ////////////// Responsive Config ////////////// -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" /><meta name="format-detection" content="telephone=no" /><meta name="msapplication-tap-highlight" content="no" /><meta name="apple-mobile-web-app-capable" content="yes" />
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file://-->
+	<!--if lt IE 9
+script(src='//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+script(src='//oss.maxcdn.com/respond/1.4.2/respond.min.js')
+-->
+	<style>
+		.blur-up {
+			-webkit-filter: blur(5px);
+			filter: blur(5px);
+			transition: filter .4s, -webkit-filter .4s
+		}
+
+		.blur-up.lazyloaded {
+			-webkit-filter: blur(0);
+			filter: blur(0)
+		}
+
+		.fancybox-type-iframe {
+			min-height: 560px;
+			z-index: 9999;
+			background: #fff;
+			box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+			border-radius: 3px
+		}
+
+		.fancybox-type-iframe .fancybox-skin,
+		.fancybox-outer,
+		.fancybox-inner {
+			min-height: 560px;
+		}
+
+		.fancybox-type-iframe iframe {
+			width: 100%;
+			min-height: 560px
+		}
+
+		.cmsadminpanel .canhcamcmslistmenu {
+			margin: 0;
+			padding: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.cmsadminpanel .canhcamcmslistmenu li {
+			list-style-type: none
+		}
+
+		.cmsadminpanel .canhcamcmslistmenu li a {
+			border: 0;
+			text-decoration: none
+		}
+
+		.cmsadminpanel .canhcamcmslistmenu li a:hover,
+		.cmsadminpanel .canhcamcmslistmenu li a:focus {
+			background: none
+		}
+
+		.cmsadminpanel .canhcamcmslistmenu .ddviewmode {
+			margin-top: 0
+		}
+
+		#overlay {
+			-webkit-transition: 1s .4s;
+			-o-transition: 1s .4s;
+			z-index: 99999;
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: #fff;
+			transition: 1s .4s
+		}
+
+		#progress {
+			-webkit-transition: 1s;
+			-o-transition: 1s;
+			display: none;
+			width: 0;
+			height: 1px;
+			background: #333;
+			transition: 1s
+		}
+
+		#progress,
+		.progstat-wrapper {
+			-webkit-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%)
+		}
+
+		.progstat-wrapper {
+			width: 100%;
+			margin-top: 0;
+			color: #333;
+			font-size: .7em;
+			letter-spacing: 3px;
+			text-align: center
+		}
+
+		.logo-loader {
+			-webkit-transform: translate(-50%, -50%) scale(1.5);
+			-ms-transform: translate(-50%, -50%) scale(1.5);
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -60px;
+		}
+
+		.logo-loader img {
+			width: 90px;
+		}
+
+		@media only screen and (max-width:700px) {
+			.cmsadminpanel .canhcamcmslistmenu {
+				flex-direction: column
+			}
+		}
+	</style>
+	
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript" ></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js" type="text/javascript" ></script>
+<link rel='stylesheet' type='text/css' href='/App_Themes/toolbar.css' />
+<link rel='stylesheet' type='text/css' href='/ClientScript/fancybox/jquery.fancybox.css' />
+<link rel='stylesheet' type='text/css' href='/Data/Sites/1/skins/default/css/fonts.css' />
+<link rel='stylesheet' type='text/css' href='/Data/Sites/1/skins/default/css/core.css' />
+<link rel='stylesheet' type='text/css' href='/Data/Sites/1/skins/default/css/plugins.css' />
+<link rel='stylesheet' type='text/css' href='/Data/Sites/1/skins/default/css/main.css' />
+<link rel='stylesheet' type='text/css' href='/Data/Sites/1/skins/default/css/custom.css' />
+<link rel='stylesheet' type='text/css' href='/Data/Sites/1/skins/default/css/custom.huy.css' />
+<link rel='stylesheet' type='text/css' href='/Data/Sites/1/skins/default/css/custom.sang.css' />
+<link rel='stylesheet' type='text/css' href='/Data/Sites/1/skins/default/css/custom.long.css' />
+	<!-- Thẻ Meta xác thực Ứng dụng Zalo OA KienlongBank Chính Chủ -->
+<meta name="zalo-platform-site-verification" content="Ge-x4AIF40PDeiTVivnhVashp5AXr1q9CJK" />
+<!-- Thẻ Meta xác thực Ứng dụng Zalo OA KienlongBank Chính Chủ -->
+<!-- Google Analytics 4 - KienlongBank 2022 -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-68B4JTPXJL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-68B4JTPXJL');
+</script>
+<!-- Google Analytics 4 - KienlongBank 2022 -->
+<!-- Facebook xac minh so huu -->
+<meta name="facebook-domain-verification" content="vcbe1kqmrpztffw0fl0f25ierui68m" />
+<!-- Facebook xac minh so huu -->
+<meta name="geo.region" content="VN" />
+<meta name="geo.placename" content="Ho Chi Minh City" />
+<meta name="geo.position" content="10.776435;106.684655" />
+<meta name="ICBM" content="10.776435, 106.684655" />
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TFS7RJB');</script>
+<!-- End Google Tag Manager -->
+<!-- Google Tag Manager QC GDN 2025 -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NL9QZ79J');</script>
+<!-- End Google Tag Manager QC GDN 2025 -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MLD9BGD');</script>
+<!-- End Google Tag Manager -->
+<!-- Subiz -->
+<!--<script>
+	(function(s, u, b, i, z){
+		u[i]=u[i]||function(){
+			u[i].t=+new Date();
+			(u[i].q=u[i].q||[]).push(arguments);
+		};
+		z=s.createElement('script');
+		var zz=s.getElementsByTagName('script')[0];
+		z.async=1; z.src=b; z.id='subiz-script';
+		zz.parentNode.insertBefore(z,zz);
+	})(document, window, 'https://widgetv4.subiz.com/static/js/app.js', 'subiz');
+	subiz('setAccount', 'acqcqsemqsmeervpwose');
+</script> -->
+<!-- End Subiz -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143193043-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-143193043-1');
+</script>
+-->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1324242955998199');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1324242955998199&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  ttq.load('D2VPP33C77U0G6NU4DRG');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+
+<!-- Global site tag (gtag.js) - AdWords: 876192307 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-876192307"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-876192307');
+</script>
+<!-- ADBRO – Tracking Page View -->
+<script type="text/javascript">
+(function(w,d,o,u,r){w['ADBROTagObject']=r;w[r]=w[r]||function(){(w[r].q = w[r].q || []).push(arguments)};
+a=d.createElement(o),m=d.getElementsByTagName(o)[0];a.async=1;a.src=u;m.parentNode.insertBefore(a,m);})
+(window, document, 'script', '//cdn.adbro.me/atag.js', 'atag');
+atag('config', 'eyJDYW1wYWlnbnMiOlszMjQsMzIzXX0=');
+
+atag('send', 'pageview');
+</script>
+
+<!-- Nhận diện thương hiệu KienlongBank -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "url": "https://kienlongbank.com/",
+  "logo": "https://kienlongbank.com/Data/Sites/1/media/logo-klb/kienlongbank-2-1.jpg",
+  "name": "KienlongBank",
+  "sameAs": [
+    "https://www.facebook.com/NganhangKienLong",
+    "https://www.youtube.com/@Kienlongbank19006929",
+    "https://zalo.me/nganhangkienlong"
+  ]
+}
+</script>
+<!-- Nhận diện thương hiệu KienlongBank -->
+	<script src="/Data/Sites/1/skins/default/js/lazysizes.min.js" async=""></script>
+	<script src="/Data/Sites/1/skins/default/js/picturefill.js" async=""></script>
+	<!--<script src="https://hotrotructuyen.kienlongbank.com/Scripts/Chatboxweb.js" async=""></script>-->
+</head>
+
+<body id="ctl00_Body" class="canhcam pagenotfound vi-vn">
+	<!--<div id="overlay">
+		<div class="logo-loader">
+			<img src="/Data/Sites/1/media/logo.png" alt="KienLongBank" />
+		</div>
+		<div class="progstat-wrapper">Loading: <span id="progstat"></span>%</div>
+		<div id="progress"></div>
+	</div>-->
+        <div class="loading" style="display: none;">
+         <div class="loader">&nbsp;</div>
+        </div>
+	<div id="top-page"></div>
+	
+	
+	<form method="post" action="./logo.png" id="aspnetForm">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="gZOyVvZtrDppzCG+ut9iYog56Mel8/8SFlXFNTcociGIl9aMYHop6wghxXSddX1M7qEs0jzjD75hZG4yfOvzeDShNP88SCeGdjM3wbRmDOB5EDgqBPRHZ+ORYmdXtfQ9e0GzWewZFFACmzGNx9HPZ34NB0WPrboS5jj++OA3mHj8vhXFb6WVnM99Jp+XZoXirSA2PBGx4sGcAtQP/2n4sw==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=vbZVBYfa0pMfS92Y_LFVbB4y1TbxAEzyar1sfWl6htJfmdp9Px59m51aKOQpVO0N7J4xRrZ0iGkUa9Gugiqk8poHMkJg9CcVsVMLUhkB6681&amp;t=636996434731294402" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=VdjTodjGXFAMQ8qR8yf0oIVtt6zZLrOi9sO_0iIxssiXh6LswUXjQr7Dbrigrq9_SgaXPmFshoh3Sixukts0rpNkhO3J3V0ILV_P0w47OwJpFfQtgeVcGDtTMGFZaCRla7HZYXoPZof6nfLS5FUtLZbNtFvB3ywI0EdpqY2eJZk_m6MRXIMZF9WzZLmJ1Ale-Sq3KybDlHAkFU_eki0BJdd4LjSNnN3_pd8lrnxYgF5m237P8k5YedK0VIymMgUKc_FSOBjDgkpKSpj6bEXdxl-80_tK1EzrjTKbtSIolrY1" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="510B8B35" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="anb5Bdyp44PXEcgMW4/wS2OixcJ2M71Us4oAy9Lgbfcp9fXB91V92R0KxcG/QzuedH+1VqdaVJUKV7Had/zWWX/RugETsAClDDllmkb7tiqdar7KJ/JxU5zZ6bXqMPPS1WqtDXDy8+wAme6D+dRLaX2hfU5bw9LwrYHJml39PE7AKxNcwJlMdKejJweYzyDKAW84BjqOGEY+qNPW6TxtQ7D9d4qODCZORzTuwYhQALciglyYFa7vpd34zeZpuezW+FXJGZvMn0BZCmgHFiwbbNpR8JjjlvcyldSJpWtlqqyxWxEBV3mdBl4DZqsQ0FCAQQSL/nCmxG9otjIWc4pqdd5gHzI5BsLJGgnquqnQjWmB35hHDJe53munN1dS40m/aGccIu33T0Ov45DsEqH/8CgLwPE58q+StZZurtmlZwk=" />
+</div>
+		
+		
+		
+		<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'aspnetForm', [], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+		<!-- ////////////// Header ////////////// -->
+		<div id="wrapper">
+			<header class="canhcam-header-14">
+				<div class="k-menu-bar container">
+					<div class="mr-auto" id="logo"></div>
+					<a href="tel:19006929" class="phone-mobile">
+						<img src="/Data/Sites/1/Skins/Default/img/KLB/phone.png" alt="" />
+					</a>
+					<a class="search-mobile-toggle" href="javascript:void(0)" onclick="searchBarMobilePopUp();">
+						<em class="fas fa-search"></em>
+					</a>
+					<div id="language"></div>
+					<button class="k-button-toggle navbar-toggler" k-toggle-for="#demoResAllInOneMenu"><img
+							src="/Data/Sites/1/skins/default/img/klb/nav-click.png" alt=""></img>
+					</button>
+				</div>
+				<div class="topbar w-100">
+					<div class="container d-flex">
+						<div class='Module Module-138'><div class='ModuleContent'><ul class="topmenu ml-auto" k-menu-map-to="#topmenu">
+  <li class="item"><a href="https://kienlongbank.com/ban-can-gi" target="_self" title="Bạn cần gì">Bạn cần gì</a></li>
+  <li class="item"><a href="https://kienlongbank.com/ca-nhan" target="_self" title="Cá nhân">Cá nhân</a></li>
+  <li class="item"><a href="https://kienlongbank.com/doanh-nghiep" target="_self" title="Doanh nghiệp">Doanh nghiệp</a></li>
+  <li class="item"><a href="https://kienlongbank.com/the" target="_self" title="Thẻ">Thẻ</a></li>
+  <li class="item"><a href="https://kienlongbank.com/diem-giao-dich" target="_self" title="Mạng lưới">Mạng lưới</a></li>
+</ul></div></div>
+						<div id="searchbar-desktop">
+							<div class="searchbar">
+								<div class='Module Module-337'><div class='ModuleContent'><div id="ctl00_mdl337_ctl00_pnlSearchBox" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;ctl00_mdl337_ctl00_btnSearch&#39;)">
+	
+    <div class="search-text">
+        <em class="mdi mdi-magnify"></em>
+        <p>Nhập thông tin..</p>
+    </div>
+    <div class="search-main">
+        <span>Từ khóa</span>
+        <input name="ctl00$mdl337$ctl00$txtKeyword" type="text" maxlength="50" id="ctl00_mdl337_ctl00_txtKeyword" class="searchbox-txt" autocomplete="off" placeholder="Nhập thông tin..." />
+        <div class="select">
+            <select name="ctl00$mdl337$ctl00$ddlZones" id="ctl00_mdl337_ctl00_ddlZones">
+		<option selected="selected" value="0">Tất cả</option>
+		<option value="84">Tin tức</option>
+		<option value="101">Tiền gửi - Tiết kiệm</option>
+		<option value="100">T&#237;n dụng - Cho vay</option>
+		<option value="102">Thẻ</option>
+		<option value="103">Ng&#226;n h&#224;ng điện tử</option>
+		<option value="233">C&#226;u hỏi thường gặp</option>
+
+	</select>
+        </div>
+        <a id="ctl00_mdl337_ctl00_btnSearch" class="btn btn-search searchbox-btn" href="javascript:__doPostBack(&#39;ctl00$mdl337$ctl00$btnSearch&#39;,&#39;&#39;)">
+            <em class="mdi mdi-magnify"></em>
+            <p>Tìm kiếm</p>
+        </a>
+        <a id="ctl00_mdl337_ctl00_hplAdvSearch" class="btn btn-search-advanced" href="https://kienlongbank.com/tim-kiem">Tìm kiếm nâng cao</a>
+    </div>
+    <script>
+        $('.searchbox-btn').click(function () {
+            if (!$('.searchbox-txt').val().length) {
+                $('.searchbox-txt').focus()
+                return false;
+            }
+        })
+    </script>
+
+</div>
+</div></div>
+							</div>
+						</div>
+						<div class='Module Module-140'><div class='ModuleContent'><!--
+<ul class="social" k-menu-map-to="#social">
+    <li><a href="https://www.facebook.com/NganhangKienLong" target="_blank'"><em class="fab fa-facebook-f"></em></a></li>
+    <li><a href="https://www.youtube.com/channel/UCgGTWNEzPqKaMSU8smHKr0g" target="_blank'"><em class="fab fa-youtube" "target="_blank'"></em></a></li>
+    <li><a href="https://zalo.me/nganhangkienlong" target="_blank"><img alt="" class="img-fluid" src="/Data/Sites/1/skins/default/img/klb/zalo.png" /></a></li>
+    <li><a href="mailto:chamsockhachhang@kienlongbank.com"><em class="fas fa-envelope"></em></a></li>
+</ul>
+--></div></div>
+						<div class='Module Module-141'><ul class="language" k-menu-map-to="#language">
+  <li><a href="https://kienlongbank.com/en-US/Data/Sites/1/media/logo.png" title="English"><img src="/Data/SiteImages/flags/us.gif" alt="English"></a></li>
+</ul></div>
+					</div>
+				</div>
+				<div class="container k-responsive-menu" id="demoResAllInOneMenu">
+					<div class="k-menu-bar">
+						<div class="k-logo navbar-brand mr-auto">
+							<div class='Module Module-142'><div class='ModuleContent'><a href="\"><img alt="" src="/Data/Sites/1/media/logo-klb/2026/logo-kienlongbank-klb-dinh-vi-thuong-hieu-10-1.png" /></a></div></div>
+						</div>
+						<button class="k-button-toggle navbar-toggler" k-toggle-for="#demoResAllInOneMenu">
+							<img src="/Data/Sites/1/skins/default/img/klb/nav-close.png" alt=""></img>
+						</button>
+					</div>
+					<div class="k-logo navbar-brand" k-menu-map-to="#logo">
+						<div class='Module Module-143'><div class='ModuleContent'><a href="/"><img src="/Data/Sites/1/media/logo-klb/2026/logo-kienlongbank-klb-dinh-vi-thuong-hieu-10-1.png" alt="logo-kienlongbank-klb-dinh-vi-thuong-hieu" title="logo-kienlongbank-klb-dinh-vi-thuong-hieu" style="width: 100%; height: 100%; margin-top: 10px;" /></a></div></div>
+					</div>
+					<div class="mainnav ml-auto d-lg-flex align-items-center">
+						<div id="social"></div>
+						<div id="phone"></div>
+						<div class='Module Module-146'><div class='ModuleContent'><div class="btn btn-banking">Internet banking
+<div class="wrap-customer">
+<div class="customer"><a href="https://ebank.kienlongbank.com/new/login.aspx" target="_blank">Khách hàng cá nhân</a></div>
+<div class="customer"><a href="https://ebank.kienlongbank.com/new/login.aspx" target="_blank">Khách hàng doanh nghiệp</a></div>
+</div>
+</div></div></div>
+						<div class='Module Module-144'><div class='ModuleContent'><ul class="nav">
+  <li class="nav-item"><a class="nav-link" href="https://kienlongbank.com/tong-quan-kienlongbank" target="_self" title="Về KienlongBank">Về KienlongBank</a><div class="nav-btn"><i class="fas fa-chevron-down"></i></div>
+    <div class="sub-menu">
+      <div class="container">
+        <ul class="nav-sub">
+          <li><a href="https://kienlongbank.com/tong-quan-kienlongbank" target="_self" title="Tổng quan KienlongBank">Tổng quan KienlongBank</a></li>
+          <li><a href="https://kienlongbank.com/tam-nhin-su-menh-gia-tri-cot-loi-1" target="_self" title="Tầm nhìn, sứ mệnh, giá trị cốt lõi">Tầm nhìn, sứ mệnh, giá trị cốt lõi</a></li>
+          <li><a href="https://kienlongbank.com/qua-trinh-hinh-thanh-va-phat-trien" target="_self" title="Quá trình hình thành và phát triển">Quá trình hình thành và phát triển</a></li>
+          <li><a href="https://kienlongbank.com/so-do-to-chuc" target="_self" title="Sơ đồ tổ chức">Sơ đồ tổ chức</a></li>
+          <li><a href="https://kienlongbank.com/co-cau-quan-tri" target="_self" title="Cơ cấu quản trị">Cơ cấu quản trị</a></li>
+          <li><a href="https://kienlongbank.com/danh-hieu-va-giai-thuong" target="_self" title="Danh hiệu và giải thưởng">Danh hiệu và giải thưởng</a></li>
+          <li><a href="https://kienlongbank.com/hoat-dong-vi-cong-dong" target="_self" title="Hoạt động vì cộng đồng">Hoạt động vì cộng đồng</a></li>
+          <li><a href="https://kienlongbank.com/dinh-vi-thuong-hieu" target="_self" title="Định vị thương hiệu">Định vị thương hiệu</a></li>
+        </ul>
+      </div>
+    </div>
+  </li>
+  <li class="nav-item"><a class="nav-link" href="https://tuyendung.kienlongbank.com/" target="_blank" title="Tuyển dụng">Tuyển dụng</a></li>
+  <li class="nav-item"><a class="nav-link" href="https://khuyenmai.kienlongbank.com/" target="_blank" title="Khuyến mãi">Khuyến mãi</a><div class="nav-btn"><i class="fas fa-chevron-down"></i></div>
+    <div class="sub-menu">
+      <div class="container">
+        <ul class="nav-sub">
+          <li><a href="https://khuyenmai.kienlongbank.com/khuyen-mai-noi-bat" target="_blank" title="Khuyến mãi nổi bật">Khuyến mãi nổi bật</a></li>
+          <li><a href="https://khuyenmai.kienlongbank.com/uu-dai-the" target="_blank" title="Ưu đãi thẻ">Ưu đãi thẻ</a></li>
+          <li><a href="https://khuyenmai.kienlongbank.com/the-platinum/" target="_blank" title="Thẻ platinum">Thẻ platinum</a></li>
+          <li><a href="https://khuyenmai.kienlongbank.com/tiet-kiem" target="_blank" title="Khuyến mãi tiết kiệm">Khuyến mãi tiết kiệm</a></li>
+          <li><a href="https://khuyenmai.kienlongbank.com/bao-hiem" target="_blank" title="Khuyến mãi bảo hiểm">Khuyến mãi bảo hiểm</a></li>
+          <li><a href="https://khuyenmai.kienlongbank.com/dich-vu" target="_blank" title="Khuyến mãi dịch vụ">Khuyến mãi dịch vụ</a></li>
+        </ul>
+      </div>
+    </div>
+  </li>
+  <li class="nav-item"><a class="nav-link" href="https://kienlongbank.com/tin-tuc" target="_self" title="Tin tức">Tin tức</a><div class="nav-btn"><i class="fas fa-chevron-down"></i></div>
+    <div class="sub-menu">
+      <div class="container">
+        <ul class="nav-sub">
+          <li><a href="https://kienlongbank.com/tin-kien-long" target="_self" title="Tin Kiên Long">Tin Kiên Long</a></li>
+          <li><a href="https://kienlongbank.com/goc-bao-chi" target="_self" title="Góc báo chí">Góc báo chí</a></li>
+          <li><a href="https://kienlongbank.com/cong-dong" target="_self" title="Cộng đồng">Cộng đồng</a></li>
+          <li><a href="https://kienlongbank.com/ban-tin-kienlongbank" target="_self" title="Bản tin KienlongBank">Bản tin KienlongBank</a></li>
+          <li><a href="https://kienlongbank.com/tin-thi-truong" target="_self" title="Tin thị trường">Tin thị trường</a></li>
+          <li><a href="https://kienlongbank.com/tivi" target="_self" title="Tivi">Tivi</a></li>
+          <li><a href="https://kienlongbank.com/kienlongbank-contest" target="_self" title="KienlongBank Contest">KienlongBank Contest</a></li>
+          <li><a href="https://kienlongbank.com/dau-gia-tai-san" target="_self" title="Đấu giá tài sản">Đấu giá tài sản</a></li>
+          <li><a href="https://xln.kienlongbank.com/trang-chu" target="_blank" title="Thanh lý tài sản">Thanh lý tài sản</a></li>
+          <li><a href="https://kienlongbank.com/dong-hanh-chia-se" target="_self" title="Đồng hành - Chia sẻ">Đồng hành - Chia sẻ</a></li>
+        </ul>
+      </div>
+    </div>
+  </li>
+  <li class="nav-item"><a class="nav-link" href="https://kienlongbank.com/cong-bo-thong-tin" target="_self" title="Nhà đầu tư - Cổ đông">Nhà đầu tư - Cổ đông</a><div class="nav-btn"><i class="fas fa-chevron-down"></i></div>
+    <div class="sub-menu">
+      <div class="container">
+        <ul class="nav-sub">
+          <li><a href="https://kienlongbank.com/dieu-le" target="_self" title="Điều lệ">Điều lệ</a></li>
+          <li><a href="https://kienlongbank.com/quan-tri-ngan-hang" target="_self" title="Quản trị Ngân hàng">Quản trị Ngân hàng</a></li>
+          <li><a href="https://kienlongbank.com/cong-bo-thong-tin" target="_self" title="Công bố thông tin">Công bố thông tin</a></li>
+          <li><a href="https://kienlongbank.com/bao-cao-tai-chinh" target="_self" title="Báo cáo tài chính">Báo cáo tài chính</a></li>
+          <li><a href="https://kienlongbank.com/bao-cao-thuong-nien" target="_self" title="Báo cáo thường niên">Báo cáo thường niên</a></li>
+          <li><a href="https://kienlongbank.com/dai-hoi-dong-co-dong" target="_self" title="Đại hội đồng cổ đông">Đại hội đồng cổ đông</a></li>
+          <li><a href="https://kienlongbank.com/giao-dich-co-phieu" target="_self" title="Giao dịch cổ phiếu">Giao dịch cổ phiếu</a></li>
+        </ul>
+      </div>
+    </div>
+  </li>
+</ul></div></div>
+						<div class="phone" k-menu-map-to="#phone">
+							<div class='Module Module-145'><div class='ModuleContent'><a href="tel:19006929 ">
+<figure class="d-flex">
+<div class="icon">
+<img alt="" class="img-fluid" src="/Data/Sites/1/Skins/Default/img/KLB/phone.png" />
+</div>
+<figcaption><span>Hotline</span>
+<p><strong><span style="font-size: 18px; color: #ef4d23;">1900 6929</span></strong></p>
+</figcaption>
+</figure>
+</a>
+<!-- color: #dc3660 --></div></div>
+						</div>
+						<div id="topmenu"></div>
+					</div>
+				</div>
+			</header>
+			<div id="searchbar-mobile" class="searchbar-mobile" style="display: none;"></div>
+
+			<!-- ////////////// End Header ////////////// -->
+			<!-- ////////////// Main ////////////// -->
+			<main>
+				
+				<div id="ctl00_divCenter" class="middle-fullwidth">
+	
+					
+	<style>
+		.error-page{margin-top:72px;background-image:url(/Data/Sites/1/skins/default/error/img/bg.jpg);background-position:center center;background-size:cover;background-repeat:no-repeat;height:100vh;padding:30px 0}.error-page p{font-size:16px;font-weight:500;color:#008289}.error-page p a{text-decoration:none;color:#d73347}.error-page p a:hover{text-decoration:underline}@media (min-width:992px){.error-page{padding:100px 0}}@media (min-width:1200px){.error-page{margin-top:97px}}
+	</style>
+	<div class="error-page">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6"></div>
+				<div class="col-lg-6">
+					<p>Kienlongbank rất tiếc đã không tìm thấy đường dẫn Quý khách vừa truy cập, có thể đường dẫn
+						chưa chính xác hoặc trang không tồn tại.</p>
+					<p>Quý khách vui lòng nhấn <a href="/">vào đây</a> để quay lại
+						<a href="/">Trang chủ.</a></p>
+					<br>
+					<p><strong>Lưu ý: </strong> <em>Sau 5 phút, trình duyệt của Quý khách sẽ tự động trở về Trang chủ website Kienlongbank.</em></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+    <div class="errorPage hidden">
+        <p class="name">404</p>
+        <p class="description">
+            Không tìm thấy trang
+        </p>        
+        <p>
+            <a id="ctl00_mainContent_hplHomepage" class="btn btn-warning" href="/">Quay về trang chủ</a>
+            
+        </p>        
+    </div>
+
+				
+</div>
+				
+			</main>
+			<!-- ////////////// End Main ////////////// -->
+			<!-- ////////////// Footer ////////////// -->
+			<section class="canhcam-footer-1">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-3 col-md-6 item">
+							<div class='Module Module-147'><div class='ModuleContent'><div class="zone-title">
+  <h3>Tại sao chọn KienlongBank</h3><span></span></div><nav class="list-group"><div class="list-group-item"><a href="https://kienlongbank.com/tong-quan-kienlongbank" target="_self" title="Tổng quan KienlongBank">Tổng quan KienlongBank</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/tam-nhin-su-menh-gia-tri-cot-loi-1" target="_self" title="Tầm nhìn, sứ mệnh, giá trị cốt lõi">Tầm nhìn, sứ mệnh, giá trị cốt lõi</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/qua-trinh-hinh-thanh-va-phat-trien" target="_self" title="Quá trình hình thành và phát triển">Quá trình hình thành và phát triển</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/so-do-to-chuc" target="_self" title="Sơ đồ tổ chức">Sơ đồ tổ chức</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/co-cau-quan-tri" target="_self" title="Cơ cấu quản trị">Cơ cấu quản trị</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/danh-hieu-va-giai-thuong" target="_self" title="Danh hiệu và giải thưởng">Danh hiệu và giải thưởng</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/hoat-dong-vi-cong-dong" target="_self" title="Hoạt động vì cộng đồng">Hoạt động vì cộng đồng</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/dinh-vi-thuong-hieu" target="_self" title="Định vị thương hiệu">Định vị thương hiệu</a></div></nav></div></div>
+						</div>
+						<div class="col-lg-3 col-md-6 item">
+							<div class='Module Module-148'><div class='ModuleContent'><div class="zone-title">
+  <h3>Cá nhân</h3><span></span></div><nav class="list-group"><div class="list-group-item"><a href="https://kienlongbank.com/tien-gui-tiet-kiem-ca-nhan" target="_self" title="Tiền gửi - Tiết kiệm">Tiền gửi - Tiết kiệm</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/tin-dung-cho-vay-ca-nhan" target="_self" title="Tín dụng - Cho vay">Tín dụng - Cho vay</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/the" target="_self" title="Thẻ">Thẻ</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/dich-vu-ca-nhan" target="_self" title="Dịch vụ">Dịch vụ</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/ngan-hang-dien-tu-ca-nhan" target="_self" title="Ngân hàng điện tử">Ngân hàng điện tử</a></div>
+  <div class="list-group-item"><a href="https://khuyenmai.kienlongbank.com/" target="_self" title="Khuyến mãi">Khuyến mãi</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/bao-hiem" target="_self" title="Bảo hiểm">Bảo hiểm</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/khach-hang-than-thiet" target="_self" title="Khách hàng thân thiết">Khách hàng thân thiết</a></div></nav></div></div>
+						</div>
+						<div class="col-lg-3 col-md-6 item">
+							<div class='Module Module-149'><div class='ModuleContent'><div class="zone-title">
+  <h3>Doanh nghiệp</h3><span></span></div><nav class="list-group"><div class="list-group-item"><a href="https://kienlongbank.com/tien-gui-tiet-kiem-doanh-nghiep" target="_self" title="Tiền gửi - Tiết kiệm">Tiền gửi - Tiết kiệm</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/tin-dung-cho-vay-doanh-nghiep" target="_self" title="Tín dụng - Cho vay">Tín dụng - Cho vay</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/the" target="_self" title="Thẻ">Thẻ</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/dich-vu-doanh-nghiep" target="_self" title="Dịch vụ">Dịch vụ</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/ngan-hang-dien-tu-doanh-nghiep" target="_self" title="Ngân hàng điện tử">Ngân hàng điện tử</a></div>
+  <div class="list-group-item"><a href="https://khuyenmai.kienlongbank.com/" target="_self" title="Khuyến mãi">Khuyến mãi</a></div></nav></div></div>
+						</div>
+						<div class="col-lg-3 col-md-6 item">
+							<div class='Module Module-150'><div class='ModuleContent'><div class="zone-title">
+  <h3>Truy cập nhanh</h3><span></span></div><nav class="list-group"><div class="list-group-item"><a href="https://kienlongbank.com/lai-suat-kienlongbank" target="_self" title="Lãi suất - Tỷ Giá">Lãi suất - Tỷ Giá</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/diem-giao-dich" target="_self" title="Mạng lưới">Mạng lưới</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/bieu-mau" target="_self" title="Biểu mẫu - Biểu phí">Biểu mẫu - Biểu phí</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/tinh-toan-khoan-vay" target="_self" title="Công cụ tính toán">Công cụ tính toán</a></div>
+  <div class="list-group-item"><a href="https://tracuu.kienlongbank.com/the-tiet-kiem" target="_blank" title="Tra cứu">Tra cứu</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/bao-mat-the-an-toan" target="_self" title="Hướng dẫn sử dụng">Hướng dẫn sử dụng</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/cho-vay-ca-nhan-cau-hoi-thuong-gap" target="_self" title="Câu hỏi thường gặp">Câu hỏi thường gặp</a></div>
+  <div class="list-group-item"><a href="https://kienlongbank.com/trung-tam-dich-vu-khach-hang" target="_self" title="Trung tâm dịch vụ khách hàng">Trung tâm dịch vụ khách hàng</a></div></nav></div></div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<footer class="canhcam-footer-2">
+				<div class="footer-content">
+					<div class="container">
+						<div class="row justify-content-between">
+							<div class="col-lg-3">
+								<div class="slogan text-center text-lg-left d-lg-flex">
+									<div class="logo">
+										<div class='Module Module-152'><div class='ModuleContent'><a class="mb-5 mb-lg-0" href="/">
+<img src="/Data/Sites/1/media/logo-klb/2026/logo-kienlongbank-klb-dinh-vi-thuong-hieu-10-1.png" alt="logo-kienlongbank-klb" title="logo-kienlongbank-klb" style="width: 100%; height: 100%;" />
+</a></div></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="quote mb-5 mb-lg-0 text-center text-lg-left">
+									<div class='Module Module-153'><div class='ModuleContent'><p class="h1"><span style="font-size: 15px;"><strong>Ngân hàng TMCP Kiên Long (KienlongBank)</strong></span></p>
+<div class="text">
+<p>Hội sở: 40-42-44 Phạm Hồng Thái, P.Rạch Giá, T.An Giang</p>
+<!--<p>VPĐD miền Nam: 98-108A Cách Mạng Tháng 8, P.Võ Thị Sáu, Q.3, Tp.HCM</p>
+<p>VPĐD miền Bắc: Tầng 6 Sunshine Center, số 16 Phạm Hùng, P.Mỹ Đình, Q.Nam Từ Liêm, Tp.Hà Nội</p>-->
+<p>Điện thoại: (0297) 3869 950 hoặc (028) 3933 3393</p>
+<p>Hotline gọi trong lãnh thổ Việt Nam: 1900 6929</p>
+<p>Hotline gọi từ nước ngoài về Việt Nam: (+84) 287309 6929</p>
+<p>Mã SWIFT: KLBKVNVX</p>
+<p>Email: <a href="#">kienlong@kienlongbank.com </a>hoặc <a href="#">chamsockhachhang@kienlongbank.com</a></p>
+</div></div></div>
+								</div>
+							</div>
+							<div class="col-lg-3 social text-center text-lg-left">
+								<div class='Module Module-154'><div class='ModuleContent'><p class="h6" style="text-align: center;"><strong><span style="font-size: 16px;">Liên kết nhanh</span></strong></p>
+<ul class="list-inline">
+    <li class="list-item" style="text-align: center;"><a href="tel:19006929"><em class="fas fa-mobile-alt"></em></a></li>
+    <li class="list-item" style="text-align: center;"><a href="https://www.facebook.com/NganhangKienLong" target="_blank" rel="nofollow"><em class="fab fa-facebook-f"></em></a></li>
+    <li class="list-item" style="text-align: center;"><a href="https://www.youtube.com/channel/UCgGTWNEzPqKaMSU8smHKr0g" target="_blank" rel="nofollow"><em class="fab fa-youtube"></em></a></li>
+    <li class="list-item" style="text-align: center;"><a href="https://zalo.me/nganhangkienlong" target="_blank" rel="nofollow"><img alt="" src="/Data/Sites/1/Skins/Default/img/KLB/promotion/card/card_icon_zalo.png" /></a></li>
+</ul>
+<br />
+<p class="h6" style="text-align: center;"><strong><span style="font-size: 16px;">Chứng nhận bởi</span></strong></p>
+<ul class="list-inline">
+    <p style="text-align: center;">
+    <a href="https://www.div.gov.vn/danh-sach-to-chuc-tham-gia-BHTG" target="_blank" rel="nofollow"><img alt="" src="/Data/Sites/1/media/icon/bieu-tuong-chung-nhan-phien-ban-digital.png" style="width: 120px; height: 90px;" /></a>
+    </p>
+</ul>
+<br />
+<p class="h6" style="text-align: center;"><strong><span style="font-size: 16px;">KienlongBank Mobile Banking</span></strong></p>
+<ul class="list-inline">
+    <p style="text-align: center;">
+    <a href="https://apps.apple.com/vn/app/kienlongbank-plus/id1562823941?l=vi" target="_blank" rel="nofollow"><img alt="" src="/Data/Sites/1/media/icon/app-store-icon-kienlongbank-mobile-banking.png" style="width: 120px; height: 35px;" /></a>
+    <a href="https://play.google.com/store/apps/details?id=com.sunshine.ksbank" target="_blank" rel="nofollow"><img alt="" src="/Data/Sites/1/media/icon/google-play-icon-kienlongbank-mobile-banking.png" style="width: 120px; height: 36px;" /></a><br />
+    <a href="https://q.me-qr.com/5v79fs0w" target="_blank"><img src="/Data/Sites/1/media/icon/qr-code-app-kienlongbank-plus-vip.png" alt="qr-code-app-kienlongbank-plus-vip" title="qr-code-app-kienlongbank-plus-vip" style="width: 120px; height: 120px;" /></a>
+    </p>
+</ul></div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="copy-right">
+						<div class="row">
+							<div class="col-lg-3">
+								<div class="copy text-center text-lg-left">
+									<p>Copyright © 2018 Kienlongbank. All right reserved.</p>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="bottom-menu mt-2 mt-md-0">
+									<div class='Module Module-155'><div class='ModuleContent'><p><span><a href="dieu-khoan-su-dung" style="color: #1e2452;">Điều khoản</a>&nbsp;<a href="chinh-sach-bao-mat" style="color: #1e2452;">Bảo mật</a>&nbsp;<a href="https://outlook.office.com/mail/" target="_blank" style="color: #1e2452;">Mail KLB</a>&nbsp;<a href="/sitemap.aspx" style="color: #1e2452;">Sơ đồ trang</a></span></p>
+<p><span style="color: #1e2452;">&nbsp;</span></p></div></div>
+									<div class='Module Module-156'><div class='ModuleContent'></div></div>
+								</div>
+							</div>
+							<!--<div class="col-lg-3">
+								<a class="d-none d-lg-block" href="" id="register"><img class="img-fluid"
+										src="/Data/Sites/1/media/register.png" alt=""></a>
+							</div>-->
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+		<!-- ////////////// End Footer ////////////// -->
+		
+		
+		<script src="/Data/Sites/1/skins/default/js/core.js?v=1.0.0"></script>
+		<script src="/Data/Sites/1/skins/default/pagination/pagination.js?v=1.0.0"></script>
+		<script src="/Data/Sites/1/skins/default/js/plugins.js?v=1.0.0"></script>
+		<script src="/Data/Sites/1/skins/default/js/custom.js?v=1.0.0"></script>
+		<script src="/Data/Sites/1/skins/default/js/app.js?v=1.0.0"></script>
+		<script src="/Data/Sites/1/skins/default/js/custom.sang.js?v=1.0.0"></script>
+                <script src="/Data/Sites/1/skins/default/js/custom.fix.lai.suat.js?v=5.0.0"></script>
+                <script src="/Data/Sites/1/skins/default/js/custom.loading.js?v=1.0.0"></script>
+		<script type="text/javascript">
+			function HideToolbar() {
+				$(".cmsadminpanel").addClass("toggled"), $(".fa-chevron-circle-right").addClass("fa-rotate-180")
+			}
+
+			function ShowToolbar() {
+				$(".cmsadminpanel").removeClass("toggled"), $(".fa-chevron-circle-right").removeClass("fa-rotate-180")
+			}
+			$(document).ready(function () {
+				$("#pullmenucms").click(function (o) {
+					o.preventDefault(), $(this).parents(".cmsadminpanel").hasClass("toggled") ? (
+						ShowToolbar(), Set_Cookie("toolbarOpenState", "open")) : (HideToolbar(),
+							Set_Cookie("toolbarOpenState", "closed"))
+				});
+				var o = Get_Cookie("toolbarOpenState");
+				null != o && ("closed" == o && HideToolbar(), "open" == o && ShowToolbar())
+			});
+		</script>
+	
+<script type="text/javascript">Sys.Application.add_load(function() { var form = Sys.WebForms.PageRequestManager.getInstance()._form; form._initialAction = form.action = window.location.href; }); </script>
+<script type="text/javascript" ></script></form>
+	<!-- ////////////// Back to Top ////////////// -->
+	<a href="javascript:void(0)" id="back-to-top" title="Back to top">
+		<em class="fas fa-chevron-up"></em>
+	</a>
+<!-- Google1 Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MLD9BGD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Google Tag Manager (noscript) CTKM Huy Dong Von 2020-->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3ZVPDM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) CTKM Huy Dong Von 2020-->
+
+<!-- Google Tag Manager (noscript) tuanlng14072020-->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TFS7RJB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- Global site tag (gtag.js) - Google Ads: 827472862  tuanlng 16102020-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-827472862"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-827472862');
+</script>
+
+<!-- Google Tag Manager (noscript) Chuong trinh KM2025-->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NL9QZ79J"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- Start of Rocket.Chat Livechat Script -->
+<script type="text/javascript">
+	(function(w, d, s, u) {
+		w.RocketChat = function(c) { w.RocketChat._.push(c) }; w.RocketChat._ = []; w.RocketChat.url = u;
+		var h = d.getElementsByTagName(s)[0], j = d.createElement(s);
+		j.async = true; j.src = 'https://chat.kienlongbank.co/livechat/rocketchat-livechat.min.js?_=201903270000';
+		h.parentNode.insertBefore(j, h);
+	})(window, document, 'script', 'https://chat.kienlongbank.co/livechat');
+</script>
+</body>
+
+</html>

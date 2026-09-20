@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@layer utilities {
+  @keyframes bounceSubtle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+
+  @keyframes spinSlow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes voxelBoardLand {
+    0% {
+      opacity: 0;
+      transform: translateY(16px) scale(0.94);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .font-pixel {
+    font-family: 'Pixelify Sans', 'Press Start 2P', monospace, sans-serif;
+  }
+
+  .font-sans-body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  .animate-bounce-subtle {
+    animation: bounceSubtle 2.5s ease-in-out infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spinSlow 12s linear infinite;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.25s ease-out forwards;
+  }
+
+  .animate-voxel-land {
+    animation: voxelBoardLand 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-voxel-land {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+
+  /* Voxel parchment custom scrollbar */
+  .voxel-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+  .voxel-scrollbar::-webkit-scrollbar-track {
+    background: #EAD9B0;
+    border-radius: 4px;
+    border: 1px solid #D2BE8C;
+  }
+  .voxel-scrollbar::-webkit-scrollbar-thumb {
+    background: #B86428;
+    border-radius: 4px;
+    border: 1px solid #7A3F1F;
+  }
+  .voxel-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #7A3F1F;
+  }
+
+  /* Custom clean dark scrollbars */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.4);
+    border-radius: 9999px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(245, 158, 11, 0.3);
+    border-radius: 9999px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(245, 158, 11, 0.6);
+  }
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  touch-action: none;
+  background-color: #020617;
+}

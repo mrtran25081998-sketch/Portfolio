@@ -1,0 +1,6 @@
+{
+  "name": "Voxel Portfolio 3D World",
+  "description": "A playable 3D voxel portfolio exploration game featuring an animated character, companion dog, sunset world, and 5 interactive showcase zones.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

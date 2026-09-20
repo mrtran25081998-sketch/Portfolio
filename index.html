@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <script>
+      // Fix environment where window.fetch is defined with only a getter (e.g. iframe proxy)
+      (function() {
+        try {
+          var originalDefineProperty = Object.defineProperty;
+          Object.defineProperty = function(obj, prop, descriptor) {
+            if (prop === 'fetch' && descriptor && typeof descriptor.get === 'function' && typeof descriptor.set !== 'function') {
+              var currentFetch;
+              return originalDefineProperty.call(this, obj, prop, {
+                configurable: true,
+                enumerable: descriptor.enumerable !== undefined ? descriptor.enumerable : true,
+                get: function() {
+                  return currentFetch !== undefined ? currentFetch : descriptor.get();
+                },
+                set: function(val) {
+                  currentFetch = val;
+                }
+              });
+            }
+            return originalDefineProperty.apply(this, arguments);
+          };
+
+          // Also check if window.fetch already exists with only a getter and can be reconfigured
+          var currentDesc = Object.getOwnPropertyDescriptor(window, 'fetch');
+          if (currentDesc && currentDesc.configurable && typeof currentDesc.get === 'function' && typeof currentDesc.set !== 'function') {
+            var getterFetch = currentDesc.get;
+            var assignedFetch;
+            originalDefineProperty(window, 'fetch', {
+              configurable: true,
+              enumerable: currentDesc.enumerable !== undefined ? currentDesc.enumerable : true,
+              get: function() {
+                return assignedFetch !== undefined ? assignedFetch : getterFetch();
+              },
+              set: function(val) {
+                assignedFetch = val;
+              }
+            });
+          }
+        } catch (e) {
+          console.warn('Fetch polyfill patch error:', e);
+        }
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Voxel Portfolio 3D World</title>
+    <meta name="description" content="A playable 3D voxel portfolio exploration game featuring an animated character, companion dog, sunset world, and 5 interactive showcase zones." />
+    <meta property="og:title" content="Voxel Portfolio 3D World" />
+    <meta property="og:description" content="A playable 3D voxel portfolio exploration game featuring an animated character, companion dog, sunset world, and 5 interactive showcase zones." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+  </head>
+  <body class="overflow-hidden select-none bg-slate-950">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
