@@ -56,9 +56,9 @@ export const ExperienceModal: React.FC<ExperienceModalProps> = ({ onClose }) => 
                   >
                     {/* Top Header: Logo, Company Info & Period */}
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#EAD9B0]">
-                      <div className="flex items-center gap-3.5">
+                      <div className="flex flex-col sm:flex-row sm:items-center items-start gap-2.5 sm:gap-3.5">
                         {/* Company Logo Badge */}
-                        <div className="h-16 w-24 sm:w-28 p-2 rounded-[8px] bg-white flex items-center justify-center shrink-0 border-2 border-[#CBB892] shadow-[0_2px_0_#A89571] hover:shadow-md transition-shadow">
+                        <div className="h-14 sm:h-16 w-24 sm:w-28 p-2 rounded-[8px] bg-white flex items-center justify-center shrink-0 border-2 border-[#CBB892] shadow-[0_2px_0_#A89571] hover:shadow-md transition-shadow">
                           {item.logoType === 'mb' && (
                             <MBBankLogo className="w-full h-full max-h-12" />
                           )}
@@ -73,7 +73,7 @@ export const ExperienceModal: React.FC<ExperienceModalProps> = ({ onClose }) => 
                         </div>
 
                         <div>
-                          <h3 className="font-pixel text-lg sm:text-2xl font-bold text-[#2D1B12]">
+                          <h3 className="font-pixel text-base sm:text-2xl font-bold text-[#2D1B12]">
                             {item.company}
                           </h3>
                           <div className="text-xs text-[#7A3F1F] font-semibold mt-0.5">
