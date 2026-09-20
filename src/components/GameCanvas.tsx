@@ -49,6 +49,10 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
   const activeModalRef = useRef<ZoneId | null>(activeModal);
   activeModalRef.current = activeModal;
 
+  // Keep ref for mobile input to avoid stale closure in game loop
+  const mobileInputRef = useRef(mobileInput);
+  mobileInputRef.current = mobileInput;
+
   const headPromptRef = useRef<HTMLDivElement>(null);
 
   const onOpenZoneRef = useRef(onOpenZone);
@@ -463,8 +467,14 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
     const handleTouchMove = (e: TouchEvent) => {
       if (e.touches.length === 1) {
         const t = e.touches[0];
-        if (Math.hypot(t.clientX - touchStartPos.x, t.clientY - touchStartPos.y) > 8) {
+        const dx = t.clientX - touchStartPos.x;
+        const dy = t.clientY - touchStartPos.y;
+        if (Math.hypot(dx, dy) > 8) {
           hasTouchMoved = true;
+          // Cho phép vuốt trên màn hình để xoay góc nhìn camera
+          mouseDragRef.current.camAngleOffset += dx * 0.004;
+          touchStartPos.x = t.clientX;
+          touchStartPos.y = t.clientY;
         }
       }
     };
@@ -551,7 +561,8 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
           keysRef.current['KeyA'] || keysRef.current['ArrowLeft'] ||
           keysRef.current['KeyD'] || keysRef.current['ArrowRight'];
 
-        const hasJoystickInput = mobileInput.moveX !== 0 || mobileInput.moveY !== 0;
+        const mobile = mobileInputRef.current;
+        const hasJoystickInput = Math.hypot(mobile.moveX, mobile.moveY) > 0.05;
 
         // Nếu người dùng bấm phím/joystick hoặc mở modal, hủy tự động di chuyển click-to-move
         if (hasKeyInput || hasJoystickInput || isModalOpen) {
@@ -568,15 +579,17 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
             if (keysRef.current['KeyA'] || keysRef.current['ArrowLeft']) rawX -= 1;
             if (keysRef.current['KeyD'] || keysRef.current['ArrowRight']) rawX += 1;
 
-            if (mobileInput.moveX !== 0 || mobileInput.moveY !== 0) {
-              rawX = mobileInput.moveX;
-              rawZ = -mobileInput.moveY;
+            if (hasJoystickInput) {
+              rawX = mobile.moveX;
+              // mobile.moveY: kéo lên là âm (trùng hướng KeyW rawZ = -1), kéo xuống là dương (trùng hướng KeyS rawZ = +1)
+              rawZ = mobile.moveY;
             }
 
             const inputAngle = Math.atan2(rawX, rawZ);
             const moveAngle = inputAngle + mouseDragRef.current.camAngleOffset;
-            moveDirX = Math.sin(moveAngle);
-            moveDirZ = Math.cos(moveAngle);
+            const joystickMagnitude = hasJoystickInput && !hasKeyInput ? Math.min(1, Math.hypot(rawX, rawZ)) : 1;
+            moveDirX = Math.sin(moveAngle) * joystickMagnitude;
+            moveDirZ = Math.cos(moveAngle) * joystickMagnitude;
           } else if (targetDestination) {
             // DI CHUYỂN ĐẾN VỊ TRÍ CLICK CHUỘT (CLICK-TO-MOVE)
             const toTargetX = targetDestination.x - player.mesh.position.x;
@@ -593,21 +606,26 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
           }
 
           // Mobile interact trigger
-          if (mobileInput.isInteracting && nearZoneRef.current) {
+          if (mobile.isInteracting && nearZoneRef.current) {
             soundManager.playInteractChime();
             onOpenZoneRef.current(nearZoneRef.current);
+            mobile.isInteracting = false;
           }
         }
 
-        const isRunning = (keysRef.current['ShiftLeft'] || keysRef.current['ShiftRight'] || mobileInput.isRunning) && !isModalOpen;
+        const isRunning = (keysRef.current['ShiftLeft'] || keysRef.current['ShiftRight'] || mobile.isRunning) && !isModalOpen;
         const moveSpeed = isRunning ? 5.8 : 3.4;
 
-        // Jump physics (Space jumps unless interacting at a zone)
-        const wantsJump = (keysRef.current['Space'] || mobileInput.isJumping) && !isJumping && !isModalOpen && !nearZoneRef.current;
+        // Jump physics (Space jumps unless interacting at a zone; mobile jump always triggers)
+        const wantsJump =
+          ((keysRef.current['Space'] && !nearZoneRef.current) || mobile.isJumping) &&
+          !isJumping &&
+          !isModalOpen;
         if (wantsJump) {
           isJumping = true;
           jumpVelocityY = 5.2;
           soundManager.playJump();
+          mobile.isJumping = false;
         }
 
         if (isJumping) {

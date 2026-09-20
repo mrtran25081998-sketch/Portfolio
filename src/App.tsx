@@ -140,10 +140,15 @@ export const App: React.FC = () => {
   };
 
   const handleMobileInteract = () => {
-    setMobileInput((prev) => ({ ...prev, isInteracting: true }));
-    setTimeout(() => {
-      setMobileInput((prev) => ({ ...prev, isInteracting: false }));
-    }, 150);
+    if (nearZone) {
+      soundManager.playInteractChime();
+      handleOpenZone(nearZone);
+    } else {
+      setMobileInput((prev) => ({ ...prev, isInteracting: true }));
+      setTimeout(() => {
+        setMobileInput((prev) => ({ ...prev, isInteracting: false }));
+      }, 150);
+    }
   };
 
   return (
