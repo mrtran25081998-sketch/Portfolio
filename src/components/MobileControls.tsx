@@ -181,11 +181,11 @@ export const MobileControls: React.FC<MobileControlsProps> = ({
                 ? 'bg-[#F4C542] border-[#4A2414] text-[#2D1B12] animate-bounce'
                 : 'bg-[#3B1D0F]/90 border-[#7A3F1F] text-[#D9D2BF]'
             }`}
-            title="Tương tác (E)"
+            title="Tương tác (Space)"
           >
             <Sparkles className={`w-5 h-5 ${isNearZone ? 'text-[#2D1B12]' : 'text-[#F4C542]'}`} />
             <span className="text-[10px] font-bold uppercase tracking-wider mt-0.5">
-              Khám phá
+              Space
             </span>
           </button>
         </div>
