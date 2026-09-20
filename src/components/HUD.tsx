@@ -112,8 +112,8 @@ export const HUD: React.FC<HUDProps> = ({
         </div>
       </div>
 
-      {/* Bottom Row: Control Key Hints (auto-fades, re-toggleable) */}
-      <div className="flex items-end justify-between w-full">
+      {/* Bottom Row: Control Key Hints (Desktop only - hidden on mobile to avoid joystick overlap) */}
+      <div className="hidden lg:flex items-end justify-between w-full">
         {showBottomHints ? (
           <div className="pointer-events-auto flex items-center gap-2 sm:gap-3.5 bg-[#3B1D0F]/90 backdrop-blur-sm border-2 border-[#7A3F1F] px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-[8px] font-pixel text-xs text-[#FFF4D6] shadow-[0_4px_0_#2E150B] max-w-full overflow-x-auto">
             <div className="flex items-center gap-1 whitespace-nowrap">
