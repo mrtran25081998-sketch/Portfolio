@@ -77,14 +77,14 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
   };
 
   return (
-    <div className="space-y-8 sm:space-y-12 select-text pb-12">
+    <div className="space-y-8 sm:space-y-12 select-text pb-12 font-sans">
       {/* =========================================================================
        * STICKY / TOP CHAPTER PROGRESS NAVIGATION
        * ========================================================================= */}
       <div className="sticky top-0 z-30 -mx-4 sm:-mx-6 px-4 sm:px-6 py-2.5 bg-[#FFF4D6]/95 backdrop-blur-md border-b-2 border-[#DFC9A2] shadow-sm flex items-center justify-between gap-2 overflow-x-auto no-scrollbar">
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[5px] bg-[#3B1D0F] text-[#FFF4D6] hover:bg-[#4A2414] font-pixel text-xs font-bold shrink-0 transition-colors shadow-sm cursor-pointer"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[5px] bg-[#3B1D0F] text-[#FFF4D6] hover:bg-[#4A2414] font-sans text-xs font-bold shrink-0 transition-colors shadow-sm cursor-pointer"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span className="hidden sm:inline">QUAY LẠI</span>
@@ -97,7 +97,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
               <button
                 key={c.id}
                 onClick={() => scrollToChapter(c.id)}
-                className={`px-2 sm:px-2.5 py-1 rounded-[4px] font-pixel text-[10px] sm:text-xs font-bold transition-all shrink-0 cursor-pointer ${
+                className={`px-2 sm:px-2.5 py-1 rounded-[4px] font-sans text-[10px] sm:text-xs font-bold transition-all shrink-0 cursor-pointer ${
                   isActive
                     ? 'bg-[#F4C542] text-[#2D1B12] shadow-[0_2px_0_#9E875C] scale-105'
                     : 'bg-[#FFF8E7] text-[#7A3F1F] hover:bg-[#FFECC2] border border-[#DFC9A2]'
@@ -113,7 +113,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           })}
         </div>
 
-        <div className="hidden lg:flex items-center gap-1.5 font-pixel text-xs text-[#7A3F1F] shrink-0 font-bold">
+        <div className="hidden lg:flex items-center gap-1.5 font-sans text-xs text-[#7A3F1F] shrink-0 font-bold">
           <Sparkles className="w-3.5 h-3.5 text-[#F4C542]" />
           <span>DEEP DIVE QUEST</span>
         </div>
@@ -125,13 +125,13 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
       <section id="sec-01" className="space-y-6 pt-2 scroll-mt-16">
         {/* Editorial Section Header */}
         <div className="space-y-2">
-          <div className="flex items-center gap-2 font-pixel text-xs sm:text-sm font-bold text-[#B86428] tracking-wider uppercase">
+          <div className="flex items-center gap-2 font-sans text-xs sm:text-sm font-bold text-[#B86428] tracking-wider uppercase">
             <span className="px-2 py-0.5 rounded bg-[#F4C542]/30 border border-[#B86428]/40">
               01 / PROJECT OVERVIEW
             </span>
             <span>✦ CASE STUDY SẢN PHẨM</span>
           </div>
-          <h1 className="font-pixel text-2xl sm:text-4xl lg:text-5xl font-bold text-[#2D1B12] leading-[1.15]">
+          <h1 className="font-sans text-2xl sm:text-4xl lg:text-5xl font-bold text-[#2D1B12] leading-[1.15]">
             Thiết kế lại hành trình cấp hạn mức trung dài hạn cho doanh nghiệp
           </h1>
           <p className="font-sans text-base sm:text-lg text-[#5A4030] leading-relaxed max-w-4xl pt-1">
@@ -142,22 +142,22 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         {/* Structured Metadata Badges Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
           <div className="p-3.5 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571]">
-            <div className="font-pixel text-[10px] text-[#7A3F1F] uppercase font-bold tracking-wider">VAI TRÒ (ROLE)</div>
+            <div className="font-sans text-[10px] text-[#7A3F1F] uppercase font-bold tracking-wider">VAI TRÒ (ROLE)</div>
             <div className="font-sans text-sm font-bold text-[#2D1B12] mt-1">Product Designer</div>
             <div className="font-sans text-[11px] text-[#6B513C] mt-0.5">End-to-end UX, IA, Interaction & Design System</div>
           </div>
           <div className="p-3.5 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571]">
-            <div className="font-pixel text-[10px] text-[#7A3F1F] uppercase font-bold tracking-wider">SẢN PHẨM (PRODUCT)</div>
+            <div className="font-sans text-[10px] text-[#7A3F1F] uppercase font-bold tracking-wider">SẢN PHẨM (PRODUCT)</div>
             <div className="font-sans text-sm font-bold text-[#2D1B12] mt-1">BIZ MBBank Web & Mobile</div>
             <div className="font-sans text-[11px] text-[#6B513C] mt-0.5">Đồng bộ đa nền tảng Portal & App</div>
           </div>
           <div className="p-3.5 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571]">
-            <div className="font-pixel text-[10px] text-[#7A3F1F] uppercase font-bold tracking-wider">ĐỐI TƯỢNG (CUSTOMER)</div>
+            <div className="font-sans text-[10px] text-[#7A3F1F] uppercase font-bold tracking-wider">ĐỐI TƯỢNG (CUSTOMER)</div>
             <div className="font-sans text-sm font-bold text-[#2D1B12] mt-1">Upper SME & CIB</div>
             <div className="font-sans text-[11px] text-[#6B513C] mt-0.5">Kế toán trưởng, CFO, CEO & Giám đốc vận hành</div>
           </div>
           <div className="p-3.5 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571]">
-            <div className="font-pixel text-[10px] text-[#7A3F1F] uppercase font-bold tracking-wider">PHẠM VI (SCOPE)</div>
+            <div className="font-sans text-[10px] text-[#7A3F1F] uppercase font-bold tracking-wider">PHẠM VI (SCOPE)</div>
             <div className="font-sans text-sm font-bold text-[#2D1B12] mt-1">6 Điểm chạm cốt lõi</div>
             <div className="font-sans text-[11px] text-[#6B513C] mt-0.5">Khởi tạo • Hồ sơ • Duyệt • Gửi • Theo dõi • RM</div>
           </div>
@@ -165,14 +165,14 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
 
         {/* Project Summary Board: Problem -> Approach -> Solution -> Outcomes */}
         <div className="p-5 sm:p-7 rounded-[10px] bg-[#FFF8E7] border-2 border-[#DFC9A2] shadow-[0_4px_0_#BCA67F] space-y-5">
-          <div className="font-pixel text-sm font-bold text-[#2D1B12] flex items-center gap-2">
+          <div className="font-sans text-sm font-bold text-[#2D1B12] flex items-center gap-2">
             <Target className="w-4 h-4 text-[#B86428]" />
             <span>TÓM TẮT DỰ ÁN (EXECUTIVE PROJECT SUMMARY)</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="p-3.5 rounded-[6px] bg-white border border-[#DFC9A2] space-y-1.5">
-              <div className="font-pixel text-xs font-bold text-[#991B1B] uppercase flex items-center gap-1.5">
+              <div className="font-sans text-xs font-bold text-[#991B1B] uppercase flex items-center gap-1.5">
                 <AlertCircle className="w-3.5 h-3.5 text-red-600" />
                 <span>VẤN ĐỀ</span>
               </div>
@@ -182,7 +182,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
             </div>
 
             <div className="p-3.5 rounded-[6px] bg-white border border-[#DFC9A2] space-y-1.5">
-              <div className="font-pixel text-xs font-bold text-[#1D4ED8] uppercase flex items-center gap-1.5">
+              <div className="font-sans text-xs font-bold text-[#1D4ED8] uppercase flex items-center gap-1.5">
                 <Search className="w-3.5 h-3.5 text-blue-600" />
                 <span>CÁCH TIẾP CẬN</span>
               </div>
@@ -192,7 +192,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
             </div>
 
             <div className="p-3.5 rounded-[6px] bg-white border border-[#DFC9A2] space-y-1.5">
-              <div className="font-pixel text-xs font-bold text-[#15803D] uppercase flex items-center gap-1.5">
+              <div className="font-sans text-xs font-bold text-[#15803D] uppercase flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                 <span>GIẢI PHÁP</span>
               </div>
@@ -202,7 +202,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
             </div>
 
             <div className="p-3.5 rounded-[6px] bg-white border border-[#DFC9A2] space-y-1.5">
-              <div className="font-pixel text-xs font-bold text-[#7A3F1F] uppercase flex items-center gap-1.5">
+              <div className="font-sans text-xs font-bold text-[#7A3F1F] uppercase flex items-center gap-1.5">
                 <TrendingUp className="w-3.5 h-3.5 text-[#B86428]" />
                 <span>KẾT QUẢ ĐO LƯỜNG</span>
               </div>
@@ -222,7 +222,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
               <div className="w-2.5 h-2.5 rounded-full bg-rose-500" />
               <div className="w-2.5 h-2.5 rounded-full bg-amber-500" />
               <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-              <span className="font-pixel text-xs text-sky-200 ml-2">BIZ MBBank 2.0 • HỆ THỐNG CẤP HẠN MỨC TRUNG DÀI HẠN</span>
+              <span className="font-sans text-xs text-sky-200 ml-2">BIZ MBBank 2.0 • HỆ THỐNG CẤP HẠN MỨC TRUNG DÀI HẠN</span>
             </div>
             <span className="font-mono text-[11px] text-sky-400 hidden sm:inline">Upper SME & CIB Enterprise Suite</span>
           </div>
@@ -389,12 +389,12 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
        * ========================================================================= */}
       <section id="sec-02" className="space-y-6 pt-4 scroll-mt-16 border-t-2 border-[#EAD9B0]">
         <div className="space-y-2">
-          <div className="flex items-center gap-2 font-pixel text-xs sm:text-sm font-bold text-[#B86428] uppercase">
+          <div className="flex items-center gap-2 font-sans text-xs sm:text-sm font-bold text-[#B86428] uppercase">
             <span className="px-2 py-0.5 rounded bg-[#F4C542]/30 border border-[#B86428]/40">
               02 / BỐI CẢNH & GIẢ THUYẾT
             </span>
           </div>
-          <h2 className="font-pixel text-2xl sm:text-3xl font-bold text-[#2D1B12]">
+          <h2 className="font-sans text-2xl sm:text-3xl font-bold text-[#2D1B12]">
             Một hành trình có giá trị cao nhưng khó bắt đầu
           </h2>
           <p className="font-sans text-sm sm:text-base text-[#5A4030] leading-relaxed max-w-3xl">
@@ -404,7 +404,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
 
         {/* 6 Initial Signals Grid */}
         <div className="space-y-3">
-          <div className="font-pixel text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase flex items-center gap-2">
+          <div className="font-sans text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase flex items-center gap-2">
             <Activity className="w-4 h-4 text-[#B86428]" />
             <span>6 TÍN HIỆU CẢNH BÁO TỪ THỰC TẾ VẬN HÀNH (INITIAL SIGNALS)</span>
           </div>
@@ -447,12 +447,12 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
                 className="p-4 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571] space-y-2 hover:-translate-y-0.5 transition-transform"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-pixel text-xs font-bold text-[#B86428] px-2 py-0.5 rounded bg-[#FFF4D6] border border-[#DFC9A2]">
+                  <span className="font-sans text-xs font-bold text-[#B86428] px-2 py-0.5 rounded bg-[#FFF4D6] border border-[#DFC9A2]">
                     SIGNAL {s.num}
                   </span>
                   <AlertCircle className="w-4 h-4 text-[#D97706]" />
                 </div>
-                <h3 className="font-pixel text-sm font-bold text-[#2D1B12]">
+                <h3 className="font-sans text-sm font-bold text-[#2D1B12]">
                   {s.title}
                 </h3>
                 <p className="font-sans text-xs text-[#5A4030] leading-relaxed">
@@ -465,7 +465,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
 
         {/* Hypothesis Callout & Story Transition */}
         <div className="p-5 sm:p-7 rounded-[10px] bg-[#FFF4D6] border-2 border-[#7A3F1F] shadow-[0_4px_0_#542B15] space-y-3">
-          <div className="font-pixel text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase flex items-center gap-2">
+          <div className="font-sans text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase flex items-center gap-2">
             <Lightbulb className="w-4 h-4 text-[#F4C542]" />
             <span>GIẢ THUYẾT TRẢI NGHIỆM CỐT LÕI (CORE HYPOTHESIS)</span>
           </div>
@@ -478,7 +478,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
             </p>
             <button
               onClick={() => scrollToChapter('sec-03')}
-              className="font-pixel text-xs text-[#B86428] hover:text-[#2D1B12] flex items-center gap-1 font-bold cursor-pointer"
+              className="font-sans text-xs text-[#B86428] hover:text-[#2D1B12] flex items-center gap-1 font-bold cursor-pointer"
             >
               <span>Xem kiểm chứng</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -492,12 +492,12 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
        * ========================================================================= */}
       <section id="sec-03" className="space-y-6 pt-4 scroll-mt-16 border-t-2 border-[#EAD9B0]">
         <div className="space-y-2">
-          <div className="flex items-center gap-2 font-pixel text-xs sm:text-sm font-bold text-[#B86428] uppercase">
+          <div className="flex items-center gap-2 font-sans text-xs sm:text-sm font-bold text-[#B86428] uppercase">
             <span className="px-2 py-0.5 rounded bg-[#F4C542]/30 border border-[#B86428]/40">
               03 / RESEARCH METHODOLOGY
             </span>
           </div>
-          <h2 className="font-pixel text-2xl sm:text-3xl font-bold text-[#2D1B12]">
+          <h2 className="font-sans text-2xl sm:text-3xl font-bold text-[#2D1B12]">
             Dùng dữ liệu để biết vấn đề ở đâu. Dùng phỏng vấn để hiểu vì sao.
           </h2>
           <p className="font-sans text-sm sm:text-base text-[#5A4030] leading-relaxed max-w-3xl">
@@ -511,10 +511,10 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           <div className="p-5 sm:p-6 rounded-[10px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571] space-y-4">
             <div className="flex items-center justify-between border-b border-[#DFC9A2] pb-2.5">
               <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded bg-blue-100 text-blue-900 font-pixel text-xs font-bold">
+                <span className="px-2 py-0.5 rounded bg-blue-100 text-blue-900 font-sans text-xs font-bold">
                   METHOD 01
                 </span>
-                <h3 className="font-pixel text-sm sm:text-base font-bold text-[#2D1B12]">
+                <h3 className="font-sans text-sm sm:text-base font-bold text-[#2D1B12]">
                   Phân tích dữ liệu sản phẩm & vận hành
                 </h3>
               </div>
@@ -581,10 +581,10 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           <div className="p-5 sm:p-6 rounded-[10px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571] space-y-4">
             <div className="flex items-center justify-between border-b border-[#DFC9A2] pb-2.5">
               <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 font-pixel text-xs font-bold">
+                <span className="px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 font-sans text-xs font-bold">
                   METHOD 02
                 </span>
-                <h3 className="font-pixel text-sm sm:text-base font-bold text-[#2D1B12]">
+                <h3 className="font-sans text-sm sm:text-base font-bold text-[#2D1B12]">
                   Phỏng vấn chuyên sâu 4 nhóm vai trò
                 </h3>
               </div>
@@ -641,7 +641,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
 
         {/* Evidence -> Finding -> Insight Mapping Table */}
         <div className="p-5 sm:p-6 rounded-[10px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571] space-y-3">
-          <div className="font-pixel text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase flex items-center gap-2">
+          <div className="font-sans text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase flex items-center gap-2">
             <Workflow className="w-4 h-4 text-[#B86428]" />
             <span>MAPPING: SOURCE → EVIDENCE → FINDING → INSIGHT</span>
           </div>
@@ -650,7 +650,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
             <table className="w-full text-left font-sans text-xs border-collapse">
               <thead>
                 <tr className="bg-[#FFF8E7] border-b-2 border-[#DFC9A2] text-[#2D1B12] font-bold">
-                  <th className="p-2.5 font-pixel text-[11px]">NGUỒN (SOURCE)</th>
+                  <th className="p-2.5 font-sans text-[11px]">NGUỒN (SOURCE)</th>
                   <th className="p-2.5">BẰNG CHỨNG THỰC TẾ (EVIDENCE)</th>
                   <th className="p-2.5">PHÁT HIỆN (FINDING)</th>
                   <th className="p-2.5 text-[#B86428]">INSIGHT CỐT LÕI (INSIGHT)</th>
@@ -692,12 +692,12 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
        * ========================================================================= */}
       <section id="sec-04" className="space-y-6 pt-4 scroll-mt-16 border-t-2 border-[#EAD9B0]">
         <div className="space-y-2">
-          <div className="flex items-center gap-2 font-pixel text-xs sm:text-sm font-bold text-[#B86428] uppercase">
+          <div className="flex items-center gap-2 font-sans text-xs sm:text-sm font-bold text-[#B86428] uppercase">
             <span className="px-2 py-0.5 rounded bg-[#F4C542]/30 border border-[#B86428]/40">
               04 / CUSTOMER JOURNEY MAP
             </span>
           </div>
-          <h2 className="font-pixel text-2xl sm:text-3xl font-bold text-[#2D1B12]">
+          <h2 className="font-sans text-2xl sm:text-3xl font-bold text-[#2D1B12]">
             Ba insight lớn định hình hướng giải quyết
           </h2>
           <p className="font-sans text-sm sm:text-base text-[#5A4030] leading-relaxed max-w-3xl">
@@ -708,13 +708,13 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         {/* Wide Visual Journey Map */}
         <div className="p-4 sm:p-6 rounded-[10px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571] space-y-4">
           <div className="flex items-center justify-between">
-            <span className="font-pixel text-xs sm:text-sm font-bold text-[#2D1B12] flex items-center gap-2">
+            <span className="font-sans text-xs sm:text-sm font-bold text-[#2D1B12] flex items-center gap-2">
               <Workflow className="w-4 h-4 text-[#B86428]" />
               <span>7 BƯỚC HÀNH TRÌNH KHÁCH HÀNG (END-TO-END JOURNEY)</span>
             </span>
             <button
               onClick={() => setLightboxImage('/assets/lending-flow.webp')}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#FFF4D6] border border-[#B86428] font-pixel text-xs text-[#7A3F1F] font-bold hover:bg-[#FFECC2] transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#FFF4D6] border border-[#B86428] font-sans text-xs text-[#7A3F1F] font-bold hover:bg-[#FFECC2] transition-colors cursor-pointer"
             >
               <Maximize2 className="w-3.5 h-3.5" />
               <span>Phóng to Journey</span>
@@ -771,7 +771,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
                 className="p-3 rounded-[6px] bg-[#FFF8E7] border border-[#DFC9A2] flex flex-col justify-between space-y-2 text-xs"
               >
                 <div className="space-y-1">
-                  <div className="font-pixel text-[11px] font-bold text-[#B86428]">
+                  <div className="font-sans text-[11px] font-bold text-[#B86428]">
                     {j.step}
                   </div>
                   <p className="font-sans text-[11px] text-[#2D1B12] leading-tight font-medium">
@@ -795,10 +795,10 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         {/* 3 Core Insights Convergence */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
           <div className="p-5 rounded-[8px] bg-[#FFF4D6] border-2 border-[#7A3F1F] shadow-[0_3px_0_#542B15] space-y-2">
-            <span className="font-pixel text-xs font-bold text-[#7A3F1F] px-2 py-0.5 rounded bg-white">
+            <span className="font-sans text-xs font-bold text-[#7A3F1F] px-2 py-0.5 rounded bg-white">
               INSIGHT 01
             </span>
-            <h3 className="font-pixel text-sm font-bold text-[#2D1B12]">
+            <h3 className="font-sans text-sm font-bold text-[#2D1B12]">
               Khách hàng cần biết mình đã sẵn sàng hay chưa
             </h3>
             <p className="font-sans text-xs text-[#5A4030] leading-relaxed">
@@ -807,10 +807,10 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           </div>
 
           <div className="p-5 rounded-[8px] bg-[#FFF4D6] border-2 border-[#7A3F1F] shadow-[0_3px_0_#542B15] space-y-2">
-            <span className="font-pixel text-xs font-bold text-[#7A3F1F] px-2 py-0.5 rounded bg-white">
+            <span className="font-sans text-xs font-bold text-[#7A3F1F] px-2 py-0.5 rounded bg-white">
               INSIGHT 02
             </span>
-            <h3 className="font-pixel text-sm font-bold text-[#2D1B12]">
+            <h3 className="font-sans text-sm font-bold text-[#2D1B12]">
               Đây là hành trình phối hợp của nhiều vai trò
             </h3>
             <p className="font-sans text-xs text-[#5A4030] leading-relaxed">
@@ -819,10 +819,10 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           </div>
 
           <div className="p-5 rounded-[8px] bg-[#FFF4D6] border-2 border-[#7A3F1F] shadow-[0_3px_0_#542B15] space-y-2">
-            <span className="font-pixel text-xs font-bold text-[#7A3F1F] px-2 py-0.5 rounded bg-white">
+            <span className="font-sans text-xs font-bold text-[#7A3F1F] px-2 py-0.5 rounded bg-white">
               INSIGHT 03
             </span>
-            <h3 className="font-pixel text-sm font-bold text-[#2D1B12]">
+            <h3 className="font-sans text-sm font-bold text-[#2D1B12]">
               RM là một phần của hành trình nhưng handoff bị đứt đoạn
             </h3>
             <p className="font-sans text-xs text-[#5A4030] leading-relaxed">
@@ -837,12 +837,12 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
        * ========================================================================= */}
       <section id="sec-05" className="space-y-6 pt-4 scroll-mt-16 border-t-2 border-[#EAD9B0]">
         <div className="space-y-2">
-          <div className="flex items-center gap-2 font-pixel text-xs sm:text-sm font-bold text-[#B86428] uppercase">
+          <div className="flex items-center gap-2 font-sans text-xs sm:text-sm font-bold text-[#B86428] uppercase">
             <span className="px-2 py-0.5 rounded bg-[#F4C542]/30 border border-[#B86428]/40">
               05 / HMW & PRIORITIZATION
             </span>
           </div>
-          <h2 className="font-pixel text-2xl sm:text-3xl font-bold text-[#2D1B12]">
+          <h2 className="font-sans text-2xl sm:text-3xl font-bold text-[#2D1B12]">
             Từ nhiều câu hỏi đến ba cơ hội có giá trị nhất
           </h2>
           <p className="font-sans text-sm sm:text-base text-[#5A4030] leading-relaxed max-w-3xl">
@@ -855,7 +855,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
             {/* Divergent Side */}
             <div className="space-y-3 p-4 rounded-lg bg-[#FFF8E7] border border-[#DFC9A2]">
-              <div className="font-pixel text-xs font-bold text-[#7A3F1F] uppercase flex items-center gap-2">
+              <div className="font-sans text-xs font-bold text-[#7A3F1F] uppercase flex items-center gap-2">
                 <span>◀ PHÂN KỲ (DIVERGENT): 4 KHU VỰC CÂU HỎI HMW</span>
               </div>
               <div className="space-y-2 font-sans text-xs">
@@ -876,24 +876,24 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
 
             {/* Convergent Side */}
             <div className="space-y-3 p-4 rounded-lg bg-[#EAF8E7] border border-[#BDE3B6]">
-              <div className="font-pixel text-xs font-bold text-[#15803D] uppercase flex items-center gap-2">
+              <div className="font-sans text-xs font-bold text-[#15803D] uppercase flex items-center gap-2">
                 <span>▶ HỘI TỤ (CONVERGE): 3 CƠ HỘI ĐỘT PHÁ CỐT LÕI</span>
               </div>
               <div className="space-y-2.5 font-sans text-xs">
                 <div className="p-3 rounded bg-white border border-[#BDE3B6] space-y-1">
-                  <span className="font-pixel text-[11px] font-bold text-[#15803D] uppercase">01. Readiness & Dynamic Preparation</span>
+                  <span className="font-sans text-[11px] font-bold text-[#15803D] uppercase">01. Readiness & Dynamic Preparation</span>
                   <p className="text-[#2D452F]">
                     Xây dựng luồng tiền kiểm tra 60 giây và danh mục hồ sơ động gợi ý chính xác theo loại hình vay và ngành nghề kinh doanh.
                   </p>
                 </div>
                 <div className="p-3 rounded bg-white border border-[#BDE3B6] space-y-1">
-                  <span className="font-pixel text-[11px] font-bold text-[#15803D] uppercase">02. Multi-role Collaborative Flow</span>
+                  <span className="font-sans text-[11px] font-bold text-[#15803D] uppercase">02. Multi-role Collaborative Flow</span>
                   <p className="text-[#2D452F]">
                     Tách luồng soạn thảo chi tiết trên Web Portal cho kế toán và màn hình Decision Summary duyệt nhanh 1-chạm trên Mobile cho CEO.
                   </p>
                 </div>
                 <div className="p-3 rounded bg-white border border-[#BDE3B6] space-y-1">
-                  <span className="font-pixel text-[11px] font-bold text-[#15803D] uppercase">03. Transparent Tracking & Contextual RM Handoff</span>
+                  <span className="font-sans text-[11px] font-bold text-[#15803D] uppercase">03. Transparent Tracking & Contextual RM Handoff</span>
                   <p className="text-[#2D452F]">
                     Minh bạch hóa timeline 4 giai đoạn cụ thể và tạo cầu nối 1-chạm cho RM tiếp nhận nguyên vẹn dữ liệu nháp của khách hàng.
                   </p>
@@ -906,7 +906,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         {/* Prioritization Matrix: In Scope vs Out of Scope */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="p-5 rounded-[8px] bg-[#FFFDF7] border-2 border-[#86EFAC] shadow-[0_3px_0_#4ADE80] space-y-3">
-            <div className="font-pixel text-xs sm:text-sm font-bold text-[#166534] uppercase flex items-center gap-2">
+            <div className="font-sans text-xs sm:text-sm font-bold text-[#166534] uppercase flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
               <span>ƯU TIÊN HÀNG ĐẦU TRONG MVP (IN-SCOPE)</span>
             </div>
@@ -931,7 +931,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           </div>
 
           <div className="p-5 rounded-[8px] bg-[#FFFDF7] border-2 border-[#FCA5A5] shadow-[0_3px_0_#F87171] space-y-3">
-            <div className="font-pixel text-xs sm:text-sm font-bold text-[#991B1B] uppercase flex items-center gap-2">
+            <div className="font-sans text-xs sm:text-sm font-bold text-[#991B1B] uppercase flex items-center gap-2">
               <X className="w-4 h-4 text-[#DC2626]" />
               <span>CHƯA ƯU TIÊN / NGOÀI PHẠM VI MVP (OUT-OF-SCOPE)</span>
             </div>
@@ -958,12 +958,12 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
        * ========================================================================= */}
       <section id="sec-06" className="space-y-6 pt-4 scroll-mt-16 border-t-2 border-[#EAD9B0]">
         <div className="space-y-2">
-          <div className="flex items-center gap-2 font-pixel text-xs sm:text-sm font-bold text-[#B86428] uppercase">
+          <div className="flex items-center gap-2 font-sans text-xs sm:text-sm font-bold text-[#B86428] uppercase">
             <span className="px-2 py-0.5 rounded bg-[#F4C542]/30 border border-[#B86428]/40">
               06 / EXPERIENCE STRATEGY
             </span>
           </div>
-          <h2 className="font-pixel text-2xl sm:text-3xl font-bold text-[#2D1B12]">
+          <h2 className="font-sans text-2xl sm:text-3xl font-bold text-[#2D1B12]">
             Từ cơ hội ưu tiên đến 5 trụ cột trải nghiệm
           </h2>
           <p className="font-sans text-sm sm:text-base text-[#5A4030] leading-relaxed max-w-3xl">
@@ -973,7 +973,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
 
         {/* Key Statement Callout */}
         <div className="p-5 sm:p-6 rounded-[10px] bg-[#FFF8E7] border-2 border-[#B86428] shadow-[0_4px_0_#7A3F1F] text-center space-y-2">
-          <span className="font-pixel text-xs text-[#B86428] uppercase font-bold tracking-widest">
+          <span className="font-sans text-xs text-[#B86428] uppercase font-bold tracking-widest">
             ★ CHIẾN LƯỢC CỐT LÕI (STRATEGIC PILLAR STATEMENT) ★
           </span>
           <blockquote className="font-sans text-base sm:text-xl font-bold text-[#2D1B12] leading-snug max-w-3xl mx-auto">
@@ -1015,10 +1015,10 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
               className="p-4 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571] flex flex-col justify-between space-y-2 hover:-translate-y-0.5 transition-transform"
             >
               <div className="space-y-1.5">
-                <span className="font-pixel text-xs font-bold text-[#2D1B12] px-2 py-0.5 rounded bg-[#F4C542]">
+                <span className="font-sans text-xs font-bold text-[#2D1B12] px-2 py-0.5 rounded bg-[#F4C542]">
                   PILLAR {p.num}
                 </span>
-                <h3 className="font-pixel text-xs sm:text-sm font-bold text-[#2D1B12] pt-1">
+                <h3 className="font-sans text-xs sm:text-sm font-bold text-[#2D1B12] pt-1">
                   {p.title}
                 </h3>
               </div>
@@ -1035,12 +1035,12 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
        * ========================================================================= */}
       <section id="sec-07" className="space-y-6 pt-4 scroll-mt-16 border-t-2 border-[#EAD9B0]">
         <div className="space-y-2">
-          <div className="flex items-center gap-2 font-pixel text-xs sm:text-sm font-bold text-[#B86428] uppercase">
+          <div className="flex items-center gap-2 font-sans text-xs sm:text-sm font-bold text-[#B86428] uppercase">
             <span className="px-2 py-0.5 rounded bg-[#F4C542]/30 border border-[#B86428]/40">
               07 / FLOW & PROTOTYPE • VISUAL CLIMAX 01
             </span>
           </div>
-          <h2 className="font-pixel text-2xl sm:text-3xl font-bold text-[#2D1B12]">
+          <h2 className="font-sans text-2xl sm:text-3xl font-bold text-[#2D1B12]">
             Từ chiến lược thành một hành trình có thể trải nghiệm
           </h2>
           <p className="font-sans text-sm sm:text-base text-[#5A4030] leading-relaxed max-w-3xl">
@@ -1050,7 +1050,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
 
         {/* 9 Steps Flow Badges */}
         <div className="p-4 rounded-[8px] bg-[#FFF8E7] border border-[#DFC9A2] overflow-x-auto">
-          <div className="flex items-center gap-2 min-w-max text-xs font-pixel font-bold text-[#2D1B12]">
+          <div className="flex items-center gap-2 min-w-max text-xs font-sans font-bold text-[#2D1B12]">
             {[
               'Khởi tạo nhu cầu',
               'Readiness Check',
@@ -1075,13 +1075,13 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         {/* Full-width Flow Viewer Container */}
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <h3 className="font-pixel text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase flex items-center gap-2">
+            <h3 className="font-sans text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase flex items-center gap-2">
               <Workflow className="w-4 h-4 text-[#B86428]" />
               <span>SƠ ĐỒ HÀNH TRÌNH TƯƠNG TÁC (USER FLOW DIAGRAM)</span>
             </h3>
             <button
               onClick={() => setLightboxImage('/assets/lending-flow.webp')}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[5px] bg-[#F4C542] hover:bg-[#FFD55C] border-2 border-[#4A2414] text-[#2D1B12] font-pixel text-xs font-bold shadow-[0_2px_0_#4A2414] active:translate-y-0.5 cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[5px] bg-[#F4C542] hover:bg-[#FFD55C] border-2 border-[#4A2414] text-[#2D1B12] font-sans text-xs font-bold shadow-[0_2px_0_#4A2414] active:translate-y-0.5 cursor-pointer"
             >
               <Maximize2 className="w-3.5 h-3.5" />
               <span>XEM TOÀN BỘ FLOW (LIGHTBOX)</span>
@@ -1097,14 +1097,14 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
               <Workflow className="w-6 h-6" />
             </div>
             <div className="space-y-1">
-              <div className="font-pixel text-sm sm:text-base text-sky-200 font-bold">
+              <div className="font-sans text-sm sm:text-base text-sky-200 font-bold">
                 BẢN ĐỒ TOÀN TRÌNH USER FLOW: BIZ MBBANK LENDING
               </div>
               <p className="font-sans text-xs text-slate-400 max-w-lg mx-auto">
                 Nhấp để mở sơ đồ độ phân giải cao dạng Lightbox tương tác, hiển thị đầy đủ các điểm rẽ nhánh logic và các trường dữ liệu tự động validate.
               </p>
             </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-sky-500/20 text-sky-300 font-pixel text-[11px] border border-sky-500/40">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-sky-500/20 text-sky-300 font-sans text-[11px] border border-sky-500/40">
               <span>✦ Click để mở Fullscreen</span>
             </div>
           </div>
@@ -1113,7 +1113,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         {/* Prototype Video Player in Voxel Monitor Frame */}
         <div className="space-y-3 pt-2">
           <div className="flex items-center justify-between">
-            <h3 className="font-pixel text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase flex items-center gap-2">
+            <h3 className="font-sans text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase flex items-center gap-2">
               <Play className="w-4 h-4 text-[#B86428]" />
               <span>NGUYÊN MẪU TƯƠNG TÁC THỰC TẾ (INTERACTIVE PROTOTYPE VIDEO)</span>
             </h3>
@@ -1123,7 +1123,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           {/* Voxel Monitor Frame */}
           <div className="rounded-[14px] bg-[#22130B] p-3 sm:p-5 border-4 border-[#4A2414] shadow-[0_8px_0_#1E0D06] space-y-2">
             {/* Monitor Top Bar */}
-            <div className="flex items-center justify-between px-2 pb-2 text-[10px] font-pixel text-[#DFC9A2] border-b border-[#3B1D0F]">
+            <div className="flex items-center justify-between px-2 pb-2 text-[10px] font-sans text-[#DFC9A2] border-b border-[#3B1D0F]">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-red-500" />
                 <span className="w-2 h-2 rounded-full bg-yellow-500" />
@@ -1141,7 +1141,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
                   <Play className="w-7 h-7 ml-1" />
                 </div>
                 <div className="space-y-1">
-                  <div className="font-pixel text-base sm:text-lg font-bold text-white tracking-wide">
+                  <div className="font-sans text-base sm:text-lg font-bold text-white tracking-wide">
                     [ PROTOTYPE VIDEO • BIZ MBBANK LENDING ]
                   </div>
                   <p className="font-sans text-xs text-slate-300 leading-relaxed">
@@ -1152,14 +1152,14 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
                   <span className="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono text-[10px] border border-slate-700">
                     /assets/lending-prototype.mp4
                   </span>
-                  <span className="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 font-pixel text-[10px] border border-emerald-500/40">
+                  <span className="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 font-sans text-[10px] border border-emerald-500/40">
                     Auto-loop • Muted • 60fps
                   </span>
                 </div>
               </div>
 
               {/* Video Player Overlay Controls Bar */}
-              <div className="absolute bottom-3 inset-x-3 rounded-[6px] bg-slate-900/90 backdrop-blur-md p-2 flex items-center justify-between border border-slate-700 text-white text-xs font-pixel">
+              <div className="absolute bottom-3 inset-x-3 rounded-[6px] bg-slate-900/90 backdrop-blur-md p-2 flex items-center justify-between border border-slate-700 text-white text-xs font-sans">
                 <div className="flex items-center gap-3">
                   <button
                     onClick={() => setIsPlayingVideo(!isPlayingVideo)}
@@ -1191,12 +1191,12 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
        * ========================================================================= */}
       <section id="sec-08" className="space-y-8 pt-4 scroll-mt-16 border-t-2 border-[#EAD9B0]">
         <div className="space-y-2">
-          <div className="flex items-center gap-2 font-pixel text-xs sm:text-sm font-bold text-[#B86428] uppercase">
+          <div className="flex items-center gap-2 font-sans text-xs sm:text-sm font-bold text-[#B86428] uppercase">
             <span className="px-2 py-0.5 rounded bg-[#F4C542]/30 border border-[#B86428]/40">
               08 / PRODUCT SOLUTION SHOWCASE
             </span>
           </div>
-          <h2 className="font-pixel text-2xl sm:text-3xl font-bold text-[#2D1B12]">
+          <h2 className="font-sans text-2xl sm:text-3xl font-bold text-[#2D1B12]">
             Mỗi màn hình tồn tại vì một insight cụ thể
           </h2>
           <p className="font-sans text-sm sm:text-base text-[#5A4030] leading-relaxed max-w-3xl">
@@ -1208,10 +1208,10 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         <div className="p-5 sm:p-7 rounded-[10px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571] space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DFC9A2] pb-3">
             <div className="flex items-center gap-2">
-              <span className="font-pixel text-xs font-bold text-white px-2 py-0.5 rounded bg-[#176B73]">
+              <span className="font-sans text-xs font-bold text-white px-2 py-0.5 rounded bg-[#176B73]">
                 SOLUTION 01
               </span>
-              <h3 className="font-pixel text-base sm:text-lg font-bold text-[#2D1B12]">
+              <h3 className="font-sans text-base sm:text-lg font-bold text-[#2D1B12]">
                 Readiness Screen — Kiểm tra điều kiện trong 60 giây
               </h3>
             </div>
@@ -1269,10 +1269,10 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         <div className="p-5 sm:p-7 rounded-[10px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571] space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DFC9A2] pb-3">
             <div className="flex items-center gap-2">
-              <span className="font-pixel text-xs font-bold text-white px-2 py-0.5 rounded bg-[#176B73]">
+              <span className="font-sans text-xs font-bold text-white px-2 py-0.5 rounded bg-[#176B73]">
                 SOLUTION 02
               </span>
-              <h3 className="font-pixel text-base sm:text-lg font-bold text-[#2D1B12]">
+              <h3 className="font-sans text-base sm:text-lg font-bold text-[#2D1B12]">
                 Dynamic Checklist & Smart File Parser
               </h3>
             </div>
@@ -1333,10 +1333,10 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         <div className="p-5 sm:p-7 rounded-[10px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571] space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DFC9A2] pb-3">
             <div className="flex items-center gap-2">
-              <span className="font-pixel text-xs font-bold text-white px-2 py-0.5 rounded bg-[#176B73]">
+              <span className="font-sans text-xs font-bold text-white px-2 py-0.5 rounded bg-[#176B73]">
                 SOLUTION 03
               </span>
-              <h3 className="font-pixel text-base sm:text-lg font-bold text-[#2D1B12]">
+              <h3 className="font-sans text-base sm:text-lg font-bold text-[#2D1B12]">
                 Creator Flow + Approver Decision Summary
               </h3>
             </div>
@@ -1391,10 +1391,10 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           {/* Solution 04 */}
           <div className="p-5 sm:p-6 rounded-[10px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571] space-y-3">
             <div className="flex items-center gap-2 border-b border-[#DFC9A2] pb-2.5">
-              <span className="font-pixel text-xs font-bold text-white px-2 py-0.5 rounded bg-[#176B73]">
+              <span className="font-sans text-xs font-bold text-white px-2 py-0.5 rounded bg-[#176B73]">
                 SOLUTION 04
               </span>
-              <h3 className="font-pixel text-sm sm:text-base font-bold text-[#2D1B12]">
+              <h3 className="font-sans text-sm sm:text-base font-bold text-[#2D1B12]">
                 Status Timeline & Next Action Guidance
               </h3>
             </div>
@@ -1423,10 +1423,10 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           {/* Solution 05 */}
           <div className="p-5 sm:p-6 rounded-[10px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571] space-y-3">
             <div className="flex items-center gap-2 border-b border-[#DFC9A2] pb-2.5">
-              <span className="font-pixel text-xs font-bold text-white px-2 py-0.5 rounded bg-[#176B73]">
+              <span className="font-sans text-xs font-bold text-white px-2 py-0.5 rounded bg-[#176B73]">
                 SOLUTION 05
               </span>
-              <h3 className="font-pixel text-sm sm:text-base font-bold text-[#2D1B12]">
+              <h3 className="font-sans text-sm sm:text-base font-bold text-[#2D1B12]">
                 Contextual RM Handoff Bridge
               </h3>
             </div>
@@ -1442,10 +1442,10 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
                 “Hồ sơ nháp của bạn đã được chuyển nguyên vẹn sang RM. Bạn không cần gửi lại tài liệu hay nhập lại thông tin.”
               </p>
               <div className="pt-1 flex gap-2">
-                <button className="px-3 py-1 rounded bg-[#3B1D0F] text-[#FFF4D6] font-pixel text-xs font-bold cursor-pointer">
+                <button className="px-3 py-1 rounded bg-[#3B1D0F] text-[#FFF4D6] font-sans text-xs font-bold cursor-pointer">
                   Gọi điện RM
                 </button>
-                <button className="px-3 py-1 rounded bg-white border border-[#CBB892] text-[#7A3F1F] font-pixel text-xs font-bold cursor-pointer">
+                <button className="px-3 py-1 rounded bg-white border border-[#CBB892] text-[#7A3F1F] font-sans text-xs font-bold cursor-pointer">
                   Nhắn tin bảo mật
                 </button>
               </div>
@@ -1459,12 +1459,12 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
        * ========================================================================= */}
       <section id="sec-09" className="space-y-6 pt-4 scroll-mt-16 border-t-2 border-[#EAD9B0]">
         <div className="space-y-2">
-          <div className="flex items-center gap-2 font-pixel text-xs sm:text-sm font-bold text-[#B86428] uppercase">
+          <div className="flex items-center gap-2 font-sans text-xs sm:text-sm font-bold text-[#B86428] uppercase">
             <span className="px-2 py-0.5 rounded bg-[#F4C542]/30 border border-[#B86428]/40">
               09 / USABILITY TESTING • VISUAL CLIMAX 02
             </span>
           </div>
-          <h2 className="font-pixel text-2xl sm:text-3xl font-bold text-[#2D1B12]">
+          <h2 className="font-sans text-2xl sm:text-3xl font-bold text-[#2D1B12]">
             Kiểm chứng thiết kế bằng người dùng thật
           </h2>
           <p className="font-sans text-sm sm:text-base text-[#5A4030] leading-relaxed max-w-3xl">
@@ -1475,7 +1475,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         {/* 4 Iteration Stories Interactive Tabs */}
         <div className="p-5 sm:p-7 rounded-[10px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571] space-y-5">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DFC9A2] pb-3">
-            <div className="font-pixel text-xs sm:text-sm font-bold text-[#2D1B12] flex items-center gap-2">
+            <div className="font-sans text-xs sm:text-sm font-bold text-[#2D1B12] flex items-center gap-2">
               <RotateCcw className="w-4 h-4 text-[#B86428]" />
               <span>4 VÒNG LẶP CẢI TIẾN TRỌNG YẾU (BEFORE → EVIDENCE → AFTER)</span>
             </div>
@@ -1484,7 +1484,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
             <div className="flex items-center gap-1 bg-[#FFF4D6] p-1 rounded-[6px] border border-[#CBB892]">
               <button
                 onClick={() => setActiveTestTab('after')}
-                className={`px-3 py-1 rounded-[4px] font-pixel text-xs font-bold transition-all cursor-pointer ${
+                className={`px-3 py-1 rounded-[4px] font-sans text-xs font-bold transition-all cursor-pointer ${
                   activeTestTab === 'after'
                     ? 'bg-[#15803D] text-white shadow-xs'
                     : 'text-[#7A3F1F] hover:text-[#2D1B12]'
@@ -1494,7 +1494,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
               </button>
               <button
                 onClick={() => setActiveTestTab('before')}
-                className={`px-3 py-1 rounded-[4px] font-pixel text-xs font-bold transition-all cursor-pointer ${
+                className={`px-3 py-1 rounded-[4px] font-sans text-xs font-bold transition-all cursor-pointer ${
                   activeTestTab === 'before'
                     ? 'bg-[#991B1B] text-white shadow-xs'
                     : 'text-[#7A3F1F] hover:text-[#2D1B12]'
@@ -1516,7 +1516,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
               <button
                 key={idx}
                 onClick={() => setActiveIteration(idx)}
-                className={`p-2 rounded-[6px] text-center font-pixel text-xs font-bold transition-all cursor-pointer border ${
+                className={`p-2 rounded-[6px] text-center font-sans text-xs font-bold transition-all cursor-pointer border ${
                   activeIteration === idx
                     ? 'bg-[#F4C542] text-[#2D1B12] border-[#4A2414] shadow-[0_2px_0_#4A2414]'
                     : 'bg-[#FFF8E7] text-[#7A3F1F] border-[#DFC9A2] hover:bg-[#FFECC2]'
@@ -1534,7 +1534,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           {activeIteration === 0 && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-4 rounded-lg bg-[#FFF8E7] border border-[#DFC9A2]">
               <div className="lg:col-span-5 space-y-2.5 font-sans text-xs">
-                <div className="font-pixel text-xs text-[#B86428] font-bold uppercase">
+                <div className="font-sans text-xs text-[#B86428] font-bold uppercase">
                   VÒNG LẶP 01: LÀM RÕ THUẬT NGỮ TÀI CHÍNH
                 </div>
                 <div className="p-2 rounded bg-white border border-[#DFC9A2]">
@@ -1547,7 +1547,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
               <div className="lg:col-span-7 rounded-[8px] p-4 font-sans text-xs flex flex-col justify-center">
                 {activeTestTab === 'after' ? (
                   <div className="bg-[#0E1A2E] p-4 rounded-lg text-white border border-emerald-500/50 space-y-2">
-                    <span className="text-[10px] font-pixel text-emerald-400 font-bold">★ AFTER (CẢI TIẾN)</span>
+                    <span className="text-[10px] font-sans text-emerald-400 font-bold">★ AFTER (CẢI TIẾN)</span>
                     <div className="text-xs text-slate-300">Nhu cầu vốn dự kiến của doanh nghiệp:</div>
                     <div className="text-lg font-bold font-mono text-emerald-400">85.000.000.000 VNĐ</div>
                     <p className="text-[10px] text-slate-400 italic">
@@ -1556,7 +1556,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
                   </div>
                 ) : (
                   <div className="bg-slate-800 p-4 rounded-lg text-slate-300 border border-red-500/50 space-y-2">
-                    <span className="text-[10px] font-pixel text-red-400 font-bold">BEFORE (TRƯỚC ĐÂY)</span>
+                    <span className="text-[10px] font-sans text-red-400 font-bold">BEFORE (TRƯỚC ĐÂY)</span>
                     <div className="text-xs">Hạn mức đề xuất:</div>
                     <div className="text-lg font-bold font-mono text-red-300">85.000.000.000 VNĐ</div>
                     <p className="text-[10px] text-slate-400">(Không có giải thích, gây hiểu nhầm đã được cấp)</p>
@@ -1569,7 +1569,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           {activeIteration === 1 && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-4 rounded-lg bg-[#FFF8E7] border border-[#DFC9A2]">
               <div className="lg:col-span-5 space-y-2.5 font-sans text-xs">
-                <div className="font-pixel text-xs text-[#B86428] font-bold uppercase">
+                <div className="font-sans text-xs text-[#B86428] font-bold uppercase">
                   VÒNG LẶP 02: BÁO LỖI HỒ SƠ CÓ HÀNH ĐỘNG KHẮC PHỤC
                 </div>
                 <div className="p-2 rounded bg-white border border-[#DFC9A2]">
@@ -1582,18 +1582,18 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
               <div className="lg:col-span-7 rounded-[8px] p-4 font-sans text-xs flex flex-col justify-center">
                 {activeTestTab === 'after' ? (
                   <div className="bg-[#0E1A2E] p-4 rounded-lg text-white border border-emerald-500/50 space-y-2">
-                    <span className="text-[10px] font-pixel text-emerald-400 font-bold">★ AFTER (CẢI TIẾN)</span>
+                    <span className="text-[10px] font-sans text-emerald-400 font-bold">★ AFTER (CẢI TIẾN)</span>
                     <div className="p-2.5 rounded bg-red-950/60 border border-red-500/50 text-red-200 space-y-1">
                       <div className="font-bold text-xs">Báo cáo tài chính chưa đúng định dạng chuẩn!</div>
                       <div className="text-[11px] text-slate-300">Hệ thống yêu cầu file định dạng PDF hoặc XLSX dưới 50MB. Vui lòng kiểm tra lại file đã scan.</div>
-                      <button className="mt-1 px-2 py-1 rounded bg-red-600 text-white font-pixel text-[10px] font-bold cursor-pointer">
+                      <button className="mt-1 px-2 py-1 rounded bg-red-600 text-white font-sans text-[10px] font-bold cursor-pointer">
                         Tải lại hồ sơ đúng chuẩn
                       </button>
                     </div>
                   </div>
                 ) : (
                   <div className="bg-slate-800 p-4 rounded-lg text-slate-300 border border-red-500/50 space-y-2">
-                    <span className="text-[10px] font-pixel text-red-400 font-bold">BEFORE (TRƯỚC ĐÂY)</span>
+                    <span className="text-[10px] font-sans text-red-400 font-bold">BEFORE (TRƯỚC ĐÂY)</span>
                     <div className="p-2 rounded bg-red-900/40 text-red-300 text-xs font-bold">
                       Lỗi: Hồ sơ không hợp lệ! (Mã lỗi: ERR_402)
                     </div>
@@ -1606,7 +1606,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           {activeIteration === 2 && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-4 rounded-lg bg-[#FFF8E7] border border-[#DFC9A2]">
               <div className="lg:col-span-5 space-y-2.5 font-sans text-xs">
-                <div className="font-pixel text-xs text-[#B86428] font-bold uppercase">
+                <div className="font-sans text-xs text-[#B86428] font-bold uppercase">
                   VÒNG LẶP 03: TRẠNG THÁI TIẾN TRÌNH RÕ NGHĨA
                 </div>
                 <div className="p-2 rounded bg-white border border-[#DFC9A2]">
@@ -1619,7 +1619,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
               <div className="lg:col-span-7 rounded-[8px] p-4 font-sans text-xs flex flex-col justify-center">
                 {activeTestTab === 'after' ? (
                   <div className="bg-[#0E1A2E] p-4 rounded-lg text-white border border-emerald-500/50 space-y-2">
-                    <span className="text-[10px] font-pixel text-emerald-400 font-bold">★ AFTER (CẢI TIẾN)</span>
+                    <span className="text-[10px] font-sans text-emerald-400 font-bold">★ AFTER (CẢI TIẾN)</span>
                     <div className="flex justify-between items-center border-b border-slate-800 pb-1.5">
                       <span className="font-bold text-sky-300">Đang chờ phê duyệt hạn mức</span>
                       <span className="text-[10px] text-amber-400">Dự kiến: Trước 17:00 Ngày mai</span>
@@ -1630,7 +1630,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
                   </div>
                 ) : (
                   <div className="bg-slate-800 p-4 rounded-lg text-slate-300 border border-red-500/50 space-y-2">
-                    <span className="text-[10px] font-pixel text-red-400 font-bold">BEFORE (TRƯỚC ĐÂY)</span>
+                    <span className="text-[10px] font-sans text-red-400 font-bold">BEFORE (TRƯỚC ĐÂY)</span>
                     <div className="text-amber-400 font-bold text-xs">Trạng thái: Đang xử lý</div>
                   </div>
                 )}
@@ -1641,7 +1641,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           {activeIteration === 3 && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-4 rounded-lg bg-[#FFF8E7] border border-[#DFC9A2]">
               <div className="lg:col-span-5 space-y-2.5 font-sans text-xs">
-                <div className="font-pixel text-xs text-[#B86428] font-bold uppercase">
+                <div className="font-sans text-xs text-[#B86428] font-bold uppercase">
                   VÒNG LẶP 04: BÀN GIAO CHO RELATIONSHIP MANAGER
                 </div>
                 <div className="p-2 rounded bg-white border border-[#DFC9A2]">
@@ -1654,7 +1654,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
               <div className="lg:col-span-7 rounded-[8px] p-4 font-sans text-xs flex flex-col justify-center">
                 {activeTestTab === 'after' ? (
                   <div className="bg-[#0E1A2E] p-4 rounded-lg text-white border border-emerald-500/50 space-y-2">
-                    <span className="text-[10px] font-pixel text-emerald-400 font-bold">★ AFTER (CẢI TIẾN)</span>
+                    <span className="text-[10px] font-sans text-emerald-400 font-bold">★ AFTER (CẢI TIẾN)</span>
                     <div className="text-xs font-bold text-sky-300">Chuyên viên RM Tuấn Anh đang xem xét hồ sơ của bạn</div>
                     <div className="text-[11px] text-slate-300">
                       Toàn bộ bản nháp và tài liệu đã được chuyển an toàn. RM sẽ liên hệ qua điện thoại trong vòng 2 giờ làm việc.
@@ -1662,7 +1662,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
                   </div>
                 ) : (
                   <div className="bg-slate-800 p-4 rounded-lg text-slate-300 border border-red-500/50 space-y-2">
-                    <span className="text-[10px] font-pixel text-red-400 font-bold">BEFORE (TRƯỚC ĐÂY)</span>
+                    <span className="text-[10px] font-sans text-red-400 font-bold">BEFORE (TRƯỚC ĐÂY)</span>
                     <div className="text-red-400 font-bold text-xs">Hệ thống chuyển hồ sơ sang RM xử lý thủ công.</div>
                   </div>
                 )}
@@ -1677,12 +1677,12 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
        * ========================================================================= */}
       <section id="sec-10" className="space-y-6 pt-4 scroll-mt-16 border-t-2 border-[#EAD9B0]">
         <div className="space-y-2">
-          <div className="flex items-center gap-2 font-pixel text-xs sm:text-sm font-bold text-[#B86428] uppercase">
+          <div className="flex items-center gap-2 font-sans text-xs sm:text-sm font-bold text-[#B86428] uppercase">
             <span className="px-2 py-0.5 rounded bg-[#F4C542]/30 border border-[#B86428]/40">
               10 / IMPACT & REFLECTION
             </span>
           </div>
-          <h2 className="font-pixel text-2xl sm:text-3xl font-bold text-[#2D1B12]">
+          <h2 className="font-sans text-2xl sm:text-3xl font-bold text-[#2D1B12]">
             Thiết kế tốt không chỉ đơn giản hóa — nó tạo quyền kiểm soát
           </h2>
           <p className="font-sans text-sm sm:text-base text-[#5A4030] leading-relaxed max-w-3xl">
@@ -1693,22 +1693,22 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         {/* Honest Business Impact Metrics Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <div className="p-4 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571] text-center space-y-1">
-            <div className="font-pixel text-2xl sm:text-3xl font-bold text-[#15803D]">+[XX]%</div>
+            <div className="font-sans text-2xl sm:text-3xl font-bold text-[#15803D]">+[XX]%</div>
             <div className="font-sans text-xs font-semibold text-[#2D1B12]">Tỷ lệ hoàn thành hồ sơ</div>
             <div className="font-sans text-[10px] text-[#7A3F1F]">Nhờ Readiness Check</div>
           </div>
           <div className="p-4 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571] text-center space-y-1">
-            <div className="font-pixel text-2xl sm:text-3xl font-bold text-[#15803D]">−[XX]%</div>
+            <div className="font-sans text-2xl sm:text-3xl font-bold text-[#15803D]">−[XX]%</div>
             <div className="font-sans text-xs font-semibold text-[#2D1B12]">Tần suất bổ sung hồ sơ</div>
             <div className="font-sans text-[10px] text-[#7A3F1F]">Checklist phân loại chuẩn</div>
           </div>
           <div className="p-4 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571] text-center space-y-1">
-            <div className="font-pixel text-2xl sm:text-3xl font-bold text-[#15803D]">−[XX]%</div>
+            <div className="font-sans text-2xl sm:text-3xl font-bold text-[#15803D]">−[XX]%</div>
             <div className="font-sans text-xs font-semibold text-[#2D1B12]">Thời gian chuẩn bị đơn</div>
             <div className="font-sans text-[10px] text-[#7A3F1F]">Từ 5 ngày còn dưới 4h</div>
           </div>
           <div className="p-4 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571] text-center space-y-1">
-            <div className="font-pixel text-2xl sm:text-3xl font-bold text-[#15803D]">−[XX]%</div>
+            <div className="font-sans text-2xl sm:text-3xl font-bold text-[#15803D]">−[XX]%</div>
             <div className="font-sans text-xs font-semibold text-[#2D1B12]">Can thiệp RM sớm</div>
             <div className="font-sans text-[10px] text-[#7A3F1F]">Giảm tải vận hành chi nhánh</div>
           </div>
@@ -1717,7 +1717,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         {/* What I Did Well vs What Could Be Better */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="p-5 rounded-[8px] bg-[#FFFDF7] border-2 border-[#86EFAC] shadow-[0_3px_0_#4ADE80] space-y-3">
-            <div className="font-pixel text-xs sm:text-sm font-bold text-[#166534] uppercase flex items-center gap-2">
+            <div className="font-sans text-xs sm:text-sm font-bold text-[#166534] uppercase flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
               <span>ĐIỀU TÔI ĐÃ LÀM TỐT (WHAT I DID WELL)</span>
             </div>
@@ -1730,7 +1730,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           </div>
 
           <div className="p-5 rounded-[8px] bg-[#FFFDF7] border-2 border-[#FCA5A5] shadow-[0_3px_0_#F87171] space-y-3">
-            <div className="font-pixel text-xs sm:text-sm font-bold text-[#991B1B] uppercase flex items-center gap-2">
+            <div className="font-sans text-xs sm:text-sm font-bold text-[#991B1B] uppercase flex items-center gap-2">
               <AlertCircle className="w-4 h-4 text-[#DC2626]" />
               <span>ĐIỀU CÓ THỂ LÀM TỐT HƠN (WHAT COULD BE BETTER)</span>
             </div>
@@ -1745,7 +1745,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         {/* Biggest Challenge & Key Lessons */}
         <div className="p-5 sm:p-7 rounded-[10px] bg-[#FFF8E7] border-2 border-[#DFC9A2] shadow-[0_4px_0_#BCA67F] space-y-4">
           <div className="space-y-2">
-            <div className="font-pixel text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase">
+            <div className="font-sans text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase">
               ⚔️ KHÓ KHĂN LỚN NHẤT TRONG DỰ ÁN
             </div>
             <blockquote className="font-sans text-sm sm:text-base font-bold text-[#2D1B12] italic border-l-4 border-[#B86428] pl-3">
@@ -1754,7 +1754,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           </div>
 
           <div className="space-y-2 pt-2 border-t border-[#DFC9A2]">
-            <div className="font-pixel text-xs sm:text-sm font-bold text-[#2D1B12] uppercase">
+            <div className="font-sans text-xs sm:text-sm font-bold text-[#2D1B12] uppercase">
               💡 4 BÀI HỌC KINH NGHIỆM ĐẮC GIÁ
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 font-sans text-xs text-[#4A3326]">
@@ -1776,20 +1776,20 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
 
         {/* Next Roadmap */}
         <div className="p-5 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571] space-y-3">
-          <div className="font-pixel text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase">
+          <div className="font-sans text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase">
             🚀 LỘ TRÌNH PHÁT TRIỂN TIẾP THEO (PRODUCT ROADMAP)
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 font-sans text-xs">
             <div className="p-3 rounded bg-[#FFF8E7] border border-[#DFC9A2]">
-              <div className="font-pixel text-[11px] font-bold text-[#B86428]">0 – 3 THÁNG</div>
+              <div className="font-sans text-[11px] font-bold text-[#B86428]">0 – 3 THÁNG</div>
               <p className="text-[#4A3326] mt-1">Đo lường các chỉ số phễu drop-off và tinh chỉnh micro-copywriting tại các bước tải hồ sơ.</p>
             </div>
             <div className="p-3 rounded bg-[#FFF8E7] border border-[#DFC9A2]">
-              <div className="font-pixel text-[11px] font-bold text-[#B86428]">3 – 9 THÁNG</div>
+              <div className="font-sans text-[11px] font-bold text-[#B86428]">3 – 9 THÁNG</div>
               <p className="text-[#4A3326] mt-1">Tích hợp công nghệ OCR và Open Banking API để tự động trích xuất sao kê thuế và báo cáo tài chính.</p>
             </div>
             <div className="p-3 rounded bg-[#FFF8E7] border border-[#DFC9A2]">
-              <div className="font-pixel text-[11px] font-bold text-[#B86428]">9 – 18 THÁNG</div>
+              <div className="font-sans text-[11px] font-bold text-[#B86428]">9 – 18 THÁNG</div>
               <p className="text-[#4A3326] mt-1">Mở rộng mô hình cấp hạn mức trung dài hạn cho các gói tín dụng xanh và tài trợ chuỗi cung ứng quốc tế.</p>
             </div>
           </div>
@@ -1810,7 +1810,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
             href={project.demoUrl || 'https://bizmbbank.com.vn'}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[6px] bg-[#F4C542] hover:bg-[#FFD55C] active:bg-[#D9A726] border-2 border-[#4A2414] text-[#2D1B12] font-pixel text-xs sm:text-sm font-bold shadow-[0_3px_0_#4A2414] active:translate-y-0.5 transition-all cursor-pointer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[6px] bg-[#F4C542] hover:bg-[#FFD55C] active:bg-[#D9A726] border-2 border-[#4A2414] text-[#2D1B12] font-sans text-xs sm:text-sm font-bold shadow-[0_3px_0_#4A2414] active:translate-y-0.5 transition-all cursor-pointer"
           >
             <span>TRẢI NGHIỆM BIZ MBBANK 2.0</span>
             <ExternalLink className="w-4 h-4" />
@@ -1830,7 +1830,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
             className="relative max-w-5xl w-full max-h-[90vh] bg-[#0E1A2E] rounded-[10px] border-2 border-[#CBB892] p-4 flex flex-col space-y-3"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between border-b border-slate-800 pb-2 text-white font-pixel text-xs">
+            <div className="flex items-center justify-between border-b border-slate-800 pb-2 text-white font-sans text-xs">
               <span>SƠ ĐỒ TOÀN TRÌNH USER FLOW • BIZ MBBANK LENDING</span>
               <button
                 onClick={() => setLightboxImage(null)}
@@ -1844,7 +1844,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
               {/* If flow image exists or visual schema diagram */}
               <div className="space-y-4 text-center text-white font-sans text-xs">
                 <div className="p-4 rounded bg-slate-900/90 border border-slate-700 max-w-2xl text-left space-y-3">
-                  <div className="font-pixel text-sm font-bold text-sky-400">
+                  <div className="font-sans text-sm font-bold text-sky-400">
                     SƠ ĐỒ ĐIỂM CHẠM VÀ PHÂN QUYỀN HỆ THỐNG
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px]">

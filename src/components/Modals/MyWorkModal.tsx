@@ -578,13 +578,13 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
           <div className="flex items-center justify-between gap-3 border-b-2 border-[#DFC9A2] pb-3">
             <button
               onClick={handleBackToList}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-[6px] bg-[#FFF4D6] hover:bg-[#FFECC2] border-2 border-[#CBB892] text-[#7A3F1F] font-pixel text-xs font-bold shadow-[0_2px_0_#A89571] active:translate-y-0.5 cursor-pointer transition-all"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-[6px] bg-[#FFF4D6] hover:bg-[#FFECC2] border-2 border-[#CBB892] text-[#7A3F1F] font-sans text-xs font-bold shadow-[0_2px_0_#A89571] active:translate-y-0.5 cursor-pointer transition-all"
             >
               <ArrowLeft className="w-4 h-4 text-[#7A3F1F]" />
               <span>QUAY LẠI DANH SÁCH DỰ ÁN</span>
             </button>
 
-            <span className="text-xs font-pixel text-[#7A3F1F] font-bold hidden sm:inline">
+            <span className="text-xs font-sans text-[#7A3F1F] font-bold hidden sm:inline">
               PROJECT {projectIndex >= 0 ? `0${projectIndex + 1}` : ''} / 0{projectsData.length}
             </span>
           </div>
@@ -592,35 +592,35 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
           {/* Hero Header Section */}
           <div className="space-y-3 bg-[#FFFDF7] p-5 sm:p-7 rounded-[10px] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571]">
             <div className="flex flex-wrap items-center gap-2.5">
-              <span className="px-2.5 py-1 rounded-[4px] bg-[#176B73] text-[#FFF4D6] font-pixel text-xs font-bold">
+              <span className="px-2.5 py-1 rounded-[4px] bg-[#176B73] text-[#FFF4D6] font-sans text-xs font-bold">
                 {selectedCaseStudy.category}
               </span>
               <span className="text-[#A89571]">•</span>
-              <span className="text-xs font-pixel text-[#7A3F1F] font-bold">
+              <span className="text-xs font-sans text-[#7A3F1F] font-bold">
                 {selectedCaseStudy.badge || '2018 – Hiện tại'}
               </span>
               <span className="text-[#A89571]">•</span>
-              <span className="px-2.5 py-0.5 rounded-[4px] bg-[#E8F0FE] border border-[#B3D1FF] text-[#176B73] font-pixel text-[11px] font-bold">
+              <span className="px-2.5 py-0.5 rounded-[4px] bg-[#E8F0FE] border border-[#B3D1FF] text-[#176B73] font-sans text-[11px] font-bold">
                 {selectedCaseStudy.owner}
               </span>
             </div>
 
-            <h1 className="font-pixel text-2xl sm:text-3xl font-bold text-[#2D1B12] leading-tight">
+            <h1 className="font-sans text-2xl sm:text-3xl font-bold text-[#2D1B12] leading-tight">
               {selectedCaseStudy.title}
             </h1>
 
             {/* Quick Meta Cards */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
               <div className="p-3 rounded-[6px] bg-[#FFF8E7] border border-[#D4C39B]">
-                <div className="text-[10px] font-pixel text-[#7A3F1F] uppercase">Vai trò chính</div>
+                <div className="text-[10px] font-sans text-[#7A3F1F] uppercase">Vai trò chính</div>
                 <div className="text-sm font-bold text-[#2D1B12] mt-0.5">{selectedCaseStudy.role}</div>
               </div>
               <div className="p-3 rounded-[6px] bg-[#FFF8E7] border border-[#D4C39B]">
-                <div className="text-[10px] font-pixel text-[#7A3F1F] uppercase">Khách hàng / Chủ quản</div>
+                <div className="text-[10px] font-sans text-[#7A3F1F] uppercase">Khách hàng / Chủ quản</div>
                 <div className="text-sm font-bold text-[#2D1B12] mt-0.5 truncate">{selectedCaseStudy.owner}</div>
               </div>
               <div className="col-span-2 sm:col-span-1 p-3 rounded-[6px] bg-[#FFF8E7] border border-[#D4C39B]">
-                <div className="text-[10px] font-pixel text-[#7A3F1F] uppercase">Phân khúc sản phẩm</div>
+                <div className="text-[10px] font-sans text-[#7A3F1F] uppercase">Phân khúc sản phẩm</div>
                 <div className="text-sm font-bold text-[#2D1B12] mt-0.5 truncate">{selectedCaseStudy.category}</div>
               </div>
             </div>
@@ -649,7 +649,7 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
 
           {/* Key Metrics Trio */}
           <div className="space-y-2">
-            <div className="text-xs font-pixel font-bold text-[#7A3F1F] uppercase">
+            <div className="text-xs font-sans font-bold text-[#7A3F1F] uppercase">
               ★ Chỉ số thành tựu cốt lõi (Key Metrics)
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -658,7 +658,7 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
                   key={idx}
                   className="p-4 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571] text-center"
                 >
-                  <div className="font-pixel text-xl sm:text-2xl font-bold text-[#4F9D18]">
+                  <div className="font-sans text-xl sm:text-2xl font-bold text-[#4F9D18]">
                     {m.value}
                   </div>
                   <div className="text-xs text-[#6B513C] mt-1 font-semibold">
@@ -676,7 +676,7 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
                 <div className="p-5 sm:p-6 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571] space-y-2.5">
                   <div className="flex items-center gap-2">
                     <Building className="w-4 h-4 text-[#7A3F1F]" />
-                    <h3 className="font-pixel text-sm sm:text-base font-bold text-[#7A3F1F] uppercase">
+                    <h3 className="font-sans text-sm sm:text-base font-bold text-[#7A3F1F] uppercase">
                       Bối cảnh & Mục tiêu chiến lược
                     </h3>
                   </div>
@@ -690,7 +690,7 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
                 <div className="p-5 sm:p-6 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571] space-y-2.5">
                   <div className="flex items-center gap-2">
                     <Users className="w-4 h-4 text-[#7A3F1F]" />
-                    <h3 className="font-pixel text-sm sm:text-base font-bold text-[#7A3F1F] uppercase">
+                    <h3 className="font-sans text-sm sm:text-base font-bold text-[#7A3F1F] uppercase">
                       Chân dung người dùng mục tiêu
                     </h3>
                   </div>
@@ -706,7 +706,7 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
           <div className="p-5 sm:p-6 rounded-[8px] bg-[#FFFDF7] border-2 border-[#E0A899] shadow-[0_3px_0_#C48372] space-y-4">
             <div className="flex items-center gap-2">
               <span className="text-base">⚔️</span>
-              <h3 className="font-pixel text-sm sm:text-base font-bold text-[#B91C1C] uppercase">
+              <h3 className="font-sans text-sm sm:text-base font-bold text-[#B91C1C] uppercase">
                 Bài toán cốt lõi & Điểm đau thực tế (Problem & Pain Points)
               </h3>
             </div>
@@ -721,7 +721,7 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
                     key={pIdx}
                     className="p-3.5 rounded-[6px] bg-[#FFF8F6] border border-[#F0BCB0] space-y-1.5"
                   >
-                    <div className="flex items-start gap-1.5 font-pixel text-xs font-bold text-[#991B1B]">
+                    <div className="flex items-start gap-1.5 font-sans text-xs font-bold text-[#991B1B]">
                       <AlertCircle className="w-3.5 h-3.5 text-[#DC2626] shrink-0 mt-0.5" />
                       <span>{pain.title}</span>
                     </div>
@@ -739,7 +739,7 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
             <div className="p-5 sm:p-6 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571] space-y-4">
               <div className="flex items-center gap-2">
                 <Workflow className="w-4 h-4 text-[#7A3F1F]" />
-                <h3 className="font-pixel text-sm sm:text-base font-bold text-[#7A3F1F] uppercase">
+                <h3 className="font-sans text-sm sm:text-base font-bold text-[#7A3F1F] uppercase">
                   Quy trình & Phương pháp luận Product Design
                 </h3>
               </div>
@@ -750,10 +750,10 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
                     className="p-3.5 rounded-[6px] bg-[#FFF9EB] border border-[#DFC9A2] flex flex-col justify-between space-y-2"
                   >
                     <div className="space-y-1">
-                      <div className="font-pixel text-[10px] sm:text-xs font-bold text-[#D97706] tracking-wider uppercase">
+                      <div className="font-sans text-[10px] sm:text-xs font-bold text-[#D97706] tracking-wider uppercase">
                         {step.step}
                       </div>
-                      <div className="font-pixel text-xs sm:text-sm font-bold text-[#2D1B12]">
+                      <div className="font-sans text-xs sm:text-sm font-bold text-[#2D1B12]">
                         {step.title}
                       </div>
                     </div>
@@ -770,7 +770,7 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
           <div className="p-5 sm:p-6 rounded-[8px] bg-[#FFFDF7] border-2 border-[#A2D396] shadow-[0_3px_0_#7FB871] space-y-4">
             <div className="flex items-center gap-2">
               <span className="text-base">🛡️</span>
-              <h3 className="font-pixel text-sm sm:text-base font-bold text-[#2E7D32] uppercase">
+              <h3 className="font-sans text-sm sm:text-base font-bold text-[#2E7D32] uppercase">
                 Chiến lược & Giải pháp thiết kế đột phá
               </h3>
             </div>
@@ -786,7 +786,7 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
                     className="p-3.5 rounded-[6px] bg-[#F7FCF6] border border-[#BDE3B6] flex flex-col justify-between space-y-2"
                   >
                     <div className="space-y-1">
-                      <div className="flex items-start gap-1.5 font-pixel text-xs sm:text-sm font-bold text-[#1E5622]">
+                      <div className="flex items-start gap-1.5 font-sans text-xs sm:text-sm font-bold text-[#1E5622]">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0 mt-0.5" />
                         <span>{sol.title}</span>
                       </div>
@@ -795,7 +795,7 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
                       </p>
                     </div>
                     {sol.highlight && (
-                      <div className="pt-2 border-t border-[#D3EED0] text-[10px] sm:text-[11px] font-pixel font-bold text-[#15803D] bg-[#EAF8E7] px-2 py-1 rounded-[4px]">
+                      <div className="pt-2 border-t border-[#D3EED0] text-[10px] sm:text-[11px] font-sans font-bold text-[#15803D] bg-[#EAF8E7] px-2 py-1 rounded-[4px]">
                         ★ {sol.highlight}
                       </div>
                     )}
@@ -810,7 +810,7 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
             <div className="p-5 sm:p-6 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571] space-y-4">
               <div className="flex items-center gap-2">
                 <TrendingUp className="w-4 h-4 text-[#16A34A]" />
-                <h3 className="font-pixel text-sm sm:text-base font-bold text-[#7A3F1F] uppercase">
+                <h3 className="font-sans text-sm sm:text-base font-bold text-[#7A3F1F] uppercase">
                   Đo lường Hiệu quả & Chỉ số Thực tế (Trước vs Sau)
                 </h3>
               </div>
@@ -820,14 +820,14 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
                     key={bIdx}
                     className="p-3.5 rounded-[6px] bg-[#FFF9EB] border border-[#DFC9A2] flex flex-col justify-between space-y-2 text-center"
                   >
-                    <div className="font-pixel text-[11px] font-bold text-[#6B513C] uppercase">
+                    <div className="font-sans text-[11px] font-bold text-[#6B513C] uppercase">
                       {item.metric}
                     </div>
                     <div className="space-y-1.5 my-1">
                       <div className="text-[11px] text-[#991B1B] bg-[#FEE2E2] px-2 py-0.5 rounded-[4px] font-semibold">
                         Trước: {item.before}
                       </div>
-                      <div className="text-xs font-pixel font-bold text-[#15803D] bg-[#DCFCE7] px-2 py-1 rounded-[4px]">
+                      <div className="text-xs font-sans font-bold text-[#15803D] bg-[#DCFCE7] px-2 py-1 rounded-[4px]">
                         Sau: {item.after}
                       </div>
                     </div>
@@ -844,7 +844,7 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
 
           {/* 6. Deliverables Section */}
           <div className="p-5 sm:p-6 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571] space-y-3">
-            <h3 className="font-pixel text-sm sm:text-base font-bold text-[#7A3F1F] uppercase flex items-center gap-2">
+            <h3 className="font-sans text-sm sm:text-base font-bold text-[#7A3F1F] uppercase flex items-center gap-2">
               <FileText className="w-4 h-4 text-[#F4C542]" />
               <span>Sản phẩm bàn giao chính (Key Deliverables)</span>
             </h3>
@@ -864,7 +864,7 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
           {/* 7. Bài học kinh nghiệm & Đúc kết sản phẩm */}
           {selectedCaseStudy.caseStudy.learnings && selectedCaseStudy.caseStudy.learnings.length > 0 && (
             <div className="p-5 sm:p-6 rounded-[8px] bg-[#FFFDF7] border-2 border-[#F6D285] shadow-[0_3px_0_#D9A726] space-y-3">
-              <h3 className="font-pixel text-sm sm:text-base font-bold text-[#92400E] uppercase flex items-center gap-2">
+              <h3 className="font-sans text-sm sm:text-base font-bold text-[#92400E] uppercase flex items-center gap-2">
                 <Lightbulb className="w-4 h-4 text-[#D97706]" />
                 <span>Bài học kinh nghiệm & Đúc kết sản phẩm (Key Learnings)</span>
               </h3>
@@ -874,7 +874,7 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
                     key={lIdx}
                     className="flex items-start gap-2.5 text-xs sm:text-sm text-[#451A03] bg-[#FEF3C7] p-3 rounded-[6px] border border-[#FDE68A]"
                   >
-                    <span className="font-pixel text-[#D97706] font-bold shrink-0 mt-0.5">✦</span>
+                    <span className="font-sans text-[#D97706] font-bold shrink-0 mt-0.5">✦</span>
                     <span className="leading-relaxed">{learning}</span>
                   </div>
                 ))}
@@ -887,7 +887,7 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
             <div className="p-4 sm:p-5 rounded-[8px] bg-[#F0FDF4] border-2 border-[#BBF7D0] shadow-[0_2px_0_#86EFAC] flex items-start gap-3">
               <TrendingUp className="w-5 h-5 text-[#16A34A] shrink-0 mt-0.5" />
               <div>
-                <div className="font-pixel text-xs sm:text-sm font-bold text-[#166534] uppercase">
+                <div className="font-sans text-xs sm:text-sm font-bold text-[#166534] uppercase">
                   Hiệu quả kinh doanh tổng thể (Measurable Business Impact)
                 </div>
                 <p className="text-xs sm:text-sm text-[#14532D] mt-1 leading-relaxed">
@@ -899,11 +899,11 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
 
           {/* Tags */}
           <div className="flex flex-wrap items-center gap-2 pt-1">
-            <span className="text-xs font-pixel text-[#7A3F1F] font-bold mr-1">Từ khóa chuyên môn:</span>
+            <span className="text-xs font-sans text-[#7A3F1F] font-bold mr-1">Từ khóa chuyên môn:</span>
             {selectedCaseStudy.tags.map((tag, tIdx) => (
               <span
                 key={tIdx}
-                className="text-xs font-pixel px-2.5 py-1 rounded-[4px] bg-[#FFF4D6] border border-[#D4C39B] text-[#7A3F1F]"
+                className="text-xs font-sans px-2.5 py-1 rounded-[4px] bg-[#FFF4D6] border border-[#D4C39B] text-[#7A3F1F]"
               >
                 #{tag}
               </span>
@@ -925,7 +925,7 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
               href={selectedCaseStudy.demoUrl || 'https://mbbank.com.vn'}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-[6px] bg-[#F4C542] hover:bg-[#FFD55C] active:bg-[#D9A726] border-2 border-[#4A2414] text-[#2D1B12] font-pixel text-xs sm:text-sm font-bold shadow-[0_3px_0_#4A2414] active:translate-y-0.5 transition-all"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-[6px] bg-[#F4C542] hover:bg-[#FFD55C] active:bg-[#D9A726] border-2 border-[#4A2414] text-[#2D1B12] font-sans text-xs sm:text-sm font-bold shadow-[0_3px_0_#4A2414] active:translate-y-0.5 transition-all"
             >
               <span>XEM DỰ ÁN TRỰC TIẾP</span>
               <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
