@@ -112,7 +112,7 @@ export const MobileControls: React.FC<MobileControlsProps> = ({
   if (!isTouchDevice) return null;
 
   return (
-    <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex justify-between items-end p-4 sm:p-5 select-none font-pixel">
+    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 flex justify-between items-end px-3 sm:px-6 pt-3 pb-[calc(max(env(safe-area-inset-bottom,0px),20px)+20px)] select-none font-pixel">
       {/* Left: Virtual Joystick - Voxel Style */}
       <div
         ref={joystickBaseRef}
