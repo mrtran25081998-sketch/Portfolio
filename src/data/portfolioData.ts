@@ -74,17 +74,17 @@ export const aboutData: AboutData = {
 export const projectsData: ProjectItem[] = [
   {
     id: 'proj-1',
-    title: 'Cấp hạn mức TDH cho cho khách hàng Uper, CIB',
-    badge: '2018 – Hiện tại',
-    category: 'Mobile app & Web app',
-    role: 'Product designer',
-    owner: 'BIZ MBBank 2.0',
+    title: 'Thiết kế lại hành trình cấp hạn mức trung dài hạn cho doanh nghiệp',
+    badge: 'BIZ MBBank • Upper SME & CIB',
+    category: 'Upper SME & CIB',
+    role: 'Product Designer',
+    owner: 'BIZ MBBank Web & Mobile',
     imageUrl: '/assets/projects/project-1-mbbank.png',
     summary:
-      'Giải pháp cấp hạn mức thấu chi (TDH) và tài trợ vốn trực tuyến dành riêng cho phân khúc khách hàng Doanh nghiệp lớn (CIB) và Uper trên nền tảng số BIZ MBBank 2.0. Số hóa toàn trình từ khởi tạo hồ sơ đến phê duyệt và giải ngân tự động.',
+      'Biến một quy trình tín dụng phức tạp thành hành trình số rõ ràng, có hướng dẫn và kết nối liền mạch với Relationship Manager (RM). Giải pháp cấp hạn mức trung dài hạn toàn diện cho khách hàng Upper SME & CIB trên nền tảng số BIZ MBBank.',
     impact:
-      'Rút ngắn thời gian thẩm định và cấp hạn mức từ 5 ngày làm việc xuống dưới 4 giờ, tăng 65% tỷ lệ khách hàng doanh nghiệp mở hạn mức trực tuyến trên BIZ MBBank 2.0.',
-    tags: ['BIZ MBBank 2.0', 'Cấp hạn mức TDH', 'CIB & Uper', 'Digital Banking', 'Web & Mobile App'],
+      'Tăng trưởng tỷ lệ hoàn thành hồ sơ +[XX]%, giảm thời gian chuẩn bị và bổ sung hồ sơ -[XX]%, đồng thời tối ưu hóa quy trình phối hợp giữa Digital và Relationship Manager (RM).',
+    tags: ['BIZ MBBank', 'Vay trung dài hạn', 'Upper SME & CIB', 'Fintech Lending', 'Design Strategy', 'End-to-End'],
     demoUrl: 'https://bizmbbank.com.vn',
     screens: [
       { title: 'BIZ MBBank 2.0 Dashboard', type: 'web', color: '#090D16', accent: '#0284c7', iconName: 'credit-card' },

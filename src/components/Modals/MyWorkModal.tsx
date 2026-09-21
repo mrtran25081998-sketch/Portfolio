@@ -30,6 +30,7 @@ import {
   GameModalBody,
   VoxelButton
 } from './common/GameModalComponents';
+import { BizMBBankCaseStudy } from './CaseStudies/BizMBBankCaseStudy';
 
 interface MyWorkModalProps {
   onClose: () => void;
@@ -527,6 +528,34 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
    * ========================================================================= */
   if (selectedCaseStudy) {
     const projectIndex = projectsData.findIndex((p) => p.id === selectedCaseStudy.id);
+
+    // Deep-dive 10-Chapter Case Study cho BIZ MBBank Vay Trung Dài Hạn Doanh Nghiệp
+    if (selectedCaseStudy.id === 'proj-1') {
+      return (
+        <GameModal
+          key={`casestudy-modal-${selectedCaseStudy.id}`}
+          areaKey="work"
+          onClose={onClose}
+          maxWidthClass="max-w-[1140px]"
+          titleOverride="CASE STUDY • BIZ MBBANK VAY TRUNG DÀI HẠN"
+          onBack={handleBackToList}
+          backLabel="QUAY LẠI"
+        >
+          <GameModalBody
+            ref={caseStudyBodyRef}
+            id="casestudy-body-container"
+            key={`casestudy-body-${selectedCaseStudy.id}`}
+            autoScrollToTop={true}
+            className="space-y-6 sm:space-y-8"
+          >
+            <BizMBBankCaseStudy
+              project={selectedCaseStudy}
+              onBack={handleBackToList}
+            />
+          </GameModalBody>
+        </GameModal>
+      );
+    }
 
     return (
       <GameModal
