@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   ArrowLeft,
   ArrowRight,
@@ -68,20 +68,52 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
   const [isPlayingVideo, setIsPlayingVideo] = useState(false);
   const [isMutedVideo, setIsMutedVideo] = useState(true);
 
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const chapterNavRef = useRef<HTMLDivElement>(null);
+
+  // Cuộn lên đầu khi mở hoặc chuyển project
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = 0;
+    }
+  }, [project.id]);
+
+  // Nhận diện chương đang xem khi cuộn nội dung
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const scrollPos = container.scrollTop + 140;
+      for (let i = CHAPTERS.length - 1; i >= 0; i--) {
+        const el = document.getElementById(CHAPTERS[i].id);
+        if (el && el.offsetTop <= scrollPos) {
+          setActiveChapter(CHAPTERS[i].id);
+          break;
+        }
+      }
+    };
+
+    container.addEventListener('scroll', handleScroll, { passive: true });
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const scrollToChapter = (id: string) => {
     setActiveChapter(id);
     const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (element && scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const targetTop = element.offsetTop - 16;
+      container.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
     }
   };
 
   return (
-    <div className="space-y-8 sm:space-y-12 select-text pb-12 font-sans">
+    <div className="flex-1 flex flex-col min-h-0 overflow-hidden bg-[#FFF8E7] select-text">
       {/* =========================================================================
-       * STICKY / TOP CHAPTER PROGRESS NAVIGATION
+       * FIXED SUBHEADER: CHAPTER PROGRESS NAVIGATION (CỐ ĐỊNH NGAY DƯỚI HEADER MODAL)
        * ========================================================================= */}
-      <div className="sticky top-0 z-30 -mx-4 sm:-mx-6 px-4 sm:px-6 py-2.5 bg-[#FFF4D6]/95 backdrop-blur-md border-b-2 border-[#DFC9A2] shadow-sm flex items-center justify-between gap-2 overflow-x-auto no-scrollbar">
+      <div className="shrink-0 z-20 px-4 sm:px-6 py-2 bg-[#FFF4D6] border-b-2 border-[#DFC9A2] shadow-sm flex items-center justify-between gap-2 overflow-x-auto no-scrollbar">
         <button
           onClick={onBack}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[5px] bg-[#3B1D0F] text-[#FFF4D6] hover:bg-[#4A2414] font-sans text-xs font-bold shrink-0 transition-colors shadow-sm cursor-pointer"
@@ -90,7 +122,10 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           <span className="hidden sm:inline">QUAY LẠI</span>
         </button>
 
-        <div className="flex items-center gap-1 sm:gap-1.5 overflow-x-auto py-0.5">
+        <div
+          ref={chapterNavRef}
+          className="flex items-center gap-1 sm:gap-1.5 overflow-x-auto py-0.5 no-scrollbar"
+        >
           {CHAPTERS.map((c) => {
             const isActive = activeChapter === c.id;
             return (
@@ -120,9 +155,17 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
       </div>
 
       {/* =========================================================================
-       * SECTION 01 — PROJECT OVERVIEW (TỔNG QUAN)
+       * SCROLLABLE CASE STUDY CONTENT BODY (CUỘN RIÊNG BIỆT BÊN DƯỚI BẢNG ĐIỀU HƯỚNG)
        * ========================================================================= */}
-      <section id="sec-01" className="space-y-6 pt-2 scroll-mt-16">
+      <div
+        ref={scrollContainerRef}
+        id="casestudy-body-container"
+        className="flex-1 overflow-y-auto p-4 sm:p-7 md:p-8 space-y-8 sm:space-y-12 bg-[#FFF8E7] text-[#2D1B12] voxel-scrollbar font-sans pb-16 relative"
+      >
+        {/* =========================================================================
+         * SECTION 01 — PROJECT OVERVIEW (TỔNG QUAN)
+         * ========================================================================= */}
+        <section id="sec-01" className="space-y-6 pt-1">
         {/* Editorial Section Header */}
         <div className="space-y-2">
           <div className="flex items-center gap-2 font-sans text-xs sm:text-sm font-bold text-[#B86428] tracking-wider uppercase">
@@ -1871,6 +1914,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 };

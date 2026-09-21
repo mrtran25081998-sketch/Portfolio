@@ -541,18 +541,10 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
           onBack={handleBackToList}
           backLabel="QUAY LẠI"
         >
-          <GameModalBody
-            ref={caseStudyBodyRef}
-            id="casestudy-body-container"
-            key={`casestudy-body-${selectedCaseStudy.id}`}
-            autoScrollToTop={true}
-            className="space-y-6 sm:space-y-8"
-          >
-            <BizMBBankCaseStudy
-              project={selectedCaseStudy}
-              onBack={handleBackToList}
-            />
-          </GameModalBody>
+          <BizMBBankCaseStudy
+            project={selectedCaseStudy}
+            onBack={handleBackToList}
+          />
         </GameModal>
       );
     }
