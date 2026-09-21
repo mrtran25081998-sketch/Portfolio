@@ -35,10 +35,17 @@ import {
   FileUp,
   UserCheck,
   RotateCcw,
-  Check
+  Check,
+  Smartphone,
+  Monitor,
+  ShieldCheck,
+  Zap,
+  MessageSquare,
+  AlertTriangle,
+  Compass,
+  ArrowUpRight
 } from 'lucide-react';
 import { ProjectItem } from '../../../types';
-import { VoxelButton } from '../common/GameModalComponents';
 
 interface BizMBBankCaseStudyProps {
   project: ProjectItem;
@@ -201,14 +208,14 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
   };
 
   return (
-    <div className="flex-1 flex flex-col min-h-0 overflow-hidden bg-[#FFF8E7] select-text">
+    <div className="flex-1 flex flex-col min-h-0 overflow-hidden bg-[#F8FAFC] select-text">
       {/* =========================================================================
-       * FIXED SUBHEADER: CHAPTER PROGRESS NAVIGATION (CỐ ĐỊNH NGAY DƯỚI HEADER MODAL)
+       * FIXED SUBHEADER: MODERN GLASSMORPHIC CHAPTER NAVIGATION
        * ========================================================================= */}
-      <div className="shrink-0 z-20 px-3 sm:px-5 py-2 bg-[#FFF4D6] border-b-2 border-[#DFC9A2] shadow-sm flex items-center gap-1.5 sm:gap-2 relative select-none">
+      <div className="shrink-0 z-20 px-3 sm:px-5 py-2.5 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs flex items-center gap-2 relative select-none">
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[5px] bg-[#3B1D0F] text-[#FFF4D6] hover:bg-[#4A2414] font-sans text-xs font-bold shrink-0 transition-colors shadow-sm cursor-pointer"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0A1D37] text-white hover:bg-[#132A4D] font-sans text-xs font-semibold shrink-0 transition-all shadow-xs cursor-pointer active:scale-95"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span className="hidden sm:inline">QUAY LẠI</span>
@@ -218,10 +225,10 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         <button
           onClick={() => scrollChapters('left')}
           disabled={!canScrollLeft}
-          className={`w-7 h-7 rounded-[4px] flex items-center justify-center shrink-0 border transition-all cursor-pointer ${
+          className={`w-7 h-7 rounded-md flex items-center justify-center shrink-0 border transition-all cursor-pointer ${
             canScrollLeft
-              ? 'bg-[#FFF8E7] hover:bg-[#F4C542] text-[#7A3F1F] border-[#DFC9A2] shadow-sm active:scale-95'
-              : 'opacity-30 cursor-not-allowed bg-[#FFF8E7]/50 border-transparent text-[#A89571]'
+              ? 'bg-white hover:bg-slate-100 text-slate-700 border-slate-200 shadow-xs active:scale-95'
+              : 'opacity-25 cursor-not-allowed bg-slate-50 border-transparent text-slate-400'
           }`}
           title="Cuộn sang trái"
           aria-label="Cuộn sang trái"
@@ -248,15 +255,15 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
                   if (hasDraggedNavRef.current) return;
                   scrollToChapter(c.id);
                 }}
-                className={`px-2.5 sm:px-3 py-1 rounded-[4px] font-sans text-[11px] sm:text-xs font-bold transition-all shrink-0 cursor-pointer whitespace-nowrap ${
+                className={`px-3 py-1 rounded-md font-sans text-[11px] sm:text-xs font-medium transition-all shrink-0 cursor-pointer whitespace-nowrap ${
                   isActive
-                    ? 'bg-[#F4C542] text-[#2D1B12] shadow-[0_2px_0_#9E875C] scale-105'
-                    : 'bg-[#FFF8E7] text-[#7A3F1F] hover:bg-[#FFECC2] border border-[#DFC9A2]'
+                    ? 'bg-[#0284C7] text-white font-semibold shadow-xs shadow-sky-500/30 ring-1 ring-sky-600 scale-[1.02]'
+                    : 'bg-slate-100 hover:bg-slate-200/80 text-slate-600 hover:text-slate-900 border border-slate-200/60'
                 }`}
                 title={c.title}
               >
-                <span>{c.num}</span>
-                <span className="ml-1 font-sans font-medium text-[11px] text-[#4A3326]">
+                <span className={isActive ? 'text-sky-100 font-bold' : 'text-slate-500 font-semibold'}>{c.num}</span>
+                <span className="ml-1.5">
                   • {c.title}
                 </span>
               </button>
@@ -268,10 +275,10 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         <button
           onClick={() => scrollChapters('right')}
           disabled={!canScrollRight}
-          className={`w-7 h-7 rounded-[4px] flex items-center justify-center shrink-0 border transition-all cursor-pointer ${
+          className={`w-7 h-7 rounded-md flex items-center justify-center shrink-0 border transition-all cursor-pointer ${
             canScrollRight
-              ? 'bg-[#FFF8E7] hover:bg-[#F4C542] text-[#7A3F1F] border-[#DFC9A2] shadow-sm active:scale-95'
-              : 'opacity-30 cursor-not-allowed bg-[#FFF8E7]/50 border-transparent text-[#A89571]'
+              ? 'bg-white hover:bg-slate-100 text-slate-700 border-slate-200 shadow-xs active:scale-95'
+              : 'opacity-25 cursor-not-allowed bg-slate-50 border-transparent text-slate-400'
           }`}
           title="Cuộn sang phải"
           aria-label="Cuộn sang phải"
@@ -279,1773 +286,1555 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           <ChevronRight className="w-4 h-4" />
         </button>
 
-        <div className="hidden xl:flex items-center gap-1.5 font-sans text-xs text-[#7A3F1F] shrink-0 font-bold ml-1">
-          <Sparkles className="w-3.5 h-3.5 text-[#F4C542]" />
-          <span>DEEP DIVE QUEST</span>
+        <div className="hidden xl:flex items-center gap-1.5 font-sans text-xs px-2.5 py-1 rounded-full bg-sky-50 border border-sky-200/80 text-sky-700 shrink-0 font-semibold ml-1">
+          <Sparkles className="w-3.5 h-3.5 text-sky-600" />
+          <span>ENTERPRISE CASE STUDY</span>
         </div>
       </div>
 
       {/* =========================================================================
-       * SCROLLABLE CASE STUDY CONTENT BODY (CUỘN RIÊNG BIỆT BÊN DƯỚI BẢNG ĐIỀU HƯỚNG)
+       * SCROLLABLE CASE STUDY CONTENT BODY (MODERN TECH CANVAS)
        * ========================================================================= */}
       <div
         ref={scrollContainerRef}
         id="casestudy-body-container"
-        className="flex-1 overflow-y-auto p-4 sm:p-7 md:p-8 space-y-8 sm:space-y-12 bg-[#FFF8E7] text-[#2D1B12] voxel-scrollbar font-sans pb-16 relative"
+        className="flex-1 overflow-y-auto p-4 sm:p-7 md:p-9 space-y-10 sm:space-y-14 bg-[#F8FAFC] text-slate-800 custom-scrollbar font-sans pb-20 relative"
       >
         {/* =========================================================================
          * SECTION 01 — PROJECT OVERVIEW (TỔNG QUAN)
          * ========================================================================= */}
         <section id="sec-01" className="space-y-6 pt-1">
-        {/* Editorial Section Header */}
-        <div className="space-y-2">
-          <div className="flex items-center gap-2 font-sans text-xs sm:text-sm font-bold text-[#B86428] tracking-wider uppercase">
-            <span className="px-2 py-0.5 rounded bg-[#F4C542]/30 border border-[#B86428]/40">
-              01 / PROJECT OVERVIEW
-            </span>
-            <span>✦ CASE STUDY SẢN PHẨM</span>
-          </div>
-          <h1 className="font-sans text-2xl sm:text-4xl lg:text-5xl font-bold text-[#2D1B12] leading-[1.15]">
-            Thiết kế lại hành trình cấp hạn mức trung dài hạn cho doanh nghiệp
-          </h1>
-          <p className="font-sans text-base sm:text-lg text-[#5A4030] leading-relaxed max-w-4xl pt-1">
-            Biến một quy trình tín dụng phức tạp thành hành trình số rõ ràng, có hướng dẫn và kết nối liền mạch với Relationship Manager (RM) — kiến tạo chuẩn mực trải nghiệm ngân hàng số doanh nghiệp phân khúc Upper SME & CIB.
-          </p>
-        </div>
-
-        {/* Structured Metadata Badges Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-          <div className="p-3.5 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571]">
-            <div className="font-sans text-[10px] text-[#7A3F1F] uppercase font-bold tracking-wider">VAI TRÒ (ROLE)</div>
-            <div className="font-sans text-sm font-bold text-[#2D1B12] mt-1">Product Designer</div>
-            <div className="font-sans text-[11px] text-[#6B513C] mt-0.5">End-to-end UX, IA, Interaction & Design System</div>
-          </div>
-          <div className="p-3.5 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571]">
-            <div className="font-sans text-[10px] text-[#7A3F1F] uppercase font-bold tracking-wider">SẢN PHẨM (PRODUCT)</div>
-            <div className="font-sans text-sm font-bold text-[#2D1B12] mt-1">BIZ MBBank Web & Mobile</div>
-            <div className="font-sans text-[11px] text-[#6B513C] mt-0.5">Đồng bộ đa nền tảng Portal & App</div>
-          </div>
-          <div className="p-3.5 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571]">
-            <div className="font-sans text-[10px] text-[#7A3F1F] uppercase font-bold tracking-wider">ĐỐI TƯỢNG (CUSTOMER)</div>
-            <div className="font-sans text-sm font-bold text-[#2D1B12] mt-1">Upper SME & CIB</div>
-            <div className="font-sans text-[11px] text-[#6B513C] mt-0.5">Kế toán trưởng, CFO, CEO & Giám đốc vận hành</div>
-          </div>
-          <div className="p-3.5 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571]">
-            <div className="font-sans text-[10px] text-[#7A3F1F] uppercase font-bold tracking-wider">PHẠM VI (SCOPE)</div>
-            <div className="font-sans text-sm font-bold text-[#2D1B12] mt-1">6 Điểm chạm cốt lõi</div>
-            <div className="font-sans text-[11px] text-[#6B513C] mt-0.5">Khởi tạo • Hồ sơ • Duyệt • Gửi • Theo dõi • RM</div>
-          </div>
-        </div>
-
-        {/* Project Summary Board: Problem -> Approach -> Solution -> Outcomes */}
-        <div className="p-5 sm:p-7 rounded-[10px] bg-[#FFF8E7] border-2 border-[#DFC9A2] shadow-[0_4px_0_#BCA67F] space-y-5">
-          <div className="font-sans text-sm font-bold text-[#2D1B12] flex items-center gap-2">
-            <Target className="w-4 h-4 text-[#B86428]" />
-            <span>TÓM TẮT DỰ ÁN (EXECUTIVE PROJECT SUMMARY)</span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="p-3.5 rounded-[6px] bg-white border border-[#DFC9A2] space-y-1.5">
-              <div className="font-sans text-xs font-bold text-[#991B1B] uppercase flex items-center gap-1.5">
-                <AlertCircle className="w-3.5 h-3.5 text-red-600" />
-                <span>VẤN ĐỀ</span>
-              </div>
-              <p className="font-sans text-xs text-[#4A3326] leading-relaxed">
-                Khách hàng bắt đầu nhưng drop-off cao; hồ sơ phải bổ sung từ 3-5 lần; RM phải can thiệp thủ công từ quá sớm và khách hàng mù mờ trạng thái.
-              </p>
+          {/* Editorial Header */}
+          <div className="space-y-3">
+            <div className="flex flex-wrap items-center gap-2 text-xs font-semibold tracking-wide uppercase">
+              <span className="px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-800 border border-sky-200">
+                01 • PRODUCT DESIGN CASE STUDY
+              </span>
+              <span className="text-slate-400">•</span>
+              <span className="px-2.5 py-0.5 rounded-full bg-slate-200/80 text-slate-700">
+                BIZ MBBANK 2.0
+              </span>
+              <span className="text-slate-400">•</span>
+              <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
+                UPPER SME & CIB
+              </span>
             </div>
 
-            <div className="p-3.5 rounded-[6px] bg-white border border-[#DFC9A2] space-y-1.5">
-              <div className="font-sans text-xs font-bold text-[#1D4ED8] uppercase flex items-center gap-1.5">
-                <Search className="w-3.5 h-3.5 text-blue-600" />
-                <span>CÁCH TIẾP CẬN</span>
-              </div>
-              <p className="font-sans text-xs text-[#4A3326] leading-relaxed">
-                Kết hợp song song Phân tích phễu dữ liệu sản phẩm (Quantitative) và Phỏng vấn chuyên sâu 4 nhóm vai trò (Qualitative) để tìm ra nguồn gốc nút thắt.
-              </p>
-            </div>
+            <h1 className="text-2xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 tracking-tight leading-[1.2]">
+              Thiết kế lại hành trình cấp hạn mức trung dài hạn cho doanh nghiệp
+            </h1>
 
-            <div className="p-3.5 rounded-[6px] bg-white border border-[#DFC9A2] space-y-1.5">
-              <div className="font-sans text-xs font-bold text-[#15803D] uppercase flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                <span>GIẢI PHÁP</span>
-              </div>
-              <p className="font-sans text-xs text-[#4A3326] leading-relaxed">
-                Readiness Check trước cam kết; Dynamic Checklist theo ngành nghề; Luồng phê duyệt 1-chạm cho lãnh đạo; Timeline minh bạch & Bàn giao RM có ngữ cảnh.
-              </p>
-            </div>
-
-            <div className="p-3.5 rounded-[6px] bg-white border border-[#DFC9A2] space-y-1.5">
-              <div className="font-sans text-xs font-bold text-[#7A3F1F] uppercase flex items-center gap-1.5">
-                <TrendingUp className="w-3.5 h-3.5 text-[#B86428]" />
-                <span>KẾT QUẢ ĐO LƯỜNG</span>
-              </div>
-              <div className="font-sans text-xs space-y-1 text-[#2D1B12]">
-                <div className="flex justify-between font-semibold"><span className="text-[#6B513C]">Tỷ lệ hoàn thành:</span> <strong className="text-emerald-700 font-bold">+[XX]%</strong></div>
-                <div className="flex justify-between font-semibold"><span className="text-[#6B513C]">Bổ sung hồ sơ:</span> <strong className="text-emerald-700 font-bold">−[XX]%</strong></div>
-                <div className="flex justify-between font-semibold"><span className="text-[#6B513C]">Thời gian tạo đơn:</span> <strong className="text-emerald-700 font-bold">−[XX]%</strong></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Large Hero Editorial Visual: BIZ MBBank Web & Mobile Mockups */}
-        <div className="rounded-[12px] p-4 sm:p-8 bg-gradient-to-b from-[#0B1528] via-[#0F1E38] to-[#0A1222] border-2 sm:border-3 border-[#CBB892] shadow-[0_8px_0_#A89571] space-y-4">
-          <div className="flex items-center justify-between text-[#DFC9A2] border-b border-blue-900/40 pb-3">
-            <div className="flex items-center gap-2">
-              <div className="w-2.5 h-2.5 rounded-full bg-rose-500" />
-              <div className="w-2.5 h-2.5 rounded-full bg-amber-500" />
-              <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-              <span className="font-sans text-xs text-sky-200 ml-2">BIZ MBBank 2.0 • HỆ THỐNG CẤP HẠN MỨC TRUNG DÀI HẠN</span>
-            </div>
-            <span className="font-mono text-[11px] text-sky-400 hidden sm:inline">Upper SME & CIB Enterprise Suite</span>
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-4xl pt-0.5">
+              Biến quy trình thẩm định tín dụng phức tạp thành một trải nghiệm số minh bạch, có hướng dẫn thông minh (Readiness Check & Dynamic Checklist) và kết nối liền mạch với Relationship Manager (RM) — tạo chuẩn mực mới cho ngân hàng số doanh nghiệp phân khúc quy mô lớn.
+            </p>
           </div>
 
-          {/* Combined Web & Mobile Realistic UI Presentation */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center pt-2">
-            {/* Left 8 Cols: Web Portal View */}
-            <div className="lg:col-span-8 rounded-[8px] bg-[#0E1B33] border border-blue-800/60 shadow-2xl overflow-hidden">
-              {/* Web Header */}
-              <div className="bg-[#091325] px-4 py-2.5 flex items-center justify-between border-b border-blue-900/60">
-                <div className="flex items-center gap-2">
-                  <span className="text-rose-500 text-sm">★</span>
-                  <span className="text-sky-400 font-bold text-xs tracking-tight">MB</span>
-                  <span className="text-slate-300 text-[11px] font-semibold border-l border-slate-700 pl-2 ml-1">BIZ Portal Enterprise</span>
+          {/* Metadata Cards Grid */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
+            <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-slate-300 transition-all">
+              <div className="text-[11px] uppercase tracking-wider font-semibold text-slate-500">Vai trò chính</div>
+              <div className="text-sm font-bold text-slate-900 mt-1">Product Designer</div>
+              <div className="text-xs text-slate-500 mt-0.5">Lead UX, Information Architecture & Design System</div>
+            </div>
+            <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-slate-300 transition-all">
+              <div className="text-[11px] uppercase tracking-wider font-semibold text-slate-500">Sản phẩm & Nền tảng</div>
+              <div className="text-sm font-bold text-slate-900 mt-1">BIZ MBBank Web & Mobile</div>
+              <div className="text-xs text-slate-500 mt-0.5">Đồng bộ đa nền tảng Web Portal & Smart App</div>
+            </div>
+            <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-slate-300 transition-all">
+              <div className="text-[11px] uppercase tracking-wider font-semibold text-slate-500">Khách hàng mục tiêu</div>
+              <div className="text-sm font-bold text-slate-900 mt-1">Upper SME & CIB</div>
+              <div className="text-xs text-slate-500 mt-0.5">Kế toán viên, Kế toán trưởng, CFO/CEO & RM MBBank</div>
+            </div>
+            <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-slate-300 transition-all">
+              <div className="text-[11px] uppercase tracking-wider font-semibold text-slate-500">Phạm vi tác động</div>
+              <div className="text-sm font-bold text-slate-900 mt-1">6 Điểm chạm cốt lõi</div>
+              <div className="text-xs text-slate-500 mt-0.5">Khởi tạo • Hồ sơ • Duyệt 1-chạm • Gửi • Tracking • RM</div>
+            </div>
+          </div>
+
+          {/* Executive Summary 4-Column Board */}
+          <div className="p-5 sm:p-7 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div className="flex items-center gap-2 text-sm font-bold text-slate-900">
+                <Target className="w-4 h-4 text-sky-600" />
+                <span>TÓM TẮT ĐIỀU HÀNH (EXECUTIVE PROJECT SUMMARY)</span>
+              </div>
+              <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Core Impact Matrix</span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="p-4 rounded-xl bg-rose-50/50 border border-rose-100 space-y-1.5">
+                <div className="text-xs font-bold text-rose-700 uppercase flex items-center gap-1.5">
+                  <AlertCircle className="w-3.5 h-3.5 text-rose-600" />
+                  <span>VẤN ĐỀ (PROBLEM)</span>
                 </div>
-                <div className="flex items-center gap-3 text-[10px] text-slate-300">
-                  <span className="px-2 py-0.5 rounded bg-blue-950 border border-blue-800 text-sky-300 font-mono">MST: 0102030405</span>
-                  <span className="hidden sm:inline">CTCP TẬP ĐOÀN CÔNG NGHỆ & SẢN XUẤT</span>
+                <p className="text-xs text-slate-700 leading-relaxed">
+                  Drop-off lên đến <strong>62%</strong> ngay bước nộp hồ sơ; trung bình phải bổ sung <strong>3–5 lần</strong>; RM phải can thiệp thủ công từ quá sớm và khách hàng hoàn toàn mù mờ tiến độ.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-sky-50/50 border border-sky-100 space-y-1.5">
+                <div className="text-xs font-bold text-sky-700 uppercase flex items-center gap-1.5">
+                  <Search className="w-3.5 h-3.5 text-sky-600" />
+                  <span>TIẾP CẬN (APPROACH)</span>
+                </div>
+                <p className="text-xs text-slate-700 leading-relaxed">
+                  Kết hợp phân tích định lượng (Product Funnel Log 6 tháng) và phỏng vấn định tính chuyên sâu 4 nhóm mắt xích (Maker, Checker, Approver, RM) để giải mã rào cản tâm lý.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-emerald-50/50 border border-emerald-100 space-y-1.5">
+                <div className="text-xs font-bold text-emerald-700 uppercase flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>GIẢI PHÁP (SOLUTION)</span>
+                </div>
+                <p className="text-xs text-slate-700 leading-relaxed">
+                  Readiness Check trước khi cam kết; Dynamic Checklist thông minh theo ngành nghề; Luồng Decision Summary ký duyệt 1-chạm cho CEO; Timeline minh bạch & Bàn giao RM có ngữ cảnh.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-indigo-50/50 border border-indigo-100 space-y-1.5">
+                <div className="text-xs font-bold text-indigo-700 uppercase flex items-center gap-1.5">
+                  <TrendingUp className="w-3.5 h-3.5 text-indigo-600" />
+                  <span>KẾT QUẢ ĐO LƯỜNG</span>
+                </div>
+                <div className="text-xs space-y-1 pt-0.5">
+                  <div className="flex justify-between font-medium"><span className="text-slate-600">Tỷ lệ hoàn thành:</span> <strong className="text-emerald-700 font-bold">+[XX]%</strong></div>
+                  <div className="flex justify-between font-medium"><span className="text-slate-600">Bổ sung hồ sơ:</span> <strong className="text-emerald-700 font-bold">−[XX]%</strong></div>
+                  <div className="flex justify-between font-medium"><span className="text-slate-600">Thời gian tạo đơn:</span> <strong className="text-emerald-700 font-bold">−[XX]%</strong></div>
                 </div>
               </div>
+            </div>
+          </div>
 
-              {/* Web Body UI Content */}
-              <div className="p-4 sm:p-6 space-y-4 font-sans text-slate-200 text-xs">
-                {/* Stepper bar */}
-                <div className="flex items-center justify-between bg-slate-900/80 p-3 rounded-lg border border-slate-800">
+          {/* Large Hero Showcase: MacBook Pro & iPhone Enterprise Frame */}
+          <div className="rounded-2xl p-4 sm:p-7 bg-gradient-to-b from-[#0A192F] via-[#0F2744] to-[#071324] border border-slate-800 shadow-xl space-y-4">
+            <div className="flex items-center justify-between text-slate-300 border-b border-blue-900/50 pb-3">
+              <div className="flex items-center gap-2">
+                <div className="w-2.5 h-2.5 rounded-full bg-rose-500" />
+                <div className="w-2.5 h-2.5 rounded-full bg-amber-500" />
+                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                <span className="font-sans text-xs text-sky-200 font-semibold ml-2">BIZ MBBank Enterprise Suite • Cấp hạn mức trung dài hạn</span>
+              </div>
+              <span className="font-mono text-[11px] text-sky-400 bg-sky-950/80 px-2.5 py-0.5 rounded border border-sky-800 hidden sm:inline">
+                Upper SME & CIB Edition
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center pt-2">
+              {/* Left 8 Cols: Web Portal View */}
+              <div className="lg:col-span-8 rounded-xl bg-[#091527] border border-blue-900/80 shadow-2xl overflow-hidden">
+                {/* Web Header */}
+                <div className="bg-[#050D1A] px-4 py-2.5 flex items-center justify-between border-b border-blue-900/60">
                   <div className="flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center font-bold text-[10px]">✓</span>
-                    <span className="font-semibold text-white">1. Kiểm tra điều kiện</span>
+                    <span className="text-rose-500 text-sm font-bold">★</span>
+                    <span className="text-sky-400 font-extrabold text-xs tracking-tight">MB</span>
+                    <span className="text-slate-300 text-[11px] font-semibold border-l border-slate-700 pl-2 ml-1">BIZ Portal Enterprise</span>
                   </div>
-                  <div className="h-0.5 w-12 bg-emerald-500 hidden sm:block" />
-                  <div className="flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-sky-500 text-white flex items-center justify-center font-bold text-[10px]">2</span>
-                    <span className="font-semibold text-sky-300">2. Chuẩn bị hồ sơ</span>
-                  </div>
-                  <div className="h-0.5 w-12 bg-slate-700 hidden sm:block" />
-                  <div className="flex items-center gap-2 text-slate-400">
-                    <span className="w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center text-[10px]">3</span>
-                    <span>3. Phê duyệt nội bộ</span>
-                  </div>
-                  <div className="h-0.5 w-12 bg-slate-700 hidden sm:block" />
-                  <div className="flex items-center gap-2 text-slate-400">
-                    <span className="w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center text-[10px]">4</span>
-                    <span>4. Gửi MBBank</span>
+                  <div className="flex items-center gap-2.5 text-[10px] text-slate-300">
+                    <span className="px-2 py-0.5 rounded bg-blue-950/80 border border-blue-800 text-sky-300 font-mono">MST: 0102030405</span>
+                    <span className="hidden sm:inline">CTCP TẬP ĐOÀN CÔNG NGHỆ & SẢN XUẤT</span>
                   </div>
                 </div>
 
-                {/* Main Content Showcase: Dynamic Checklist */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                  <div className="p-3.5 rounded-lg bg-slate-900/60 border border-slate-800 space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className="font-bold text-white text-xs flex items-center gap-1.5">
-                        <FileCheck className="w-3.5 h-3.5 text-sky-400" />
-                        Danh mục hồ sơ tài chính (3/4)
-                      </span>
-                      <span className="text-[10px] text-emerald-400 font-mono font-semibold">75% Hoàn tất</span>
+                {/* Web Body UI Content */}
+                <div className="p-4 sm:p-5 space-y-4 font-sans text-slate-200 text-xs">
+                  {/* Stepper bar */}
+                  <div className="flex items-center justify-between bg-slate-900/90 p-3 rounded-lg border border-slate-800">
+                    <div className="flex items-center gap-2">
+                      <span className="w-5 h-5 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center font-bold text-[10px]">✓</span>
+                      <span className="font-semibold text-white">1. Kiểm tra điều kiện</span>
                     </div>
-                    <div className="space-y-1.5 text-[11px]">
-                      <div className="flex items-center justify-between p-1.5 rounded bg-slate-800/60">
-                        <span className="flex items-center gap-1.5 text-slate-200">
-                          <CheckCircle2 className="w-3 h-3 text-emerald-400" />
-                          Báo cáo tài chính 2 năm kiểm toán
-                        </span>
-                        <span className="text-[9px] text-slate-400">PDF • 12MB</span>
-                      </div>
-                      <div className="flex items-center justify-between p-1.5 rounded bg-slate-800/60">
-                        <span className="flex items-center gap-1.5 text-slate-200">
-                          <CheckCircle2 className="w-3 h-3 text-emerald-400" />
-                          Quyết định đầu tư dự án mở rộng
-                        </span>
-                        <span className="text-[9px] text-slate-400">PDF • 4.8MB</span>
-                      </div>
-                      <div className="flex items-center justify-between p-1.5 rounded bg-blue-950/50 border border-sky-500/40">
-                        <span className="flex items-center gap-1.5 text-sky-200 font-medium">
-                          <Clock className="w-3 h-3 text-amber-400 animate-spin" />
-                          Hồ sơ phương án trả nợ & dòng tiền
-                        </span>
-                        <span className="text-[9px] text-sky-300 underline cursor-pointer">Bổ sung ngay</span>
-                      </div>
+                    <div className="h-0.5 w-10 bg-emerald-500 hidden sm:block" />
+                    <div className="flex items-center gap-2">
+                      <span className="w-5 h-5 rounded-full bg-sky-500 text-white flex items-center justify-center font-bold text-[10px]">2</span>
+                      <span className="font-semibold text-sky-300">2. Chuẩn bị hồ sơ</span>
+                    </div>
+                    <div className="h-0.5 w-10 bg-slate-700 hidden sm:block" />
+                    <div className="flex items-center gap-2 text-slate-400">
+                      <span className="w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center text-[10px]">3</span>
+                      <span>3. Phê duyệt nội bộ</span>
+                    </div>
+                    <div className="h-0.5 w-10 bg-slate-700 hidden sm:block" />
+                    <div className="flex items-center gap-2 text-slate-400">
+                      <span className="w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center text-[10px]">4</span>
+                      <span>4. Gửi MBBank</span>
                     </div>
                   </div>
 
-                  <div className="p-3.5 rounded-lg bg-slate-900/60 border border-slate-800 space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className="font-bold text-white text-xs flex items-center gap-1.5">
-                        <Shield className="w-3.5 h-3.5 text-emerald-400" />
-                        Tóm tắt đề xuất cấp hạn mức
-                      </span>
-                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono">Đã sơ duyệt</span>
+                  {/* Main Content Showcase: Dynamic Checklist */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                    <div className="p-3 rounded-lg bg-slate-900/70 border border-slate-800 space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="font-bold text-white text-xs flex items-center gap-1.5">
+                          <FileCheck className="w-3.5 h-3.5 text-sky-400" />
+                          <span>Danh mục hồ sơ tài chính (3/4)</span>
+                        </span>
+                        <span className="text-[10px] text-emerald-400 font-semibold">75% Hoàn tất</span>
+                      </div>
+                      <div className="space-y-1.5 text-[11px]">
+                        <div className="flex items-center justify-between p-1.5 rounded bg-slate-950/60 border border-slate-800 text-slate-300">
+                          <span className="flex items-center gap-1.5">
+                            <span className="text-emerald-400">●</span> Báo cáo tài chính 2 năm kiểm toán
+                          </span>
+                          <span className="text-[10px] text-slate-400 font-mono">PDF • 12MB</span>
+                        </div>
+                        <div className="flex items-center justify-between p-1.5 rounded bg-slate-950/60 border border-slate-800 text-slate-300">
+                          <span className="flex items-center gap-1.5">
+                            <span className="text-emerald-400">●</span> Quyết định đầu tư dự án mở rộng
+                          </span>
+                          <span className="text-[10px] text-slate-400 font-mono">PDF • 4.8MB</span>
+                        </div>
+                        <div className="flex items-center justify-between p-1.5 rounded bg-amber-950/30 border border-amber-800/60 text-amber-200">
+                          <span className="flex items-center gap-1.5">
+                            <span className="text-amber-400 animate-pulse">●</span> Hồ sơ phương án trả nợ & dòng tiền
+                          </span>
+                          <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-semibold cursor-pointer">
+                            Bổ sung ngay
+                          </span>
+                        </div>
+                      </div>
                     </div>
-                    <div className="space-y-2 text-[11px] pt-1">
-                      <div className="flex justify-between border-b border-slate-800 pb-1">
-                        <span className="text-slate-400">Nhu cầu vốn dự kiến:</span>
-                        <strong className="text-white font-mono text-xs">85.000.000.000 VNĐ</strong>
+
+                    <div className="p-3 rounded-lg bg-slate-900/70 border border-slate-800 space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="font-bold text-white text-xs flex items-center gap-1.5">
+                          <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                          <span>Tóm tắt đề xuất cấp hạn mức</span>
+                        </span>
+                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-950 border border-emerald-700 text-emerald-300">
+                          Đã sơ duyệt
+                        </span>
                       </div>
-                      <div className="flex justify-between border-b border-slate-800 pb-1">
-                        <span className="text-slate-400">Thời hạn đề xuất:</span>
-                        <strong className="text-white">60 Tháng (Trung dài hạn)</strong>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-slate-400">RM phụ trách chi nhánh:</span>
-                        <span className="text-sky-300 font-medium">Nguyễn Tuấn Anh • CN Hoàn Kiếm</span>
+                      <div className="space-y-1.5 text-[11px] text-slate-300">
+                        <div className="flex justify-between border-b border-slate-800 pb-1">
+                          <span className="text-slate-400">Nhu cầu vốn dự kiến:</span>
+                          <span className="font-bold text-sky-300 font-mono">85.000.000.000 VNĐ</span>
+                        </div>
+                        <div className="flex justify-between border-b border-slate-800 pb-1">
+                          <span className="text-slate-400">Thời hạn đề xuất:</span>
+                          <span className="font-semibold text-white">60 Tháng (Trung dài hạn)</span>
+                        </div>
+                        <div className="flex justify-between border-b border-slate-800 pb-1">
+                          <span className="text-slate-400">RM phụ trách chi nhánh:</span>
+                          <span className="font-semibold text-sky-400">Nguyễn Tuấn Anh • CN Hoàn Kiếm</span>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Right 4 Cols: Mobile App View (Approver Flow) */}
-            <div className="lg:col-span-4 flex justify-center">
-              <div className="w-[240px] sm:w-[260px] rounded-[24px] bg-[#070D18] p-2.5 border-3 border-slate-700 shadow-2xl space-y-2.5 font-sans">
-                {/* Phone Speaker & Notch */}
-                <div className="w-20 h-3.5 bg-slate-800 rounded-full mx-auto" />
-
-                <div className="p-2.5 bg-[#0D1829] rounded-[16px] text-white space-y-2 text-[10px]">
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-1.5">
+              {/* Right 4 Cols: Mobile App View (Approver Flow) */}
+              <div className="lg:col-span-4 flex justify-center">
+                <div className="w-[260px] rounded-2xl bg-slate-950 border-2 border-slate-700 shadow-2xl p-3 space-y-3 relative overflow-hidden">
+                  <div className="flex items-center justify-between text-[10px] text-slate-400 border-b border-slate-800 pb-1.5">
                     <div className="flex items-center gap-1">
-                      <span className="text-rose-500 text-xs">★</span>
-                      <span className="font-bold text-sky-400 text-[10px]">BIZ MB</span>
+                      <span className="text-rose-500 font-bold">★</span>
+                      <span className="text-white font-bold">BIZ MB</span>
                     </div>
-                    <span className="text-[8px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-semibold">Chờ CEO ký</span>
+                    <span className="text-emerald-400 font-semibold">Chờ CEO ký</span>
                   </div>
 
-                  <div className="text-[11px] font-bold text-slate-100">
-                    Phê duyệt yêu cầu cấp hạn mức TDH
-                  </div>
-
-                  <div className="p-2 rounded bg-slate-900/90 border border-slate-800 space-y-1 text-[9px]">
-                    <div className="flex justify-between">
-                      <span className="text-slate-400">Doanh nghiệp:</span>
-                      <span className="text-slate-200 font-semibold truncate max-w-[110px]">Tập đoàn Công nghệ</span>
+                  <div className="space-y-2 text-slate-200">
+                    <div className="text-xs font-bold text-white">Phê duyệt yêu cầu cấp hạn mức TDH</div>
+                    <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 space-y-1.5 text-[10px]">
+                      <div className="flex justify-between"><span className="text-slate-400">Doanh nghiệp:</span> <span className="font-bold text-white truncate max-w-[110px]">Tập đoàn Công nghệ</span></div>
+                      <div className="flex justify-between"><span className="text-slate-400">Hạn mức đề nghị:</span> <strong className="text-emerald-400 font-mono text-xs">85 Tỷ VNĐ</strong></div>
+                      <div className="flex justify-between"><span className="text-slate-400">Người khởi tạo:</span> <span className="text-slate-300">Kế toán trưởng (Đã ký)</span></div>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-slate-400">Hạn mức đề nghị:</span>
-                      <span className="text-emerald-400 font-mono font-bold">85 Tỷ VNĐ</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-slate-400">Người khởi tạo:</span>
-                      <span className="text-slate-300">Kế toán trưởng (Đã ký)</span>
-                    </div>
-                  </div>
 
-                  <div className="p-2 rounded bg-blue-950/60 border border-blue-800/40 text-[9px] text-sky-200">
-                    💡 Đã kiểm tra đầy đủ 4/4 hồ sơ pháp lý & phương án hoàn vốn.
-                  </div>
+                    <div className="p-2 rounded bg-sky-950/60 border border-sky-800/80 text-[10px] text-sky-200 flex items-start gap-1.5">
+                      <ShieldCheck className="w-3.5 h-3.5 text-sky-400 shrink-0 mt-0.5" />
+                      <span>Đã kiểm tra đầy đủ 4/4 hồ sơ pháp lý & phương án hoàn vốn.</span>
+                    </div>
 
-                  <div className="pt-1 space-y-1.5">
-                    <button className="w-full py-1.5 rounded bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-[10px] flex items-center justify-center gap-1 shadow-sm cursor-pointer">
-                      <span>KÝ DUYỆT BẰNG SMART CA</span>
+                    <button className="w-full py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs tracking-wide shadow-md transition-all cursor-pointer">
+                      KÝ DUYỆT BẰNG SMART CA
                     </button>
-                    <button className="w-full py-1 rounded bg-slate-800 text-slate-400 text-[9px] cursor-pointer">
+                    <div className="text-center text-[9px] text-slate-400 hover:text-slate-300 cursor-pointer">
                       Xem tóm tắt hồ sơ đính kèm
-                    </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* =========================================================================
-       * SECTION 02 — BỐI CẢNH & GIẢ THUYẾT (CONTEXT & HYPOTHESIS)
-       * ========================================================================= */}
-      <section id="sec-02" className="space-y-6 pt-4 scroll-mt-16 border-t-2 border-[#EAD9B0]">
-        <div className="space-y-2">
-          <div className="flex items-center gap-2 font-sans text-xs sm:text-sm font-bold text-[#B86428] uppercase">
-            <span className="px-2 py-0.5 rounded bg-[#F4C542]/30 border border-[#B86428]/40">
+        {/* =========================================================================
+         * SECTION 02 — BỐI CẢNH & GIẢ THUYẾT (CONTEXT & SIGNALS)
+         * ========================================================================= */}
+        <section id="sec-02" className="space-y-6 scroll-mt-20">
+          <div className="space-y-2">
+            <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider">
               02 / BỐI CẢNH & GIẢ THUYẾT
             </span>
-          </div>
-          <h2 className="font-sans text-2xl sm:text-3xl font-bold text-[#2D1B12]">
-            Một hành trình có giá trị cao nhưng khó bắt đầu
-          </h2>
-          <p className="font-sans text-sm sm:text-base text-[#5A4030] leading-relaxed max-w-3xl">
-            Vay vốn trung dài hạn là đòn bẩy sống còn của phân khúc Upper SME và CIB để đầu tư dây chuyền sản xuất mới, mở rộng nhà xưởng, mua sắm phương tiện vận tải và tài trợ dự án quy mô lớn từ hàng chục đến hàng trăm tỷ đồng.
-          </p>
-        </div>
-
-        {/* 6 Initial Signals Grid */}
-        <div className="space-y-3">
-          <div className="font-sans text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase flex items-center gap-2">
-            <Activity className="w-4 h-4 text-[#B86428]" />
-            <span>6 TÍN HIỆU CẢNH BÁO TỪ THỰC TẾ VẬN HÀNH (INITIAL SIGNALS)</span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+              Một hành trình có giá trị cao nhưng khó bắt đầu
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-4xl">
+              Vay vốn trung dài hạn là đòn bẩy sống còn của phân khúc Upper SME và CIB để đầu tư dây chuyền sản xuất mới, mở rộng nhà xưởng, mua sắm phương tiện vận tải và tài trợ dự án quy mô lớn từ hàng chục đến hàng trăm tỷ đồng.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
-            {[
-              {
-                num: '01',
-                title: 'Bắt đầu nhưng không hoàn thành',
-                desc: 'Khách hàng click vào tính năng khởi tạo trên Portal nhưng tỷ lệ bỏ dở ngay từ bước danh mục hồ sơ đầu tiên lên tới hơn 60%.'
-              },
-              {
-                num: '02',
-                title: 'Hồ sơ bổ sung nhiều lần',
-                desc: 'Trung bình một bộ hồ sơ gửi sang ngân hàng bị trả về bổ sung từ 3 đến 5 lần do sai lệch mẫu biểu, thiếu tài liệu phụ lục kiểm toán.'
-              },
-              {
-                num: '03',
-                title: 'Liên hệ RM từ quá sớm',
-                desc: 'Hơn 70% khách hàng nhấc máy gọi RM ngay khi nhìn thấy danh sách yêu cầu vì không hiểu định dạng tài liệu và điều kiện cụ thể.'
-              },
-              {
-                num: '04',
-                title: 'Bản lưu nháp (Draft) không quay lại',
-                desc: 'Khách hàng lưu bản nháp tạm thời nhưng không bao giờ quay lại tiếp tục, biến hệ thống thành kho lưu trữ hồ sơ chết.'
-              },
-              {
-                num: '05',
-                title: 'Người duyệt mất nhiều thời gian',
-                desc: 'C-Level (CFO/CEO) không có thời gian đọc hàng chục file đính kèm trên mobile, dẫn đến thời gian chờ duyệt nội bộ kéo dài 3-7 ngày.'
-              },
-              {
-                num: '06',
-                title: 'Không hiểu trạng thái xử lý',
-                desc: 'Hồ sơ sau khi gửi sang MBBank hiển thị trạng thái chung chung "Đang xử lý", khiến doanh nghiệp bất an và liên tục hối thúc RM.'
-              }
-            ].map((s, idx) => (
-              <div
-                key={idx}
-                className="p-4 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571] space-y-2 hover:-translate-y-0.5 transition-transform"
-              >
+          {/* 6 Early Warning Signals Bento */}
+          <div className="space-y-3">
+            <div className="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-wider">
+              <AlertTriangle className="w-4 h-4 text-amber-500" />
+              <span>6 TÍN HIỆU CẢNH BÁO TỪ THỰC TẾ VẬN HÀNH (INITIAL SIGNALS)</span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
+              <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-slate-300 transition-all space-y-1.5">
                 <div className="flex items-center justify-between">
-                  <span className="font-sans text-xs font-bold text-[#B86428] px-2 py-0.5 rounded bg-[#FFF4D6] border border-[#DFC9A2]">
-                    SIGNAL {s.num}
-                  </span>
-                  <AlertCircle className="w-4 h-4 text-[#D97706]" />
+                  <span className="text-xs font-bold text-rose-600">TÍN HIỆU 01</span>
+                  <span className="w-2 h-2 rounded-full bg-rose-500" />
                 </div>
-                <h3 className="font-sans text-sm font-bold text-[#2D1B12]">
-                  {s.title}
-                </h3>
-                <p className="font-sans text-xs text-[#5A4030] leading-relaxed">
-                  {s.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Hypothesis Callout & Story Transition */}
-        <div className="p-5 sm:p-7 rounded-[10px] bg-[#FFF4D6] border-2 border-[#7A3F1F] shadow-[0_4px_0_#542B15] space-y-3">
-          <div className="font-sans text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase flex items-center gap-2">
-            <Lightbulb className="w-4 h-4 text-[#F4C542]" />
-            <span>GIẢ THUYẾT TRẢI NGHIỆM CỐT LÕI (CORE HYPOTHESIS)</span>
-          </div>
-          <blockquote className="font-sans text-base sm:text-lg font-bold text-[#2D1B12] leading-snug italic border-l-4 border-[#B86428] pl-4 my-2">
-            “Khách hàng không từ bỏ vì thiếu nhu cầu vay vốn. Họ từ bỏ vì không hiểu mình cần chuẩn bị gì, chưa sẵn sàng phối hợp nội bộ và không biết điều gì sẽ xảy ra tiếp theo.”
-          </blockquote>
-          <div className="pt-2 border-t border-[#DFC9A2] flex items-center justify-between">
-            <p className="font-sans text-xs sm:text-sm font-semibold text-[#7A3F1F]">
-              👉 <em>“Tôi đã có một giả thuyết rõ ràng. Nhưng liệu giả thuyết đó có thực sự chính xác trên dữ liệu thực tế?”</em>
-            </p>
-            <button
-              onClick={() => scrollToChapter('sec-03')}
-              className="font-sans text-xs text-[#B86428] hover:text-[#2D1B12] flex items-center gap-1 font-bold cursor-pointer"
-            >
-              <span>Xem kiểm chứng</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-       * SECTION 03 — RESEARCH (NGHIÊN CỨU)
-       * ========================================================================= */}
-      <section id="sec-03" className="space-y-6 pt-4 scroll-mt-16 border-t-2 border-[#EAD9B0]">
-        <div className="space-y-2">
-          <div className="flex items-center gap-2 font-sans text-xs sm:text-sm font-bold text-[#B86428] uppercase">
-            <span className="px-2 py-0.5 rounded bg-[#F4C542]/30 border border-[#B86428]/40">
-              03 / RESEARCH METHODOLOGY
-            </span>
-          </div>
-          <h2 className="font-sans text-2xl sm:text-3xl font-bold text-[#2D1B12]">
-            Dùng dữ liệu để biết vấn đề ở đâu. Dùng phỏng vấn để hiểu vì sao.
-          </h2>
-          <p className="font-sans text-sm sm:text-base text-[#5A4030] leading-relaxed max-w-3xl">
-            Tôi chỉ tập trung vào 2 phương pháp nghiên cứu then chốt để đi thẳng vào bản chất: Phân tích dữ liệu vận hành sản phẩm (Định lượng) và Phỏng vấn chuyên sâu 4 nhóm đối tượng người dùng (Định tính).
-          </p>
-        </div>
-
-        {/* Two Research Methods Split Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Method 01: Product & Operational Data Funnel */}
-          <div className="p-5 sm:p-6 rounded-[10px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571] space-y-4">
-            <div className="flex items-center justify-between border-b border-[#DFC9A2] pb-2.5">
-              <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded bg-blue-100 text-blue-900 font-sans text-xs font-bold">
-                  METHOD 01
-                </span>
-                <h3 className="font-sans text-sm sm:text-base font-bold text-[#2D1B12]">
-                  Phân tích dữ liệu sản phẩm & vận hành
-                </h3>
-              </div>
-              <span className="font-sans text-[11px] text-[#7A3F1F] font-semibold">Quantitative</span>
-            </div>
-
-            <p className="font-sans text-xs text-[#5A4030] leading-relaxed">
-              Trích xuất log sự kiện và phễu chuyển đổi trên hệ thống BIZ MBBank trong 6 tháng gần nhất để đo lường chính xác các điểm rơi:
-            </p>
-
-            {/* Funnel Metrics Visualization */}
-            <div className="space-y-2 pt-1 font-sans text-xs">
-              <div className="space-y-1">
-                <div className="flex justify-between text-[11px]">
-                  <span className="text-[#4A3326] font-semibold">1. Truy cập trang thông tin vay TDH</span>
-                  <span className="font-mono font-bold text-slate-900">100% (Baseline)</span>
-                </div>
-                <div className="w-full h-3 rounded-full bg-slate-200 overflow-hidden">
-                  <div className="h-full bg-sky-500 rounded-full" style={{ width: '100%' }} />
-                </div>
-              </div>
-
-              <div className="space-y-1">
-                <div className="flex justify-between text-[11px]">
-                  <span className="text-[#4A3326] font-semibold">2. Nhấn nút "Tạo hồ sơ đề nghị"</span>
-                  <span className="font-mono font-bold text-slate-900">74%</span>
-                </div>
-                <div className="w-full h-3 rounded-full bg-slate-200 overflow-hidden">
-                  <div className="h-full bg-sky-600 rounded-full" style={{ width: '74%' }} />
-                </div>
-              </div>
-
-              <div className="space-y-1">
-                <div className="flex justify-between text-[11px]">
-                  <span className="text-red-700 font-bold">3. Tải lên tài liệu hồ sơ (DROP-OFF LỚN)</span>
-                  <span className="font-mono font-bold text-red-600">28% (Rơi rụng -62%)</span>
-                </div>
-                <div className="w-full h-3 rounded-full bg-slate-200 overflow-hidden">
-                  <div className="h-full bg-rose-500 rounded-full" style={{ width: '28%' }} />
-                </div>
-              </div>
-
-              <div className="space-y-1">
-                <div className="flex justify-between text-[11px]">
-                  <span className="text-[#4A3326] font-semibold">4. Ký số & Gửi ngân hàng thành công</span>
-                  <span className="font-mono font-bold text-emerald-700">12% Completion Rate</span>
-                </div>
-                <div className="w-full h-3 rounded-full bg-slate-200 overflow-hidden">
-                  <div className="h-full bg-emerald-500 rounded-full" style={{ width: '12%' }} />
-                </div>
-              </div>
-            </div>
-
-            {/* Evidence Callout */}
-            <div className="p-3 rounded-[6px] bg-[#FFF8E7] border border-[#DFC9A2] text-xs space-y-1">
-              <strong className="text-[#7A3F1F] font-bold">Key Data Insight:</strong>
-              <p className="text-[#4A3326]">
-                “Điểm nghẽn không nằm ở nhu cầu vay vốn. Nó nằm ở sự thiếu chuẩn bị và thiếu rõ ràng trước khi khách hàng cam kết hoàn thành hồ sơ.”
-              </p>
-            </div>
-          </div>
-
-          {/* Method 02: In-depth User Role Interviews */}
-          <div className="p-5 sm:p-6 rounded-[10px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571] space-y-4">
-            <div className="flex items-center justify-between border-b border-[#DFC9A2] pb-2.5">
-              <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 font-sans text-xs font-bold">
-                  METHOD 02
-                </span>
-                <h3 className="font-sans text-sm sm:text-base font-bold text-[#2D1B12]">
-                  Phỏng vấn chuyên sâu 4 nhóm vai trò
-                </h3>
-              </div>
-              <span className="font-sans text-[11px] text-[#7A3F1F] font-semibold">Qualitative</span>
-            </div>
-
-            <p className="font-sans text-xs text-[#5A4030] leading-relaxed">
-              Phỏng vấn 18 đại diện thuộc các mắt xích chính trong chu trình phê duyệt tín dụng doanh nghiệp:
-            </p>
-
-            <div className="space-y-2.5 pt-1">
-              <div className="p-2.5 rounded-[6px] bg-[#FFF8E7] border border-[#DFC9A2] space-y-1">
-                <div className="flex items-center justify-between text-xs font-bold text-[#2D1B12]">
-                  <span className="flex items-center gap-1.5"><Users className="w-3.5 h-3.5 text-blue-600" /> Người khởi tạo (Nhân viên tài chính)</span>
-                  <span className="text-[10px] text-[#7A3F1F]">“Tôi sợ tải sai mẫu rồi bị bắt làm lại”</span>
-                </div>
-                <p className="text-[11px] text-[#5A4030]">
-                  Gặp áp lực vì không biết danh mục hồ sơ áp dụng cho ngành nghề nào và không thể tự ước tính hạn mức sơ bộ.
+                <div className="text-sm font-bold text-slate-900">Khách hàng bắt đầu nhưng drop-off sớm</div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Lượng click nút "Đăng ký cấp hạn mức" rất cao nhưng hơn 60% rời bỏ ngay màn hình đầu tiên khi thấy bảng danh sách yêu cầu tài liệu vô tận.
                 </p>
               </div>
 
-              <div className="p-2.5 rounded-[6px] bg-[#FFF8E7] border border-[#DFC9A2] space-y-1">
-                <div className="flex items-center justify-between text-xs font-bold text-[#2D1B12]">
-                  <span className="flex items-center gap-1.5"><Building className="w-3.5 h-3.5 text-amber-600" /> Kế toán trưởng & Ban kiểm soát</span>
-                  <span className="text-[10px] text-[#7A3F1F]">“Thiếu tính năng phân quyền soạn thảo”</span>
+              <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-slate-300 transition-all space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-rose-600">TÍN HIỆU 02</span>
+                  <span className="w-2 h-2 rounded-full bg-rose-500" />
                 </div>
-                <p className="text-[11px] text-[#5A4030]">
-                  Cần giao việc cho nhân viên tải file nhưng tài khoản lại chỉ có 1 cấp quyền duy nhất trên hệ thống cũ.
+                <div className="text-sm font-bold text-slate-900">Hồ sơ phải bổ sung từ 3 – 5 lần</div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Doanh nghiệp tải lên sai biểu mẫu báo cáo tài chính, thiếu phụ lục hợp đồng mở rộng dự án khiến chuyên viên quan hệ khách hàng (RM) phải yêu cầu làm lại liên tục.
                 </p>
               </div>
 
-              <div className="p-2.5 rounded-[6px] bg-[#FFF8E7] border border-[#DFC9A2] space-y-1">
-                <div className="flex items-center justify-between text-xs font-bold text-[#2D1B12]">
-                  <span className="flex items-center gap-1.5"><UserCheck className="w-3.5 h-3.5 text-emerald-600" /> Người phê duyệt (CFO / CEO)</span>
-                  <span className="text-[10px] text-[#7A3F1F]">“Tôi không mở nổi 20 file PDF trên mobile”</span>
+              <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-slate-300 transition-all space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-amber-600">TÍN HIỆU 03</span>
+                  <span className="w-2 h-2 rounded-full bg-amber-500" />
                 </div>
-                <p className="text-[11px] text-[#5A4030]">
-                  Cần một màn hình Decision Summary tóm tắt số liệu trọng yếu (Hạn mức, Dòng tiền hoàn vốn, Rủi ro) để duyệt 1-chạm.
+                <div className="text-sm font-bold text-slate-900">RM phải can thiệp thủ công từ quá sớm</div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Thay vì phục vụ tự động (Self-service), RM phải gọi điện hướng dẫn từng file qua Zalo/Email, biến kênh số thành một biểu mẫu tĩnh vô hồn.
                 </p>
               </div>
 
-              <div className="p-2.5 rounded-[6px] bg-[#FFF8E7] border border-[#DFC9A2] space-y-1">
-                <div className="flex items-center justify-between text-xs font-bold text-[#2D1B12]">
-                  <span className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-purple-600" /> Relationship Manager (RM MBBank)</span>
-                  <span className="text-[10px] text-[#7A3F1F]">“Khách gọi tôi không có thông tin trên app”</span>
+              <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-slate-300 transition-all space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-amber-600">TÍN HIỆU 04</span>
+                  <span className="w-2 h-2 rounded-full bg-amber-500" />
                 </div>
-                <p className="text-[11px] text-[#5A4030]">
-                  RM không thấy được bản nháp của khách trên Portal, buộc phải yêu cầu gửi lại tài liệu qua email hoặc Zalo.
+                <div className="text-sm font-bold text-slate-900">Bản nháp (Draft) bị bỏ dở hàng loạt</div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Dữ liệu ghi nhận hàng ngàn hồ sơ dừng lại ở trạng thái "Đang soạn thảo" trên 30 ngày mà không có bất kỳ hành động tiếp theo nào từ người dùng.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-slate-300 transition-all space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-600">TÍN HIỆU 05</span>
+                  <span className="w-2 h-2 rounded-full bg-slate-400" />
+                </div>
+                <div className="text-sm font-bold text-slate-900">Tắc nghẽn ở khâu lãnh đạo ký duyệt</div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Kế toán viên chuẩn bị xong hồ sơ trên Web Portal nhưng CEO/CFO thường xuyên đi công tác, không thể mở máy tính đăng nhập vào hệ thống để phê duyệt.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-slate-300 transition-all space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-600">TÍN HIỆU 06</span>
+                  <span className="w-2 h-2 rounded-full bg-slate-400" />
+                </div>
+                <div className="text-sm font-bold text-slate-900">Khách hàng hoàn toàn mù mờ trạng thái</div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Sau khi nhấn nút "Gửi ngân hàng", màn hình chỉ hiện một dòng trạng thái "Đang xử lý" chung chung khiến doanh nghiệp lo âu và liên tục gọi điện giục giã.
                 </p>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Evidence -> Finding -> Insight Mapping Table */}
-        <div className="p-5 sm:p-6 rounded-[10px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571] space-y-3">
-          <div className="font-sans text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase flex items-center gap-2">
-            <Workflow className="w-4 h-4 text-[#B86428]" />
-            <span>MAPPING: SOURCE → EVIDENCE → FINDING → INSIGHT</span>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left font-sans text-xs border-collapse">
-              <thead>
-                <tr className="bg-[#FFF8E7] border-b-2 border-[#DFC9A2] text-[#2D1B12] font-bold">
-                  <th className="p-2.5 font-sans text-[11px]">NGUỒN (SOURCE)</th>
-                  <th className="p-2.5">BẰNG CHỨNG THỰC TẾ (EVIDENCE)</th>
-                  <th className="p-2.5">PHÁT HIỆN (FINDING)</th>
-                  <th className="p-2.5 text-[#B86428]">INSIGHT CỐT LÕI (INSIGHT)</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#EAD9B0] text-[#4A3326]">
-                <tr>
-                  <td className="p-2.5 font-semibold text-sky-900">Analytics Funnel</td>
-                  <td className="p-2.5">Drop-off 62% tại màn hình tải hồ sơ</td>
-                  <td className="p-2.5">Khách hàng bị choáng ngợp bởi danh sách 15 mục giấy tờ không rõ định dạng</td>
-                  <td className="p-2.5 font-semibold text-[#2D1B12] bg-[#FFF9EB]">
-                    Khách hàng cần một bài tự kiểm tra (Readiness Check) trước khi bắt đầu tải file.
-                  </td>
-                </tr>
-                <tr>
-                  <td className="p-2.5 font-semibold text-emerald-900">User Interview</td>
-                  <td className="p-2.5">Người làm hồ sơ (Kế toán) khác người ký duyệt (CEO)</td>
-                  <td className="p-2.5">Sản phẩm hiện tại thiết kế như hành trình của 1 cá nhân đơn lẻ</td>
-                  <td className="p-2.5 font-semibold text-[#2D1B12] bg-[#FFF9EB]">
-                    Đây là hành trình phối hợp đa vai trò, cần tách biệt luồng soạn thảo và màn hình tóm tắt duyệt.
-                  </td>
-                </tr>
-                <tr>
-                  <td className="p-2.5 font-semibold text-purple-900">RM Operations</td>
-                  <td className="p-2.5">70% khách gọi RM xin danh mục tài liệu chuẩn</td>
-                  <td className="p-2.5">Handoff giữa kênh Digital và RM bị đứt đoạn, mất dữ liệu đã nhập</td>
-                  <td className="p-2.5 font-semibold text-[#2D1B12] bg-[#FFF9EB]">
-                    RM không phải bằng chứng self-service thất bại; RM là một phần tự nhiên của hành trình cần được số hóa handoff.
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-       * SECTION 04 — CURRENT CUSTOMER JOURNEY MAP
-       * ========================================================================= */}
-      <section id="sec-04" className="space-y-6 pt-4 scroll-mt-16 border-t-2 border-[#EAD9B0]">
-        <div className="space-y-2">
-          <div className="flex items-center gap-2 font-sans text-xs sm:text-sm font-bold text-[#B86428] uppercase">
-            <span className="px-2 py-0.5 rounded bg-[#F4C542]/30 border border-[#B86428]/40">
-              04 / CUSTOMER JOURNEY MAP
-            </span>
-          </div>
-          <h2 className="font-sans text-2xl sm:text-3xl font-bold text-[#2D1B12]">
-            Ba insight lớn định hình hướng giải quyết
-          </h2>
-          <p className="font-sans text-sm sm:text-base text-[#5A4030] leading-relaxed max-w-3xl">
-            Bản đồ hành trình chi tiết 7 giai đoạn trải nghiệm hiện tại, đối soát giữa hành động của khách hàng, bằng chứng định lượng, phản hồi phỏng vấn và các điểm đau thực tế.
-          </p>
-        </div>
-
-        {/* Wide Visual Journey Map */}
-        <div className="p-4 sm:p-6 rounded-[10px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571] space-y-4">
-          <div className="flex items-center justify-between">
-            <span className="font-sans text-xs sm:text-sm font-bold text-[#2D1B12] flex items-center gap-2">
-              <Workflow className="w-4 h-4 text-[#B86428]" />
-              <span>7 BƯỚC HÀNH TRÌNH KHÁCH HÀNG (END-TO-END JOURNEY)</span>
-            </span>
-            <button
-              onClick={() => setLightboxImage('/assets/lending-flow.webp')}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#FFF4D6] border border-[#B86428] font-sans text-xs text-[#7A3F1F] font-bold hover:bg-[#FFECC2] transition-colors cursor-pointer"
-            >
-              <Maximize2 className="w-3.5 h-3.5" />
-              <span>Phóng to Journey</span>
-            </button>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-2.5 pt-1">
-            {[
-              {
-                step: '01. Tìm hiểu',
-                action: 'Truy cập banner BIZ MBBank tìm gói vay máy móc/nhà xưởng',
-                data: '74% click bắt đầu',
-                pain: 'Không biết doanh nghiệp mình có đủ điều kiện hạn mức hay không'
-              },
-              {
-                step: '02. Khởi tạo',
-                action: 'Nhập thông tin doanh thu và nhu cầu vốn dự kiến',
-                data: 'Drop-off 15%',
-                pain: 'Trường nhập cứng nhắc, bắt cam kết hạn mức quá chi tiết từ đầu'
-              },
-              {
-                step: '03. Chuẩn bị hồ sơ',
-                action: 'Thu thập báo cáo tài chính, thuế, phương án phương tiện',
-                data: 'Drop-off 62%',
-                pain: '15 mục checklist tĩnh không phân loại theo ngành nghề, file hay bị lỗi dung lượng'
-              },
-              {
-                step: '04. Phê duyệt nội bộ',
-                action: 'Chuyển kế toán trưởng xem xét rồi gửi CEO duyệt',
-                data: 'Thời gian trễ 3-7 ngày',
-                pain: 'CEO đi công tác không thể mở hàng chục file chứng từ trên điện thoại'
-              },
-              {
-                step: '05. Gửi ngân hàng',
-                action: 'Ký số USB Token trên trình duyệt máy tính gửi MBBank',
-                data: 'Lỗi cắm token 22%',
-                pain: 'Xung đột driver trình duyệt, không có thông báo xác nhận gửi thành công'
-              },
-              {
-                step: '06. Theo dõi',
-                action: 'Đăng nhập định kỳ kiểm tra tiến độ giải ngân',
-                data: 'Login 4 lần/ngày',
-                pain: 'Trạng thái duy nhất "Đang xử lý", không biết đang dừng ở phòng ban nào'
-              },
-              {
-                step: '07. RM hỗ trợ',
-                action: 'Gọi điện thoại hoặc nhắn tin Zalo cho RM chi nhánh',
-                data: '70% liên hệ thủ công',
-                pain: 'RM không xem được dữ liệu nháp của khách, phải gửi lại tài liệu từ đầu'
-              }
-            ].map((j, idx) => (
-              <div
-                key={idx}
-                className="p-3 rounded-[6px] bg-[#FFF8E7] border border-[#DFC9A2] flex flex-col justify-between space-y-2 text-xs"
-              >
-                <div className="space-y-1">
-                  <div className="font-sans text-[11px] font-bold text-[#B86428]">
-                    {j.step}
-                  </div>
-                  <p className="font-sans text-[11px] text-[#2D1B12] leading-tight font-medium">
-                    {j.action}
-                  </p>
-                </div>
-
-                <div className="space-y-1.5 pt-1.5 border-t border-[#DFC9A2]/60 text-[10px]">
-                  <div className="text-sky-800 font-mono">
-                    📊 <strong>Data:</strong> {j.data}
-                  </div>
-                  <div className="text-red-800 bg-red-50 p-1 rounded border border-red-200">
-                    ⚠️ <strong>Pain:</strong> {j.pain}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* 3 Core Insights Convergence */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-          <div className="p-5 rounded-[8px] bg-[#FFF4D6] border-2 border-[#7A3F1F] shadow-[0_3px_0_#542B15] space-y-2">
-            <span className="font-sans text-xs font-bold text-[#7A3F1F] px-2 py-0.5 rounded bg-white">
-              INSIGHT 01
-            </span>
-            <h3 className="font-sans text-sm font-bold text-[#2D1B12]">
-              Khách hàng cần biết mình đã sẵn sàng hay chưa
-            </h3>
-            <p className="font-sans text-xs text-[#5A4030] leading-relaxed">
-              Khách hàng không muốn mất hàng giờ thu thập báo cáo tài chính rồi mới biết mình thiếu điều kiện thời gian hoạt động hoặc tỷ lệ nợ/vốn. Họ cần một bộ lọc sơ tuyển nhanh 60 giây.
+          {/* Core Hypothesis Banner */}
+          <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-[#0A1D37] to-[#112D56] text-white space-y-2 shadow-md">
+            <div className="flex items-center gap-2 text-xs font-bold text-sky-400 uppercase tracking-wider">
+              <Lightbulb className="w-4 h-4 text-sky-300" />
+              <span>GIẢ THUYẾT CỐT LÕI (CORE HYPOTHESIS)</span>
+            </div>
+            <p className="text-sm sm:text-base font-semibold leading-relaxed text-slate-100">
+              “Nếu phân rã việc nộp hồ sơ thành các bước nhỏ có chuẩn bị trước (Readiness Check), tùy biến danh mục tài liệu theo từng ngành nghề (Dynamic Checklist), tách biệt luồng soạn thảo với luồng phê duyệt 1-chạm của lãnh đạo trên di động, và kết nối minh bạch tiến trình với RM — thì tỷ lệ hoàn thành hồ sơ sẽ tăng trưởng vượt bậc và giảm thiểu số lần phải bổ sung.”
             </p>
-          </div>
-
-          <div className="p-5 rounded-[8px] bg-[#FFF4D6] border-2 border-[#7A3F1F] shadow-[0_3px_0_#542B15] space-y-2">
-            <span className="font-sans text-xs font-bold text-[#7A3F1F] px-2 py-0.5 rounded bg-white">
-              INSIGHT 02
-            </span>
-            <h3 className="font-sans text-sm font-bold text-[#2D1B12]">
-              Đây là hành trình phối hợp của nhiều vai trò
-            </h3>
-            <p className="font-sans text-xs text-[#5A4030] leading-relaxed">
-              Nhân viên nhập liệu cần checklist chi tiết; Kế toán trưởng cần kiểm soát chất lượng hồ sơ; CEO chỉ cần 1 màn hình Decision Summary tóm tắt để ký duyệt nhanh bằng sinh trắc học.
-            </p>
-          </div>
-
-          <div className="p-5 rounded-[8px] bg-[#FFF4D6] border-2 border-[#7A3F1F] shadow-[0_3px_0_#542B15] space-y-2">
-            <span className="font-sans text-xs font-bold text-[#7A3F1F] px-2 py-0.5 rounded bg-white">
-              INSIGHT 03
-            </span>
-            <h3 className="font-sans text-sm font-bold text-[#2D1B12]">
-              RM là một phần của hành trình nhưng handoff bị đứt đoạn
-            </h3>
-            <p className="font-sans text-xs text-[#5A4030] leading-relaxed">
-              Khách hàng không muốn loại bỏ hoàn toàn con người trong khoản vay lớn. Vấn đề là khi chuyển sang RM, dữ liệu đã nhập trên app bị biến mất và khách hàng phải làm lại từ đầu.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-       * SECTION 05 — HMW & PRIORITIZATION (CƠ HỘI & ƯU TIÊN)
-       * ========================================================================= */}
-      <section id="sec-05" className="space-y-6 pt-4 scroll-mt-16 border-t-2 border-[#EAD9B0]">
-        <div className="space-y-2">
-          <div className="flex items-center gap-2 font-sans text-xs sm:text-sm font-bold text-[#B86428] uppercase">
-            <span className="px-2 py-0.5 rounded bg-[#F4C542]/30 border border-[#B86428]/40">
-              05 / HMW & PRIORITIZATION
-            </span>
-          </div>
-          <h2 className="font-sans text-2xl sm:text-3xl font-bold text-[#2D1B12]">
-            Từ nhiều câu hỏi đến ba cơ hội có giá trị nhất
-          </h2>
-          <p className="font-sans text-sm sm:text-base text-[#5A4030] leading-relaxed max-w-3xl">
-            Quá trình tư duy phân kỳ (Divergent) khám phá toàn bộ câu hỏi How Might We, sau đó hội tụ (Converge) vào 3 trụ cột cơ hội tạo ra tác động lớn nhất trong khuôn khổ MVP khả thi.
-          </p>
-        </div>
-
-        {/* Divergent -> Convergent Diagram Board */}
-        <div className="p-5 sm:p-7 rounded-[10px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571] space-y-5">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
-            {/* Divergent Side */}
-            <div className="space-y-3 p-4 rounded-lg bg-[#FFF8E7] border border-[#DFC9A2]">
-              <div className="font-sans text-xs font-bold text-[#7A3F1F] uppercase flex items-center gap-2">
-                <span>◀ PHÂN KỲ (DIVERGENT): 4 KHU VỰC CÂU HỎI HMW</span>
-              </div>
-              <div className="space-y-2 font-sans text-xs">
-                <div className="p-2.5 rounded bg-white border border-[#DFC9A2] text-[#4A3326]">
-                  <strong>1. Readiness:</strong> Làm sao để doanh nghiệp tự đánh giá khả năng được cấp hạn mức trước khi chuẩn bị giấy tờ?
-                </div>
-                <div className="p-2.5 rounded bg-white border border-[#DFC9A2] text-[#4A3326]">
-                  <strong>2. Documents:</strong> Làm sao để việc chuẩn bị báo cáo tài chính không còn là một bài toán mông lung và dễ sai sót?
-                </div>
-                <div className="p-2.5 rounded bg-white border border-[#DFC9A2] text-[#4A3326]">
-                  <strong>3. Collaboration:</strong> Làm sao để người soạn thảo và người phê duyệt C-Level phối hợp nhịp nhàng trên 2 thiết bị khác nhau?
-                </div>
-                <div className="p-2.5 rounded bg-white border border-[#DFC9A2] text-[#4A3326]">
-                  <strong>4. Tracking & Support:</strong> Làm sao để khách hàng luôn cảm thấy kiểm soát tiến độ và RM tiếp ứng đúng lúc?
-                </div>
-              </div>
-            </div>
-
-            {/* Convergent Side */}
-            <div className="space-y-3 p-4 rounded-lg bg-[#EAF8E7] border border-[#BDE3B6]">
-              <div className="font-sans text-xs font-bold text-[#15803D] uppercase flex items-center gap-2">
-                <span>▶ HỘI TỤ (CONVERGE): 3 CƠ HỘI ĐỘT PHÁ CỐT LÕI</span>
-              </div>
-              <div className="space-y-2.5 font-sans text-xs">
-                <div className="p-3 rounded bg-white border border-[#BDE3B6] space-y-1">
-                  <span className="font-sans text-[11px] font-bold text-[#15803D] uppercase">01. Readiness & Dynamic Preparation</span>
-                  <p className="text-[#2D452F]">
-                    Xây dựng luồng tiền kiểm tra 60 giây và danh mục hồ sơ động gợi ý chính xác theo loại hình vay và ngành nghề kinh doanh.
-                  </p>
-                </div>
-                <div className="p-3 rounded bg-white border border-[#BDE3B6] space-y-1">
-                  <span className="font-sans text-[11px] font-bold text-[#15803D] uppercase">02. Multi-role Collaborative Flow</span>
-                  <p className="text-[#2D452F]">
-                    Tách luồng soạn thảo chi tiết trên Web Portal cho kế toán và màn hình Decision Summary duyệt nhanh 1-chạm trên Mobile cho CEO.
-                  </p>
-                </div>
-                <div className="p-3 rounded bg-white border border-[#BDE3B6] space-y-1">
-                  <span className="font-sans text-[11px] font-bold text-[#15803D] uppercase">03. Transparent Tracking & Contextual RM Handoff</span>
-                  <p className="text-[#2D452F]">
-                    Minh bạch hóa timeline 4 giai đoạn cụ thể và tạo cầu nối 1-chạm cho RM tiếp nhận nguyên vẹn dữ liệu nháp của khách hàng.
-                  </p>
-                </div>
-              </div>
+            <div className="text-xs text-sky-300/80 pt-1 font-medium">
+              → Chúng tôi quyết định bước vào giai đoạn nghiên cứu thực địa để kiểm chứng giả thuyết này.
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Prioritization Matrix: In Scope vs Out of Scope */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="p-5 rounded-[8px] bg-[#FFFDF7] border-2 border-[#86EFAC] shadow-[0_3px_0_#4ADE80] space-y-3">
-            <div className="font-sans text-xs sm:text-sm font-bold text-[#166534] uppercase flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
-              <span>ƯU TIÊN HÀNG ĐẦU TRONG MVP (IN-SCOPE)</span>
-            </div>
-            <ul className="space-y-2 font-sans text-xs text-[#14532D]">
-              <li className="flex items-start gap-2">
-                <span className="text-emerald-600 font-bold">✓</span>
-                <span><strong>Readiness Check:</strong> Kiểm tra tính khả thi và điều kiện hồ sơ trong 60 giây trước khi bắt đầu.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-emerald-600 font-bold">✓</span>
-                <span><strong>Dynamic Checklist:</strong> Bảng kiểm hồ sơ phân loại thông minh theo ngành nghề và tính năng tự động lưu nháp.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-emerald-600 font-bold">✓</span>
-                <span><strong>Decision Summary:</strong> Màn hình tóm tắt hồ sơ và ký số Smart CA sinh trắc học trên Mobile App.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-emerald-600 font-bold">✓</span>
-                <span><strong>Transparent Tracking:</strong> Timeline trạng thái chi tiết theo phòng ban thẩm định và nút kết nối RM có ngữ cảnh.</span>
-              </li>
-            </ul>
-          </div>
-
-          <div className="p-5 rounded-[8px] bg-[#FFFDF7] border-2 border-[#FCA5A5] shadow-[0_3px_0_#F87171] space-y-3">
-            <div className="font-sans text-xs sm:text-sm font-bold text-[#991B1B] uppercase flex items-center gap-2">
-              <X className="w-4 h-4 text-[#DC2626]" />
-              <span>CHƯA ƯU TIÊN / NGOÀI PHẠM VI MVP (OUT-OF-SCOPE)</span>
-            </div>
-            <ul className="space-y-2 font-sans text-xs text-[#7F1D1D]">
-              <li className="flex items-start gap-2">
-                <span className="text-red-500 font-bold">✗</span>
-                <span><strong>Credit Policy Changes:</strong> Không can thiệp thay đổi chính sách tín dụng hoặc khẩu vị rủi ro của MBBank.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-red-500 font-bold">✗</span>
-                <span><strong>Full Digital Assessment:</strong> Không cố gắng thay thế 100% việc thẩm định thực địa tài sản bảo đảm của các khoản vay trên 50 tỷ.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-red-500 font-bold">✗</span>
-                <span><strong>Automatic Large Loan Approval:</strong> Khoản vay trung dài hạn CIB đòi hỏi Hội đồng tín dụng phê duyệt, không thể giải ngân tự động tức thì.</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-       * SECTION 06 — EXPERIENCE STRATEGY (CHIẾN LƯỢC TRẢI NGHIỆM)
-       * ========================================================================= */}
-      <section id="sec-06" className="space-y-6 pt-4 scroll-mt-16 border-t-2 border-[#EAD9B0]">
-        <div className="space-y-2">
-          <div className="flex items-center gap-2 font-sans text-xs sm:text-sm font-bold text-[#B86428] uppercase">
-            <span className="px-2 py-0.5 rounded bg-[#F4C542]/30 border border-[#B86428]/40">
-              06 / EXPERIENCE STRATEGY
-            </span>
-          </div>
-          <h2 className="font-sans text-2xl sm:text-3xl font-bold text-[#2D1B12]">
-            Từ cơ hội ưu tiên đến 5 trụ cột trải nghiệm
-          </h2>
-          <p className="font-sans text-sm sm:text-base text-[#5A4030] leading-relaxed max-w-3xl">
-            Để giải quyết triệt để sự gián đoạn giữa kênh số và thực tế vận hành, tôi đề xuất chiến lược xây dựng 5 trụ cột trải nghiệm vững chắc.
-          </p>
-        </div>
-
-        {/* Key Statement Callout */}
-        <div className="p-5 sm:p-6 rounded-[10px] bg-[#FFF8E7] border-2 border-[#B86428] shadow-[0_4px_0_#7A3F1F] text-center space-y-2">
-          <span className="font-sans text-xs text-[#B86428] uppercase font-bold tracking-widest">
-            ★ CHIẾN LƯỢC CỐT LÕI (STRATEGIC PILLAR STATEMENT) ★
-          </span>
-          <blockquote className="font-sans text-base sm:text-xl font-bold text-[#2D1B12] leading-snug max-w-3xl mx-auto">
-            “Chúng tôi không cố gắng loại bỏ Relationship Manager (RM) khỏi hành trình. Chúng tôi thiết kế lại cách Digital và RM phối hợp để khách hàng không bao giờ bị mất dữ liệu, mất ngữ cảnh và mất cảm giác kiểm soát.”
-          </blockquote>
-        </div>
-
-        {/* 5 Quest Checkpoints / Pillars Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 pt-1">
-          {[
-            {
-              num: '01',
-              title: 'Chuẩn bị trước khi bắt đầu',
-              desc: 'Bộ lọc Readiness Check 60 giây giúp khách hàng biết chính xác điều kiện và tài liệu cần thiết trước khi bắt tay thực hiện.'
-            },
-            {
-              num: '02',
-              title: 'Hướng dẫn theo ngữ cảnh',
-              desc: 'Mỗi trường nhập và loại hồ sơ đều có gợi ý dung lượng, định dạng file chuẩn và ví dụ trực quan ngay tại chỗ.'
-            },
-            {
-              num: '03',
-              title: 'Phối hợp đúng vai trò',
-              desc: 'Tách bạch trải nghiệm: Web Portal cho Kế toán soạn thảo & tải file; Mobile App cho CEO xem tóm tắt và duyệt 1-chạm.'
-            },
-            {
-              num: '04',
-              title: 'Minh bạch sau khi gửi',
-              desc: 'Timeline 4 bước cập nhật thời gian thực, hiển thị rõ ai đang xử lý, cần làm gì tiếp theo và thời gian dự kiến.'
-            },
-            {
-              num: '05',
-              title: 'Digital & RM là một hành trình',
-              desc: 'Nút kết nối RM chia sẻ toàn bộ trạng thái và bản nháp hồ sơ để RM tư vấn trúng đích mà không bắt nhập lại.'
-            }
-          ].map((p, idx) => (
-            <div
-              key={idx}
-              className="p-4 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571] flex flex-col justify-between space-y-2 hover:-translate-y-0.5 transition-transform"
-            >
-              <div className="space-y-1.5">
-                <span className="font-sans text-xs font-bold text-[#2D1B12] px-2 py-0.5 rounded bg-[#F4C542]">
-                  PILLAR {p.num}
-                </span>
-                <h3 className="font-sans text-xs sm:text-sm font-bold text-[#2D1B12] pt-1">
-                  {p.title}
-                </h3>
-              </div>
-              <p className="font-sans text-[11px] sm:text-xs text-[#5A4030] leading-relaxed pt-2 border-t border-[#DFC9A2]">
-                {p.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* =========================================================================
-       * SECTION 07 — FLOW & PROTOTYPE (VISUAL CLIMAX 01)
-       * ========================================================================= */}
-      <section id="sec-07" className="space-y-6 pt-4 scroll-mt-16 border-t-2 border-[#EAD9B0]">
-        <div className="space-y-2">
-          <div className="flex items-center gap-2 font-sans text-xs sm:text-sm font-bold text-[#B86428] uppercase">
-            <span className="px-2 py-0.5 rounded bg-[#F4C542]/30 border border-[#B86428]/40">
-              07 / FLOW & PROTOTYPE • VISUAL CLIMAX 01
-            </span>
-          </div>
-          <h2 className="font-sans text-2xl sm:text-3xl font-bold text-[#2D1B12]">
-            Từ chiến lược thành một hành trình có thể trải nghiệm
-          </h2>
-          <p className="font-sans text-sm sm:text-base text-[#5A4030] leading-relaxed max-w-3xl">
-            Sơ đồ User Flow toàn trình 9 bước tích hợp đồng bộ giữa Web Portal và Mobile App, đi kèm nguyên mẫu tương tác thực tế (Interactive Prototype).
-          </p>
-        </div>
-
-        {/* 9 Steps Flow Badges */}
-        <div className="p-4 rounded-[8px] bg-[#FFF8E7] border border-[#DFC9A2] overflow-x-auto">
-          <div className="flex items-center gap-2 min-w-max text-xs font-sans font-bold text-[#2D1B12]">
-            {[
-              'Khởi tạo nhu cầu',
-              'Readiness Check',
-              'Chuẩn bị hồ sơ',
-              'Upload & Validate',
-              'Xác nhận nội bộ',
-              'CEO Phê duyệt',
-              'Gửi MBBank',
-              'Theo dõi Timeline',
-              'RM Support'
-            ].map((step, sIdx) => (
-              <React.Fragment key={sIdx}>
-                <span className="px-2.5 py-1 rounded bg-white border border-[#CBB892] shadow-xs">
-                  {sIdx + 1}. {step}
-                </span>
-                {sIdx < 8 && <ArrowRight className="w-3.5 h-3.5 text-[#B86428] shrink-0" />}
-              </React.Fragment>
-            ))}
-          </div>
-        </div>
-
-        {/* Full-width Flow Viewer Container */}
-        <div className="space-y-3">
-          <div className="flex items-center justify-between">
-            <h3 className="font-sans text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase flex items-center gap-2">
-              <Workflow className="w-4 h-4 text-[#B86428]" />
-              <span>SƠ ĐỒ HÀNH TRÌNH TƯƠNG TÁC (USER FLOW DIAGRAM)</span>
-            </h3>
-            <button
-              onClick={() => setLightboxImage('/assets/lending-flow.webp')}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[5px] bg-[#F4C542] hover:bg-[#FFD55C] border-2 border-[#4A2414] text-[#2D1B12] font-sans text-xs font-bold shadow-[0_2px_0_#4A2414] active:translate-y-0.5 cursor-pointer"
-            >
-              <Maximize2 className="w-3.5 h-3.5" />
-              <span>XEM TOÀN BỘ FLOW (LIGHTBOX)</span>
-            </button>
-          </div>
-
-          {/* Interactive Flow Box with Fallback */}
-          <div
-            onClick={() => setLightboxImage('/assets/lending-flow.webp')}
-            className="group relative rounded-[10px] bg-[#0E1A2E] border-2 sm:border-3 border-[#CBB892] shadow-[0_6px_0_#A89571] overflow-hidden p-6 text-center cursor-pointer min-h-[220px] sm:min-h-[320px] flex flex-col items-center justify-center space-y-3 hover:border-[#F4C542] transition-colors"
-          >
-            <div className="w-12 h-12 rounded-full bg-blue-900/60 border border-sky-400/40 flex items-center justify-center text-sky-300 group-hover:scale-110 transition-transform">
-              <Workflow className="w-6 h-6" />
-            </div>
-            <div className="space-y-1">
-              <div className="font-sans text-sm sm:text-base text-sky-200 font-bold">
-                BẢN ĐỒ TOÀN TRÌNH USER FLOW: BIZ MBBANK LENDING
-              </div>
-              <p className="font-sans text-xs text-slate-400 max-w-lg mx-auto">
-                Nhấp để mở sơ đồ độ phân giải cao dạng Lightbox tương tác, hiển thị đầy đủ các điểm rẽ nhánh logic và các trường dữ liệu tự động validate.
-              </p>
-            </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-sky-500/20 text-sky-300 font-sans text-[11px] border border-sky-500/40">
-              <span>✦ Click để mở Fullscreen</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Prototype Video Player in Voxel Monitor Frame */}
-        <div className="space-y-3 pt-2">
-          <div className="flex items-center justify-between">
-            <h3 className="font-sans text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase flex items-center gap-2">
-              <Play className="w-4 h-4 text-[#B86428]" />
-              <span>NGUYÊN MẪU TƯƠNG TÁC THỰC TẾ (INTERACTIVE PROTOTYPE VIDEO)</span>
-            </h3>
-            <span className="font-mono text-[11px] text-[#7A3F1F] font-semibold">Duration: 01:24 • Scenario: Cấp TDH 85 Tỷ</span>
-          </div>
-
-          {/* Voxel Monitor Frame */}
-          <div className="rounded-[14px] bg-[#22130B] p-3 sm:p-5 border-4 border-[#4A2414] shadow-[0_8px_0_#1E0D06] space-y-2">
-            {/* Monitor Top Bar */}
-            <div className="flex items-center justify-between px-2 pb-2 text-[10px] font-sans text-[#DFC9A2] border-b border-[#3B1D0F]">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-red-500" />
-                <span className="w-2 h-2 rounded-full bg-yellow-500" />
-                <span className="w-2 h-2 rounded-full bg-green-500" />
-                <span className="ml-1 text-[#F4C542]">VOXEL MONITOR • BIZ MBBANK PROTOTYPE PLAYER</span>
-              </div>
-              <span className="text-[#D9D2BF]">1920 x 1080 FHD</span>
-            </div>
-
-            {/* Video Screen Surface */}
-            <div className="relative rounded-[8px] bg-[#0A1220] overflow-hidden min-h-[300px] sm:min-h-[460px] flex flex-col items-center justify-center p-4">
-              {/* Media Slot Placeholder / Video container */}
-              <div className="text-center space-y-3 max-w-md">
-                <div className="w-16 h-16 rounded-full bg-blue-600/30 border-2 border-sky-400 flex items-center justify-center text-sky-300 mx-auto shadow-lg shadow-sky-500/20">
-                  <Play className="w-7 h-7 ml-1" />
-                </div>
-                <div className="space-y-1">
-                  <div className="font-sans text-base sm:text-lg font-bold text-white tracking-wide">
-                    [ PROTOTYPE VIDEO • BIZ MBBANK LENDING ]
-                  </div>
-                  <p className="font-sans text-xs text-slate-300 leading-relaxed">
-                    Kịch bản xuyên suốt: Readiness Check → Dynamic Checklist → Upload & Auto-save → Decision Summary trên Mobile → Ký số Smart CA → Timeline theo dõi.
-                  </p>
-                </div>
-                <div className="pt-2 flex flex-wrap items-center justify-center gap-2">
-                  <span className="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono text-[10px] border border-slate-700">
-                    /assets/lending-prototype.mp4
-                  </span>
-                  <span className="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 font-sans text-[10px] border border-emerald-500/40">
-                    Auto-loop • Muted • 60fps
-                  </span>
-                </div>
-              </div>
-
-              {/* Video Player Overlay Controls Bar */}
-              <div className="absolute bottom-3 inset-x-3 rounded-[6px] bg-slate-900/90 backdrop-blur-md p-2 flex items-center justify-between border border-slate-700 text-white text-xs font-sans">
-                <div className="flex items-center gap-3">
-                  <button
-                    onClick={() => setIsPlayingVideo(!isPlayingVideo)}
-                    className="p-1 hover:text-sky-400 transition-colors cursor-pointer"
-                  >
-                    {isPlayingVideo ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-                  </button>
-                  <button
-                    onClick={() => setIsMutedVideo(!isMutedVideo)}
-                    className="p-1 hover:text-sky-400 transition-colors cursor-pointer"
-                  >
-                    {isMutedVideo ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-                  </button>
-                  <span className="text-[10px] text-slate-300 font-mono hidden sm:inline">00:42 / 01:24</span>
-                </div>
-
-                <div className="flex items-center gap-2 text-[10px] text-slate-300">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>KỊCH BẢN DOANH NGHIỆP CẤP TDH</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-       * SECTION 08 — PRODUCT SOLUTION (CHI TIẾT GIẢI PHÁP UI)
-       * ========================================================================= */}
-      <section id="sec-08" className="space-y-8 pt-4 scroll-mt-16 border-t-2 border-[#EAD9B0]">
-        <div className="space-y-2">
-          <div className="flex items-center gap-2 font-sans text-xs sm:text-sm font-bold text-[#B86428] uppercase">
-            <span className="px-2 py-0.5 rounded bg-[#F4C542]/30 border border-[#B86428]/40">
-              08 / PRODUCT SOLUTION SHOWCASE
-            </span>
-          </div>
-          <h2 className="font-sans text-2xl sm:text-3xl font-bold text-[#2D1B12]">
-            Mỗi màn hình tồn tại vì một insight cụ thể
-          </h2>
-          <p className="font-sans text-sm sm:text-base text-[#5A4030] leading-relaxed max-w-3xl">
-            Không sử dụng lưới card đồng dạng, tôi thiết kế theo cấu trúc Editorial Showcase: Mỗi giải pháp giải quyết trực diện một điểm nghẽn bằng UI chân thực của ngân hàng số BIZ MBBank.
-          </p>
-        </div>
-
-        {/* SOLUTION 01: Readiness Screen */}
-        <div className="p-5 sm:p-7 rounded-[10px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571] space-y-4">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DFC9A2] pb-3">
-            <div className="flex items-center gap-2">
-              <span className="font-sans text-xs font-bold text-white px-2 py-0.5 rounded bg-[#176B73]">
-                SOLUTION 01
-              </span>
-              <h3 className="font-sans text-base sm:text-lg font-bold text-[#2D1B12]">
-                Readiness Screen — Kiểm tra điều kiện trong 60 giây
-              </h3>
-            </div>
-            <span className="font-sans text-xs text-[#7A3F1F] font-semibold">Web & Mobile Pre-flight</span>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-            <div className="lg:col-span-5 space-y-3 font-sans text-xs sm:text-sm text-[#4A3326]">
-              <div className="p-2.5 rounded bg-red-50 border border-red-200 text-red-900 text-xs">
-                <strong>Insight giải quyết:</strong> Khách hàng chưa biết mình có đủ điều kiện hay không nhưng đã bị bắt tải hàng chục file chứng từ.
-              </div>
-              <p className="leading-relaxed">
-                <strong>Thiết kế:</strong> Một màn hình sơ duyệt với 3 câu hỏi nhanh về mục đích vốn, doanh thu năm liền kề và thời gian hoạt động. Hệ thống kết nối cơ sở dữ liệu thuế để tự điền và đưa ra phản hồi: <em>“Doanh nghiệp đủ điều kiện tiếp cận gói TDH hạn mức tối đa 100 Tỷ”</em>.
-              </p>
-              <ul className="space-y-1.5 text-xs text-[#5A4030]">
-                <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-emerald-600 font-bold" />
-                  <span>Không lưu vết từ chối tín dụng nếu chưa đủ điều kiện</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-emerald-600 font-bold" />
-                  <span>Ước tính biên độ lãi suất & thời hạn vay khả thi</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Realistic UI Simulation */}
-            <div className="lg:col-span-7 rounded-[8px] bg-[#0E1A2E] p-4 text-white font-sans text-xs space-y-3 border border-blue-900/60 shadow-lg">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-2 text-[10px]">
-                <span className="font-bold text-sky-300">BIZ MBBank • KIỂM TRA ĐIỀU KIỆN SƠ BỘ</span>
-                <span className="text-emerald-400 font-mono">Thời gian: 60 Giây</span>
-              </div>
-              <div className="space-y-2 text-[11px]">
-                <div className="p-2.5 rounded bg-slate-900 border border-slate-800 flex justify-between items-center">
-                  <span>Mục đích vay vốn:</span>
-                  <strong className="text-sky-300">Đầu tư mở rộng nhà xưởng & máy móc</strong>
-                </div>
-                <div className="p-2.5 rounded bg-slate-900 border border-slate-800 flex justify-between items-center">
-                  <span>Doanh thu báo cáo năm gần nhất:</span>
-                  <strong className="text-sky-300 font-mono">142.5 Tỷ VNĐ</strong>
-                </div>
-                <div className="p-3 rounded bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 text-xs flex items-center gap-2.5">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
-                  <div>
-                    <div className="font-bold text-white">Đủ điều kiện tiếp cận hạn mức đề xuất!</div>
-                    <div className="text-[11px] text-emerald-300">Hạn mức khả dụng dự kiến: 80 - 100 Tỷ VNĐ</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* SOLUTION 02: Dynamic Checklist */}
-        <div className="p-5 sm:p-7 rounded-[10px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571] space-y-4">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DFC9A2] pb-3">
-            <div className="flex items-center gap-2">
-              <span className="font-sans text-xs font-bold text-white px-2 py-0.5 rounded bg-[#176B73]">
-                SOLUTION 02
-              </span>
-              <h3 className="font-sans text-base sm:text-lg font-bold text-[#2D1B12]">
-                Dynamic Checklist & Smart File Parser
-              </h3>
-            </div>
-            <span className="font-sans text-xs text-[#7A3F1F] font-semibold">Web Portal Upload Engine</span>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-            {/* UI Mockup on Left */}
-            <div className="lg:col-span-7 rounded-[8px] bg-[#0E1A2E] p-4 text-white font-sans text-xs space-y-3 border border-blue-900/60 shadow-lg order-2 lg:order-1">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-2 text-[10px]">
-                <span className="font-bold text-sky-300">HỒ SƠ TÀI CHÍNH • PHÂN KHÚC CÔNG NGHIỆP CHẾ TẠO</span>
-                <span className="text-amber-400 font-mono">Tự động lưu nháp 14:28</span>
-              </div>
-              <div className="space-y-2 text-[11px]">
-                <div className="p-2.5 rounded bg-slate-900 border border-emerald-500/50 flex justify-between items-center">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                    <span>Báo cáo tài chính kiểm toán 2024 (PDF)</span>
-                  </div>
-                  <span className="text-[10px] text-emerald-400 font-mono">Hợp lệ • 18.2 MB</span>
-                </div>
-                <div className="p-2.5 rounded bg-slate-900 border border-slate-800 flex justify-between items-center">
-                  <div className="flex items-center gap-2">
-                    <FileUp className="w-4 h-4 text-sky-400" />
-                    <span>Quyết định phê duyệt dự án đầu tư</span>
-                  </div>
-                  <span className="text-[10px] px-2 py-0.5 rounded bg-sky-500/20 text-sky-300">Kéo thả file vào đây</span>
-                </div>
-                <div className="p-2 rounded bg-amber-950/40 border border-amber-500/30 text-amber-200 text-[10px] flex items-center justify-between">
-                  <span>💡 Hỗ trợ tải lên file PDF, XLSX lên tới 50MB. Hệ thống tự nhận diện mục lục.</span>
-                  <span className="text-sky-300 underline cursor-pointer">Tải file mẫu chuẩn</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 space-y-3 font-sans text-xs sm:text-sm text-[#4A3326] order-1 lg:order-2">
-              <div className="p-2.5 rounded bg-red-50 border border-red-200 text-red-900 text-xs">
-                <strong>Insight giải quyết:</strong> Khách hàng choáng ngợp trước danh sách hồ sơ tĩnh không liên quan và hay bị lỗi định dạng khi nộp.
-              </div>
-              <p className="leading-relaxed">
-                <strong>Thiết kế:</strong> Danh mục hồ sơ động (Dynamic Checklist) co giãn theo ngành nghề. Nếu doanh nghiệp vay mua máy móc, hệ thống chỉ yêu cầu hợp đồng kinh tế và tờ khai hải quan; loại bỏ các giấy tờ không cần thiết.
-              </p>
-              <ul className="space-y-1.5 text-xs text-[#5A4030]">
-                <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-emerald-600 font-bold" />
-                  <span>Validation tức thời dung lượng và định dạng</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-emerald-600 font-bold" />
-                  <span>Tính năng Auto-save tự động lưu mỗi khi tải xong 1 file</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* SOLUTION 03: Approver Decision Summary */}
-        <div className="p-5 sm:p-7 rounded-[10px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571] space-y-4">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DFC9A2] pb-3">
-            <div className="flex items-center gap-2">
-              <span className="font-sans text-xs font-bold text-white px-2 py-0.5 rounded bg-[#176B73]">
-                SOLUTION 03
-              </span>
-              <h3 className="font-sans text-base sm:text-lg font-bold text-[#2D1B12]">
-                Creator Flow + Approver Decision Summary
-              </h3>
-            </div>
-            <span className="font-sans text-xs text-[#7A3F1F] font-semibold">Multi-role Collaboration</span>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-            <div className="lg:col-span-6 space-y-3 font-sans text-xs sm:text-sm text-[#4A3326]">
-              <div className="p-2.5 rounded bg-red-50 border border-red-200 text-red-900 text-xs">
-                <strong>Insight giải quyết:</strong> CEO/CFO từ chối đọc hàng chục file đính kèm trên mobile và không mang USB Token khi đi công tác.
-              </div>
-              <p className="leading-relaxed">
-                <strong>Thiết kế:</strong> Màn hình Decision Summary chắt lọc toàn bộ hồ sơ thành 1 trang cô đọng: Nhu cầu vốn, Dòng tiền trả nợ, Ý kiến kiểm soát của Kế toán trưởng. Tích hợp chữ ký số đám mây (Smart CA) ký duyệt bằng FaceID ngay trên điện thoại.
-              </p>
-              <ul className="space-y-1.5 text-xs text-[#5A4030]">
-                <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-emerald-600 font-bold" />
-                  <span>Tách biệt hoàn toàn quyền Soạn thảo vs Quyền Phê duyệt</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-emerald-600 font-bold" />
-                  <span>Ký duyệt bảo mật cấp ngân hàng mọi lúc mọi nơi</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="lg:col-span-6 rounded-[8px] bg-[#0E1A2E] p-4 text-white font-sans text-xs space-y-3 border border-blue-900/60 shadow-lg">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-2 text-[10px]">
-                <span className="font-bold text-sky-300">TÓM TẮT TRÌNH PHÊ DUYỆT (DECISION SUMMARY)</span>
-                <span className="text-emerald-400 font-mono">Bảo mật FaceID</span>
-              </div>
-              <div className="grid grid-cols-2 gap-2 text-[11px]">
-                <div className="p-2.5 rounded bg-slate-900 border border-slate-800">
-                  <div className="text-[10px] text-slate-400">Hạn mức đề nghị:</div>
-                  <div className="text-sm font-bold text-emerald-400 font-mono mt-0.5">85 Tỷ VNĐ</div>
-                </div>
-                <div className="p-2.5 rounded bg-slate-900 border border-slate-800">
-                  <div className="text-[10px] text-slate-400">Tỷ lệ đảm bảo nợ:</div>
-                  <div className="text-sm font-bold text-sky-400 font-mono mt-0.5">145% (BĐS + Máy móc)</div>
-                </div>
-              </div>
-              <div className="p-2 rounded bg-slate-900 border border-slate-800 text-[10px] space-y-1">
-                <div className="text-slate-300 font-semibold">Ý kiến kế toán trưởng:</div>
-                <div className="text-slate-400 italic">“Đã rà soát báo cáo dòng tiền dự án 5 năm, đủ khả năng hoàn nợ theo quý.”</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* SOLUTION 04 & 05: Timeline & Contextual RM Handoff */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Solution 04 */}
-          <div className="p-5 sm:p-6 rounded-[10px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571] space-y-3">
-            <div className="flex items-center gap-2 border-b border-[#DFC9A2] pb-2.5">
-              <span className="font-sans text-xs font-bold text-white px-2 py-0.5 rounded bg-[#176B73]">
-                SOLUTION 04
-              </span>
-              <h3 className="font-sans text-sm sm:text-base font-bold text-[#2D1B12]">
-                Status Timeline & Next Action Guidance
-              </h3>
-            </div>
-            <p className="font-sans text-xs text-[#4A3326] leading-relaxed">
-              Thay thế thông báo "Đang xử lý" mơ hồ bằng Timeline 4 giai đoạn minh bạch: Ai đang xử lý (Bộ phận Thẩm định rủi ro), Hành động tiếp theo là gì và Thời gian phản hồi dự kiến.
-            </p>
-            <div className="p-3 rounded bg-[#0E1A2E] text-white font-sans text-xs space-y-2 border border-slate-800">
-              <div className="flex items-center justify-between text-[10px] text-slate-400 border-b border-slate-800 pb-1.5">
-                <span>TIẾN ĐỘ THẨM ĐỊNH MBBANK</span>
-                <span className="text-sky-300">Giai đoạn 3/4</span>
-              </div>
-              <div className="space-y-1.5 text-[11px]">
-                <div className="flex items-center gap-2 text-emerald-400">
-                  <span>✓</span> <span>Hồ sơ pháp lý & Tư cách doanh nghiệp (Hoàn tất)</span>
-                </div>
-                <div className="flex items-center gap-2 text-sky-300 font-bold bg-blue-950/60 p-1 rounded">
-                  <span className="animate-pulse">●</span> <span>Thẩm định tài sản bảo đảm & Dòng tiền (Đang thực hiện)</span>
-                </div>
-                <div className="flex items-center gap-2 text-slate-500">
-                  <span>○</span> <span>Hội đồng tín dụng ra quyết định phê duyệt</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Solution 05 */}
-          <div className="p-5 sm:p-6 rounded-[10px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571] space-y-3">
-            <div className="flex items-center gap-2 border-b border-[#DFC9A2] pb-2.5">
-              <span className="font-sans text-xs font-bold text-white px-2 py-0.5 rounded bg-[#176B73]">
-                SOLUTION 05
-              </span>
-              <h3 className="font-sans text-sm sm:text-base font-bold text-[#2D1B12]">
-                Contextual RM Handoff Bridge
-              </h3>
-            </div>
-            <p className="font-sans text-xs text-[#4A3326] leading-relaxed">
-              Khi khách hàng bấm nút “Nhờ RM hỗ trợ”, toàn bộ bản nháp và các lỗi thiếu file được đồng bộ sang hệ thống CRM nội bộ của RM, giúp RM nhấc máy là tư vấn ngay đúng điểm nghẽn.
-            </p>
-            <div className="p-3 rounded bg-[#FFF8E7] border border-[#DFC9A2] space-y-2 text-xs font-sans text-[#4A3326]">
-              <div className="flex items-center justify-between font-bold text-[#2D1B12]">
-                <span>Chuyên viên RM phụ trách:</span>
-                <span className="text-blue-700">Nguyễn Tuấn Anh</span>
-              </div>
-              <p className="text-[11px] text-[#5A4030]">
-                “Hồ sơ nháp của bạn đã được chuyển nguyên vẹn sang RM. Bạn không cần gửi lại tài liệu hay nhập lại thông tin.”
-              </p>
-              <div className="pt-1 flex gap-2">
-                <button className="px-3 py-1 rounded bg-[#3B1D0F] text-[#FFF4D6] font-sans text-xs font-bold cursor-pointer">
-                  Gọi điện RM
-                </button>
-                <button className="px-3 py-1 rounded bg-white border border-[#CBB892] text-[#7A3F1F] font-sans text-xs font-bold cursor-pointer">
-                  Nhắn tin bảo mật
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-       * SECTION 09 — USABILITY TESTING (VISUAL CLIMAX 02)
-       * ========================================================================= */}
-      <section id="sec-09" className="space-y-6 pt-4 scroll-mt-16 border-t-2 border-[#EAD9B0]">
-        <div className="space-y-2">
-          <div className="flex items-center gap-2 font-sans text-xs sm:text-sm font-bold text-[#B86428] uppercase">
-            <span className="px-2 py-0.5 rounded bg-[#F4C542]/30 border border-[#B86428]/40">
-              09 / USABILITY TESTING • VISUAL CLIMAX 02
-            </span>
-          </div>
-          <h2 className="font-sans text-2xl sm:text-3xl font-bold text-[#2D1B12]">
-            Kiểm chứng thiết kế bằng người dùng thật
-          </h2>
-          <p className="font-sans text-sm sm:text-base text-[#5A4030] leading-relaxed max-w-3xl">
-            Một thiết kế tốt không thể chỉ dựa trên giả định trong phòng họp. Tôi tổ chức 2 đợt Usability Testing với 12 người dùng đại diện cho 4 nhóm vai trò để quan sát, ghi nhận sai lệch và cải tiến liên tục.
-          </p>
-        </div>
-
-        {/* 4 Iteration Stories Interactive Tabs */}
-        <div className="p-5 sm:p-7 rounded-[10px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_4px_0_#A89571] space-y-5">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DFC9A2] pb-3">
-            <div className="font-sans text-xs sm:text-sm font-bold text-[#2D1B12] flex items-center gap-2">
-              <RotateCcw className="w-4 h-4 text-[#B86428]" />
-              <span>4 VÒNG LẶP CẢI TIẾN TRỌNG YẾU (BEFORE → EVIDENCE → AFTER)</span>
-            </div>
-
-            {/* Before / After Toggle Buttons */}
-            <div className="flex items-center gap-1 bg-[#FFF4D6] p-1 rounded-[6px] border border-[#CBB892]">
-              <button
-                onClick={() => setActiveTestTab('after')}
-                className={`px-3 py-1 rounded-[4px] font-sans text-xs font-bold transition-all cursor-pointer ${
-                  activeTestTab === 'after'
-                    ? 'bg-[#15803D] text-white shadow-xs'
-                    : 'text-[#7A3F1F] hover:text-[#2D1B12]'
-                }`}
-              >
-                ★ AFTER (THIẾT KẾ MỚI)
-              </button>
-              <button
-                onClick={() => setActiveTestTab('before')}
-                className={`px-3 py-1 rounded-[4px] font-sans text-xs font-bold transition-all cursor-pointer ${
-                  activeTestTab === 'before'
-                    ? 'bg-[#991B1B] text-white shadow-xs'
-                    : 'text-[#7A3F1F] hover:text-[#2D1B12]'
-                }`}
-              >
-                BEFORE (GIAO DIỆN CŨ)
-              </button>
-            </div>
-          </div>
-
-          {/* Iteration Selector Pills */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-            {[
-              { num: '01', label: 'Hạn mức đề xuất' },
-              { num: '02', label: 'Báo lỗi tài liệu' },
-              { num: '03', label: 'Trạng thái xử lý' },
-              { num: '04', label: 'Bàn giao RM' }
-            ].map((it, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveIteration(idx)}
-                className={`p-2 rounded-[6px] text-center font-sans text-xs font-bold transition-all cursor-pointer border ${
-                  activeIteration === idx
-                    ? 'bg-[#F4C542] text-[#2D1B12] border-[#4A2414] shadow-[0_2px_0_#4A2414]'
-                    : 'bg-[#FFF8E7] text-[#7A3F1F] border-[#DFC9A2] hover:bg-[#FFECC2]'
-                }`}
-              >
-                <span>ITERATION {it.num}</span>
-                <div className="font-sans font-normal text-[11px] text-[#4A3326] truncate mt-0.5">
-                  {it.label}
-                </div>
-              </button>
-            ))}
-          </div>
-
-          {/* Active Iteration Content Card */}
-          {activeIteration === 0 && (
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-4 rounded-lg bg-[#FFF8E7] border border-[#DFC9A2]">
-              <div className="lg:col-span-5 space-y-2.5 font-sans text-xs">
-                <div className="font-sans text-xs text-[#B86428] font-bold uppercase">
-                  VÒNG LẶP 01: LÀM RÕ THUẬT NGỮ TÀI CHÍNH
-                </div>
-                <div className="p-2 rounded bg-white border border-[#DFC9A2]">
-                  <strong className="text-red-700">Quan sát (Observation):</strong> Khi thấy nhãn <em>“Hạn mức đề xuất: 85 Tỷ”</em>, 4/5 người dùng hiểu nhầm rằng MBBank đã duyệt số tiền này, tạo kỳ vọng sai lệch nghiêm trọng.
-                </div>
-                <div className="p-2 rounded bg-white border border-[#DFC9A2]">
-                  <strong className="text-emerald-700">Quyết định (Decision):</strong> Đổi sang <em>“Nhu cầu vốn dự kiến”</em> và bổ sung chú thích rõ ràng về bước sơ duyệt.
-                </div>
-              </div>
-              <div className="lg:col-span-7 rounded-[8px] p-4 font-sans text-xs flex flex-col justify-center">
-                {activeTestTab === 'after' ? (
-                  <div className="bg-[#0E1A2E] p-4 rounded-lg text-white border border-emerald-500/50 space-y-2">
-                    <span className="text-[10px] font-sans text-emerald-400 font-bold">★ AFTER (CẢI TIẾN)</span>
-                    <div className="text-xs text-slate-300">Nhu cầu vốn dự kiến của doanh nghiệp:</div>
-                    <div className="text-lg font-bold font-mono text-emerald-400">85.000.000.000 VNĐ</div>
-                    <p className="text-[10px] text-slate-400 italic">
-                      * Con số do doanh nghiệp đề xuất, kết quả phê duyệt chính thức căn cứ trên thẩm định rủi ro.
-                    </p>
-                  </div>
-                ) : (
-                  <div className="bg-slate-800 p-4 rounded-lg text-slate-300 border border-red-500/50 space-y-2">
-                    <span className="text-[10px] font-sans text-red-400 font-bold">BEFORE (TRƯỚC ĐÂY)</span>
-                    <div className="text-xs">Hạn mức đề xuất:</div>
-                    <div className="text-lg font-bold font-mono text-red-300">85.000.000.000 VNĐ</div>
-                    <p className="text-[10px] text-slate-400">(Không có giải thích, gây hiểu nhầm đã được cấp)</p>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-
-          {activeIteration === 1 && (
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-4 rounded-lg bg-[#FFF8E7] border border-[#DFC9A2]">
-              <div className="lg:col-span-5 space-y-2.5 font-sans text-xs">
-                <div className="font-sans text-xs text-[#B86428] font-bold uppercase">
-                  VÒNG LẶP 02: BÁO LỖI HỒ SƠ CÓ HÀNH ĐỘNG KHẮC PHỤC
-                </div>
-                <div className="p-2 rounded bg-white border border-[#DFC9A2]">
-                  <strong className="text-red-700">Quan sát (Observation):</strong> Thông báo lỗi chung chung <em>“Hồ sơ không hợp lệ”</em> khiến kế toán hoàn toàn bối rối, không biết file sai ở trang nào hay định dạng nào.
-                </div>
-                <div className="p-2 rounded bg-white border border-[#DFC9A2]">
-                  <strong className="text-emerald-700">Quyết định (Decision):</strong> Chỉ đích danh lỗi: <em>“Báo cáo tài chính chưa đúng định dạng PDF hoặc XLSX”</em> kèm CTA <em>“Tải lại hồ sơ mẫu”</em>.
-                </div>
-              </div>
-              <div className="lg:col-span-7 rounded-[8px] p-4 font-sans text-xs flex flex-col justify-center">
-                {activeTestTab === 'after' ? (
-                  <div className="bg-[#0E1A2E] p-4 rounded-lg text-white border border-emerald-500/50 space-y-2">
-                    <span className="text-[10px] font-sans text-emerald-400 font-bold">★ AFTER (CẢI TIẾN)</span>
-                    <div className="p-2.5 rounded bg-red-950/60 border border-red-500/50 text-red-200 space-y-1">
-                      <div className="font-bold text-xs">Báo cáo tài chính chưa đúng định dạng chuẩn!</div>
-                      <div className="text-[11px] text-slate-300">Hệ thống yêu cầu file định dạng PDF hoặc XLSX dưới 50MB. Vui lòng kiểm tra lại file đã scan.</div>
-                      <button className="mt-1 px-2 py-1 rounded bg-red-600 text-white font-sans text-[10px] font-bold cursor-pointer">
-                        Tải lại hồ sơ đúng chuẩn
-                      </button>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="bg-slate-800 p-4 rounded-lg text-slate-300 border border-red-500/50 space-y-2">
-                    <span className="text-[10px] font-sans text-red-400 font-bold">BEFORE (TRƯỚC ĐÂY)</span>
-                    <div className="p-2 rounded bg-red-900/40 text-red-300 text-xs font-bold">
-                      Lỗi: Hồ sơ không hợp lệ! (Mã lỗi: ERR_402)
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-
-          {activeIteration === 2 && (
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-4 rounded-lg bg-[#FFF8E7] border border-[#DFC9A2]">
-              <div className="lg:col-span-5 space-y-2.5 font-sans text-xs">
-                <div className="font-sans text-xs text-[#B86428] font-bold uppercase">
-                  VÒNG LẶP 03: TRẠNG THÁI TIẾN TRÌNH RÕ NGHĨA
-                </div>
-                <div className="p-2 rounded bg-white border border-[#DFC9A2]">
-                  <strong className="text-red-700">Quan sát (Observation):</strong> Dòng chữ <em>“Đang xử lý”</em> kéo dài 3 ngày làm doanh nghiệp tưởng hệ thống bị treo hoặc nhân viên quên hồ sơ.
-                </div>
-                <div className="p-2 rounded bg-white border border-[#DFC9A2]">
-                  <strong className="text-emerald-700">Quyết định (Decision):</strong> Hiển thị: <em>“Đang chờ phê duyệt tại Hội đồng tín dụng MBBank”</em>, chỉ rõ người phụ trách và thời hạn dự kiến.
-                </div>
-              </div>
-              <div className="lg:col-span-7 rounded-[8px] p-4 font-sans text-xs flex flex-col justify-center">
-                {activeTestTab === 'after' ? (
-                  <div className="bg-[#0E1A2E] p-4 rounded-lg text-white border border-emerald-500/50 space-y-2">
-                    <span className="text-[10px] font-sans text-emerald-400 font-bold">★ AFTER (CẢI TIẾN)</span>
-                    <div className="flex justify-between items-center border-b border-slate-800 pb-1.5">
-                      <span className="font-bold text-sky-300">Đang chờ phê duyệt hạn mức</span>
-                      <span className="text-[10px] text-amber-400">Dự kiến: Trước 17:00 Ngày mai</span>
-                    </div>
-                    <div className="text-[11px] text-slate-300">
-                      Hồ sơ đã qua vòng Thẩm định tài sản. Đang trình Hội đồng tín dụng chi nhánh ký quyết định.
-                    </div>
-                  </div>
-                ) : (
-                  <div className="bg-slate-800 p-4 rounded-lg text-slate-300 border border-red-500/50 space-y-2">
-                    <span className="text-[10px] font-sans text-red-400 font-bold">BEFORE (TRƯỚC ĐÂY)</span>
-                    <div className="text-amber-400 font-bold text-xs">Trạng thái: Đang xử lý</div>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-
-          {activeIteration === 3 && (
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-4 rounded-lg bg-[#FFF8E7] border border-[#DFC9A2]">
-              <div className="lg:col-span-5 space-y-2.5 font-sans text-xs">
-                <div className="font-sans text-xs text-[#B86428] font-bold uppercase">
-                  VÒNG LẶP 04: BÀN GIAO CHO RELATIONSHIP MANAGER
-                </div>
-                <div className="p-2 rounded bg-white border border-[#DFC9A2]">
-                  <strong className="text-red-700">Quan sát (Observation):</strong> Dòng chữ <em>“Chuyển RM xử lý”</em> làm người dùng cảm thấy kênh số thất bại và nghĩ phải đi nộp lại bản cứng.
-                </div>
-                <div className="p-2 rounded bg-white border border-[#DFC9A2]">
-                  <strong className="text-emerald-700">Quyết định (Decision):</strong> Tái định vị thành: <em>“Relationship Manager đang hỗ trợ yêu cầu — Hồ sơ đã chuyển nguyên vẹn, không cần nhập lại”</em>.
-                </div>
-              </div>
-              <div className="lg:col-span-7 rounded-[8px] p-4 font-sans text-xs flex flex-col justify-center">
-                {activeTestTab === 'after' ? (
-                  <div className="bg-[#0E1A2E] p-4 rounded-lg text-white border border-emerald-500/50 space-y-2">
-                    <span className="text-[10px] font-sans text-emerald-400 font-bold">★ AFTER (CẢI TIẾN)</span>
-                    <div className="text-xs font-bold text-sky-300">Chuyên viên RM Tuấn Anh đang xem xét hồ sơ của bạn</div>
-                    <div className="text-[11px] text-slate-300">
-                      Toàn bộ bản nháp và tài liệu đã được chuyển an toàn. RM sẽ liên hệ qua điện thoại trong vòng 2 giờ làm việc.
-                    </div>
-                  </div>
-                ) : (
-                  <div className="bg-slate-800 p-4 rounded-lg text-slate-300 border border-red-500/50 space-y-2">
-                    <span className="text-[10px] font-sans text-red-400 font-bold">BEFORE (TRƯỚC ĐÂY)</span>
-                    <div className="text-red-400 font-bold text-xs">Hệ thống chuyển hồ sơ sang RM xử lý thủ công.</div>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* =========================================================================
-       * SECTION 10 — IMPACT & REFLECTION (TÁC ĐỘNG & ĐÚC KẾT)
-       * ========================================================================= */}
-      <section id="sec-10" className="space-y-6 pt-4 scroll-mt-16 border-t-2 border-[#EAD9B0]">
-        <div className="space-y-2">
-          <div className="flex items-center gap-2 font-sans text-xs sm:text-sm font-bold text-[#B86428] uppercase">
-            <span className="px-2 py-0.5 rounded bg-[#F4C542]/30 border border-[#B86428]/40">
-              10 / IMPACT & REFLECTION
-            </span>
-          </div>
-          <h2 className="font-sans text-2xl sm:text-3xl font-bold text-[#2D1B12]">
-            Thiết kế tốt không chỉ đơn giản hóa — nó tạo quyền kiểm soát
-          </h2>
-          <p className="font-sans text-sm sm:text-base text-[#5A4030] leading-relaxed max-w-3xl">
-            Tổng kết hiệu quả đo lường trung thực, tác động đa chiều và những bài học xương máu đúc kết được trong quá trình thiết kế sản phẩm tài chính doanh nghiệp quy mô lớn.
-          </p>
-        </div>
-
-        {/* Honest Business Impact Metrics Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <div className="p-4 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571] text-center space-y-1">
-            <div className="font-sans text-2xl sm:text-3xl font-bold text-[#15803D]">+[XX]%</div>
-            <div className="font-sans text-xs font-semibold text-[#2D1B12]">Tỷ lệ hoàn thành hồ sơ</div>
-            <div className="font-sans text-[10px] text-[#7A3F1F]">Nhờ Readiness Check</div>
-          </div>
-          <div className="p-4 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571] text-center space-y-1">
-            <div className="font-sans text-2xl sm:text-3xl font-bold text-[#15803D]">−[XX]%</div>
-            <div className="font-sans text-xs font-semibold text-[#2D1B12]">Tần suất bổ sung hồ sơ</div>
-            <div className="font-sans text-[10px] text-[#7A3F1F]">Checklist phân loại chuẩn</div>
-          </div>
-          <div className="p-4 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571] text-center space-y-1">
-            <div className="font-sans text-2xl sm:text-3xl font-bold text-[#15803D]">−[XX]%</div>
-            <div className="font-sans text-xs font-semibold text-[#2D1B12]">Thời gian chuẩn bị đơn</div>
-            <div className="font-sans text-[10px] text-[#7A3F1F]">Từ 5 ngày còn dưới 4h</div>
-          </div>
-          <div className="p-4 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571] text-center space-y-1">
-            <div className="font-sans text-2xl sm:text-3xl font-bold text-[#15803D]">−[XX]%</div>
-            <div className="font-sans text-xs font-semibold text-[#2D1B12]">Can thiệp RM sớm</div>
-            <div className="font-sans text-[10px] text-[#7A3F1F]">Giảm tải vận hành chi nhánh</div>
-          </div>
-        </div>
-
-        {/* What I Did Well vs What Could Be Better */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="p-5 rounded-[8px] bg-[#FFFDF7] border-2 border-[#86EFAC] shadow-[0_3px_0_#4ADE80] space-y-3">
-            <div className="font-sans text-xs sm:text-sm font-bold text-[#166534] uppercase flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
-              <span>ĐIỀU TÔI ĐÃ LÀM TỐT (WHAT I DID WELL)</span>
-            </div>
-            <ul className="space-y-2 font-sans text-xs text-[#14532D]">
-              <li>• <strong>Chuyển đổi bài toán:</strong> Chuyển yêu cầu nghiệp vụ phức tạp của ngân hàng thành hành trình có định hướng rõ ràng cho khách hàng.</li>
-              <li>• <strong>Kết hợp phương pháp:</strong> Dùng định lượng để tìm chính xác điểm gãy và dùng định tính để giải mã tâm lý người dùng.</li>
-              <li>• <strong>Giữ phạm vi MVP thực tế:</strong> Không vẽ giải pháp viển vông, tập trung giải quyết triệt để 3 điểm nghẽn lớn nhất.</li>
-              <li>• <strong>Cầu nối Digital & RM:</strong> Biến RM thành đồng minh của kênh số thay vì đặt hai kênh ở thế cạnh tranh.</li>
-            </ul>
-          </div>
-
-          <div className="p-5 rounded-[8px] bg-[#FFFDF7] border-2 border-[#FCA5A5] shadow-[0_3px_0_#F87171] space-y-3">
-            <div className="font-sans text-xs sm:text-sm font-bold text-[#991B1B] uppercase flex items-center gap-2">
-              <AlertCircle className="w-4 h-4 text-[#DC2626]" />
-              <span>ĐIỀU CÓ THỂ LÀM TỐT HƠN (WHAT COULD BE BETTER)</span>
-            </div>
-            <ul className="space-y-2 font-sans text-xs text-[#7F1D1D]">
-              <li>• <strong>Measurement Framework:</strong> Khung đo lường chỉ số sản phẩm chưa được thiết lập đủ sớm ngay từ giai đoạn Discovery.</li>
-              <li>• <strong>Bị ảnh hưởng quy trình nội bộ:</strong> Ở những bản wireframe đầu tiên, tôi vô tình bê nguyên các bước phê duyệt nội bộ của ngân hàng vào UI người dùng.</li>
-              <li>• <strong>Phỏng vấn vai trò:</strong> Chưa mời đủ đại diện pháp chế (Legal & Compliance) vào các phiên thảo luận thiết kế ban đầu.</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Biggest Challenge & Key Lessons */}
-        <div className="p-5 sm:p-7 rounded-[10px] bg-[#FFF8E7] border-2 border-[#DFC9A2] shadow-[0_4px_0_#BCA67F] space-y-4">
+        {/* =========================================================================
+         * SECTION 03 — NGHIÊN CỨU (RESEARCH: DATA FUNNEL & 4 ROLES INTERVIEW)
+         * ========================================================================= */}
+        <section id="sec-03" className="space-y-6 scroll-mt-20">
           <div className="space-y-2">
-            <div className="font-sans text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase">
-              ⚔️ KHÓ KHĂN LỚN NHẤT TRONG DỰ ÁN
-            </div>
-            <blockquote className="font-sans text-sm sm:text-base font-bold text-[#2D1B12] italic border-l-4 border-[#B86428] pl-3">
-              “Khó khăn lớn nhất không phải là thiết kế giao diện hay vẽ flow. Đó là việc phân biệt đâu là vấn đề thật sự của khách hàng và đâu là sự phức tạp được tạo ra bởi các rào cản quy trình nội bộ của ngân hàng.”
-            </blockquote>
+            <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider">
+              03 / NGHIÊN CỨU & KHÁM PHÁ
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+              Đi tìm nguồn gốc điểm gãy qua dữ liệu & phỏng vấn sâu
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-4xl">
+              Để không rơi vào cái bẫy cảm tính, chúng tôi triển khai song song hai phương pháp: Phân tích định lượng nhật ký sự kiện trên hệ thống thực tế và Phỏng vấn sâu 18 đại diện thuộc 4 nhóm mắt xích tham gia hành trình.
+            </p>
           </div>
 
-          <div className="space-y-2 pt-2 border-t border-[#DFC9A2]">
-            <div className="font-sans text-xs sm:text-sm font-bold text-[#2D1B12] uppercase">
-              💡 4 BÀI HỌC KINH NGHIỆM ĐẮC GIÁ
+          {/* Method 01: Product Data Funnel */}
+          <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div className="flex items-center gap-2 text-sm font-bold text-slate-900">
+                <TrendingUp className="w-4 h-4 text-sky-600" />
+                <span>PHƯƠNG PHÁP 01: PHÂN TÍCH PHỄU DỮ LIỆU SẢN PHẨM (QUANTITATIVE FUNNEL)</span>
+              </div>
+              <span className="text-xs text-slate-500 hidden sm:inline">Trích xuất log 6 tháng • BIZ MBBank Web</span>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 font-sans text-xs text-[#4A3326]">
-              <div className="p-3 rounded bg-white border border-[#DFC9A2]">
-                <strong>1. Trong B2B:</strong> Người thao tác nhập liệu không phải lúc nào cũng là người ra quyết định cuối cùng.
+
+            {/* Visual Funnel Step Progress */}
+            <div className="space-y-3 pt-1">
+              <div className="space-y-1">
+                <div className="flex justify-between text-xs font-semibold">
+                  <span className="text-slate-700">1. Nhấp nút "Tìm hiểu & Khởi tạo hạn mức TDH"</span>
+                  <span className="text-slate-900 font-bold font-mono">100% Khách hàng</span>
+                </div>
+                <div className="w-full h-3 rounded-full bg-slate-100 overflow-hidden">
+                  <div className="h-full bg-sky-500 rounded-full w-full" />
+                </div>
               </div>
-              <div className="p-3 rounded bg-white border border-[#DFC9A2]">
-                <strong>2. Dữ liệu là la bàn:</strong> Mọi cải tiến hành trình phải dựa trên bằng chứng dữ liệu thực tế (Evidence) chứ không phải cảm tính.
+
+              <div className="space-y-1">
+                <div className="flex justify-between text-xs font-semibold">
+                  <span className="text-slate-700">2. Nhấn nút "Tạo hồ sơ đề nghị"</span>
+                  <span className="text-slate-900 font-bold font-mono">74%</span>
+                </div>
+                <div className="w-full h-3 rounded-full bg-slate-100 overflow-hidden">
+                  <div className="h-full bg-sky-500 rounded-full w-[74%]" />
+                </div>
               </div>
-              <div className="p-3 rounded bg-white border border-[#DFC9A2]">
-                <strong>3. RM không phải thất bại:</strong> Sự can thiệp của RM là nhu cầu an tâm tất yếu trong giao dịch tài chính lớn, cần được số hóa liền mạch.
+
+              <div className="space-y-1">
+                <div className="flex justify-between text-xs font-bold text-rose-600">
+                  <span className="flex items-center gap-1.5">
+                    <AlertCircle className="w-3.5 h-3.5 text-rose-500" />
+                    <span>3. Tải lên tài liệu hồ sơ (DROP-OFF LỚN NHẤT)</span>
+                  </span>
+                  <span className="font-mono">28% (Rơi rụng −62%)</span>
+                </div>
+                <div className="w-full h-3 rounded-full bg-slate-100 overflow-hidden">
+                  <div className="h-full bg-rose-500 rounded-full w-[28%]" />
+                </div>
               </div>
-              <div className="p-3 rounded bg-white border border-[#DFC9A2]">
-                <strong>4. UX Writing tạo an tâm:</strong> Trạng thái xử lý phải được viết theo góc nhìn và câu hỏi thắc mắc của khách hàng, không phải mã trạng thái backend.
+
+              <div className="space-y-1">
+                <div className="flex justify-between text-xs font-semibold">
+                  <span className="text-slate-700">4. Ký số & Gửi ngân hàng thành công</span>
+                  <span className="text-emerald-600 font-bold font-mono">12% Completion Rate</span>
+                </div>
+                <div className="w-full h-3 rounded-full bg-slate-100 overflow-hidden">
+                  <div className="h-full bg-emerald-500 rounded-full w-[12%]" />
+                </div>
+              </div>
+            </div>
+
+            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 text-xs text-slate-700">
+              <strong className="text-slate-900">Key Data Finding:</strong> Điểm nghẽn không nằm ở nhu cầu vay vốn. Nó nằm ở <strong>sự thiếu chuẩn bị và thiếu rõ ràng</strong> trước khi khách hàng cam kết bắt đầu tải lên tài liệu.
+            </div>
+          </div>
+
+          {/* Method 02: 4 Persona Deep Interviews */}
+          <div className="space-y-3">
+            <div className="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-wider">
+              <Users className="w-4 h-4 text-sky-600" />
+              <span>PHƯƠNG PHÁP 02: PHỎNG VẤN SÂU 4 NHÓM VAI TRÒ (QUALITATIVE INTERVIEWS)</span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Persona 1: Maker */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-xs">
+                      KT
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-slate-900">Kế toán viên (Maker)</div>
+                      <div className="text-[11px] text-slate-500">Người trực tiếp chuẩn bị hồ sơ</div>
+                    </div>
+                  </div>
+                  <span className="text-[11px] px-2 py-0.5 rounded-full bg-slate-100 font-semibold text-slate-600">
+                    Trực tiếp thao tác
+                  </span>
+                </div>
+
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/60 text-xs text-slate-700 italic leading-relaxed">
+                  “Mở màn hình lên thấy yêu cầu 15 loại giấy tờ mà không biết ngành sản xuất của mình cần nộp mục nào. Sợ nộp sai sếp mắng nên em tắt luôn để gọi hỏi RM cho chắc.”
+                </div>
+
+                <div className="text-xs text-slate-600 space-y-1">
+                  <div><strong>Ma sát chính:</strong> Choáng ngợp trước danh sách checklist tĩnh, thiếu giải thích thuật ngữ nghiệp vụ ngân hàng.</div>
+                </div>
+              </div>
+
+              {/* Persona 2: Checker */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-xs">
+                      KT
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-slate-900">Kế toán trưởng & Ban kiểm soát</div>
+                      <div className="text-[11px] text-slate-500">Người soát xét & ủy quyền</div>
+                    </div>
+                  </div>
+                  <span className="text-[11px] px-2 py-0.5 rounded-full bg-amber-50 border border-amber-200 font-semibold text-amber-700">
+                    Kiểm soát rủi ro
+                  </span>
+                </div>
+
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/60 text-xs text-slate-700 italic leading-relaxed">
+                  “Muốn giao cho nhân viên soạn thảo nhưng tài khoản BIZ MBBank cũ chỉ có 1 cấp quyền duy nhất. Tôi không thể đưa tài khoản có quyền chuyển tiền cho nhân viên làm hồ sơ vay được.”
+                </div>
+
+                <div className="text-xs text-slate-600 space-y-1">
+                  <div><strong>Ma sát chính:</strong> Thiếu cơ chế phân quyền đa vai trò (Maker - Checker) trong luồng tạo hồ sơ tín dụng.</div>
+                </div>
+              </div>
+
+              {/* Persona 3: Approver */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">
+                      CEO
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-slate-900">Người phê duyệt (CFO / CEO)</div>
+                      <div className="text-[11px] text-slate-500">Đại diện pháp luật ký số</div>
+                    </div>
+                  </div>
+                  <span className="text-[11px] px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 font-semibold text-emerald-700">
+                    Quyết định tối cao
+                  </span>
+                </div>
+
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/60 text-xs text-slate-700 italic leading-relaxed">
+                  “Tôi thường xuyên đi gặp đối tác ở công trường, không mở máy tính để đọc 20 file PDF được. Tôi cần 1 trang tóm tắt số liệu trọng yếu (Hạn mức, Dòng tiền hoàn vốn, Rủi ro) trên điện thoại để ký 1-chạm.”
+                </div>
+
+                <div className="text-xs text-slate-600 space-y-1">
+                  <div><strong>Ma sát chính:</strong> Thiếu màn hình Decision Summary tối ưu cho thiết bị di động của lãnh đạo.</div>
+                </div>
+              </div>
+
+              {/* Persona 4: RM */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-xs">
+                      RM
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-slate-900">Relationship Manager (RM MBBank)</div>
+                      <div className="text-[11px] text-slate-500">Chuyên viên quản lý khách hàng</div>
+                    </div>
+                  </div>
+                  <span className="text-[11px] px-2 py-0.5 rounded-full bg-indigo-50 border border-indigo-200 font-semibold text-indigo-700">
+                    Đối tác đồng hành
+                  </span>
+                </div>
+
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/60 text-xs text-slate-700 italic leading-relaxed">
+                  “Khách hàng gọi nhờ hỗ trợ nhưng tôi không thấy được bản nháp họ đang nhập dở trên Portal. Cuối cùng tôi đành bảo khách gửi file qua email hoặc Zalo để tôi làm thủ công trên máy nội bộ.”
+                </div>
+
+                <div className="text-xs text-slate-600 space-y-1">
+                  <div><strong>Ma sát chính:</strong> Kênh số và RM bị đứt đoạn dữ liệu; không có cơ chế chuyển giao (Handoff) có ngữ cảnh.</div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Next Roadmap */}
-        <div className="p-5 rounded-[8px] bg-[#FFFDF7] border-2 border-[#CBB892] shadow-[0_3px_0_#A89571] space-y-3">
-          <div className="font-sans text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase">
-            🚀 LỘ TRÌNH PHÁT TRIỂN TIẾP THEO (PRODUCT ROADMAP)
+          {/* Research Synthesis Table */}
+          <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
+            <div className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+              BẢNG TỔNG HỢP: NGUỒN DỮ LIỆU → BẰNG CHỨNG → PHÁT HIỆN → INSIGHT
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-xs text-left">
+                <thead className="bg-slate-100/80 text-slate-700 uppercase font-semibold border-b border-slate-200">
+                  <tr>
+                    <th className="p-3 rounded-l-lg">Nguồn (Source)</th>
+                    <th className="p-3">Bằng chứng thực tế (Evidence)</th>
+                    <th className="p-3">Phát hiện (Finding)</th>
+                    <th className="p-3 rounded-r-lg">Insight cốt lõi (Core Insight)</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 text-slate-700">
+                  <tr>
+                    <td className="p-3 font-semibold text-sky-700">Analytics Funnel</td>
+                    <td className="p-3">Drop-off 62% tại màn hình tải hồ sơ</td>
+                    <td className="p-3">Khách hàng bị choáng ngợp bởi danh sách 15 mục giấy tờ không rõ định dạng</td>
+                    <td className="p-3 font-medium text-slate-900">Khách hàng cần một bài tự kiểm tra (Readiness Check) trước khi bắt đầu tải file.</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-semibold text-amber-700">User Interview</td>
+                    <td className="p-3">Người làm hồ sơ (Kế toán) khác người ký duyệt (CEO)</td>
+                    <td className="p-3">Sản phẩm hiện tại thiết kế như hành trình của 1 cá nhân đơn lẻ</td>
+                    <td className="p-3 font-medium text-slate-900">Đây là hành trình phối hợp đa vai trò, cần tách biệt luồng soạn thảo và màn hình tóm tắt duyệt.</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-semibold text-indigo-700">RM Operations</td>
+                    <td className="p-3">70% khách gọi RM xin danh mục tài liệu chuẩn</td>
+                    <td className="p-3">Handoff giữa kênh Digital và RM bị đứt đoạn, mất dữ liệu đã nhập</td>
+                    <td className="p-3 font-medium text-slate-900">RM không phải bằng chứng self-service thất bại; RM là một phần tự nhiên của hành trình cần được số hóa handoff.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 font-sans text-xs">
-            <div className="p-3 rounded bg-[#FFF8E7] border border-[#DFC9A2]">
-              <div className="font-sans text-[11px] font-bold text-[#B86428]">0 – 3 THÁNG</div>
-              <p className="text-[#4A3326] mt-1">Đo lường các chỉ số phễu drop-off và tinh chỉnh micro-copywriting tại các bước tải hồ sơ.</p>
+        </section>
+
+        {/* =========================================================================
+         * SECTION 04 — CUSTOMER JOURNEY (7 BƯỚC + 3 INSIGHTS + LIGHTBOX)
+         * ========================================================================= */}
+        <section id="sec-04" className="space-y-6 scroll-mt-20">
+          <div className="space-y-2">
+            <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider">
+              04 / BẢN ĐỒ HÀNH TRÌNH KHÁCH HÀNG (JOURNEY MAP)
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+              Phân rã hành trình 7 bước để định vị các điểm ma sát
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-4xl">
+              Chúng tôi vẽ lại hành trình thực tế từ lúc doanh nghiệp phát sinh nhu cầu đến khi nhận kết quả phê duyệt chính thức để phân tích hành động, dữ liệu và cảm xúc qua từng giai đoạn.
+            </p>
+          </div>
+
+          {/* 7-Step Swimlane Journey Infographic */}
+          <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div className="flex items-center gap-2 text-xs font-bold text-slate-900 uppercase tracking-wider">
+                <Workflow className="w-4 h-4 text-sky-600" />
+                <span>SWIMLANE JOURNEY: 7 GIAI ĐOẠN TÍN DỤNG DOANH NGHIỆP</span>
+              </div>
+              <button
+                onClick={() => setLightboxImage('/assets/lending-flow.webp')}
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-sky-50 text-sky-700 hover:bg-sky-100 border border-sky-200/80 text-xs font-semibold transition-colors cursor-pointer"
+              >
+                <Maximize2 className="w-3.5 h-3.5" />
+                <span>Mở rộng toàn màn hình</span>
+              </button>
             </div>
-            <div className="p-3 rounded bg-[#FFF8E7] border border-[#DFC9A2]">
-              <div className="font-sans text-[11px] font-bold text-[#B86428]">3 – 9 THÁNG</div>
-              <p className="text-[#4A3326] mt-1">Tích hợp công nghệ OCR và Open Banking API để tự động trích xuất sao kê thuế và báo cáo tài chính.</p>
-            </div>
-            <div className="p-3 rounded bg-[#FFF8E7] border border-[#DFC9A2]">
-              <div className="font-sans text-[11px] font-bold text-[#B86428]">9 – 18 THÁNG</div>
-              <p className="text-[#4A3326] mt-1">Mở rộng mô hình cấp hạn mức trung dài hạn cho các gói tín dụng xanh và tài trợ chuỗi cung ứng quốc tế.</p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-2.5 text-xs">
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80 space-y-2">
+                <div className="font-bold text-sky-700">01. TÌM HIỂU</div>
+                <div className="text-slate-600 text-[11px]">Đánh giá nhu cầu đầu tư thiết bị/nhà xưởng.</div>
+                <div className="pt-1.5 border-t border-slate-200 text-[11px] text-slate-500">Cảm xúc: Tự tin</div>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80 space-y-2">
+                <div className="font-bold text-sky-700">02. KHỞI TẠO</div>
+                <div className="text-slate-600 text-[11px]">Chọn gói vay & nhập số vốn đề xuất.</div>
+                <div className="pt-1.5 border-t border-slate-200 text-[11px] text-slate-500">Cảm xúc: Hào hứng</div>
+              </div>
+              <div className="p-3 rounded-xl bg-rose-50/70 border border-rose-200 space-y-2">
+                <div className="font-bold text-rose-700">03. CHUẨN BỊ HỒ SƠ</div>
+                <div className="text-slate-700 text-[11px]">Thu thập BCTC, hồ sơ pháp lý, phương án vốn.</div>
+                <div className="pt-1.5 border-t border-rose-200 text-[11px] font-bold text-rose-600">🔴 TẮC NGHẼN LỚN</div>
+              </div>
+              <div className="p-3 rounded-xl bg-amber-50/70 border border-amber-200 space-y-2">
+                <div className="font-bold text-amber-700">04. DUYỆT NỘI BỘ</div>
+                <div className="text-slate-700 text-[11px]">Kế toán trưởng & CEO ký số xác nhận.</div>
+                <div className="pt-1.5 border-t border-amber-200 text-[11px] font-bold text-amber-600">⚠️ Chậm trễ ký</div>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80 space-y-2">
+                <div className="font-bold text-sky-700">05. GỬI MBBANK</div>
+                <div className="text-slate-600 text-[11px]">Hồ sơ đẩy vào hệ thống thẩm định tín dụng.</div>
+                <div className="pt-1.5 border-t border-slate-200 text-[11px] text-slate-500">Cảm xúc: Chờ đợi</div>
+              </div>
+              <div className="p-3 rounded-xl bg-amber-50/70 border border-amber-200 space-y-2">
+                <div className="font-bold text-amber-700">06. THEO DÕI</div>
+                <div className="text-slate-700 text-[11px]">Chờ thẩm định pháp lý và tài sản bảo đảm.</div>
+                <div className="pt-1.5 border-t border-amber-200 text-[11px] font-bold text-amber-600">⚠️ Mù mờ tiến trình</div>
+              </div>
+              <div className="p-3 rounded-xl bg-emerald-50/70 border border-emerald-200 space-y-2">
+                <div className="font-bold text-emerald-700">07. RM HỖ TRỢ</div>
+                <div className="text-slate-700 text-[11px]">Chuyên viên RM liên hệ hoàn tất hợp đồng.</div>
+                <div className="pt-1.5 border-t border-emerald-200 text-[11px] font-bold text-emerald-600">🟢 An tâm</div>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Bottom Back To Project List CTA */}
-        <div className="pt-6 border-t-2 border-[#DFC9A2] flex flex-wrap items-center justify-between gap-3">
-          <VoxelButton
-            variant="secondary"
-            size="md"
-            onClick={onBack}
-            icon={<ArrowLeft className="w-4 h-4" />}
-          >
-            Quay lại danh sách dự án
-          </VoxelButton>
+          {/* 3 Converged Core Insights */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs space-y-2">
+              <div className="flex items-center gap-2 text-xs font-bold text-sky-700">
+                <span className="w-5 h-5 rounded-full bg-sky-100 flex items-center justify-center font-bold">1</span>
+                <span>INSIGHT 01: SỰ CHUẨN BỊ QUAN TRỌNG HƠN FORM NHẬP</span>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Khách hàng không sợ điền thông tin ngắn; họ sợ bắt đầu một hành trình lớn mà không biết trước mình cần chuẩn bị những gì và khả năng được cấp hạn mức là bao nhiêu.
+              </p>
+            </div>
 
-          <a
-            href={project.demoUrl || 'https://bizmbbank.com.vn'}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[6px] bg-[#F4C542] hover:bg-[#FFD55C] active:bg-[#D9A726] border-2 border-[#4A2414] text-[#2D1B12] font-sans text-xs sm:text-sm font-bold shadow-[0_3px_0_#4A2414] active:translate-y-0.5 transition-all cursor-pointer"
-          >
-            <span>TRẢI NGHIỆM BIZ MBBANK 2.0</span>
-            <ExternalLink className="w-4 h-4" />
-          </a>
-        </div>
-      </section>
+            <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs space-y-2">
+              <div className="flex items-center gap-2 text-xs font-bold text-indigo-700">
+                <span className="w-5 h-5 rounded-full bg-indigo-100 flex items-center justify-center font-bold">2</span>
+                <span>INSIGHT 02: TÁCH BẠCH SOẠN THẢO VÀ PHÊ DUYỆT</span>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Kế toán cần công cụ chi tiết trên màn hình lớn (Web Portal) để đối soát số liệu; trong khi CEO chỉ cần một màn hình tóm tắt quyết định (Decision Summary) trên điện thoại để ký số.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs space-y-2">
+              <div className="flex items-center gap-2 text-xs font-bold text-emerald-700">
+                <span className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center font-bold">3</span>
+                <span>INSIGHT 03: HYBRID EXPERIENCE (DIGITAL + RM)</span>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Vay doanh nghiệp không thể 100% no-touch. Kênh số phải là trợ thủ đắc lực giúp RM hiểu ngay khách hàng đang vướng ở đâu thay vì bắt khách hàng làm lại từ đầu.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+         * SECTION 05 — HMW & ƯU TIÊN (PRIORITIZATION: IN-SCOPE VS OUT-OF-SCOPE)
+         * ========================================================================= */}
+        <section id="sec-05" className="space-y-6 scroll-mt-20">
+          <div className="space-y-2">
+            <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider">
+              05 / HMW & MA TRẬN ƯU TIÊN
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+              Phân kỳ cơ hội và hội tụ vào giải pháp khả thi nhất
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-4xl">
+              Từ các điểm nghẽn, chúng tôi đặt ra 4 câu hỏi "Làm thế nào để..." (How Might We) và hội tụ thành ma trận phạm vi rõ ràng: Những gì đưa vào MVP và những gì dứt khoát loại trừ để bảo đảm an toàn tín dụng.
+            </p>
+          </div>
+
+          {/* HMW 4 Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs space-y-1.5">
+              <div className="text-xs font-bold text-sky-700 uppercase">HMW 01 • CHUẨN BỊ TRƯỚC</div>
+              <p className="text-xs text-slate-700 leading-relaxed">
+                Làm thế nào để giúp doanh nghiệp tự đánh giá điều kiện và nắm rõ danh mục tài liệu cần thiết <strong>chỉ trong 2 phút</strong> trước khi chính thức tạo hồ sơ?
+              </p>
+            </div>
+            <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs space-y-1.5">
+              <div className="text-xs font-bold text-sky-700 uppercase">HMW 02 • ĐƠN GIẢN HÓA CHECKLIST</div>
+              <p className="text-xs text-slate-700 leading-relaxed">
+                Làm thế nào để danh mục hồ sơ tự động co giãn thông minh theo từng loại hình doanh nghiệp thay vì hiển thị toàn bộ 15 danh mục gây hoang mang?
+              </p>
+            </div>
+            <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs space-y-1.5">
+              <div className="text-xs font-bold text-sky-700 uppercase">HMW 03 • PHÊ DUYỆT LÃNH ĐẠO</div>
+              <p className="text-xs text-slate-700 leading-relaxed">
+                Làm thế nào để CEO có thể kiểm tra đủ dữ liệu cốt lõi và ký duyệt hồ sơ bằng Smart CA trên điện thoại di động trong chưa đầy 60 giây?
+              </p>
+            </div>
+            <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs space-y-1.5">
+              <div className="text-xs font-bold text-sky-700 uppercase">HMW 04 • KẾT NỐI HYBRID RM</div>
+              <p className="text-xs text-slate-700 leading-relaxed">
+                Làm thế nào để khi khách hàng gặp vướng mắc, RM có thể xem ngay bản nháp và hỗ trợ giải quyết mà khách hàng không bị mất dữ liệu đã nhập?
+              </p>
+            </div>
+          </div>
+
+          {/* Scope Matrix: In-Scope vs Out-of-Scope */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* In Scope */}
+            <div className="p-5 rounded-2xl bg-emerald-50/40 border border-emerald-200 space-y-3">
+              <div className="flex items-center gap-2 text-xs font-bold text-emerald-800 uppercase tracking-wider">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                <span>PHẠM VI THIẾT KẾ MVP (IN-SCOPE)</span>
+              </div>
+              <div className="space-y-2 text-xs text-slate-700">
+                <div className="flex items-start gap-2">
+                  <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>Bộ câu hỏi trắc nghiệm kiểm tra điều kiện sơ bộ (Readiness Check 2 phút).</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>Dynamic Checklist phân loại hồ sơ theo quy mô và ngành nghề doanh nghiệp.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>Màn hình Decision Summary tóm tắt số liệu trọng yếu cho lãnh đạo trên Mobile.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>Timeline theo dõi trạng thái thẩm định đa chặng minh bạch với contact RM.</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Out of Scope */}
+            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+              <div className="flex items-center gap-2 text-xs font-bold text-slate-700 uppercase tracking-wider">
+                <AlertCircle className="w-4 h-4 text-slate-500" />
+                <span>NGOÀI PHẠM VI MVP (OUT-OF-SCOPE)</span>
+              </div>
+              <div className="space-y-2 text-xs text-slate-600">
+                <div className="flex items-start gap-2">
+                  <span className="text-slate-400">✕</span>
+                  <span><strong>Không can thiệp chính sách tín dụng:</strong> Không tự ý cắt giảm các chứng từ pháp lý bắt buộc theo quy định Ngân hàng Nhà nước.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-slate-400">✕</span>
+                  <span><strong>Không thay thế hội đồng tín dụng:</strong> Hệ thống không tự động ra quyết định giải ngân mà chỉ hỗ trợ hoàn thiện hồ sơ thẩm định.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-slate-400">✕</span>
+                  <span><strong>Không xây dựng hệ thống Core Banking mới:</strong> Tận dụng và tích hợp trực tiếp các API hiện hữu của MBBank.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+         * SECTION 06 — CHIẾN LƯỢC TRẢI NGHIỆM (5 PILLARS BENTO GRID)
+         * ========================================================================= */}
+        <section id="sec-06" className="space-y-6 scroll-mt-20">
+          <div className="space-y-2">
+            <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider">
+              06 / CHIẾN LƯỢC TRẢI NGHIỆM
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+              5 Trụ cột kiến tạo chuẩn mực ngân hàng số doanh nghiệp
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-4xl">
+              Chúng tôi định hình 5 nguyên lý thiết kế xuyên suốt để dẫn dắt mọi quyết định từ cấu trúc thông tin (IA) đến từng micro-interaction trên cả hai nền tảng Web và Mobile.
+            </p>
+          </div>
+
+          {/* 5 Pillars Bento Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs space-y-2.5">
+              <div className="w-9 h-9 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center">
+                <CheckSquare className="w-5 h-5" />
+              </div>
+              <div className="text-sm font-bold text-slate-900">1. Chuẩn bị trước khi cam kết</div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Không bắt khách hàng điền form ngay. Cho phép khách hàng thực hiện bài kiểm tra điều kiện trong 2 phút để biết trước khả năng đáp ứng và danh mục giấy tờ cần chuẩn bị.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs space-y-2.5">
+              <div className="w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center">
+                <Layers className="w-5 h-5" />
+              </div>
+              <div className="text-sm font-bold text-slate-900">2. Hướng dẫn theo ngữ cảnh thực tế</div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Mỗi mục tài liệu đều có file mẫu đính kèm, giải thích định dạng cho phép, dung lượng tối đa và lý do vì sao ngân hàng cần tài liệu đó.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs space-y-2.5">
+              <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                <Users className="w-5 h-5" />
+              </div>
+              <div className="text-sm font-bold text-slate-900">3. Phối hợp đúng vai trò doanh nghiệp</div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Tách biệt giao diện cho nhân viên kế toán (soạn thảo chi tiết trên Web) và lãnh đạo doanh nghiệp (xem tóm tắt trọng yếu và ký số trên Mobile).
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs space-y-2.5">
+              <div className="w-9 h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center">
+                <Clock className="w-5 h-5" />
+              </div>
+              <div className="text-sm font-bold text-slate-900">4. Minh bạch sau khi nhấn gửi</div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Thay thế thông báo "Đang xử lý" tĩnh bằng Timeline tiến độ đa chặng: Ai đang xử lý, bước tiếp theo là gì và dự kiến hoàn tất khi nào.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs space-y-2.5 md:col-span-2 lg:col-span-2">
+              <div className="w-9 h-9 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center">
+                <Workflow className="w-5 h-5" />
+              </div>
+              <div className="text-sm font-bold text-slate-900">5. Kênh số và RM là một hành trình liền mạch</div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                RM không đứng ngoài ứng dụng. Khi khách hàng bấm "Cần RM hỗ trợ", toàn bộ bản nháp và điểm vướng mắc được đồng bộ tức thì sang CRM nội bộ của RM để cuộc gọi hỗ trợ diễn ra chính xác mà không cần giải thích lại.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+         * SECTION 07 — FLOW & PROTOTYPE (VISUAL CLIMAX 01)
+         * ========================================================================= */}
+        <section id="sec-07" className="space-y-6 scroll-mt-20">
+          <div className="space-y-2">
+            <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider">
+              07 / USER FLOW & NGUYÊN MẪU TƯƠNG TÁC
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+              Sơ đồ luồng toàn trình 9 bước & Nguyên mẫu trực quan
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-4xl">
+              Sơ đồ User Flow kết hợp đồng bộ giữa Web Portal (Kế toán soạn thảo) và Mobile App (Lãnh đạo ký duyệt) cùng Video Prototype kịch bản thực tế 85 Tỷ VNĐ.
+            </p>
+          </div>
+
+          {/* Interactive User Flow Banner */}
+          <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                <Workflow className="w-4 h-4 text-sky-600" />
+                <span>SƠ ĐỒ 9 BƯỚC HÀNH TRÌNH TƯƠNG TÁC (USER FLOW)</span>
+              </div>
+              <button
+                onClick={() => setLightboxImage('/assets/lending-flow.webp')}
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-sky-600 text-white hover:bg-sky-500 text-xs font-semibold shadow-xs transition-all cursor-pointer"
+              >
+                <Maximize2 className="w-3.5 h-3.5" />
+                <span>Xem bản vẽ phân giải cao (Lightbox)</span>
+              </button>
+            </div>
+
+            {/* 9-Step Horizontal Progress Cards */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-9 gap-2 text-center text-xs">
+              <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+                <div className="font-bold text-sky-700">1. Nhu cầu</div>
+                <div className="text-[10px] text-slate-500 mt-0.5">Xác định vốn</div>
+              </div>
+              <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+                <div className="font-bold text-sky-700">2. Readiness</div>
+                <div className="text-[10px] text-slate-500 mt-0.5">Tự kiểm tra</div>
+              </div>
+              <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+                <div className="font-bold text-sky-700">3. Khởi tạo</div>
+                <div className="text-[10px] text-slate-500 mt-0.5">Chọn gói vay</div>
+              </div>
+              <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+                <div className="font-bold text-sky-700">4. Checklist</div>
+                <div className="text-[10px] text-slate-500 mt-0.5">Tải tài liệu</div>
+              </div>
+              <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+                <div className="font-bold text-sky-700">5. Validate</div>
+                <div className="text-[10px] text-slate-500 mt-0.5">Kiểm tra lỗi</div>
+              </div>
+              <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+                <div className="font-bold text-sky-700">6. Soát xét</div>
+                <div className="text-[10px] text-slate-500 mt-0.5">Kế toán trưởng</div>
+              </div>
+              <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+                <div className="font-bold text-sky-700">7. CEO Ký</div>
+                <div className="text-[10px] text-slate-500 mt-0.5">Mobile SmartCA</div>
+              </div>
+              <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+                <div className="font-bold text-sky-700">8. Gửi Bank</div>
+                <div className="text-[10px] text-slate-500 mt-0.5">Tiếp nhận hồ sơ</div>
+              </div>
+              <div className="p-2.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800">
+                <div className="font-bold">9. Tracking</div>
+                <div className="text-[10px] text-emerald-600 mt-0.5">Đồng hành RM</div>
+              </div>
+            </div>
+
+            {/* Flow Banner Box */}
+            <div
+              onClick={() => setLightboxImage('/assets/lending-flow.webp')}
+              className="p-6 rounded-xl bg-gradient-to-r from-slate-900 to-slate-800 text-white text-center cursor-pointer hover:ring-2 hover:ring-sky-400 transition-all space-y-2"
+            >
+              <div className="inline-flex p-3 rounded-full bg-slate-800/80 border border-slate-700 text-sky-400">
+                <Workflow className="w-6 h-6" />
+              </div>
+              <div className="text-sm font-bold">NHẤP ĐỂ XEM SƠ ĐỒ USER FLOW PHÂN GIẢI CAO (INTERACTIVE LIGHTBOX)</div>
+              <p className="text-xs text-slate-400 max-w-xl mx-auto">
+                Hiển thị toàn bộ các điểm rẽ nhánh logic nghiệp vụ, các bước kiểm tra hợp lệ tự động và điểm kích hoạt kết nối với Relationship Manager.
+              </p>
+            </div>
+          </div>
+
+          {/* Video Prototype Studio Display Frame */}
+          <div className="rounded-2xl p-4 sm:p-6 bg-slate-950 border border-slate-800 shadow-xl space-y-4">
+            <div className="flex items-center justify-between text-slate-300 border-b border-slate-800 pb-3">
+              <div className="flex items-center gap-2">
+                <Play className="w-4 h-4 text-sky-400" />
+                <span className="font-bold text-xs text-white">NGUYÊN MẪU TƯƠNG TÁC (INTERACTIVE PROTOTYPE DEMO)</span>
+              </div>
+              <span className="text-xs text-slate-400 font-mono">Kịch bản: Hạn mức 85 Tỷ VNĐ</span>
+            </div>
+
+            <div className="relative rounded-xl overflow-hidden bg-slate-900 aspect-video flex items-center justify-center border border-slate-800">
+              <div className="text-center space-y-3 p-6">
+                <div className="w-14 h-14 rounded-full bg-sky-600/20 border border-sky-500/40 text-sky-400 flex items-center justify-center mx-auto animate-pulse">
+                  <Play className="w-6 h-6 ml-0.5" />
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-white">Video Prototype: Trọn vẹn hành trình từ Web đến Mobile</div>
+                  <p className="text-xs text-slate-400 mt-1 max-w-md mx-auto">
+                    Mô phỏng luồng kế toán tải BCTC lên Web Portal, tự động validate file, chuyển quyền ký số tức thì về điện thoại của CEO.
+                  </p>
+                </div>
+                <div className="flex justify-center gap-2 pt-2">
+                  <span className="text-[11px] px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono">Thời lượng: 02:45</span>
+                  <span className="text-[11px] px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono">Figma Prototype 60fps</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+         * SECTION 08 — GIẢI PHÁP SẢN PHẨM (PRODUCT SOLUTION SHOWCASE)
+         * ========================================================================= */}
+        <section id="sec-08" className="space-y-6 scroll-mt-20">
+          <div className="space-y-2">
+            <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider">
+              08 / GIẢI PHÁP SẢN PHẨM CHI TIẾT
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+              5 Đột phá giao diện giải quyết triệt để 5 điểm nghẽn
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-4xl">
+              Mỗi giải pháp được thiết kế với sự thấu hiểu sâu sắc tâm lý người dùng doanh nghiệp và sự phối hợp đa mắt xích.
+            </p>
+          </div>
+
+          <div className="space-y-5">
+            {/* Solution 01: Readiness Check */}
+            <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                <div>
+                  <div className="text-xs font-bold text-sky-700 uppercase">GIẢI PHÁP 01</div>
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900">Readiness Check: Tự kiểm tra điều kiện trước khi bắt đầu</h3>
+                </div>
+                <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-sky-50 text-sky-700 border border-sky-200">
+                  Giải quyết Drop-off 62%
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
+                <div className="lg:col-span-6 space-y-2 text-xs text-slate-600 leading-relaxed">
+                  <p>
+                    Thay vì buộc khách hàng đối mặt ngay với 15 biểu mẫu trống, chúng tôi tạo ra bài kiểm tra 3 bước nhanh:
+                  </p>
+                  <ul className="list-disc list-inside space-y-1 text-slate-700 font-medium">
+                    <li>Doanh thu hàng năm và thời gian hoạt động thực tế.</li>
+                    <li>Mục đích cấp vốn: Mua sắm máy móc hay mở rộng dự án.</li>
+                    <li>Tài sản bảo đảm hiện có (Bất động sản, máy móc hình thành từ vốn vay).</li>
+                  </ul>
+                  <p>
+                    Hệ thống tính toán sơ bộ mức trần hạn mức khả dụng và danh sách giấy tờ chính xác cần chuẩn bị, giúp khách hàng tự tin bước vào quy trình.
+                  </p>
+                </div>
+
+                <div className="lg:col-span-6 p-4 rounded-xl bg-slate-900 text-white space-y-3">
+                  <div className="text-xs font-bold text-sky-400">Mô phỏng Widget: Bộ tính toán hạn mức khả dụng</div>
+                  <div className="space-y-2 text-xs">
+                    <div className="flex justify-between p-2 rounded bg-slate-800/80 border border-slate-700">
+                      <span className="text-slate-300">Thời gian hoạt động:</span>
+                      <span className="font-bold text-white">Trên 3 năm (Hợp lệ ✓)</span>
+                    </div>
+                    <div className="flex justify-between p-2 rounded bg-slate-800/80 border border-slate-700">
+                      <span className="text-slate-300">Ước tính hạn mức trần:</span>
+                      <span className="font-bold text-emerald-400 font-mono">100 Tỷ VNĐ</span>
+                    </div>
+                    <div className="flex justify-between p-2 rounded bg-slate-800/80 border border-slate-700">
+                      <span className="text-slate-300">Tài liệu cần chuẩn bị:</span>
+                      <span className="font-bold text-sky-300">4 Nhóm tài liệu cốt lõi</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Solution 02: Dynamic Checklist */}
+            <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                <div>
+                  <div className="text-xs font-bold text-indigo-700 uppercase">GIẢI PHÁP 02</div>
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900">Dynamic Checklist: Danh mục tài liệu thông minh theo ngành nghề</h3>
+                </div>
+                <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200">
+                  Giảm 3-5 lần bổ sung hồ sơ
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
+                <div className="lg:col-span-6 space-y-2 text-xs text-slate-600 leading-relaxed">
+                  <p>
+                    Checklist co giãn thông minh: Nếu khách hàng chọn "Mua sắm máy móc thiết bị", danh mục chỉ hiển thị hợp đồng kinh tế và báo giá nhà cung cấp.
+                  </p>
+                  <p>
+                    Mỗi ô upload có file mẫu chuẩn tải về, kiểm tra định dạng tức thời (Client-side validation) và thanh tiến độ hoàn tất % trực quan.
+                  </p>
+                </div>
+
+                <div className="lg:col-span-6 p-4 rounded-xl bg-slate-900 text-white space-y-2.5 text-xs">
+                  <div className="flex justify-between text-xs font-bold text-slate-200">
+                    <span>Hồ sơ tài chính sản xuất (Hoàn tất 3/4)</span>
+                    <span className="text-emerald-400">75%</span>
+                  </div>
+                  <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                    <div className="h-full bg-emerald-500 rounded-full w-3/4" />
+                  </div>
+                  <div className="space-y-1.5 pt-1">
+                    <div className="flex items-center justify-between p-2 rounded bg-slate-800/80 text-[11px]">
+                      <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-emerald-400" /> Báo cáo tài chính kiểm toán 2024</span>
+                      <span className="text-slate-400 font-mono">Đã duyệt</span>
+                    </div>
+                    <div className="flex items-center justify-between p-2 rounded bg-slate-800/80 text-[11px]">
+                      <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-emerald-400" /> Tờ khai thuế GTGT 4 quý gần nhất</span>
+                      <span className="text-slate-400 font-mono">Đã duyệt</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Solution 03: Decision Summary for Approver */}
+            <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                <div>
+                  <div className="text-xs font-bold text-emerald-700 uppercase">GIẢI PHÁP 03</div>
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900">Decision Summary: Luồng phê duyệt 1-chạm cho CEO trên Mobile</h3>
+                </div>
+                <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                  Giảm thời gian duyệt 5 ngày xuống dưới 4h
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
+                <div className="lg:col-span-7 space-y-2 text-xs text-slate-600 leading-relaxed">
+                  <p>
+                    Lãnh đạo không mở từng file văn bản để đọc. Toàn bộ hồ sơ phức tạp được cô đọng thành một trang Decision Summary trên BIZ MBBank App.
+                  </p>
+                  <p>
+                    Hiển thị 3 chỉ số cốt lõi: Số vốn đề nghị, Nguồn trả nợ dự kiến, và Xác nhận thẩm định nội bộ từ Kế toán trưởng. Tích hợp trực tiếp chữ ký số Smart CA để ký mọi lúc mọi nơi.
+                  </p>
+                </div>
+
+                <div className="lg:col-span-5 p-4 rounded-xl bg-slate-950 border border-slate-800 text-white space-y-2 text-xs">
+                  <div className="text-[11px] font-bold text-emerald-400">BIZ MB Mobile • CEO Decision Screen</div>
+                  <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 space-y-1 text-[11px]">
+                    <div className="flex justify-between"><span className="text-slate-400">Hạn mức đề xuất:</span> <strong className="text-white font-mono">85.000.000.000 VNĐ</strong></div>
+                    <div className="flex justify-between"><span className="text-slate-400">Thời hạn vay:</span> <span>60 Tháng</span></div>
+                    <div className="flex justify-between"><span className="text-slate-400">Kế toán trưởng:</span> <span className="text-emerald-400 font-semibold">Đã ký xác nhận ✓</span></div>
+                  </div>
+                  <button className="w-full py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-xs tracking-wide">
+                    Xác nhận ký số Smart CA
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Solution 04: Live Tracking Timeline */}
+            <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                <div>
+                  <div className="text-xs font-bold text-amber-700 uppercase">GIẢI PHÁP 04</div>
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900">Timeline minh bạch: Theo dõi tiến độ đa chặng thời gian thực</h3>
+                </div>
+                <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200">
+                  Triệt tiêu tâm lý lo âu
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
+                <div className="lg:col-span-6 space-y-2 text-xs text-slate-600 leading-relaxed">
+                  <p>
+                    Thay vì để khách hàng rơi vào khoảng lặng sau khi gửi hồ sơ, hệ thống hiển thị Timeline rõ ràng:
+                  </p>
+                  <ul className="list-disc list-inside space-y-1 text-slate-700 font-medium">
+                    <li>Hồ sơ đã tiếp nhận tại Chi nhánh Hoàn Kiếm.</li>
+                    <li>Đang thẩm định tài sản bảo đảm (Dự kiến xong trong 48h).</li>
+                    <li>Thông tin trực tiếp chuyên viên thụ lý hồ sơ (Tên, SĐT, Email).</li>
+                  </ul>
+                </div>
+
+                <div className="lg:col-span-6 p-4 rounded-xl bg-slate-900 text-white space-y-2.5 text-xs">
+                  <div className="text-xs font-bold text-sky-400">Tiến trình hồ sơ #MB-85920</div>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-emerald-400 font-semibold">
+                      <span>✓</span> <span>1. Tiếp nhận hồ sơ thành công (10:30 Hôm qua)</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sky-300 font-semibold">
+                      <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
+                      <span>2. Thẩm định phương án vốn (Dự kiến xong 16:00 Hôm nay)</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-slate-500">
+                      <span>○</span> <span>3. Phê duyệt hạn mức tín dụng</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Solution 05: Contextual RM Handoff */}
+            <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                <div>
+                  <div className="text-xs font-bold text-purple-700 uppercase">GIẢI PHÁP 05</div>
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900">Contextual RM Handoff: Bàn giao kênh số sang chuyên viên có ngữ cảnh</h3>
+                </div>
+                <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-200">
+                  Hybrid Banking Experience
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
+                <div className="lg:col-span-6 space-y-2 text-xs text-slate-600 leading-relaxed">
+                  <p>
+                    Bất kỳ lúc nào người dùng gặp vướng mắc ở một mục tài liệu, họ có thể nhấn nút "Yêu cầu RM giải đáp mục này".
+                  </p>
+                  <p>
+                    Hệ thống tự động chụp ngữ cảnh bản nháp và gửi thông báo đến máy tính của RM. Khi RM gọi điện thoại lại, họ biết chính xác khách hàng đang thắc mắc gì mà không bắt khách hàng giải thích lại từ đầu.
+                  </p>
+                </div>
+
+                <div className="lg:col-span-6 p-4 rounded-xl bg-slate-900 text-white space-y-2.5 text-xs">
+                  <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                    <span className="font-bold text-sky-400">Thẻ hỗ trợ chuyên viên RM</span>
+                    <span className="text-emerald-400 text-[10px] font-semibold">Đang online</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center font-bold text-sky-300">
+                      RM
+                    </div>
+                    <div>
+                      <div className="font-bold text-white">Nguyễn Tuấn Anh</div>
+                      <div className="text-slate-400 text-[11px]">Chuyên viên Khách hàng Doanh nghiệp • CN Hoàn Kiếm</div>
+                    </div>
+                  </div>
+                  <div className="p-2 rounded bg-slate-800/80 text-[11px] text-slate-300">
+                    Ngữ cảnh chia sẻ: <em>Thắc mắc hồ sơ máy móc nhập khẩu hợp đồng số 104/2025</em>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+         * SECTION 09 — USABILITY TESTING (BEFORE / AFTER COMPARISON)
+         * ========================================================================= */}
+        <section id="sec-09" className="space-y-6 scroll-mt-20">
+          <div className="space-y-2">
+            <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider">
+              09 / USABILITY TESTING & CẢI TIẾN
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+              Kiểm chứng trên người dùng thật qua 4 vòng lặp
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-4xl">
+              Chúng tôi tiến hành 4 vòng thử nghiệm khả năng sử dụng (Usability Testing) với 12 kế toán và lãnh đạo doanh nghiệp để phát hiện các lỗ hổng trải nghiệm và liên tục tinh chỉnh.
+            </p>
+          </div>
+
+          {/* Interactive Before vs After Control */}
+          <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3">
+              <div className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                <Activity className="w-4 h-4 text-sky-600" />
+                <span>BỘ SO SÁNH TRỰC DIỆN: TRƯỚC (BEFORE) VS SAU (AFTER)</span>
+              </div>
+
+              <div className="flex items-center gap-1.5 p-1 rounded-lg bg-slate-100">
+                <button
+                  onClick={() => setActiveTestTab('after')}
+                  className={`px-3 py-1 rounded-md text-xs font-bold transition-all cursor-pointer ${
+                    activeTestTab === 'after'
+                      ? 'bg-emerald-600 text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  ★ AFTER (CẢI TIẾN MỚI)
+                </button>
+                <button
+                  onClick={() => setActiveTestTab('before')}
+                  className={`px-3 py-1 rounded-md text-xs font-bold transition-all cursor-pointer ${
+                    activeTestTab === 'before'
+                      ? 'bg-rose-600 text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  BEFORE (TRƯỚC ĐÂY)
+                </button>
+              </div>
+            </div>
+
+            {/* 4 Iteration Selector Tabs */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
+              {[
+                { title: 'Vòng 1: Đơn giản hóa biểu mẫu BCTC' },
+                { title: 'Vòng 2: Cảnh báo file lỗi tức thì' },
+                { title: 'Vòng 3: Tách luồng duyệt di động' },
+                { title: 'Vòng 4: Widget kết nối chuyên viên RM' }
+              ].map((it, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveIteration(idx)}
+                  className={`p-2.5 rounded-xl text-left text-xs font-semibold transition-all cursor-pointer border ${
+                    activeIteration === idx
+                      ? 'bg-sky-50 border-sky-300 text-sky-900 ring-1 ring-sky-300'
+                      : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
+                  }`}
+                >
+                  <div className="text-[10px] text-slate-400 uppercase">Iteration 0{idx + 1}</div>
+                  <div className="truncate mt-0.5">{it.title}</div>
+                </button>
+              ))}
+            </div>
+
+            {/* Comparison Display Box */}
+            <div className="p-4 sm:p-5 rounded-xl bg-slate-900 text-white space-y-3">
+              {activeTestTab === 'after' ? (
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-bold text-emerald-400">★ THIẾT KẾ CẢI TIẾN (AFTER SOLUTION)</span>
+                    <span className="text-slate-400 text-[11px]">Đã qua kiểm thử thực tế 12 doanh nghiệp</span>
+                  </div>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    Hệ thống tự động phân loại hồ sơ, hiển thị trạng thái hoàn thành theo %, có nút gọi RM ngay tại điểm vướng mắc và màn hình Decision Summary 1-chạm cho CEO trên Mobile.
+                  </p>
+                  <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 text-[11px] text-emerald-300">
+                    ✓ Kết quả kiểm thử: Tỷ lệ hoàn thành tác vụ tăng lên 88%, thời gian nộp hồ sơ giảm từ 5 ngày xuống dưới 4 giờ.
+                  </div>
+                </div>
+              ) : (
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-bold text-rose-400">BEFORE (GIAO DIỆN CŨ TRƯỚC ĐÂY)</span>
+                    <span className="text-slate-400 text-[11px]">Giai đoạn khởi điểm dự án</span>
+                  </div>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    Một trang form dài vô tận gồm 15 ô tải file giống nhau, không có mẫu BCTC chuẩn đính kèm, không báo lỗi ngay khi upload file quá dung lượng và không hỗ trợ duyệt trên di động.
+                  </p>
+                  <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 text-[11px] text-rose-300">
+                    ✕ Kết quả thực tế cũ: Drop-off 62%, 70% khách hàng phải gọi điện ra quầy chi nhánh nhờ RM làm thủ công.
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+         * SECTION 10 — TÁC ĐỘNG, BÀI HỌC & LỘ TRÌNH (IMPACT & REFLECTION)
+         * ========================================================================= */}
+        <section id="sec-10" className="space-y-6 scroll-mt-20">
+          <div className="space-y-2">
+            <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider">
+              10 / TÁC ĐỘNG & BÀI HỌC KINH NGHIỆM
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+              Thiết kế tốt không chỉ đơn giản hóa — nó trao quyền kiểm soát
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-4xl">
+              Tổng kết hiệu quả đo lường trung thực, tác động đa chiều và những bài học xương máu đúc kết được trong quá trình thiết kế sản phẩm tài chính doanh nghiệp quy mô lớn.
+            </p>
+          </div>
+
+          {/* 4 Measurable Scorecards */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
+            <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-1">
+              <div className="text-2xl sm:text-3xl font-extrabold text-emerald-600 font-mono">+[XX]%</div>
+              <div className="text-xs font-bold text-slate-900">Tỷ lệ hoàn thành hồ sơ</div>
+              <div className="text-[11px] text-slate-500">Nhờ Readiness Check & Dynamic Checklist</div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-1">
+              <div className="text-2xl sm:text-3xl font-extrabold text-emerald-600 font-mono">−[XX]%</div>
+              <div className="text-xs font-bold text-slate-900">Tần suất bổ sung hồ sơ</div>
+              <div className="text-[11px] text-slate-500">Giảm từ 3-5 lần xuống dưới 1 lần</div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-1">
+              <div className="text-2xl sm:text-3xl font-extrabold text-emerald-600 font-mono">−[XX]%</div>
+              <div className="text-xs font-bold text-slate-900">Thời gian tạo đơn & duyệt</div>
+              <div className="text-[11px] text-slate-500">Rút ngắn từ 5 ngày còn dưới 4 giờ</div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-1">
+              <div className="text-2xl sm:text-3xl font-extrabold text-emerald-600 font-mono">−[XX]%</div>
+              <div className="text-xs font-bold text-slate-900">Can thiệp RM quá sớm</div>
+              <div className="text-[11px] text-slate-500">Giảm tải vận hành chi nhánh đáng kể</div>
+            </div>
+          </div>
+
+          {/* What went well vs What could be better */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="p-5 rounded-2xl bg-emerald-50/40 border border-emerald-200 space-y-3">
+              <div className="flex items-center gap-2 text-xs font-bold text-emerald-800 uppercase tracking-wider">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                <span>ĐIỀU TÔI ĐÃ LÀM TỐT (WHAT I DID WELL)</span>
+              </div>
+              <div className="space-y-2 text-xs text-slate-700 leading-relaxed">
+                <div>• <strong>Chuyển đổi bài toán:</strong> Chuyển yêu cầu nghiệp vụ phức tạp của ngân hàng thành hành trình có định hướng rõ ràng cho khách hàng.</div>
+                <div>• <strong>Kết hợp phương pháp:</strong> Dùng định lượng để tìm chính xác điểm gãy và dùng định tính để giải mã tâm lý người dùng.</div>
+                <div>• <strong>Giữ phạm vi MVP thực tế:</strong> Không vẽ giải pháp viển vông, tập trung giải quyết triệt để 3 điểm nghẽn lớn nhất.</div>
+                <div>• <strong>Cầu nối Digital & RM:</strong> Biến RM thành đồng minh của kênh số thay vì đặt hai kênh ở thế cạnh tranh.</div>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-rose-50/40 border border-rose-200 space-y-3">
+              <div className="flex items-center gap-2 text-xs font-bold text-rose-800 uppercase tracking-wider">
+                <AlertCircle className="w-4 h-4 text-rose-600" />
+                <span>ĐIỀU CÓ THỂ LÀM TỐT HƠN (WHAT COULD BE BETTER)</span>
+              </div>
+              <div className="space-y-2 text-xs text-slate-700 leading-relaxed">
+                <div>• <strong>Measurement Framework:</strong> Khung đo lường chỉ số sản phẩm chưa được thiết lập đủ sớm ngay từ giai đoạn Discovery.</div>
+                <div>• <strong>Bị ảnh hưởng quy trình nội bộ:</strong> Ở những bản wireframe đầu tiên, tôi vô tình bê nguyên các bước phê duyệt nội bộ của ngân hàng vào UI người dùng.</div>
+                <div>• <strong>Phỏng vấn vai trò:</strong> Chưa mời đủ đại diện pháp chế (Legal & Compliance) vào các phiên thảo luận thiết kế ban đầu.</div>
+              </div>
+            </div>
+          </div>
+
+          {/* 4 Lessons Learned Grid */}
+          <div className="space-y-3">
+            <div className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+              <Lightbulb className="w-4 h-4 text-amber-500" />
+              <span>4 BÀI HỌC KINH NGHIỆM XƯƠNG MÁU (KEY LESSONS)</span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 text-xs">
+              <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs space-y-1.5">
+                <div className="font-bold text-slate-900">1. Không số hóa quy trình xấu</div>
+                <p className="text-slate-600 leading-relaxed">
+                  Số hóa một quy trình thủ công phức tạp chỉ tạo ra một sản phẩm số phức tạp hơn. Nhiệm vụ của Product Designer là tái cấu trúc lại hành trình trước khi vẽ UI.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs space-y-1.5">
+                <div className="font-bold text-slate-900">2. RM là đồng minh, không phải đối thủ</div>
+                <p className="text-slate-600 leading-relaxed">
+                  Trong ngân hàng doanh nghiệp, công nghệ không thay thế con người. Thiết kế tốt nhất là trao cho RM thông tin và công cụ tốt nhất để phục vụ khách hàng.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs space-y-1.5">
+                <div className="font-bold text-slate-900">3. Thiết kế cho sự chuẩn bị</div>
+                <p className="text-slate-600 leading-relaxed">
+                  Với sản phẩm tài chính phức tạp, chuẩn bị tâm lý và tài liệu cho người dùng trước khi bắt đầu mang lại giá trị cao hơn việc tối ưu hóa nút bấm trong form.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs space-y-1.5">
+                <div className="font-bold text-slate-900">4. Đo lường liên tục bằng dữ liệu thật</div>
+                <p className="text-slate-600 leading-relaxed">
+                  Mọi giả định thiết kế đều là phỏng đoán cho đến khi được kiểm chứng bằng log sự kiện, tỷ lệ drop-off và phản hồi trực tiếp từ người dùng cuối.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 3-Phase Roadmap Timeline */}
+          <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
+            <div className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+              LỘ TRÌNH PHÁT TRIỂN TIẾP THEO (PRODUCT ROADMAP)
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1 text-xs">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <div className="font-bold text-sky-700">GIAI ĐOẠN 01 (0 – 3 THÁNG)</div>
+                <div className="text-slate-700 font-semibold">Tối ưu MVP & Đánh giá phễu</div>
+                <p className="text-slate-500 text-[11px] leading-relaxed">
+                  Đo lường các chỉ số drop-off thực tế, A/B Testing bộ câu hỏi Readiness Check và hoàn thiện Dynamic Checklist.
+                </p>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <div className="font-bold text-indigo-700">GIAI ĐOẠN 02 (3 – 9 THÁNG)</div>
+                <div className="text-slate-700 font-semibold">Tự động hóa OCR & AI Báo cáo</div>
+                <p className="text-slate-500 text-[11px] leading-relaxed">
+                  Tích hợp công nghệ OCR bóc tách tự động dữ liệu BCTC và tự động đối chiếu số dư tiền gửi tại MBBank.
+                </p>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <div className="font-bold text-purple-700">GIAI ĐOẠN 03 (9 – 18 THÁNG)</div>
+                <div className="text-slate-700 font-semibold">Cấp hạn mức phê duyệt trước (Pre-approved)</div>
+                <p className="text-slate-500 text-[11px] leading-relaxed">
+                  Ứng dụng mô hình chấm điểm tín dụng hành vi dòng tiền để chủ động đề xuất hạn mức sẵn cho khách hàng uy tín.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Back Button */}
+          <div className="pt-4 flex justify-center">
+            <button
+              onClick={onBack}
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#0A1D37] text-white hover:bg-[#132A4D] font-sans text-xs sm:text-sm font-semibold shadow-md transition-all cursor-pointer active:scale-95"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>QUAY LẠI DANH SÁCH DỰ ÁN CỦA TÔI</span>
+            </button>
+          </div>
+        </section>
+      </div>
 
       {/* =========================================================================
-       * LIGHTBOX MODAL FOR FULL-WIDTH USER FLOW
+       * LIGHTBOX MODAL: FULL RESOLUTION USER FLOW / JOURNEY DIAGRAM
        * ========================================================================= */}
       {lightboxImage && (
         <div
-          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/85 backdrop-blur-md animate-fade-in"
           onClick={() => setLightboxImage(null)}
         >
           <div
-            className="relative max-w-5xl w-full max-h-[90vh] bg-[#0E1A2E] rounded-[10px] border-2 border-[#CBB892] p-4 flex flex-col space-y-3"
+            className="relative max-w-6xl w-full max-h-[90vh] bg-slate-900 rounded-2xl border border-slate-700 shadow-2xl overflow-hidden flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between border-b border-slate-800 pb-2 text-white font-sans text-xs">
-              <span>SƠ ĐỒ TOÀN TRÌNH USER FLOW • BIZ MBBANK LENDING</span>
+            <div className="px-4 py-3 bg-slate-950 border-b border-slate-800 flex items-center justify-between text-white text-xs font-bold">
+              <div className="flex items-center gap-2">
+                <Workflow className="w-4 h-4 text-sky-400" />
+                <span>SƠ ĐỒ LUỒNG TOÀN TRÌNH: BIZ MBBANK ENTERPRISE LENDING</span>
+              </div>
               <button
                 onClick={() => setLightboxImage(null)}
-                className="p-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 cursor-pointer"
+                className="w-7 h-7 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
-            <div className="flex-1 overflow-auto max-h-[75vh] p-4 flex items-center justify-center bg-[#070D18] rounded border border-slate-800">
-              {/* If flow image exists or visual schema diagram */}
-              <div className="space-y-4 text-center text-white font-sans text-xs">
-                <div className="p-4 rounded bg-slate-900/90 border border-slate-700 max-w-2xl text-left space-y-3">
-                  <div className="font-sans text-sm font-bold text-sky-400">
-                    SƠ ĐỒ ĐIỂM CHẠM VÀ PHÂN QUYỀN HỆ THỐNG
+            <div className="p-4 sm:p-6 overflow-y-auto max-h-[calc(90vh-100px)] space-y-4 text-slate-200">
+              <div className="rounded-xl border border-slate-800 overflow-hidden bg-slate-950 p-6 text-center space-y-4">
+                <div className="text-sm font-bold text-sky-400">CHI TIẾT KIẾN TRÚC LUỒNG 9 BƯỚC HOÀN CHỈNH</div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left text-xs text-slate-300">
+                  <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
+                    <strong className="text-sky-300">1. Kế toán viên (Maker):</strong>
+                    <p className="text-slate-400 text-[11px] leading-relaxed">Soạn thảo hồ sơ, kiểm tra điều kiện sơ bộ, tải báo cáo tài chính và theo dõi tiến độ trên Web Portal.</p>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px]">
-                    <div className="p-2 rounded bg-slate-800 border border-slate-700">
-                      <strong className="text-sky-300">1. Kế toán viên (Creator):</strong>
-                      <p className="text-slate-400 mt-0.5">Soạn thảo hồ sơ, tải báo cáo tài chính, theo dõi tiến độ trên Web Portal.</p>
-                    </div>
-                    <div className="p-2 rounded bg-slate-800 border border-slate-700">
-                      <strong className="text-emerald-300">2. Lãnh đạo (CFO/CEO):</strong>
-                      <p className="text-slate-400 mt-0.5">Xem Decision Summary, ký số bảo mật FaceID trên Mobile App.</p>
-                    </div>
-                    <div className="p-2 rounded bg-slate-800 border border-slate-700">
-                      <strong className="text-purple-300">3. Chuyên viên RM:</strong>
-                      <p className="text-slate-400 mt-0.5">Tiếp nhận bản nháp hồ sơ qua CRM nội bộ để hỗ trợ tức thì.</p>
-                    </div>
+                  <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
+                    <strong className="text-emerald-300">2. Lãnh đạo (CFO/CEO):</strong>
+                    <p className="text-slate-400 text-[11px] leading-relaxed">Xem Decision Summary, đối soát 3 chỉ số trọng yếu và ký số bảo mật Smart CA trên Mobile App.</p>
+                  </div>
+                  <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
+                    <strong className="text-purple-300">3. Chuyên viên RM:</strong>
+                    <p className="text-slate-400 text-[11px] leading-relaxed">Tiếp nhận bản nháp có ngữ cảnh qua CRM nội bộ để hỗ trợ khách hàng tức thì mà không cần làm lại từ đầu.</p>
                   </div>
                 </div>
-
-                <div className="text-[11px] text-slate-400 font-mono">
-                  Asset Path: /assets/lending-flow.webp (Click X để đóng)
+                <div className="pt-2">
+                  <button
+                    onClick={() => setLightboxImage(null)}
+                    className="px-5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold"
+                  >
+                    Đóng cửa sổ xem chi tiết (Esc)
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       )}
-      </div>
     </div>
   );
 };
