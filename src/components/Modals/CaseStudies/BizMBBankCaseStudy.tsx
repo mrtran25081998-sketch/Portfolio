@@ -11,6 +11,7 @@ import {
   Layers,
   FileText,
   Clock,
+  ChevronLeft,
   ChevronRight,
   TrendingUp,
   Lightbulb,
@@ -71,12 +72,58 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const chapterNavRef = useRef<HTMLDivElement>(null);
 
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  // Kéo chuột để cuộn mượt cho máy tính (Mouse drag-to-scroll)
+  const isDraggingNavRef = useRef(false);
+  const startXNavRef = useRef(0);
+  const startScrollLeftNavRef = useRef(0);
+  const hasDraggedNavRef = useRef(false);
+
+  const checkScrollability = () => {
+    const el = chapterNavRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 6);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 6);
+  };
+
   // Cuộn lên đầu khi mở hoặc chuyển project
   useEffect(() => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollTop = 0;
     }
   }, [project.id]);
+
+  // Hỗ trợ lăn chuột dọc -> cuộn ngang mượt mà (Mouse Wheel Redirect)
+  useEffect(() => {
+    const el = chapterNavRef.current;
+    if (!el) return;
+
+    checkScrollability();
+
+    const handleWheel = (e: WheelEvent) => {
+      if (Math.abs(e.deltaY) > 0) {
+        e.preventDefault();
+        el.scrollLeft += e.deltaY;
+        checkScrollability();
+      }
+    };
+
+    const handleScroll = () => {
+      checkScrollability();
+    };
+
+    el.addEventListener('wheel', handleWheel, { passive: false });
+    el.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', checkScrollability);
+
+    return () => {
+      el.removeEventListener('wheel', handleWheel);
+      el.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', checkScrollability);
+    };
+  }, []);
 
   // Nhận diện chương đang xem khi cuộn nội dung
   useEffect(() => {
@@ -98,6 +145,51 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
     return () => container.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Tự động cuộn nút chapter tương ứng vào giữa khung nhìn
+  useEffect(() => {
+    const btn = document.getElementById(`chapter-btn-${activeChapter}`);
+    if (btn) {
+      btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      setTimeout(checkScrollability, 300);
+    }
+  }, [activeChapter]);
+
+  const scrollChapters = (direction: 'left' | 'right') => {
+    if (chapterNavRef.current) {
+      chapterNavRef.current.scrollBy({
+        left: direction === 'left' ? -260 : 260,
+        behavior: 'smooth'
+      });
+      setTimeout(checkScrollability, 300);
+    }
+  };
+
+  const handleNavMouseDown = (e: React.MouseEvent) => {
+    const el = chapterNavRef.current;
+    if (!el) return;
+    isDraggingNavRef.current = true;
+    hasDraggedNavRef.current = false;
+    startXNavRef.current = e.pageX - el.offsetLeft;
+    startScrollLeftNavRef.current = el.scrollLeft;
+  };
+
+  const handleNavMouseMove = (e: React.MouseEvent) => {
+    if (!isDraggingNavRef.current) return;
+    const el = chapterNavRef.current;
+    if (!el) return;
+    const x = e.pageX - el.offsetLeft;
+    const walk = (x - startXNavRef.current) * 1.5;
+    if (Math.abs(walk) > 4) {
+      hasDraggedNavRef.current = true;
+    }
+    el.scrollLeft = startScrollLeftNavRef.current - walk;
+    checkScrollability();
+  };
+
+  const handleNavMouseUp = () => {
+    isDraggingNavRef.current = false;
+  };
+
   const scrollToChapter = (id: string) => {
     setActiveChapter(id);
     const element = document.getElementById(id);
@@ -113,7 +205,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
       {/* =========================================================================
        * FIXED SUBHEADER: CHAPTER PROGRESS NAVIGATION (CỐ ĐỊNH NGAY DƯỚI HEADER MODAL)
        * ========================================================================= */}
-      <div className="shrink-0 z-20 px-4 sm:px-6 py-2 bg-[#FFF4D6] border-b-2 border-[#DFC9A2] shadow-sm flex items-center justify-between gap-2 overflow-x-auto no-scrollbar">
+      <div className="shrink-0 z-20 px-3 sm:px-5 py-2 bg-[#FFF4D6] border-b-2 border-[#DFC9A2] shadow-sm flex items-center gap-1.5 sm:gap-2 relative select-none">
         <button
           onClick={onBack}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[5px] bg-[#3B1D0F] text-[#FFF4D6] hover:bg-[#4A2414] font-sans text-xs font-bold shrink-0 transition-colors shadow-sm cursor-pointer"
@@ -122,17 +214,41 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           <span className="hidden sm:inline">QUAY LẠI</span>
         </button>
 
+        {/* Scroll Left Button */}
+        <button
+          onClick={() => scrollChapters('left')}
+          disabled={!canScrollLeft}
+          className={`w-7 h-7 rounded-[4px] flex items-center justify-center shrink-0 border transition-all cursor-pointer ${
+            canScrollLeft
+              ? 'bg-[#FFF8E7] hover:bg-[#F4C542] text-[#7A3F1F] border-[#DFC9A2] shadow-sm active:scale-95'
+              : 'opacity-30 cursor-not-allowed bg-[#FFF8E7]/50 border-transparent text-[#A89571]'
+          }`}
+          title="Cuộn sang trái"
+          aria-label="Cuộn sang trái"
+        >
+          <ChevronLeft className="w-4 h-4" />
+        </button>
+
+        {/* Chapter Buttons Track */}
         <div
           ref={chapterNavRef}
-          className="flex items-center gap-1 sm:gap-1.5 overflow-x-auto py-0.5 no-scrollbar"
+          onMouseDown={handleNavMouseDown}
+          onMouseMove={handleNavMouseMove}
+          onMouseUp={handleNavMouseUp}
+          onMouseLeave={handleNavMouseUp}
+          className="flex-1 flex items-center gap-1 sm:gap-1.5 overflow-x-auto py-0.5 no-scrollbar cursor-grab active:cursor-grabbing"
         >
           {CHAPTERS.map((c) => {
             const isActive = activeChapter === c.id;
             return (
               <button
                 key={c.id}
-                onClick={() => scrollToChapter(c.id)}
-                className={`px-2 sm:px-2.5 py-1 rounded-[4px] font-sans text-[10px] sm:text-xs font-bold transition-all shrink-0 cursor-pointer ${
+                id={`chapter-btn-${c.id}`}
+                onClick={() => {
+                  if (hasDraggedNavRef.current) return;
+                  scrollToChapter(c.id);
+                }}
+                className={`px-2.5 sm:px-3 py-1 rounded-[4px] font-sans text-[11px] sm:text-xs font-bold transition-all shrink-0 cursor-pointer whitespace-nowrap ${
                   isActive
                     ? 'bg-[#F4C542] text-[#2D1B12] shadow-[0_2px_0_#9E875C] scale-105'
                     : 'bg-[#FFF8E7] text-[#7A3F1F] hover:bg-[#FFECC2] border border-[#DFC9A2]'
@@ -140,7 +256,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
                 title={c.title}
               >
                 <span>{c.num}</span>
-                <span className="hidden md:inline ml-1 font-sans font-medium text-[11px] text-[#4A3326]">
+                <span className="ml-1 font-sans font-medium text-[11px] text-[#4A3326]">
                   • {c.title}
                 </span>
               </button>
@@ -148,7 +264,22 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           })}
         </div>
 
-        <div className="hidden lg:flex items-center gap-1.5 font-sans text-xs text-[#7A3F1F] shrink-0 font-bold">
+        {/* Scroll Right Button */}
+        <button
+          onClick={() => scrollChapters('right')}
+          disabled={!canScrollRight}
+          className={`w-7 h-7 rounded-[4px] flex items-center justify-center shrink-0 border transition-all cursor-pointer ${
+            canScrollRight
+              ? 'bg-[#FFF8E7] hover:bg-[#F4C542] text-[#7A3F1F] border-[#DFC9A2] shadow-sm active:scale-95'
+              : 'opacity-30 cursor-not-allowed bg-[#FFF8E7]/50 border-transparent text-[#A89571]'
+          }`}
+          title="Cuộn sang phải"
+          aria-label="Cuộn sang phải"
+        >
+          <ChevronRight className="w-4 h-4" />
+        </button>
+
+        <div className="hidden xl:flex items-center gap-1.5 font-sans text-xs text-[#7A3F1F] shrink-0 font-bold ml-1">
           <Sparkles className="w-3.5 h-3.5 text-[#F4C542]" />
           <span>DEEP DIVE QUEST</span>
         </div>
