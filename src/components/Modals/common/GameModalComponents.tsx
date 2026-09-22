@@ -296,6 +296,7 @@ interface GameModalHeaderProps {
   hideExploredBadge?: boolean;
   onBack?: () => void;
   backLabel?: string;
+  hideCenterHeader?: boolean;
 }
 
 export const GameModalHeader: React.FC<GameModalHeaderProps> = ({
@@ -305,7 +306,8 @@ export const GameModalHeader: React.FC<GameModalHeaderProps> = ({
   badgeOverride,
   hideExploredBadge,
   onBack,
-  backLabel
+  backLabel,
+  hideCenterHeader
 }) => {
   const theme = areaTheme[areaKey] || areaTheme.about;
 
@@ -332,27 +334,31 @@ export const GameModalHeader: React.FC<GameModalHeaderProps> = ({
           </button>
         )}
 
-        {/* Voxel Sign Icon Box */}
-        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-[6px] bg-[#3B1D0F] border-2 border-[#7A3F1F] text-[#F4C542] flex items-center justify-center shadow-[inset_0_2px_0_rgba(0,0,0,0.4),0_2px_0_#2E150B] shrink-0">
-          {renderVoxelIcon(theme.icon, 'w-5 h-5 sm:w-5.5 sm:h-5.5')}
-        </div>
+        {!hideCenterHeader && (
+          <>
+            {/* Voxel Sign Icon Box */}
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-[6px] bg-[#3B1D0F] border-2 border-[#7A3F1F] text-[#F4C542] flex items-center justify-center shadow-[inset_0_2px_0_rgba(0,0,0,0.4),0_2px_0_#2E150B] shrink-0">
+              {renderVoxelIcon(theme.icon, 'w-5 h-5 sm:w-5.5 sm:h-5.5')}
+            </div>
 
-        <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-2 mb-0.5">
-            {badgeOverride !== undefined ? (
-              badgeOverride
-            ) : (
-              <AreaBadge number={theme.number} />
-            )}
-          </div>
-          <h2
-            id="voxel-modal-title"
-            className="font-pixel text-xs sm:text-base md:text-lg font-bold tracking-wide text-[#F4C542] drop-shadow-[0_2px_0_#2E150B] leading-tight truncate"
-            title={titleOverride || theme.title}
-          >
-            {titleOverride || theme.title}
-          </h2>
-        </div>
+            <div className="min-w-0 flex-1">
+              <div className="flex items-center gap-2 mb-0.5">
+                {badgeOverride !== undefined ? (
+                  badgeOverride
+                ) : (
+                  <AreaBadge number={theme.number} />
+                )}
+              </div>
+              <h2
+                id="voxel-modal-title"
+                className="font-pixel text-xs sm:text-base md:text-lg font-bold tracking-wide text-[#F4C542] drop-shadow-[0_2px_0_#2E150B] leading-tight truncate"
+                title={titleOverride || theme.title}
+              >
+                {titleOverride || theme.title}
+              </h2>
+            </div>
+          </>
+        )}
       </div>
 
       {/* Right: Explored Badge + Block Close Button */}
@@ -484,6 +490,7 @@ interface GameModalProps {
   maxWidthClass?: string;
   onBack?: () => void;
   backLabel?: string;
+  hideCenterHeader?: boolean;
 }
 
 export const GameModal: React.FC<GameModalProps> = ({
@@ -496,7 +503,8 @@ export const GameModal: React.FC<GameModalProps> = ({
   hideExploredBadge,
   maxWidthClass = 'max-w-[960px]',
   onBack,
-  backLabel
+  backLabel,
+  hideCenterHeader
 }) => {
   const modalContainerRef = useRef<HTMLDivElement>(null);
 
@@ -556,6 +564,7 @@ export const GameModal: React.FC<GameModalProps> = ({
           hideExploredBadge={hideExploredBadge}
           onBack={onBack}
           backLabel={backLabel}
+          hideCenterHeader={hideCenterHeader}
         />
 
         {/* Content Body */}

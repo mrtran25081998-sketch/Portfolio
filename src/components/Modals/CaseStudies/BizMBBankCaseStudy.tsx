@@ -218,14 +218,6 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
        * FIXED SUBHEADER: SYNCHRONIZED PARCHMENT & WOOD CHAPTER NAVIGATION
        * ========================================================================= */}
       <div className="shrink-0 z-20 px-3 sm:px-5 py-2.5 bg-[#FFF4D6] border-b-2 border-[#DFC9A2] shadow-xs flex items-center gap-2 relative select-none">
-        <button
-          onClick={onBack}
-          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-[5px] bg-[#3B1D0F] text-[#FFF4D6] hover:bg-[#4A2414] font-sans text-xs sm:text-sm font-bold shrink-0 transition-colors shadow-[0_2px_0_#2E150B] cursor-pointer active:translate-y-0.5"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span className="hidden sm:inline">QUAY LẠI</span>
-        </button>
-
         {/* Scroll Left Button */}
         <button
           onClick={() => scrollChapters('left')}
@@ -290,11 +282,6 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         >
           <ChevronRight className="w-4 h-4" />
         </button>
-
-        <div className="hidden xl:flex items-center gap-1.5 font-sans text-xs sm:text-sm px-3 py-1.5 rounded-[5px] bg-[#F4C542]/20 border border-[#B86428]/40 text-[#7A3F1F] shrink-0 font-bold ml-1">
-          <Sparkles className="w-4 h-4 text-[#B86428]" />
-          <span>ENTERPRISE CASE STUDY</span>
-        </div>
       </div>
 
       {/* =========================================================================

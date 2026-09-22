@@ -540,6 +540,7 @@ export const MyWorkModal: React.FC<MyWorkModalProps> = ({
           titleOverride="CASE STUDY • BIZ MBBANK VAY TRUNG DÀI HẠN"
           onBack={handleBackToList}
           backLabel="QUAY LẠI"
+          hideCenterHeader={true}
         >
           <BizMBBankCaseStudy
             project={selectedCaseStudy}
