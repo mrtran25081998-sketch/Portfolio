@@ -58,16 +58,16 @@ interface BizMBBankCaseStudyProps {
 }
 
 const CHAPTERS = [
-  { id: 'sec-01', num: '01', title: 'Tổng quan & Snapshot' },
-  { id: 'sec-02', num: '02', title: '4 Lớp bài toán' },
-  { id: 'sec-03', num: '03', title: 'Benchmark & Giả thuyết' },
-  { id: 'sec-04', num: '04', title: 'Flow & Prototype V1' },
-  { id: 'sec-05', num: '05', title: 'Research & 5 Phát hiện' },
-  { id: 'sec-06', num: '06', title: 'Iteration V1 → V2' },
-  { id: 'sec-07', num: '07', title: 'Proposal & Scope Review' },
-  { id: 'sec-08', num: '08', title: 'Refinement & 23 Edge Cases' },
-  { id: 'sec-09', num: '09', title: 'UAT & Đo lường Go-live' },
-  { id: 'sec-10', num: '10', title: 'Đúc kết & Quy trình 14 bước' }
+  { id: 'sec-01', num: '01', title: 'Tổng quan' },
+  { id: 'sec-02', num: '02', title: 'Phân tích yêu cầu' },
+  { id: 'sec-03', num: '03', title: 'Research' },
+  { id: 'sec-04', num: '04', title: 'Concept' },
+  { id: 'sec-05', num: '05', title: 'Usability Testing' },
+  { id: 'sec-06', num: '06', title: 'Chỉnh sửa sau test' },
+  { id: 'sec-07', num: '07', title: 'Bảo vệ sản phẩm' },
+  { id: 'sec-08', num: '08', title: 'Technical Refinement' },
+  { id: 'sec-09', num: '09', title: 'UAT' },
+  { id: 'sec-10', num: '10', title: 'Bài học rút ra' }
 ];
 
 export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
@@ -322,8 +322,17 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
             </div>
           </div>
 
-          {/* Project Metadata Matrix */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5">
+          {/* Hero Thumbnail Image Showcase - Lấy từ danh sách bên ngoài */}
+          <div className="rounded-[12px] overflow-hidden border-2 sm:border-3 border-[#CBB892] shadow-[0_6px_0_#A89571,0_12px_24px_rgba(0,0,0,0.1)] relative bg-[#1E293B]">
+            <img
+              src={project.imageUrl || '/assets/projects/project-1-mbbank.png'}
+              alt={project.title}
+              className="w-full h-auto max-h-[560px] object-cover object-center"
+            />
+          </div>
+
+          {/* Project Metadata Matrix (4 Columns) */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5">
             <div className="p-4 rounded-[10px] bg-[#FFFDF6] border border-[#DFC9A2] shadow-[0_2px_0_#D4C39B] space-y-1.5">
               <div className="text-xs uppercase tracking-wider font-bold text-[#7A3F1F]">Vai trò</div>
               <div className="text-base font-bold text-[#2D1B12]">Product Designer</div>
@@ -339,15 +348,46 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
               <div className="text-base font-bold text-[#2D1B12]">Upper SME & CIB</div>
               <div className="text-xs sm:text-sm text-[#6B513C]">Quy mô vừa & lớn</div>
             </div>
-            <div className="p-4 rounded-[10px] bg-[#FFFDF6] border border-[#DFC9A2] shadow-[0_2px_0_#D4C39B] space-y-1.5 col-span-2 md:col-span-1">
+            <div className="p-4 rounded-[10px] bg-[#FFFDF6] border border-[#DFC9A2] shadow-[0_2px_0_#D4C39B] space-y-1.5">
               <div className="text-xs uppercase tracking-wider font-bold text-[#7A3F1F]">Phối hợp liên chức năng</div>
               <div className="text-xs sm:text-sm font-semibold text-[#2D1B12] leading-snug">PO, Business, BA, RM, Credit, Dev, QA</div>
             </div>
-            <div className="p-4 rounded-[10px] bg-[#FFFDF6] border border-[#DFC9A2] shadow-[0_2px_0_#D4C39B] space-y-1.5 col-span-2 lg:col-span-1">
-              <div className="text-xs uppercase tracking-wider font-bold text-[#7A3F1F]">Phạm vi toàn trình</div>
-              <div className="text-xs sm:text-sm text-[#5A4030] leading-snug font-medium">
-                Discovery → Concept → Validation → Review → Refinement → UAT → Go-live → Optimization
+          </div>
+
+          {/* Phạm vi toàn trình - Đẩy xuống dòng dưới & có icon minh họa từng đầu mục */}
+          <div className="p-4 sm:p-5 rounded-[10px] bg-[#FFFDF6] border border-[#DFC9A2] shadow-[0_2px_0_#D4C39B] space-y-3">
+            <div className="flex items-center justify-between">
+              <div className="text-xs uppercase tracking-wider font-bold text-[#7A3F1F] flex items-center gap-1.5">
+                <Workflow className="w-4 h-4 text-[#B86428]" />
+                <span>Phạm vi toàn trình (End-to-End Design Scope)</span>
               </div>
+              <span className="text-[11px] font-bold text-[#8C5832] bg-[#FFF4D6] px-2.5 py-0.5 rounded border border-[#DFC9A2]">
+                8 Giai đoạn thực thi
+              </span>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 pt-1">
+              {[
+                { label: 'Discovery', icon: <Search className="w-4 h-4 text-blue-600" />, desc: 'Khám phá' },
+                { label: 'Concept', icon: <Lightbulb className="w-4 h-4 text-amber-600" />, desc: 'Ý tưởng' },
+                { label: 'Validation', icon: <UserCheck className="w-4 h-4 text-emerald-600" />, desc: 'Kiểm chứng' },
+                { label: 'Review', icon: <Eye className="w-4 h-4 text-indigo-600" />, desc: 'Đánh giá' },
+                { label: 'Refinement', icon: <RotateCcw className="w-4 h-4 text-purple-600" />, desc: 'Tinh chỉnh' },
+                { label: 'UAT', icon: <CheckSquare className="w-4 h-4 text-teal-600" />, desc: 'Kiểm thử' },
+                { label: 'Go-live', icon: <Send className="w-4 h-4 text-rose-600" />, desc: 'Triển khai' },
+                { label: 'Optimization', icon: <TrendingUp className="w-4 h-4 text-green-600" />, desc: 'Tối ưu hóa' }
+              ].map((step, idx) => (
+                <div
+                  key={idx}
+                  className="p-2.5 rounded-[6px] bg-[#FFF8E7] border border-[#DFC9A2] flex flex-col items-center text-center hover:bg-[#FFECC2] transition-colors group"
+                >
+                  <div className="w-8 h-8 rounded-full bg-white border border-[#DFC9A2] flex items-center justify-center shadow-xs mb-1.5 group-hover:scale-110 transition-transform">
+                    {step.icon}
+                  </div>
+                  <span className="text-xs font-bold text-[#2D1B12] leading-tight">{step.label}</span>
+                  <span className="text-[10px] text-[#7A3F1F] mt-0.5">{step.desc}</span>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -355,7 +395,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
           <div className="p-5 sm:p-7 rounded-[12px] bg-[#FFFDF6] border border-[#DFC9A2] shadow-[0_3px_0_#D4C39B] space-y-4">
             <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-[#7A3F1F] uppercase tracking-wider border-b border-[#EAD9B0] pb-3">
               <Briefcase className="w-4 h-4 text-[#B86428]" />
-              <span>01. TỔNG QUAN DỰ ÁN — MỘT HÀNH TRÌNH GIÁ TRỊ CAO NHƯNG VẪN PHỤ THUỘC NHIỀU VÀO CON NGƯỜI</span>
+              <span>01. TỔNG QUAN — MỘT HÀNH TRÌNH GIÁ TRỊ CAO NHƯNG VẪN PHỤ THUỘC NHIỀU VÀO CON NGƯỜI</span>
             </div>
 
             <p className="text-base sm:text-lg text-[#4A3326] leading-relaxed">
@@ -491,156 +531,6 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
               </div>
             </div>
           </div>
-
-          {/* Large Hero Showcase: BIZ MBBank Web & Mobile Mockups */}
-          <div className="rounded-[12px] p-4 sm:p-7 bg-gradient-to-b from-[#0A192F] via-[#0F2744] to-[#071324] border-2 border-[#CBB892] shadow-[0_6px_0_#A89571] space-y-4">
-            <div className="flex items-center justify-between text-[#DFC9A2] border-b border-blue-900/50 pb-3">
-              <div className="flex items-center gap-2">
-                <div className="w-2.5 h-2.5 rounded-full bg-rose-500" />
-                <div className="w-2.5 h-2.5 rounded-full bg-amber-500" />
-                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-                <span className="font-sans text-xs sm:text-sm text-sky-200 font-bold ml-2">BIZ MBBank Enterprise Suite • Vay trung dài hạn</span>
-              </div>
-              <span className="font-mono text-xs text-sky-400 bg-sky-950/80 px-2.5 py-1 rounded border border-sky-800 hidden sm:inline">
-                Upper SME & CIB Edition
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center pt-2">
-              {/* Left 8 Cols: Web Portal View */}
-              <div className="lg:col-span-8 rounded-[8px] bg-[#091527] border border-blue-900/80 shadow-2xl overflow-hidden">
-                <div className="bg-[#050D1A] px-4 py-3 flex items-center justify-between border-b border-blue-900/60">
-                  <div className="flex items-center gap-2">
-                    <span className="text-rose-500 text-sm font-bold">★</span>
-                    <span className="text-sky-400 font-extrabold text-sm tracking-tight">MB</span>
-                    <span className="text-slate-300 text-xs sm:text-sm font-semibold border-l border-slate-700 pl-2 ml-1">BIZ Portal Enterprise</span>
-                  </div>
-                  <div className="flex items-center gap-2.5 text-xs text-slate-300">
-                    <span className="px-2.5 py-0.5 rounded bg-blue-950/80 border border-blue-800 text-sky-300 font-mono">MST: 0102030405</span>
-                    <span className="hidden sm:inline">CTCP TẬP ĐOÀN CÔNG NGHỆ & SẢN XUẤT</span>
-                  </div>
-                </div>
-
-                <div className="p-4 sm:p-5 space-y-4 font-sans text-slate-200 text-xs sm:text-sm">
-                  <div className="flex items-center justify-between bg-slate-900/90 p-3 rounded-lg border border-slate-800">
-                    <div className="flex items-center gap-2">
-                      <span className="w-5 h-5 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center font-bold text-xs">✓</span>
-                      <span className="font-semibold text-white">1. Mức độ sẵn sàng</span>
-                    </div>
-                    <div className="h-0.5 w-8 bg-emerald-500 hidden sm:block" />
-                    <div className="flex items-center gap-2">
-                      <span className="w-5 h-5 rounded-full bg-sky-500 text-white flex items-center justify-center font-bold text-xs">2</span>
-                      <span className="font-semibold text-sky-300">2. Chuẩn bị hồ sơ</span>
-                    </div>
-                    <div className="h-0.5 w-8 bg-slate-700 hidden sm:block" />
-                    <div className="flex items-center gap-2 text-slate-400">
-                      <span className="w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center text-xs">3</span>
-                      <span>3. Phê duyệt nội bộ</span>
-                    </div>
-                    <div className="h-0.5 w-8 bg-slate-700 hidden sm:block" />
-                    <div className="flex items-center gap-2 text-slate-400">
-                      <span className="w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center text-xs">4</span>
-                      <span>4. Bàn giao RM</span>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                    <div className="p-3.5 rounded-lg bg-slate-900/70 border border-slate-800 space-y-2.5">
-                      <div className="flex items-center justify-between">
-                        <span className="font-bold text-white text-xs sm:text-sm flex items-center gap-1.5">
-                          <FileCheck className="w-4 h-4 text-sky-400" />
-                          <span>Danh mục hồ sơ tài chính (3/4)</span>
-                        </span>
-                        <span className="text-xs text-emerald-400 font-semibold">75% Hoàn tất</span>
-                      </div>
-                      <div className="space-y-2 text-xs sm:text-sm">
-                        <div className="flex items-center justify-between p-2 rounded bg-slate-950/60 border border-slate-800 text-slate-300">
-                          <span className="flex items-center gap-1.5">
-                            <span className="text-emerald-400">●</span> Báo cáo tài chính 2 năm kiểm toán
-                          </span>
-                          <span className="text-xs text-slate-400 font-mono">PDF • 12MB</span>
-                        </div>
-                        <div className="flex items-center justify-between p-2 rounded bg-slate-950/60 border border-slate-800 text-slate-300">
-                          <span className="flex items-center gap-1.5">
-                            <span className="text-emerald-400">●</span> Quyết định đầu tư dự án mở rộng
-                          </span>
-                          <span className="text-xs text-slate-400 font-mono">PDF • 4.8MB</span>
-                        </div>
-                        <div className="flex items-center justify-between p-2 rounded bg-amber-950/30 border border-amber-800/60 text-amber-200">
-                          <span className="flex items-center gap-1.5">
-                            <span className="text-amber-400 animate-pulse">●</span> Phương án hoàn vốn & dòng tiền
-                          </span>
-                          <span className="text-xs px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-semibold cursor-pointer">
-                            Tải bổ sung
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="p-3.5 rounded-lg bg-slate-900/70 border border-slate-800 space-y-2.5">
-                      <div className="flex items-center justify-between">
-                        <span className="font-bold text-white text-xs sm:text-sm flex items-center gap-1.5">
-                          <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                          <span>Nhu cầu vốn dự kiến</span>
-                        </span>
-                        <span className="text-xs px-2 py-0.5 rounded bg-emerald-950 border border-emerald-700 text-emerald-300">
-                          Auto-saved 10:24
-                        </span>
-                      </div>
-                      <div className="space-y-2 text-xs sm:text-sm text-slate-300">
-                        <div className="flex justify-between border-b border-slate-800 pb-1.5">
-                          <span className="text-slate-400">Số tiền đề xuất:</span>
-                          <span className="font-bold text-sky-300 font-mono">85.000.000.000 VNĐ</span>
-                        </div>
-                        <div className="flex justify-between border-b border-slate-800 pb-1.5">
-                          <span className="text-slate-400">Thời hạn dự kiến:</span>
-                          <span className="font-semibold text-white">60 Tháng (Trung dài hạn)</span>
-                        </div>
-                        <div className="flex justify-between border-b border-slate-800 pb-1.5">
-                          <span className="text-slate-400">RM phụ trách chi nhánh:</span>
-                          <span className="font-semibold text-sky-400">Nguyễn Tuấn Anh • CN Hoàn Kiếm</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right 4 Cols: Mobile App View */}
-              <div className="lg:col-span-4 flex justify-center">
-                <div className="w-[280px] rounded-2xl bg-slate-950 border-2 border-slate-700 shadow-2xl p-3.5 space-y-3.5 relative overflow-hidden">
-                  <div className="flex items-center justify-between text-xs text-slate-400 border-b border-slate-800 pb-2">
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-rose-500 font-bold">★</span>
-                      <span className="text-white font-bold">BIZ MB</span>
-                    </div>
-                    <span className="text-emerald-400 font-semibold">Decision Summary</span>
-                  </div>
-
-                  <div className="space-y-2.5 text-slate-200">
-                    <div className="text-sm font-bold text-white">Ký duyệt yêu cầu cấp vốn TDH</div>
-                    <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-2 text-xs">
-                      <div className="flex justify-between"><span className="text-slate-400">Doanh nghiệp:</span> <span className="font-bold text-white truncate max-w-[120px]">Tập đoàn Công nghệ</span></div>
-                      <div className="flex justify-between"><span className="text-slate-400">Nhu cầu vốn:</span> <strong className="text-emerald-400 font-mono text-sm">85 Tỷ VNĐ</strong></div>
-                      <div className="flex justify-between"><span className="text-slate-400">Người lập:</span> <span className="text-slate-300">Kế toán trưởng (Đã xác nhận)</span></div>
-                    </div>
-
-                    <div className="p-2.5 rounded bg-sky-950/60 border border-sky-800/80 text-xs text-sky-200 flex items-start gap-2">
-                      <ShieldCheck className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
-                      <span>Đã kiểm tra đầy đủ hồ sơ pháp lý và cam kết mục đích vay.</span>
-                    </div>
-
-                    <button className="w-full py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm tracking-wide shadow-md transition-all cursor-pointer">
-                      KÝ DUYỆT BẰNG SMART CA
-                    </button>
-                    <div className="text-center text-xs text-slate-400 hover:text-slate-300 cursor-pointer pt-0.5">
-                      Xem chi tiết hồ sơ và báo cáo tài chính
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </section>
 
         {/* =========================================================================
@@ -649,7 +539,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         <section id="sec-02" className="space-y-7 scroll-mt-20">
           <div className="space-y-3">
             <span className="px-3 py-1 rounded-[4px] bg-[#E8D9BE] text-[#5A4030] text-xs sm:text-sm font-bold uppercase tracking-wider">
-              02 / BÓC TÁCH YÊU CẦU
+              02 / PHÂN TÍCH YÊU CẦU
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-[#2D1B12]">
               Từ yêu cầu kinh doanh đến bài toán sản phẩm
@@ -791,7 +681,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         <section id="sec-03" className="space-y-7 scroll-mt-20">
           <div className="space-y-3">
             <span className="px-3 py-1 rounded-[4px] bg-[#E8D9BE] text-[#5A4030] text-xs sm:text-sm font-bold uppercase tracking-wider">
-              03 / BENCHMARK & HYPOTHESIS
+              03 / RESEARCH
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-[#2D1B12]">
               Benchmark đối thủ và hình thành giả thuyết
@@ -960,7 +850,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         <section id="sec-04" className="space-y-7 scroll-mt-20">
           <div className="space-y-3">
             <span className="px-3 py-1 rounded-[4px] bg-[#E8D9BE] text-[#5A4030] text-xs sm:text-sm font-bold uppercase tracking-wider">
-              04 / CONCEPT ARCHITECTURE
+              04 / CONCEPT
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-[#2D1B12]">
               Concept đầu tiên — Flow trước, UI sau
@@ -1127,7 +1017,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         <section id="sec-05" className="space-y-7 scroll-mt-20">
           <div className="space-y-3">
             <span className="px-3 py-1 rounded-[4px] bg-[#E8D9BE] text-[#5A4030] text-xs sm:text-sm font-bold uppercase tracking-wider">
-              05 / RESEARCH & VALIDATION
+              05 / USABILITY TESTING
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-[#2D1B12]">
               Kiểm chứng concept với khách hàng thật
@@ -1360,7 +1250,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         <section id="sec-06" className="space-y-7 scroll-mt-20">
           <div className="space-y-3">
             <span className="px-3 py-1 rounded-[4px] bg-[#E8D9BE] text-[#5A4030] text-xs sm:text-sm font-bold uppercase tracking-wider">
-              06 / DESIGN ITERATION
+              06 / CHỈNH SỬA SAU TEST
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-[#2D1B12]">
               Iteration — Prototype V1 → V2
@@ -1494,7 +1384,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         <section id="sec-07" className="space-y-7 scroll-mt-20">
           <div className="space-y-3">
             <span className="px-3 py-1 rounded-[4px] bg-[#E8D9BE] text-[#5A4030] text-xs sm:text-sm font-bold uppercase tracking-wider">
-              07 / STAKEHOLDER DEFENSE & SCOPE
+              07 / BẢO VỆ SẢN PHẨM
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-[#2D1B12]">
               Chốt concept và bảo vệ với Giám đốc dự án
@@ -1695,7 +1585,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         <section id="sec-09" className="space-y-7 scroll-mt-20">
           <div className="space-y-3">
             <span className="px-3 py-1 rounded-[4px] bg-[#E8D9BE] text-[#5A4030] text-xs sm:text-sm font-bold uppercase tracking-wider">
-              09 / UAT & POST-LAUNCH METRICS
+              09 / UAT
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-[#2D1B12]">
               UAT & Đo lường sau 8 tuần go-live
@@ -1848,7 +1738,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
         <section id="sec-10" className="space-y-7 scroll-mt-20">
           <div className="space-y-3">
             <span className="px-3 py-1 rounded-[4px] bg-[#E8D9BE] text-[#5A4030] text-xs sm:text-sm font-bold uppercase tracking-wider">
-              10 / RETROSPECTIVE & PROCESS
+              10 / BÀI HỌC RÚT RA
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-[#2D1B12]">
               Tự soi rọi, Next Iteration & Triết lý phát triển
