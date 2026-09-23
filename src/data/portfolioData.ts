@@ -74,129 +74,133 @@ export const aboutData: AboutData = {
 export const projectsData: ProjectItem[] = [
   {
     id: 'proj-1',
-    title: 'Thiết kế lại hành trình cấp hạn mức trung dài hạn cho doanh nghiệp',
-    badge: 'BIZ MBBank • Upper SME & CIB',
-    category: 'Upper SME & CIB',
+    title: 'Xây dựng hành trình đề nghị cấp hạn mức trung dài hạn cho khách hàng doanh nghiệp',
+    badge: 'BIZ MBBank • Web',
+    category: 'Khách hàng doanh nghiệp',
     role: 'Product Designer',
-    owner: 'BIZ MBBank Web & Mobile',
+    owner: 'BIZ MBBank Web',
     imageUrl: '/assets/projects/project-1-mbbank.png',
     summary:
-      'Biến một quy trình tín dụng phức tạp thành hành trình số rõ ràng, có hướng dẫn và kết nối liền mạch với Relationship Manager (RM). Giải pháp cấp hạn mức trung dài hạn toàn diện cho khách hàng Upper SME & CIB trên nền tảng số BIZ MBBank.',
+      'Biến một quy trình tín dụng nhiều dữ liệu, nhiều hồ sơ và nhiều vai trò thành một hành trình số có cấu trúc, có thể lưu, tiếp tục, phê duyệt và xử lý lại khi cần.',
     impact:
-      'Tăng trưởng tỷ lệ hoàn thành hồ sơ +[XX]%, giảm thời gian chuẩn bị và bổ sung hồ sơ -[XX]%, đồng thời tối ưu hóa quy trình phối hợp giữa Digital và Relationship Manager (RM).',
-    tags: ['BIZ MBBank', 'Vay trung dài hạn', 'Upper SME & CIB', 'Fintech Lending', 'Design Strategy', 'End-to-End'],
+      'Feature 0→1 được kiểm chứng qua Usability Testing, bảo vệ thành công trước Giám đốc dự án và triển khai sản xuất với quy trình Maker – Approver – MB và Return recovery tối ưu.',
+    tags: ['BIZ MBBank', 'Vay trung dài hạn', '0→1 Product Development', 'Khách hàng doanh nghiệp', 'Fintech B2B', 'Dynamic Form', 'Maker-Approver'],
     demoUrl: 'https://bizmbbank.com.vn',
     screens: [
-      { title: 'BIZ MBBank 2.0 Dashboard', type: 'web', color: '#090D16', accent: '#0284c7', iconName: 'credit-card' },
-      { title: 'Quản lý Dòng tiền 2.6B', type: 'ui', color: '#030712', accent: '#38bdf8', iconName: 'pie-chart' },
-      { title: 'Hạn mức TDH Doanh nghiệp', type: 'mobile', color: '#0a101f', accent: '#22c55e', iconName: 'shield-check' }
+      { title: 'BIZ MBBank 2.0 Web Portal', type: 'web', color: '#090D16', accent: '#0284c7', iconName: 'credit-card' },
+      { title: 'Dynamic Form & Hồ sơ', type: 'ui', color: '#030712', accent: '#38bdf8', iconName: 'pie-chart' },
+      { title: 'Phê duyệt & Return Loop', type: 'web', color: '#0a101f', accent: '#22c55e', iconName: 'shield-check' }
     ],
     previewColor: '#0284c7',
     accentColor: '#38bdf8',
     metrics: [
-      { label: 'Thời gian duyệt', value: '< 4 Giờ' },
-      { label: 'Tăng trưởng số', value: '+65%' },
-      { label: 'Độ hài lòng CIB', value: '96.4%' }
+      { label: 'Loại dự án', value: '0→1 Product' },
+      { label: 'Vai trò', value: 'Product Designer' },
+      { label: 'Nền tảng', value: 'BIZ MBBank Web' }
     ],
     caseStudy: {
       problem:
-        'Hồ sơ thẩm định cấp hạn mức thấu chi (TDH) truyền thống đòi hỏi từ 10 - 15 loại chứng từ bản cứng, quy trình đối soát thẩm định rủi ro phân tán qua nhiều phòng ban thủ công khiến khách hàng doanh nghiệp lớn (CIB/Uper) phải chờ đợi từ 3 - 5 ngày làm việc. Ngoài ra, việc ký duyệt hợp đồng phụ thuộc vào USB Token trên máy tính bàn khiến các lãnh đạo cấp cao (CEO/CFO) không thể phê duyệt tức thời khi đi công tác.',
+        'Trước khi có tính năng này, chưa tồn tại một hành trình số hoàn chỉnh để khách hàng doanh nghiệp tự khởi tạo phương án, chuẩn bị thông tin, upload hồ sơ, thực hiện phê duyệt nội bộ và gửi yêu cầu tới MB. Một phương án trung dài hạn đòi hỏi nhiều nhóm thông tin (nhu cầu sử dụng vốn, chi tiết phương án, thông tin doanh nghiệp, hồ sơ pháp lý, tài chính, phương án) và nhiều vai trò phối hợp (Maker, Approver, MB) với vòng trả lại sửa đổi.',
       solution:
-        'Thiết kế giải pháp số hóa toàn trình (End-to-End Digital Lending) trên nền tảng BIZ MBBank 2.0 đồng bộ giữa Web Portal và Mobile App. Tự động kết nối cơ sở dữ liệu quốc gia & trích xuất báo cáo tài chính nội bộ MBBank để tiền thẩm định tức thì trong 30 giây; đồng thời tích hợp chữ ký số Smart CA trên Mobile để CEO/CFO ký duyệt hạn mức hàng chục tỷ đồng bằng sinh trắc học FaceID mọi lúc mọi nơi.',
+        'Xây dựng hành trình số 4 bước có cấu trúc (Thông tin phương án → Thông tin doanh nghiệp → Thông tin hồ sơ → Xác nhận) với Dynamic Form thích ứng theo nhu cầu sử dụng vốn, cơ chế Prefill tái sử dụng dữ liệu doanh nghiệp, Auto-save cho phép dừng và tiếp tục, tách bạch luồng Maker – Approver – MB và thiết kế Return Flow như một trạng thái chính thức của Journey.',
       deliverables: [
-        'Web Enterprise Portal (BIZ MBBank 2.0 TDH)',
-        'Mobile App CEO/CFO Quick Approval Flow',
-        'Financial Dashboard & Cashflow Visualizer',
-        'Smart Form Auto-Filling & Document Parser UI',
-        'End-to-End Enterprise Design Guidelines'
+        'Hành trình 4 bước hoàn chỉnh (Đề nghị cấp hạn mức trung dài hạn)',
+        'Dynamic Form theo nhu cầu sử dụng vốn (Mua xe ô tô, Đầu tư dự án, Khác)',
+        'Cơ chế Prefill dữ liệu & Structured Document Upload theo 4 nhóm',
+        'Cơ chế Lưu phương án, Auto-save & Chọn phương án đã lưu',
+        'Luồng phối hợp đa vai trò: Maker → Approver → MB',
+        'Xử lý Return Flow & Resubmit không mất dữ liệu',
+        'Review Layer & Tích hợp hỗ trợ nhân sự (Human Support)'
       ],
       background:
-        'BIZ MBBank 2.0 là hệ sinh thái ngân hàng số chiến lược của MBBank phục vụ hơn 200,000 khách hàng doanh nghiệp. Trong phân khúc Khách hàng lớn (CIB) và Thượng lưu (Uper), nhu cầu vốn lưu động ngắn hạn để thanh toán đối tác và quay vòng đơn hàng là vô cùng cấp thiết. Dự án nhằm mục tiêu biến MBBank thành ngân hàng tiên phong tại Việt Nam cấp hạn mức tín chấp & thế chấp hoàn toàn tự động trên kênh số.',
+        'Tính năng Phương án trung dài hạn được xây dựng trong nhóm Tín dụng & Tài trợ thương mại → Đề nghị cấp tín dụng trên BIZ MBBank phục vụ khách hàng doanh nghiệp. Dự án là bài toán 0→1 chuyển đổi toàn bộ quy trình giấy tờ và trao đổi rời rạc thành một trải nghiệm số thống nhất.',
       targetAudience:
-        'Kế toán trưởng & Kế toán viên (người trực tiếp khởi tạo hồ sơ, tải tài liệu trên Web Portal); Giám đốc tài chính (CFO) & Tổng giám đốc (CEO) (người xem xét dòng tiền và phê duyệt cuối cùng trên Mobile App); Chuyên viên Quản lý Khách hàng (RM) & Chuyên viên Thẩm định rủi ro MBBank.',
+        'Maker (Kế toán viên / Kế toán trưởng khởi tạo và chuẩn bị phương án); Approver (Lãnh đạo, CFO, CEO có thẩm quyền phê duyệt trong doanh nghiệp); MB (Chuyên viên và đơn vị nghiệp vụ tín dụng tiếp nhận, kiểm tra, phê duyệt hạn mức hoặc trả lại bổ sung).',
       painPoints: [
         {
-          title: 'Thủ tục giấy tờ cồng kềnh & thời gian chờ đợi kéo dài',
-          desc: 'Doanh nghiệp phải in ấn, đóng dấu giáp lai hàng chục trang báo cáo tài chính, sao kê ngân hàng và chờ thẩm định từ 3 - 5 ngày, dễ bỏ lỡ cơ hội kinh doanh gấp.'
+          title: 'Phương án không có một cấu trúc duy nhất',
+          desc: 'Nhu cầu vay mua ô tô khác hoàn toàn với đầu tư dự án mở rộng. Form tĩnh sẽ khiến người dùng bị ngợp bởi hàng loạt trường không liên quan.'
         },
         {
-          title: 'Điểm nghẽn chữ ký số USB Token',
-          desc: 'Các giải pháp cũ bắt buộc cắm USB Token trên trình duyệt máy tính, xung đột driver hệ điều hành và không thể ký khi lãnh đạo đi họp hoặc công tác nước ngoài.'
+          title: 'Khối lượng hồ sơ lớn và phức tạp',
+          desc: 'Hồ sơ gồm nhiều nhóm: Đơn đề nghị, Pháp lý, Năng lực tài chính và Hồ sơ phương án. Khách hàng khó nắm bắt mình cần chuẩn bị đúng tài liệu nào và định dạng ra sao.'
         },
         {
-          title: 'Thiếu minh bạch trạng thái hồ sơ',
-          desc: 'Doanh nghiệp không nắm được hồ sơ đang dừng ở khâu nào (thẩm định pháp lý, phê duyệt rủi ro hay chờ giải ngân), tạo tâm lý bất an và gia tăng áp lực gọi tổng đài hỗ trợ.'
+          title: 'Journey đa vai trò & Quy trình trả lại (Return)',
+          desc: 'Không phải một người duy nhất hoàn tất quy trình. Cần phối hợp giữa Maker chuẩn bị, Approver phê duyệt và MB thẩm định, với khả năng MB trả lại yêu cầu bổ sung.'
         }
       ],
       processSteps: [
         {
-          step: '01. Khám phá & Nghiên cứu',
-          title: 'Phỏng vấn sâu & Lập bản đồ hành trình (Journey Mapping)',
-          desc: 'Tiến hành phỏng vấn trực tiếp 20 Kế toán trưởng, 12 CEO doanh nghiệp CIB và 15 chuyên viên RM nội bộ MBBank để lập bản đồ 38 điểm tiếp xúc (touchpoints), phát hiện 5 nút thắt lớn gây nghẽn hồ sơ.'
+          step: '01. Nhận yêu cầu & Phân tích',
+          title: 'Xác định bài toán 0→1 & Câu hỏi sản phẩm',
+          desc: 'Từ yêu cầu kinh doanh, chuyển đổi góc nhìn sang câu hỏi: Một doanh nghiệp cần làm được những gì để tạo, duyệt và gửi phương án trung dài hạn hoàn chỉnh trên Digital.'
         },
         {
-          step: '02. Kiến trúc thông tin (IA)',
-          title: 'Tái cấu trúc luồng thẩm định & Thiết kế Smart Form',
-          desc: 'Rút gọn biểu mẫu đăng ký từ 4 trang phức tạp xuống còn 1 luồng gồm 3 bước logic. Tích hợp tính năng tự động trích xuất mã số thuế và lịch sử dòng tiền MBBank để tự điền 80% trường thông tin.'
+          step: '02. Xây dựng Concept cùng PO',
+          title: 'Flow trước, UI sau & 6 Quyết định trải nghiệm cốt lõi',
+          desc: 'Thiết kế User Flow đa vai trò, Dynamic Form theo nhu cầu vốn, Save & Resume, Tái sử dụng dữ liệu doanh nghiệp, Nhóm hồ sơ nghiệp vụ và Review Layer.'
         },
         {
-          step: '03. Thiết kế giao diện & Prototyping',
-          title: 'Đồng bộ trải nghiệm đa nền tảng Web & Mobile App',
-          desc: 'Xây dựng UI chi tiết theo chuẩn Design System BIZ 2.0: Bảng điều khiển tài chính trực quan cho Web và giao diện phê duyệt 1 chạm tối ưu cho màn hình cảm ứng di động.'
+          step: '03. Usability Testing & Bảo vệ giải pháp',
+          title: 'Kiểm thử 6 nhiệm vụ với khách hàng & Chốt scope MVP',
+          desc: 'Thu thập 5 phát hiện then chốt (Dynamic form context, Prefill state, Upload clarity, Summary priority, Actionable return), đóng gói 10 thành tố proposal và bảo vệ trước Giám đốc dự án.'
         },
         {
-          step: '04. Kiểm thử người dùng (Usability Testing)',
-          title: 'Thử nghiệm thực tế qua 4 vòng kiểm thử khắt khe',
-          desc: 'Thực hiện Usability Testing với 15 khách hàng doanh nghiệp thực tế. Tinh chỉnh độ rõ ràng của các điều khoản pháp lý, hợp đồng điện tử và chỉ báo tiến độ hồ sơ theo thời gian thực.'
+          step: '04. Refinement, UAT & Go-live',
+          title: 'Hiện thực hóa Edge cases, Kiểm thử trải nghiệm & Đo lường 0→1',
+          desc: 'Làm rõ validation, auto-save state, phân quyền, UAT 2 vòng và thiết lập khung đo lường Funnel chi tiết từ dữ liệu Production.'
         }
       ],
       keySolutions: [
         {
-          title: 'Cơ chế Phê duyệt đa tầng 1 chạm trên Mobile (Smart Approval)',
-          desc: 'Tích hợp công nghệ ký số đám mây (Cloud CA / Smart OTP) bảo mật FIPS 140-2 Level 3. Lãnh đạo doanh nghiệp chỉ cần kiểm tra hạn mức được duyệt, lướt tóm tắt hợp đồng và xác thực FaceID để ký giải ngân trong 30 giây.',
-          highlight: 'Phê duyệt mọi lúc mọi nơi mà không cần cắm USB Token'
+          title: 'Dynamic Proposal Form theo nhu cầu sử dụng vốn',
+          desc: 'Biểu mẫu tự động điều chỉnh linh hoạt theo mục đích: Mua xe ô tô đi lại (xe, thương hiệu, đơn giá, bàn giao) vs Đầu tư dự án (mục đích, địa điểm, tổng mức đầu tư, cơ cấu vốn vay, phương án hoàn vốn).',
+          highlight: 'Loại bỏ hoàn toàn các trường thừa, bám sát Mental Model từng nghiệp vụ'
         },
         {
-          title: 'Bảng điều khiển Giám sát Dòng tiền & Dự báo Lãi suất Thời gian thực',
-          desc: 'Dashboard trực quan hóa toàn bộ hạn mức đã cấp, số tiền khả dụng, lịch sử sử dụng và công cụ tính lãi suất linh hoạt theo từng ngày sử dụng thực tế, giúp doanh nghiệp chủ động tài chính tối đa.',
-          highlight: 'Hiển thị minh bạch chi phí lãi vay đến từng đồng'
+          title: 'Cơ chế Save & Resume — Journey dài có thể dừng và tiếp tục',
+          desc: 'Hỗ trợ tính năng Lưu phương án, Tự động lưu (Auto-save) và danh sách Phương án đã lưu, giúp khách hàng linh hoạt thu thập tài liệu nội bộ qua nhiều phiên làm việc.',
+          highlight: 'Không ép người dùng phải hoàn thành quy trình phức tạp trong 1 phiên duy nhất'
         },
         {
-          title: 'Hệ thống Cảnh báo Tiến độ & Đôn đốc Hồ sơ tự động',
-          desc: 'Trực quan hóa lộ trình xử lý hồ sơ dưới dạng timeline tiến trình sống động. Tự động gửi thông báo đẩy (Push notification & SMS OTT) ngay khi có kết quả phê duyệt hoặc yêu cầu bổ sung.',
-          highlight: 'Minh bạch 100% các bước thẩm định'
+          title: 'Quy trình liên thông Maker → Approver → MB & Return Recovery',
+          desc: 'Maker soạn thảo và gửi Approver phê duyệt nội bộ; sau đó chuyển MB thẩm định. Nếu thông tin hoặc hồ sơ chưa phù hợp, MB trả lại có lý do và checklist cụ thể để Maker chỉnh sửa và gửi lại.',
+          highlight: 'Return là một trạng thái chính thức của Journey, không phải System Error'
         }
       ],
       beforeAfter: [
         {
-          metric: 'Thời gian cấp hạn mức & giải ngân',
-          before: '3 - 5 Ngày làm việc',
-          after: '< 4 Giờ xử lý tự động',
-          note: 'Rút ngắn kỷ lục hơn 90% thời gian chờ đợi của khách hàng'
+          metric: 'Khởi tạo phương án thành công',
+          before: 'Chưa có trên kênh số (0→1)',
+          after: '[XX]% Khách hàng bắt đầu tạo phương án',
+          note: 'Mở ra kênh khởi tạo nhu cầu tín dụng trung dài hạn hoàn chỉnh trên BIZ Web'
         },
         {
-          metric: 'Tỷ lệ hoàn thành hồ sơ (Task Success Rate)',
-          before: '42.5% (Nhiều hồ sơ bỏ dở)',
-          after: '91.8% hoàn thành thành công',
-          note: 'Smart Form giảm tải hơn 80% công sức nhập liệu thủ công'
+          metric: 'Tỷ lệ Maker hoàn tất gửi duyệt',
+          before: 'Trao đổi hồ sơ thủ công rời rạc',
+          after: '[XX]% Maker hoàn thành gửi Approver',
+          note: 'Chuẩn hóa dữ liệu đầu vào và các trường thông tin theo từng loại vốn'
         },
         {
-          metric: 'Tỷ lệ ký duyệt trên thiết bị di động',
-          before: '0% (Bắt buộc máy tính cắm Token)',
-          after: '88.5% giao dịch duyệt qua Mobile App',
-          note: 'Giải phóng lãnh đạo doanh nghiệp khỏi bàn làm việc cố định'
+          metric: 'Return Recovery (Sửa & Gửi lại)',
+          before: 'Dễ thất lạc hồ sơ khi bổ sung',
+          after: '[XX]% Phương án được sửa & submit lại',
+          note: 'Maker nắm rõ nội dung cần cập nhật và hoàn tất gửi lại mà không mất dữ liệu cũ'
         },
         {
-          metric: 'Chỉ số hài lòng khách hàng CIB (CSAT)',
-          before: '71.2 / 100 điểm',
-          after: '96.4 / 100 điểm',
-          note: 'Được cộng đồng doanh nghiệp lớn đánh giá rất cao về tính tiện dụng'
+          metric: 'Median Active Time của Maker',
+          before: 'Nhiều ngày trao đổi offline',
+          after: '[XX phút] trên kênh số',
+          note: 'Nhờ cơ chế prefill thông tin doanh nghiệp và nhóm hồ sơ rõ ràng'
         }
       ],
       learnings: [
-        'Fintech B2B không đơn thuần là vẽ giao diện đẹp, mà là sự thấu hiểu sâu sắc luật ngân hàng, quy chế thẩm định tín dụng và chu trình ra quyết định đa cấp của doanh nghiệp.',
-        'Sự hợp tác chặt chẽ hàng ngày giữa Product Designer, Đội ngũ Pháp chế (Legal & Compliance), Chuyên viên Rủi ro và Kỹ sư Backend là chìa khóa để cho ra đời luồng trải nghiệm vừa mượt mà vừa an toàn tuyệt đối.',
-        'Chữ ký số và sinh trắc học trên di động là bước ngoặt công nghệ quan trọng nhất giúp xóa bỏ rào cản hành chính cồng kềnh của ngân hàng truyền thống.'
+        'B2B không phải trải nghiệm của một Persona: Maker tạo, Approver quyết định, MB xử lý — UX phải giúp các vai trò phối hợp trơn tru chứ không chỉ tối ưu cho một người.',
+        'Một Form dài không nhất thiết phải ngắn hơn: Đôi khi nghiệp vụ tài chính bắt buộc nhiều trường; điều quan trọng là chỉ hỏi đúng thông tin, đúng ngữ cảnh và cho phép dừng lại tiếp tục.',
+        'Return không phải Error: Khác với lỗi hệ thống, Business Return là trạng thái hành trình cần bổ sung thông tin. Thiết kế phải chỉ rõ MB trả lại vì sao, sai ở đâu và hướng dẫn sửa cụ thể.',
+        'Prefill dữ liệu tạo ra bài toán UX mới: Cần phân định rõ ràng giữa dữ liệu ngân hàng đang lưu và dữ liệu khách hàng được phép chỉnh sửa để tránh tâm lý hoang mang.',
+        'Production mới là nơi kiểm chứng sản phẩm thực sự: Usability testing cho biết người dùng có thể dùng hay không; dữ liệu Funnel trên Production mới phản ánh hành vi thực tế.'
       ]
     }
   },
