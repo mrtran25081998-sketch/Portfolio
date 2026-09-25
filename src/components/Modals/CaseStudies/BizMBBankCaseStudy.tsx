@@ -438,10 +438,9 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
 
               {/* Right Column: Visual Hero Composition (7 Cols) */}
               <div className="lg:col-span-7 space-y-3">
-                {/* Replace with actual UI: Hero Composition */}
                 <VisualBlock
                   item={{
-                    src: '/assets/projects/project-1-mbbank.png',
+                    src: '/case-study/term-loan-case-study/01-entry-hero.jpg',
                     fallbackText: 'Màn hình khởi tạo Phương án trung dài hạn trên BIZ MBBank Web',
                     type: 'UI DESIGN',
                     caption: 'Màn hình chính Đề nghị cấp hạn mức trung dài hạn dành cho khách hàng doanh nghiệp',
@@ -509,15 +508,45 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
                 ))}
               </div>
 
-              {/* Replace with actual UI: 4 screenshots corresponding to 4 steps */}
-              <VisualBlock
-                item={{
-                  src: '/case-study/medium-term-credit/01-hero/overview-4-steps.png',
-                  fallbackText: '4 Màn hình tương ứng 4 bước của Maker trong hành trình BIZ MBBank',
-                  type: 'UI DESIGN',
-                  caption: 'Hành trình 4 bước chuẩn hóa: Phương án → Doanh nghiệp → Hồ sơ → Xác nhận'
-                }}
-              />
+              {/* 4 screens thực tế tương ứng 4 bước của Maker */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <VisualBlock
+                  item={{
+                    src: '/case-study/term-loan-case-study/02-maker-step-1-vehicle-dynamic-form.jpg',
+                    fallbackText: 'Bước 1: Thông tin phương án (Dynamic Form)',
+                    type: 'UI DESIGN',
+                    caption: 'Bước 1: Thông tin phương án (Form động)',
+                    badge: 'Bước 01'
+                  }}
+                />
+                <VisualBlock
+                  item={{
+                    src: '/case-study/term-loan-case-study/13-maker-step-2-company-prefill-readonly-editable.jpg',
+                    fallbackText: 'Bước 2: Thông tin doanh nghiệp',
+                    type: 'UI DESIGN',
+                    caption: 'Bước 2: Thông tin doanh nghiệp (Prefill)',
+                    badge: 'Bước 02'
+                  }}
+                />
+                <VisualBlock
+                  item={{
+                    src: '/case-study/term-loan-case-study/10-maker-step-3-documents-four-groups-upload.jpg',
+                    fallbackText: 'Bước 3: Thông tin hồ sơ',
+                    type: 'UI DESIGN',
+                    caption: 'Bước 3: Thông tin hồ sơ (4 nhóm tài liệu)',
+                    badge: 'Bước 03'
+                  }}
+                />
+                <VisualBlock
+                  item={{
+                    src: '/case-study/term-loan-case-study/08-resume-draft-confirmation.jpg',
+                    fallbackText: 'Bước 4: Xác nhận và review',
+                    type: 'UI DESIGN',
+                    caption: 'Bước 4: Xác nhận (Review tổng hợp)',
+                    badge: 'Bước 04'
+                  }}
+                />
+              </div>
             </div>
 
             {/* Bài toán & Highlight quote */}
@@ -778,32 +807,29 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
 
               {/* 3 UI Screenshots side-by-side */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
-                {/* Replace with actual UI: Mua xe */}
                 <VisualBlock
                   item={{
-                    src: '/case-study/medium-term-credit/04-dynamic-form/form-car.png',
+                    src: '/case-study/term-loan-case-study/02-maker-step-1-vehicle-dynamic-form.jpg',
                     fallbackText: 'UI Mua xe ô tô đi lại: Trường số chỗ, dòng xe, đơn giá, bàn giao',
                     type: 'UI DESIGN',
-                    caption: 'Mua xe ô tô: Hiển thị đúng trường liên quan tới phương tiện',
+                    caption: 'Mua xe ô tô: Hiển thị đúng trường liên quan tới phương tiện & đơn giá',
                     badge: 'Mua xe'
                   }}
                 />
 
-                {/* Replace with actual UI: Đầu tư dự án */}
                 <VisualBlock
                   item={{
-                    src: '/case-study/medium-term-credit/04-dynamic-form/form-project.png',
+                    src: '/case-study/term-loan-case-study/03-maker-step-1-investment-project-dynamic-form.jpg',
                     fallbackText: 'UI Đầu tư dự án: Tên dự án, địa điểm, tổng mức, cơ cấu vốn, nguồn trả',
                     type: 'UI DESIGN',
-                    caption: 'Đầu tư dự án: Hiển thị trường tài chính và kế hoạch triển khai',
+                    caption: 'Đầu tư dự án: Hiển thị trường tên dự án, tổng mức và cơ cấu nguồn vốn',
                     badge: 'Dự án'
                   }}
                 />
 
-                {/* Replace with actual UI: Khác */}
                 <VisualBlock
                   item={{
-                    src: '/case-study/medium-term-credit/04-dynamic-form/form-other.png',
+                    src: '/case-study/term-loan-case-study/04-maker-step-1-other-dynamic-form.jpg',
                     fallbackText: 'UI Nhu cầu vốn khác: Thuyết minh mục đích vốn và dự toán chi phí',
                     type: 'UI DESIGN',
                     caption: 'Nhu cầu khác: Form thu gọn tập trung vào phương án hoàn vốn',
@@ -813,36 +839,34 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
               </div>
             </div>
 
-            {/* 03: Chỉ mở thông tin khi khách hàng cần (Before / After) */}
+            {/* 03: Chỉ mở thông tin khi khách hàng cần (Progressive Disclosure) */}
             <div className="space-y-3 pt-3">
               <div className="space-y-1">
                 <span className="text-xs font-mono font-bold text-[#B86428]">03</span>
                 <h3 className="text-lg font-bold text-[#2D1B12]">Chỉ mở thông tin khi khách hàng cần</h3>
                 <p className="text-xs sm:text-sm text-[#5A4030] max-w-xl">
-                  Các phương án sử dụng vốn tại MB chỉ mở trường thông tin khi khách hàng thực sự lựa chọn.
+                  Các phương án sử dụng vốn tại MB chỉ mở trường thông tin khi khách hàng thực sự lựa chọn checkbox tương ứng.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {/* Replace with actual UI: Before */}
                 <VisualBlock
                   item={{
-                    src: '/case-study/medium-term-credit/04-dynamic-form/checkbox-unchecked.png',
-                    fallbackText: 'UI Trước khi chọn: Checkbox chưa chọn ➔ Chỉ có tên phương án gọn gàng',
+                    src: '/case-study/term-loan-case-study/06-maker-step-1-funding-checkbox-collapsed.jpg',
+                    fallbackText: 'UI Trước khi chọn: Checkbox chưa chọn ➔ Thu gọn, không chiếm diện tích',
                     type: 'UI DESIGN',
-                    caption: 'BEFORE: Checkbox chưa chọn — Chỉ hiển thị tên phương án, không chiếm diện tích',
-                    badge: 'Chưa chọn'
+                    caption: 'BEFORE: Checkbox chưa chọn — Chỉ hiển thị tên phương án, form gọn gàng',
+                    badge: 'Chưa chọn (Đóng)'
                   }}
                 />
 
-                {/* Replace with actual UI: After */}
                 <VisualBlock
                   item={{
-                    src: '/case-study/medium-term-credit/04-dynamic-form/checkbox-checked.png',
+                    src: '/case-study/term-loan-case-study/05-maker-step-1-funding-details-expanded.jpg',
                     fallbackText: 'UI Sau khi chọn: Checkbox đã chọn ➔ Mở các trường thông tin chi tiết',
                     type: 'UI DESIGN',
-                    caption: 'AFTER: Checkbox đã chọn — Mở các trường thông tin cần thiết',
-                    badge: 'Đã chọn'
+                    caption: 'AFTER: Checkbox đã chọn — Mở trường thông tin chi tiết và số tiền cần tài trợ',
+                    badge: 'Đã chọn (Mở)'
                   }}
                 />
               </div>
@@ -854,7 +878,7 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
                 <span className="text-xs font-mono font-bold text-[#B86428]">04</span>
                 <h3 className="text-lg font-bold text-[#2D1B12]">Lưu và tiếp tục</h3>
                 <p className="text-xs sm:text-sm text-[#5A4030] max-w-xl">
-                  Một phương án tín dụng không phải lúc nào cũng có thể hoàn thành trong một lần.
+                  Một phương án tín dụng không phải lúc nào cũng có thể hoàn thành trong một lần. Hệ thống hỗ trợ lưu thủ công, tự động lưu ngầm và khôi phục nháp.
                 </p>
               </div>
 
@@ -867,24 +891,36 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
                 <div className="p-2 rounded bg-[#FFFDF6] border border-[#DFC9A2] col-span-2 sm:col-span-1">5. Tiếp tục</div>
               </div>
 
-              {/* Replace with actual UI: Save & Resume */}
-              <VisualBlock
-                item={{
-                  src: '/case-study/medium-term-credit/04-dynamic-form/save-resume-showcase.png',
-                  fallbackText: 'Screenshot tính năng: Lưu phương án, Autosave và Chọn phương án đã lưu',
-                  type: 'UI DESIGN',
-                  caption: 'Giao diện Lưu phương án, Auto-save ngầm và danh sách các bản ghi đã lưu'
-                }}
-              />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <VisualBlock
+                  item={{
+                    src: '/case-study/term-loan-case-study/07-maker-save-autosave.jpg',
+                    fallbackText: 'Toast lưu thành công và bộ đếm tự động lưu trên panel bên phải',
+                    type: 'UI DESIGN',
+                    caption: 'Cơ chế bảo toàn dữ liệu: Toast lưu thành công và bộ đếm tự động lưu trên panel bên phải',
+                    badge: 'Save & Autosave'
+                  }}
+                />
+
+                <VisualBlock
+                  item={{
+                    src: '/case-study/term-loan-case-study/08-resume-draft-confirmation.jpg',
+                    fallbackText: 'Mở lại hồ sơ nháp với dữ liệu đã có',
+                    type: 'UI DESIGN',
+                    caption: 'Khôi phục bản nháp (Resume): Dữ liệu đã điền được giữ nguyên vẹn, tiếp tục bước đang dang dở',
+                    badge: 'Resume Draft'
+                  }}
+                />
+              </div>
             </div>
 
-            {/* 05: Điền sẵn thông tin doanh nghiệp (Annotated UI) */}
+            {/* 05: Điền sẵn thông tin doanh nghiệp */}
             <div className="space-y-3 pt-3">
               <div className="space-y-1">
                 <span className="text-xs font-mono font-bold text-[#B86428]">05</span>
                 <h3 className="text-lg font-bold text-[#2D1B12]">Điền sẵn thông tin doanh nghiệp</h3>
                 <p className="text-xs sm:text-sm text-[#5A4030] max-w-xl">
-                  Tận dụng dữ liệu MB đã có để khách hàng kiểm tra thay vì nhập lại.
+                  Tận dụng dữ liệu MB đã có để khách hàng kiểm tra thay vì nhập lại. Phân biệt rõ thông tin xem và thông tin có thể chỉnh sửa.
                 </p>
               </div>
 
@@ -899,22 +935,34 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
                   <strong className="block">CHỈ ĐỌC</strong> Thông tin pháp lý cố định
                 </div>
                 <div className="p-2.5 rounded bg-amber-50 border border-amber-200 text-amber-900">
-                  <strong className="block">CÓ THỂ SỬA</strong> Thông tin liên hệ cập nhật
+                  <strong className="block">CÓ THỂ SỬA</strong> Thông tin liên hệ & người đại diện
                 </div>
               </div>
 
-              {/* Replace with actual UI: Prefill */}
-              <VisualBlock
-                item={{
-                  src: '/case-study/medium-term-credit/05-prefill/enterprise-info-prefill.png',
-                  fallbackText: 'UI Thông tin doanh nghiệp: Dữ liệu được prefill với chỉ báo Read-only và Editable',
-                  type: 'UI DESIGN',
-                  caption: 'Bước 2 — Thông tin doanh nghiệp: Phân biệt rõ dữ liệu MB đang lưu và dữ liệu được sửa'
-                }}
-              />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <VisualBlock
+                  item={{
+                    src: '/case-study/term-loan-case-study/13-maker-step-2-company-prefill-readonly-editable.jpg',
+                    fallbackText: 'UI Thông tin doanh nghiệp: Dữ liệu được prefill với bảng người đại diện pháp luật',
+                    type: 'UI DESIGN',
+                    caption: 'Bước 2 — Điền sẵn dữ liệu: Tận dụng mã số thuế và thông tin định danh MB đã lưu',
+                    badge: 'Prefill MB'
+                  }}
+                />
+
+                <VisualBlock
+                  item={{
+                    src: '/case-study/term-loan-case-study/14-maker-step-2-company-editable-modal.jpg',
+                    fallbackText: 'Modal chỉnh sửa người đại diện pháp luật với các trường nhập liệu',
+                    type: 'UI DESIGN',
+                    caption: 'Modal chỉnh sửa: Cập nhật người đại diện pháp luật và thông tin liên hệ mới',
+                    badge: 'Modal Edit'
+                  }}
+                />
+              </div>
             </div>
 
-            {/* 06: Tổ chức hồ sơ (Before / After) */}
+            {/* 06: Tổ chức hồ sơ */}
             <div className="space-y-3 pt-3">
               <div className="space-y-1">
                 <span className="text-xs font-mono font-bold text-[#B86428]">06</span>
@@ -931,32 +979,40 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
                 <div className="p-2 rounded bg-[#FFFDF6] border border-[#DFC9A2]">04 Hồ sơ phương án</div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {/* Replace with actual Wireframe: Before */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
                 <VisualBlock
                   item={{
-                    src: '/case-study/medium-term-credit/06-document/document-list-before.png',
-                    fallbackText: 'Wireframe cũ: Danh sách file upload dài và không phân nhóm',
-                    type: 'WIREFRAME',
-                    caption: 'BEFORE: Danh sách file dài — Người dùng không biết vì sao cần từng file',
-                    badge: 'Before'
+                    src: '/case-study/term-loan-case-study/10-maker-step-3-documents-four-groups-upload.jpg',
+                    fallbackText: 'Đơn đề nghị và Giấy tờ pháp lý, file đã có và vùng kéo thả upload',
+                    type: 'UI DESIGN',
+                    caption: '4 Nhóm hồ sơ: Đơn đề nghị và Giấy tờ pháp lý kèm vùng kéo thả upload',
+                    badge: '4 Nhóm hồ sơ'
                   }}
                 />
 
-                {/* Replace with actual UI: After */}
                 <VisualBlock
                   item={{
-                    src: '/case-study/medium-term-credit/06-document/document-grouped-after.png',
-                    fallbackText: 'UI thực tế: Hồ sơ được chia theo 4 nhóm nghiệp vụ rõ ràng',
+                    src: '/case-study/term-loan-case-study/11-maker-step-3-financial-capability-documents.jpg',
+                    fallbackText: 'Nhóm Năng lực tài chính với nhiều loại PDF/XLSX và vùng upload',
                     type: 'UI DESIGN',
-                    caption: 'AFTER: Hồ sơ chia theo 4 nhóm kèm hướng dẫn định dạng và file mẫu',
-                    badge: 'After'
+                    caption: 'Nhóm Năng lực tài chính: Hỗ trợ nhiều định dạng (PDF/XLSX) và hướng dẫn chuẩn',
+                    badge: 'Tài chính'
+                  }}
+                />
+
+                <VisualBlock
+                  item={{
+                    src: '/case-study/term-loan-case-study/12-maker-step-3-plan-documents-upload.jpg',
+                    fallbackText: 'Nhóm Hồ sơ phương án và file minh chứng',
+                    type: 'UI DESIGN',
+                    caption: 'Nhóm Hồ sơ phương án: Đính kèm chứng từ chi phí và hóa đơn liên quan',
+                    badge: 'Phương án'
                   }}
                 />
               </div>
             </div>
 
-            {/* 07: Xác nhận trước khi gửi (Before / After) */}
+            {/* 07: Xác nhận trước khi gửi */}
             <div className="space-y-3 pt-3">
               <div className="space-y-1">
                 <span className="text-xs font-mono font-bold text-[#B86428]">07</span>
@@ -967,25 +1023,56 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {/* Replace with actual UI: Before */}
                 <VisualBlock
                   item={{
-                    src: '/case-study/medium-term-credit/07-confirmation/confirmation-before.png',
-                    fallbackText: 'UI Trước: Hiển thị toàn bộ thông tin khiến màn xác nhận quá dài',
+                    src: '/case-study/term-loan-case-study/08-resume-draft-confirmation.jpg',
+                    fallbackText: 'Trang tổng hợp xác nhận với dữ liệu phương án',
                     type: 'UI DESIGN',
-                    caption: 'BEFORE: Hiển thị toàn bộ thông tin ➔ Màn xác nhận dài quá mức',
-                    badge: 'Before'
+                    caption: 'Review Layer: Tóm tắt thông tin quan trọng trước khi gửi phê duyệt',
+                    badge: 'Review Mặc định'
                   }}
                 />
 
-                {/* Replace with actual UI: After */}
                 <VisualBlock
                   item={{
-                    src: '/case-study/medium-term-credit/07-confirmation/confirmation-after.png',
-                    fallbackText: 'UI Sau: Summary tóm tắt + Xem thêm / Thu gọn linh hoạt',
+                    src: '/case-study/term-loan-case-study/09-confirmation-view-more-expanded.jpg',
+                    fallbackText: 'Khối Thông tin phương án được mở rộng và có hành động Thu gọn',
                     type: 'UI DESIGN',
-                    caption: 'AFTER: Summary trọng tâm + Nút Xem thêm/Thu gọn trước khi bấm gửi duyệt',
-                    badge: 'After'
+                    caption: 'Khối Thông tin phương án được mở rộng kèm hành động Thu gọn linh hoạt',
+                    badge: 'Xem thêm / Thu gọn'
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* 08: Hoàn tất submit & Theo dõi trạng thái giao dịch */}
+            <div className="space-y-3 pt-3">
+              <div className="space-y-1">
+                <span className="text-xs font-mono font-bold text-[#B86428]">08</span>
+                <h3 className="text-lg font-bold text-[#2D1B12]">Gửi yêu cầu & Theo dõi trạng thái giao dịch</h3>
+                <p className="text-xs sm:text-sm text-[#5A4030] max-w-xl">
+                  Sau khi Maker bấm gửi, hệ thống hiển thị thông báo thành công cùng mã số tham chiếu và tự động cập nhật trạng thái vào danh sách giao dịch.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <VisualBlock
+                  item={{
+                    src: '/case-study/term-loan-case-study/15-maker-submit-success.jpg',
+                    fallbackText: 'Màn Gửi yêu cầu thành công, số tham chiếu và hai hành động tiếp theo',
+                    type: 'UI DESIGN',
+                    caption: 'Gửi yêu cầu thành công: Cung cấp số tham chiếu và nút quay về Danh sách',
+                    badge: 'Submit Success'
+                  }}
+                />
+
+                <VisualBlock
+                  item={{
+                    src: '/case-study/term-loan-case-study/16-transaction-status-maker-submitted.jpg',
+                    fallbackText: 'Giao dịch vừa gửi xuất hiện ở đầu danh sách với trạng thái Đã gửi - Đang phân công RM',
+                    type: 'UI DESIGN',
+                    caption: 'Danh sách giao dịch: Bản ghi vừa tạo xuất hiện ở đầu với trạng thái "Đã gửi - Đang phân công RM"',
+                    badge: 'Transaction Tracking'
                   }}
                 />
               </div>
@@ -1158,39 +1245,51 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
                     <div>Hiển thị rõ: “MB cần bạn cập nhật 2 nội dung” kèm lý do cụ thể và CTA dẫn thẳng tới đúng mục cần sửa.</div>
                   </div>
                 </div>
-                {/* Replace with actual UI: Finding 05 */}
                 <VisualBlock
                   item={{
-                    src: '/case-study/medium-term-credit/08-usability-testing/finding-05-return-action.png',
-                    fallbackText: 'BEFORE: Thông báo lỗi chung chung ➔ AFTER: Thông báo MB cần cập nhật 2 nội dung + CTA Chỉnh sửa',
+                    src: '/case-study/term-loan-case-study/22-mb-return-detail-no-reason-shown.jpg',
+                    fallbackText: 'Trang chi tiết mở từ hồ sơ MB trả lại nhưng không hiển thị lý do trả lại',
                     type: 'UI DESIGN',
-                    caption: 'Finding 05: Thông báo MB trả lại với checklist cụ thể và nút CTA điều hướng trực tiếp'
+                    caption: 'Thực tế quan sát trên Prototype: Màn chi tiết khi MB trả lại chưa hiển thị lý do cụ thể ➔ Đưa ra quyết định bổ sung checklist lý do trả lại & CTA điều hướng',
+                    badge: 'Finding Proof'
                   }}
                 />
               </div>
             </div>
 
-            {/* Prototype Showcase Block */}
+            {/* Prototype Showcase & Luồng Phê duyệt */}
             <div className="p-5 sm:p-7 rounded-[12px] bg-[#FFFDF6] border-2 border-[#DFC9A2] shadow-xs space-y-4 pt-4">
               <div className="flex items-center justify-between border-b border-[#DFC9A2] pb-3">
                 <div className="text-xs font-bold text-[#7A3F1F] uppercase tracking-wider flex items-center gap-2">
                   <Eye className="w-4 h-4 text-[#B86428]" />
-                  <span>INTERACTIVE PROTOTYPE WALKTHROUGH</span>
+                  <span>PROTOTYPE REVIEW: LUỒNG CHỜ PHÊ DUYỆT & GỬI DUYỆT</span>
                 </div>
                 <span className="text-xs font-mono text-[#8C4312] font-semibold bg-[#FFF4D6] px-2.5 py-0.5 rounded">
-                  Figma Prototype / Video Demo
+                  Prototype Walkthrough
                 </span>
               </div>
 
-              {/* Replace with Prototype video */}
-              <VisualBlock
-                item={{
-                  src: '/case-study/medium-term-credit/09-prototype/prototype-walkthrough.png',
-                  fallbackText: 'Prototype hoàn chỉnh: Video demo tương tác toàn bộ hành trình từ khởi tạo đến submit và duyệt',
-                  type: 'PROTOTYPE',
-                  caption: 'Interactive Prototype: Thử nghiệm thực tế luồng 4 bước và vòng lặp MB Return'
-                }}
-              />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <VisualBlock
+                  item={{
+                    src: '/case-study/term-loan-case-study/17-waiting-approval-review-creator-view.jpg',
+                    fallbackText: 'Mở hồ sơ mẫu Chờ phê duyệt ở trang review tổng hợp',
+                    type: 'PROTOTYPE',
+                    caption: 'Trạng thái Chờ phê duyệt: Mở hồ sơ mẫu ở trang review tổng hợp để kiểm tra thông tin',
+                    badge: 'Chờ phê duyệt'
+                  }}
+                />
+
+                <VisualBlock
+                  item={{
+                    src: '/case-study/term-loan-case-study/18-waiting-approval-submit-success.jpg',
+                    fallbackText: 'Sau khi bấm Xác nhận duyệt gửi sang MB',
+                    type: 'PROTOTYPE',
+                    caption: 'Xác nhận duyệt: Prototype hoàn tất gửi duyệt phương án trung dài hạn sang MB',
+                    badge: 'Phê duyệt xong'
+                  }}
+                />
+              </div>
             </div>
           </section>
 
@@ -1425,6 +1524,147 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
                     <span>{s}</span>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            {/* VÒNG ĐỜI HỒ SƠ & THỰC THI RETURN LOOP TRÊN PRODUCTION */}
+            <div className="space-y-6 pt-4 border-t border-[#DFC9A2]">
+              <div className="space-y-1">
+                <div className="text-xs font-bold text-[#7A3F1F] uppercase tracking-wider">
+                  VÒNG ĐỜI HỒ SƠ & THỰC THI RETURN LOOP THỰC TẾ TẠI MB
+                </div>
+                <p className="text-xs sm:text-sm text-[#5A4030]">
+                  Sau khi hồ sơ được duyệt và chuyển sang ngân hàng, toàn bộ vòng đời trạng thái được phản ánh trực quan qua danh sách giao dịch và trang chi tiết.
+                </p>
+              </div>
+
+              {/* Giai đoạn 1: MB Đang xử lý */}
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-mono font-bold text-[#1E40AF] bg-[#EFF6FF] px-2 py-0.5 rounded border border-[#BFDBFE]">
+                    TRẠNG THÁI 01 · MB ĐANG XỬ LÝ
+                  </span>
+                  <span className="text-xs text-[#5A4030]">Hồ sơ được phân công RM và bắt đầu thẩm định tín dụng</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <VisualBlock
+                    item={{
+                      src: '/case-study/term-loan-case-study/20-mb-processing-transaction-status.jpg',
+                      fallbackText: 'Danh sách được lọc theo MB đang xử lý',
+                      type: 'UI DESIGN',
+                      caption: 'Danh sách giao dịch: Lọc theo trạng thái MB đang xử lý với hai hồ sơ mẫu',
+                      badge: 'MB Đang xử lý'
+                    }}
+                  />
+                  <VisualBlock
+                    item={{
+                      src: '/case-study/term-loan-case-study/19-mb-processing-detail.jpg',
+                      fallbackText: 'Chi tiết hồ sơ mở từ dòng MB đang xử lý',
+                      type: 'UI DESIGN',
+                      caption: 'Màn hình chi tiết: Xem lại toàn bộ thông tin phương án đang được ngân hàng thẩm định',
+                      badge: 'Chi tiết thẩm định'
+                    }}
+                  />
+                </div>
+              </div>
+
+              {/* Giai đoạn 2: MB Trả lại hồ sơ */}
+              <div className="space-y-2 pt-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-mono font-bold text-[#B45309] bg-[#FFFBEB] px-2 py-0.5 rounded border border-[#FDE68A]">
+                    TRẠNG THÁI 02 · MB TRẢ LẠI HỒ SƠ
+                  </span>
+                  <span className="text-xs text-[#5A4030]">Khi hồ sơ cần bổ sung tài liệu hoặc điều chỉnh phương án</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <VisualBlock
+                    item={{
+                      src: '/case-study/term-loan-case-study/21-mb-returned-transaction-status.jpg',
+                      fallbackText: 'Danh sách được lọc theo MB trả lại',
+                      type: 'UI DESIGN',
+                      caption: 'Danh sách giao dịch: Nhận diện rõ các hồ sơ ở trạng thái MB trả lại cần xử lý',
+                      badge: 'MB Trả lại'
+                    }}
+                  />
+                  <VisualBlock
+                    item={{
+                      src: '/case-study/term-loan-case-study/22-mb-return-detail-no-reason-shown.jpg',
+                      fallbackText: 'Chi tiết hồ sơ MB trả lại',
+                      type: 'UI DESIGN',
+                      caption: 'Màn hình chi tiết hồ sơ MB trả lại: Điểm xuất phát để Maker mở lại form và cập nhật thông tin',
+                      badge: 'Chi tiết trả lại'
+                    }}
+                  />
+                </div>
+              </div>
+
+              {/* Giai đoạn 3: Vòng lặp Return Loop (Edit -> Confirm -> Resubmit) */}
+              <div className="space-y-2 pt-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-mono font-bold text-[#8C4312] bg-[#FFF0D4] px-2 py-0.5 rounded border border-[#DFC9A2]">
+                    VÒNG LẶP RETURN LOOP · MAKER SỬA ➔ XÁC NHẬN ➔ GỬI LẠI
+                  </span>
+                  <span className="text-xs text-[#5A4030]">Bảo toàn dữ liệu cũ, chỉ cập nhật phần yêu cầu mà không phải làm lại từ đầu</span>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+                  <VisualBlock
+                    item={{
+                      src: '/case-study/term-loan-case-study/23-maker-edit-returned-application.jpg',
+                      fallbackText: 'Maker quay lại bước 1 và chỉnh sửa dữ liệu đã điền',
+                      type: 'UI DESIGN',
+                      caption: '01. Chỉnh sửa: Maker quay lại form, bổ sung đúng thông tin MB yêu cầu',
+                      badge: 'Maker Edit'
+                    }}
+                  />
+                  <VisualBlock
+                    item={{
+                      src: '/case-study/term-loan-case-study/24-maker-resubmit-confirmation.jpg',
+                      fallbackText: 'Trang xác nhận trước khi gửi lại hồ sơ',
+                      type: 'UI DESIGN',
+                      caption: '02. Xác nhận gửi lại: Kiểm tra tóm tắt thông tin đã chỉnh sửa',
+                      badge: 'Resubmit Confirm'
+                    }}
+                  />
+                  <VisualBlock
+                    item={{
+                      src: '/case-study/term-loan-case-study/25-maker-resubmit-success.jpg',
+                      fallbackText: 'Gửi lại thành công với số tham chiếu mới',
+                      type: 'UI DESIGN',
+                      caption: '03. Gửi lại thành công: Cấp số tham chiếu mới và đẩy lại vào hàng chờ xử lý',
+                      badge: 'Resubmit Success'
+                    }}
+                  />
+                </div>
+              </div>
+
+              {/* Giai đoạn 4: MB Phê duyệt */}
+              <div className="space-y-2 pt-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-mono font-bold text-[#15803D] bg-[#F0FDF4] px-2 py-0.5 rounded border border-[#86EFAC]">
+                    TRẠNG THÁI 04 · MB PHÊ DUYỆT THÀNH CÔNG
+                  </span>
+                  <span className="text-xs text-[#5A4030]">Phương án hoàn tất thẩm định và cấp hạn mức chính thức</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <VisualBlock
+                    item={{
+                      src: '/case-study/term-loan-case-study/26-mb-approved-transaction-status.jpg',
+                      fallbackText: 'Danh sách được lọc theo MB phê duyệt',
+                      type: 'UI DESIGN',
+                      caption: 'Danh sách giao dịch: Lọc các hồ sơ MB đã phê duyệt cấp hạn mức thành công',
+                      badge: 'MB Phê duyệt'
+                    }}
+                  />
+                  <VisualBlock
+                    item={{
+                      src: '/case-study/term-loan-case-study/27-mb-approved-detail.jpg',
+                      fallbackText: 'Chi tiết hồ sơ mở từ dòng MB phê duyệt',
+                      type: 'UI DESIGN',
+                      caption: 'Màn hình chi tiết: Toàn bộ thông tin phê duyệt hạn mức trung dài hạn đã có hiệu lực',
+                      badge: 'Chi tiết phê duyệt'
+                    }}
+                  />
+                </div>
               </div>
             </div>
           </section>
