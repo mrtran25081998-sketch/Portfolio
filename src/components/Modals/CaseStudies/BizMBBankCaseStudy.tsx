@@ -458,9 +458,6 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
            * ===================================================================== */}
           <section id="sec-01" className="space-y-6 scroll-mt-20">
             <div className="space-y-2 border-b border-[#DFC9A2] pb-3">
-              <span className="text-xs font-bold text-[#8C4312] uppercase tracking-wider font-mono">
-                PHẦN 01
-              </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2D1B12]">
                 I. Tổng quan dự án
               </h2>
@@ -572,9 +569,6 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
            * ===================================================================== */}
           <section id="sec-02" className="space-y-6 scroll-mt-20">
             <div className="space-y-2 border-b border-[#DFC9A2] pb-3">
-              <span className="text-xs font-bold text-[#8C4312] uppercase tracking-wider font-mono">
-                PHẦN 02
-              </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2D1B12]">
                 II. Làm rõ bài toán
               </h2>
@@ -696,9 +690,6 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
            * ===================================================================== */}
           <section id="sec-03" className="space-y-6 scroll-mt-20">
             <div className="space-y-2 border-b border-[#DFC9A2] pb-3">
-              <span className="text-xs font-bold text-[#8C4312] uppercase tracking-wider font-mono">
-                PHẦN 03
-              </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2D1B12]">
                 III. Xác định bài toán thiết kế
               </h2>
@@ -743,9 +734,6 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
            * ===================================================================== */}
           <section id="sec-04" className="space-y-8 scroll-mt-20">
             <div className="space-y-2 border-b border-[#DFC9A2] pb-3">
-              <span className="text-xs font-bold text-[#8C4312] uppercase tracking-wider font-mono">
-                PHẦN 04
-              </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2D1B12]">
                 IV. Xây dựng giải pháp cùng PO
               </h2>
@@ -1009,9 +997,6 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
            * ===================================================================== */}
           <section id="sec-05" className="space-y-8 scroll-mt-20">
             <div className="space-y-2 border-b border-[#DFC9A2] pb-3">
-              <span className="text-xs font-bold text-[#8C4312] uppercase tracking-wider font-mono">
-                PHẦN 05
-              </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2D1B12]">
                 V. Usability Testing
               </h2>
@@ -1214,9 +1199,6 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
            * ===================================================================== */}
           <section id="sec-06" className="space-y-6 scroll-mt-20">
             <div className="space-y-2 border-b border-[#DFC9A2] pb-3">
-              <span className="text-xs font-bold text-[#8C4312] uppercase tracking-wider font-mono">
-                PHẦN 06
-              </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2D1B12]">
                 VI. Bảo vệ giải pháp với Giám đốc dự án
               </h2>
@@ -1302,9 +1284,6 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
            * ===================================================================== */}
           <section id="sec-07" className="space-y-6 scroll-mt-20">
             <div className="space-y-2 border-b border-[#DFC9A2] pb-3">
-              <span className="text-xs font-bold text-[#8C4312] uppercase tracking-wider font-mono">
-                PHẦN 07
-              </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2D1B12]">
                 VII. Làm rõ yêu cầu cùng BA và Dev
               </h2>
@@ -1391,9 +1370,6 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
            * ===================================================================== */}
           <section id="sec-08" className="space-y-6 scroll-mt-20">
             <div className="space-y-2 border-b border-[#DFC9A2] pb-3">
-              <span className="text-xs font-bold text-[#8C4312] uppercase tracking-wider font-mono">
-                PHẦN 08
-              </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2D1B12]">
                 VIII. UAT
               </h2>
@@ -1458,9 +1434,6 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
            * ===================================================================== */}
           <section id="sec-09" className="space-y-6 scroll-mt-20">
             <div className="space-y-2 border-b border-[#DFC9A2] pb-3">
-              <span className="text-xs font-bold text-[#8C4312] uppercase tracking-wider font-mono">
-                PHẦN 09
-              </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2D1B12]">
                 IX. Go-live và Tracking
               </h2>
@@ -1541,9 +1514,6 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
            * ===================================================================== */}
           <section id="sec-10" className="space-y-6 scroll-mt-20">
             <div className="space-y-2 border-b border-[#DFC9A2] pb-3">
-              <span className="text-xs font-bold text-[#8C4312] uppercase tracking-wider font-mono">
-                PHẦN 10
-              </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2D1B12]">
                 X. Nhìn lại dự án
               </h2>
@@ -1626,9 +1596,6 @@ export const BizMBBankCaseStudy: React.FC<BizMBBankCaseStudyProps> = ({
            * ===================================================================== */}
           <section id="sec-11" className="space-y-6 scroll-mt-20">
             <div className="space-y-2 border-b border-[#DFC9A2] pb-3">
-              <span className="text-xs font-bold text-[#8C4312] uppercase tracking-wider font-mono">
-                PHẦN 11
-              </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2D1B12]">
                 XI. Những gì tôi muốn cải tiến tiếp
               </h2>
